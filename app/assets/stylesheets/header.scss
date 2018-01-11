@@ -1,0 +1,112 @@
+// ヘッダーメニュー
+header#navbar {
+  @media screen and (min-width: 1088px) {
+    height: 4.5rem;
+  }
+  border-bottom: solid 2px $base-brown;
+  background-color: white;
+
+  .navbar-brand {
+    .navbar-item {
+      margin-right: 10px;
+
+      .logo {
+        margin-right: 5px;
+      }
+
+     .logo-img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    #navbarBurger {
+      span {
+        color: $base-brown;
+        height: 2px;
+      }
+    }
+  }
+
+  .navbar-menu {
+    .navbar-item {
+      color: rgba(0, 0, 0, 0.5);
+
+      &.navbar-item-phone-number {
+        color: white;
+        display: block;
+        text-align: center;
+
+        background-color: #01818a;
+        .phone-number {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  form.search-box {
+    margin-left: 5px;
+    margin-right: 5px;
+    align-items: center;
+
+    .control {
+      @media screen and (min-width: 769px) {
+        margin-right: 5px;
+      }
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .select-type {
+        color: gray;
+        font-size: 13px;
+      }
+
+      .select {
+        width: 220px;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+        select {
+          width: 100%;
+        }
+      }
+    }
+    a {
+      margin-top: 19px;
+      background-color: $base-brown;
+      color: white;
+      font-weight: bold;
+      align-items: center !important;
+      &:hover {
+        background-color: darken($base-brown, 20%);
+      }
+
+      img {
+        width: 24px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .control {
+        margin-bottom: 5px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// フラッシュメッセージ
+.notification {
+  border-radius: 0;
+  &.is-success {
+    background-color: $success;
+  }
+  &.is-danger {
+    background-color: $danger;
+  }
+}

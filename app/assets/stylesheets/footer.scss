@@ -1,0 +1,77 @@
+
+// スクロール追従フッター
+.fixed-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-sizing: border-box;
+  border-top: solid 1px #cccccc;
+  z-index: 99;
+
+  .container {
+    padding: 15px 0;
+
+    .form-button {
+      width: 280px;
+      margin: 5px 10px;
+      height: 60px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border: none;
+
+      &.buy-button {
+        background-color: #C60000;
+        box-shadow: 0px 5px $red-shadow;
+
+        &:hover {
+          background: darken($red, 10%);
+        }
+      }
+
+      &.sell-button {
+        background-color: #005B04;
+        box-shadow: 0px 5px $green-shadow;
+
+        &:hover {
+          background: darken($green, 10%);
+        }
+      }
+    }
+  }
+}
+
+// フッター
+.footer {
+  background-color: $base-brown;
+  .container {
+    text-align: center;
+
+    a {
+      color: white;
+      margin: 0 5px;
+
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        color: darken(white, 20%);
+      }
+    }
+
+    span {
+      color: white;
+    }
+
+    h3 {
+      color: white;
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-top: 15px;
+    }
+
+    .copy {
+      color: white;
+    }
+  }
+}
