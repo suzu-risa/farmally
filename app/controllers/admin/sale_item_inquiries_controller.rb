@@ -18,8 +18,16 @@ module Admin
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
     #
+    def new
+      resource = find_sale_item(params[:sale_item_id]).inquiries.build
+      authorize_resource(resource)
+      render locals: {
+        page: Administrate::Page::Form.new(dashboard, resource),
+      }
+    end
+
     def create
-      resource = resource_class.new(resource_params)
+      resource = find_sale_item(params[:sale_item_id]).inquiries.build(resource_params)
       authorize_resource(resource)
       if resource.save
         redirect_to(
@@ -32,5 +40,11 @@ module Admin
         }
       end
     end
+
+    private
+
+      def find_sale_item(sale_item_id)
+        SaleItem.find(sale_item_id)
+      end
   end
 end

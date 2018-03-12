@@ -29,6 +29,11 @@ as well as a link to its edit page.
       [:edit, namespace, page.resource],
       class: "button",
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
+
+    <%= link_to "問い合わせを登録する",
+      new_admin_sale_item_inquiry_path(sale_item_id: page.resource),
+      class: "button"
+    %>
   </div>
 </header>
 
@@ -85,8 +90,6 @@ as well as a link to its edit page.
 </table>
 
 <h2><%= SaleItem.human_attribute_name(:inquiries) %></h2>
-
-<%= link_to "問い合わせを作成する", new_admin_sale_item_inquiry_path(sale_item_id: page.resource) %>
 
 <table>
   <tr>
