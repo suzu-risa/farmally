@@ -30,6 +30,7 @@ cat > Dockerrun.aws.json <<EOS | jq
     {
       "name": "farmally",
       "image": "${REPO}",
+      "essential": true,     
       "memory": "512",
       "environment": [
         {
@@ -42,7 +43,7 @@ cat > Dockerrun.aws.json <<EOS | jq
         "options": {
             "awslogs-region": "ap-northeast-1",
             "awslogs-group": "farmally-prod"
-          }
+        }
       }
     },
     {
