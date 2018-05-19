@@ -13,6 +13,29 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
+      - run:
+          name: Run test
+          command: ./bin/rails test
+
+  deploy:
+    docker:
+      - image: tmyjoe/circleci-ruby-docker
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - checkout
+      - setup_remote_docker 
+      - run:
+          name: Publish docker image
+          command: ./bin/packaging.sh
+      - run:
+          name: Packaging eb artifact
+          command: ./bin/packaging.sh
+      - run:
+          name: Deploy to prod 
+          command: ./bin/deploy.sh
 
 workflows:
   version: 2

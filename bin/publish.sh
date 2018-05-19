@@ -4,7 +4,6 @@
 set -x
 set -e
 
-https://306657763353.signin.aws.amazon.com/console
 export AWS_DEFAULT_REGION=ap-northeast-1
 export AWS_ACCOUNT_ID=8306657763353
 export APP_NAME=farmally

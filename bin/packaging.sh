@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+export AWS_DEFAULT_REGION=ap-northeast-1
+export AWS_ACCOUNT_ID=8306657763353
+export APP_NAME=farmally
+
+# push gutenberg image
+REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
+
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
 cat > Dockerrun.aws.json <<EOS | jq
@@ -20,6 +27,24 @@ cat > Dockerrun.aws.json <<EOS | jq
     }
   ],
   "containerDefinitions": [
+    {
+      "name": "farmally",
+      "image": "${REPO}",
+      "memory": "512",
+      "environment": [
+        {
+          "name": "RAILS_ENV",
+          "value": "production"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-region": "ap-northeast-1",
+            "awslogs-group": "farmally-prod"
+          }
+      }
+    },
     {
       "name": "nginx-https-redirect",
       "image": "nginx",
