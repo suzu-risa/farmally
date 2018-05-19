@@ -25,9 +25,9 @@ jobs:
           key: farmally-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run:
-          name: Run test
-          command: ./bin/rails test
+#      - run:
+#          name: Run test
+#          command: ./bin/rails test
 
   # Dockerfile of the image is here. https://github.com/tmyjoe/circleci-docker/tree/master/ruby-docker
   deploy:
