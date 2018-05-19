@@ -44,7 +44,7 @@ cat > Dockerrun.aws.json <<EOS | jq
             "awslogs-region": "ap-northeast-1",
             "awslogs-group": "farmally-prod"
         }
-      }
+      },
       "command": ["./bin/rails", "s"]
     },
     {
