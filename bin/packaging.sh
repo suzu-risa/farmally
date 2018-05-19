@@ -45,6 +45,7 @@ cat > Dockerrun.aws.json <<EOS | jq
             "awslogs-group": "farmally-prod"
         }
       }
+      "command": ["./bin/rails", "s"]
     },
     {
       "name": "nginx-https-redirect",
