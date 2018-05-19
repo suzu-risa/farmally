@@ -13,9 +13,18 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
+      - restore_cache:
+          keys:
+            - farmally-{{ checksum "Gemfile.lock" }}
+            - farmally
       - run:
           name: Bundle install
-          command: bundle install 
+          command: bundle check || bundle install 
+
+      - save_cache:
+          key: farmally-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: Run test
           command: ./bin/rails test
