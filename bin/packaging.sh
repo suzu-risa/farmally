@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export AWS_DEFAULT_REGION=ap-northeast-1
-export AWS_ACCOUNT_ID=8306657763353
+export AWS_ACCOUNT_ID=306657763353
 export APP_NAME=farmally
 
 # push gutenberg image
