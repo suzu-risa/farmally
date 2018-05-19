@@ -94,3 +94,14 @@ cat > Dockerrun.aws.json <<EOS | jq
   ]
 }
 EOS
+
+
+mkdir bundle
+chmod -R 777 bundle
+cp -r .ebextensions ./bundle/.ebextensions
+cp -r ./nginx ./bundle/nginx
+cp Dockerrun.aws.json bundle/
+cd bundle
+zip -r build.zip .
+cd ..
+cp ./bundle/build.zip ./
