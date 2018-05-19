@@ -42,7 +42,7 @@ jobs:
       - setup_remote_docker 
       - run:
           name: Publish docker image
-          command: ./bin/packaging.sh
+          command: ./bin/publish.sh
       - run:
           name: Packaging eb artifact
           command: ./bin/packaging.sh
