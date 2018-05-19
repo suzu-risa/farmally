@@ -100,6 +100,7 @@ mkdir bundle
 chmod -R 777 bundle
 cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
+cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
 cd bundle
 zip -r build.zip .
