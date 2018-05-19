@@ -1,6 +1,14 @@
 version: '3'
 services:
-  web:
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    links:
+      - farmally
+  farmally:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
