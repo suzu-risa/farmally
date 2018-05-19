@@ -17,5 +17,3 @@ services:
     command: ./bin/rails s  
     volumes:
       - .:/farmally
-    ports:
-      - "3000:3000"
