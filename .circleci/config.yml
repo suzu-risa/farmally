@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    parallelism: 3
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+    steps:
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+workflows:
+  version: 2
+  dev_ops:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
