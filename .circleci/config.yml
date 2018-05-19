@@ -14,6 +14,9 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - run:
+          name: Bundle install
+          command: bundle install 
+      - run:
           name: Run test
           command: ./bin/rails test
 
@@ -46,3 +49,11 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /v\d+\.\d+\.\d+/
+            branches:
+              ignore: /.*/
