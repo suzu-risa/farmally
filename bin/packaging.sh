@@ -58,6 +58,9 @@ cat > Dockerrun.aws.json <<EOS | jq
           "containerPort": 80
         }
       ],
+      "links": [
+        "farmally"
+      ],
       "mountPoints": [
         {
           "sourceVolume": "nginx-proxy-conf",
