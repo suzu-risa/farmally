@@ -17,6 +17,7 @@ jobs:
           name: Run test
           command: ./bin/rails test
 
+  # Dockerfile of the image is here. https://github.com/tmyjoe/circleci-docker/tree/master/ruby-docker
   deploy:
     docker:
       - image: tmyjoe/circleci-ruby-docker
