@@ -29,6 +29,29 @@ cat > Dockerrun.aws.json <<EOS | jq
   ],
   "containerDefinitions": [
     {
+      "name": "nginx-https-redirect",
+      "image": "nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 81,
+          "containerPort": 80
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "nginx-redirect-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "awseb-logs-nginx-proxy",
+          "containerPath": "/var/log/nginx"
+        }
+      ]
+    },
+    {
       "name": "farmally",
       "image": "${REPO}",
       "essential": true,     
