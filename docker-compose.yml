@@ -17,3 +17,12 @@ services:
     command: ./bin/rails s  
     volumes:
       - .:/farmally
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=farmally
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "3306:3306"
