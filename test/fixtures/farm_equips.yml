@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maker_price: MyString
+  integer: MyString
+  used_price: MyString
+  integer: MyString
+  maker: MyString
+  model: MyString
+  horse_power: MyString
+  string: MyString
+  josu: MyString
+  integer: MyString
+  model_year: MyString
+  integer: MyString
+  drive_system: MyString
+  string: MyString
+  safety_frame: MyString
+  string: MyString
+  rotary: MyString
+  string: MyString
+  hour_meter: MyString
+  string: MyString
+  accessories: MyString
+  string: MyString
+  location: MyString
+  string: MyString
+  condition: MyString
+  string: MyString
+  category_id: MyString
+  integer: MyString
+
+two:
+  maker_price: MyString
+  integer: MyString
+  used_price: MyString
+  integer: MyString
+  maker: MyString
+  model: MyString
+  horse_power: MyString
+  string: MyString
+  josu: MyString
+  integer: MyString
+  model_year: MyString
+  integer: MyString
+  drive_system: MyString
+  string: MyString
+  safety_frame: MyString
+  string: MyString
+  rotary: MyString
+  string: MyString
+  hour_meter: MyString
+  string: MyString
+  accessories: MyString
+  string: MyString
+  location: MyString
+  string: MyString
+  condition: MyString
+  string: MyString
+  category_id: MyString
+  integer: MyString
