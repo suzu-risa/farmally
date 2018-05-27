@@ -10,24 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_153319) do
+ActiveRecord::Schema.define(version: 2018_05_27_154614) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
+    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "farm_equips", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "maker_price"
-    t.string "integer"
-    t.string "used_price"
+    t.integer "maker_price"
+    t.integer "used_price"
     t.string "maker"
     t.string "model"
     t.string "horse_power"
-    t.string "string"
     t.string "josu"
-    t.string "model_year"
+    t.integer "model_year"
     t.string "drive_system"
     t.string "safety_frame"
     t.string "rotary"
@@ -35,9 +34,11 @@ ActiveRecord::Schema.define(version: 2018_05_27_153319) do
     t.string "accessories"
     t.string "location"
     t.string "condition"
-    t.string "category_id"
+    t.string "category_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_code"], name: "index_farm_equips_on_category_code"
+    t.index ["maker"], name: "index_farm_equips_on_maker"
   end
 
 end
