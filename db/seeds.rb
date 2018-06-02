@@ -11,7 +11,20 @@ CSV.foreach('db/master/category.csv') do |row|
   Category.create(:name => row[0], :code => row[1])
 end
 
-
 CSV.foreach('db/master/maker.csv') do |row|
   Maker.create(:name => row[0], :code => row[0])
+end
+
+if ENV['RAILS_ENV'] != 'production'
+  CSV.foreach('db/master/sample_item.csv') do |row|
+    FarmEquip.create(
+        :maker_price => row[0],
+        :used_price => row[1],
+        :model => row[2],
+        :size => row[5],
+        :weight => row[6],
+        :category_id => 1,
+        :maker_id => 1,
+    )
+  end
 end

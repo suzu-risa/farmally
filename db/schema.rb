@@ -22,23 +22,16 @@ ActiveRecord::Schema.define(version: 2018_06_02_092004) do
   create_table "farm_equips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "maker_price"
     t.integer "used_price"
-    t.string "maker"
     t.string "model"
     t.string "horse_power"
-    t.string "josu"
-    t.integer "model_year"
-    t.string "drive_system"
-    t.string "safety_frame"
-    t.string "rotary"
-    t.string "hour_meter"
-    t.string "accessories"
-    t.string "location"
-    t.string "condition"
-    t.string "category_code"
+    t.string "weight"
+    t.string "size"
+    t.integer "maker_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_code"], name: "index_farm_equips_on_category_code"
-    t.index ["maker"], name: "index_farm_equips_on_maker"
+    t.index ["category_id"], name: "index_farm_equips_on_category_id"
+    t.index ["maker_id"], name: "index_farm_equips_on_maker_id"
   end
 
   create_table "makers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
