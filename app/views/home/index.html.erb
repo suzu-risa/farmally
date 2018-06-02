@@ -65,20 +65,19 @@
       <h2 class="title has-text-centered">
         種類から農機具を探す
       </h2>
-      <div class="columns has-text-centered">
-        <a class="column category">
-          トラクター
-        </a>
-        <a class="column category">
-          コンバイン
-        </a>
-        <a class="column category">
-          田植え機
-        </a>
-        <a class="column category">
-          アルミブリッジ
-        </a>
-      </div>
+      <br />
+      <br />
+      <% @category.each_with_index do |c, index| %>
+        <% if index % 3== 0 %>
+          <div class="columns has-text-centered">
+        <% end %>
+          <a class="column is-4 category">
+            <%= c.name %>
+          </a>
+        <% if index % 3 == 2 %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
     </div>
   </div>
