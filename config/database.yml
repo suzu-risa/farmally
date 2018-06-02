@@ -18,6 +18,14 @@ default: &default
 development:
   <<: *default
 
+staging:
+  <<: *default
+    database: farmally
+    pool: 5
+    username: <%= ENV.fetch("RAILS_DB_USER_NAME") { farmally } %>
+    password: <%= ENV.fetch("RAILS_DB_PASSWORD") { farmally_password } %>
+    host: <%= ENV.fetch("RAILS_DB_HOST") { 127.0.0.1 } %>
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -28,3 +36,6 @@ test:
 production:
   <<: *default
   database: farmally-prod
+  username: <%= ENV.fetch("RAILS_DB_USER_NAME") { farmally } %>
+  password: <%= ENV.fetch("RAILS_DB_PASSWORD") { farmally_password } %>
+  host: <%= ENV.fetch("RAILS_DB_HOST") { 127.0.0.1 } %>

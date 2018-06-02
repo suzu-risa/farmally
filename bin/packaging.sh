@@ -4,6 +4,8 @@ export AWS_DEFAULT_REGION=ap-northeast-1
 export AWS_ACCOUNT_ID=306657763353
 export APP_NAME=farmally
 
+[ "$1" = "prod" ] && PROFILE=production || PROFILE=staging
+
 # push gutenberg image
 REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
 SECRET_KEY_BASE=$(aws s3 cp s3://farmally-secrets/secret_key_base.prod -)
@@ -59,7 +61,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "environment": [
         {
           "name": "RAILS_ENV",
-          "value": "production"
+          "value": "${PROFILE}"
         },
         {
           "name": "SECRET_KEY_BASE",
