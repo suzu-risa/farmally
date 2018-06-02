@@ -69,33 +69,43 @@
       <br />
       <br />
       <% @category.each_with_index do |c, index| %>
-        <% if index % 3== 0 %>
-          <div class="columns has-text-centered">
-        <% end %>
-          <a class="column is-4 category" href="/categories/<%= c.code %>">
-            <%= c.name %>
-          </a>
-        <% if index % 3 == 2 %>
-          </div>
+        <% if index < 12 %>
+          <% if index % 3== 0 %>
+            <div class="columns has-text-centered">
+          <% end %>
+            <a class="column is-4 category" href="/categories/<%= c.code %>">
+              <%= c.name %>
+            </a>
+          <% if index % 3 == 2 %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
     </div>
   </div>
 </section>
-<section class="hero is-white">
+<section class="hero is-small is-white">
   <div class="hero-body">
-    <div class="container content">
-      <h2 class="title has-text-centered">
-        新着記事一覧
-      </h2>
-      <div class="columns has-text-centered">
-
-      </div>
+    <div class="container has-text-centered content">
+      <a class="button is-link is-medium is-rounded" href="<%= INQUIRY_URL %>" target="_blank">
+        農機具選びを無料相談する
+      </a>
     </div>
   </div>
-  </div>
 </section>
+<!--<section class="hero is-white">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container content">-->
+<!--      <h2 class="title has-text-centered">-->
+<!--        新着記事一覧-->
+<!--      </h2>-->
+<!--      <div class="columns has-text-centered">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</section>-->
 <!--<section class="hero is-white">-->
 <!--  <div class="hero-body">-->
 <!--    <div class="container content">-->
@@ -104,10 +114,11 @@
 <!--      </h2>-->
 <!--      <div class="columns">-->
 <!--        <div class="column is-4 has-text-centered-tablet">-->
-<!--          <!-- Flexなカードビューをおく -->-->
+<!--          <!-- Flexなカードビューをおく -->
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
 <!--</section>-->
+
 <%= render :partial => '/footer' %>
