@@ -7,5 +7,5 @@ WORKDIR /farmally
 
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
-RUN bundle install 
+RUN bundle install
 COPY . /farmally
