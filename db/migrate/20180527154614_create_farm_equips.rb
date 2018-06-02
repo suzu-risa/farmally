@@ -3,7 +3,6 @@ class CreateFarmEquips < ActiveRecord::Migration[5.2]
     create_table :farm_equips do |t|
       t.integer :maker_price
       t.integer :used_price
-      t.string :maker, index: true
       t.string :model
       t.string :horse_power
       t.string :josu
@@ -15,7 +14,8 @@ class CreateFarmEquips < ActiveRecord::Migration[5.2]
       t.string :accessories
       t.string :location
       t.string :condition
-      t.string :category_code, index: true
+      t.integer :maker_id, index: true
+      t.integer :category_id, index:true
 
       t.timestamps
     end
