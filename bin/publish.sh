@@ -12,6 +12,8 @@ export APP_NAME=farmally
 REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
 REPO_LATEST="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:latest"
 
+aws s3 cp s3://farmally-secrets/master.key config/master.key
+
 docker build -t ${REPO} .
 docker tag ${REPO} ${REPO_LATEST}
 

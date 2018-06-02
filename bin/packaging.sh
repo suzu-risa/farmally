@@ -8,7 +8,6 @@ export APP_NAME=farmally
 
 # push gutenberg image
 REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
-SECRET_KEY_BASE=$(aws s3 cp s3://farmally-secrets/secret_key_base.prod -)
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
@@ -62,10 +61,6 @@ cat > Dockerrun.aws.json <<EOS | jq
         {
           "name": "RAILS_ENV",
           "value": "${PROFILE}"
-        },
-        {
-          "name": "SECRET_KEY_BASE",
-          "value": "${SECRET_KEY_BASE}"
         }
       ],
       "logConfiguration": {
