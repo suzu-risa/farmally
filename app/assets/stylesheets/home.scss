@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.c-is-accent {
+  background-color: #2ACD9F;
+}
+
 .category {
   background-color: #2ACD9F;
   border-radius: 4px;
-  color: white;
+  color: white !important;
   margin: 4px;
+}
+
+.category:hover {
+  color: black !important;
 }
