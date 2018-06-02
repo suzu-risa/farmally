@@ -10,3 +10,8 @@ require 'csv'
 CSV.foreach('db/master/category.csv') do |row|
   Category.create(:name => row[0], :code => row[1])
 end
+
+
+CSV.foreach('db/master/maker.csv') do |row|
+  Maker.create(:name => row[0], :code => row[0])
+end

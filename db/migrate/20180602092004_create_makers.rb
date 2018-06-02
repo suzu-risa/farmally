@@ -1,6 +1,6 @@
-class CreateCategories < ActiveRecord::Migration[5.2]
+class CreateMakers < ActiveRecord::Migration[5.2]
   def change
-    create_table :categories do |t|
+    create_table :makers do |t|
       t.string :name
       t.string :code, unique: true
 
