@@ -1,7 +1,7 @@
 class CategoryController < ApplicationController
   def index
     @items = Item.all
-    @category = Category.where(code: 'tractor').first
+    @category = Category.where(code: @params['category_code']).first
     @title = @category.name
     @breadcrumb = [
         {

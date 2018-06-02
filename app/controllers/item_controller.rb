@@ -13,6 +13,10 @@ class ItemController < ApplicationController
             path: "/categories/#{@item.category.code}"
         },
         {
+            name: @item.maker.name,
+            path: "/makers/#{@item.maker.code}"
+        },
+        {
             name: @item.model,
             path: "/items/#{@item.id}"
         },
