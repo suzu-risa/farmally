@@ -30,7 +30,7 @@ jobs:
 #          command: ./bin/rails test
 
   # Dockerfile of the image is here. https://github.com/tmyjoe/circleci-docker/tree/master/ruby-docker
-    deploy-prod:
+    deploy-staging:
       docker:
         - image: tmyjoe/circleci-ruby-docker
           environment:
@@ -78,7 +78,7 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - deploy-stg:
+      - deploy-staging:
           requires:
             - build
           filters:
