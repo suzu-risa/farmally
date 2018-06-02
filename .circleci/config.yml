@@ -30,25 +30,25 @@ jobs:
 #          command: ./bin/rails test
 
   # Dockerfile of the image is here. https://github.com/tmyjoe/circleci-docker/tree/master/ruby-docker
-    deploy-staging:
-      docker:
-        - image: tmyjoe/circleci-ruby-docker
-          environment:
-            BUNDLE_JOBS: 3
-            BUNDLE_RETRY: 3
-            BUNDLE_PATH: vendor/bundle
-      steps:
-        - checkout
-        - setup_remote_docker
-        - run:
-            name: Publish docker image
-            command: ./bin/publish.sh
-        - run:
-            name: Packaging eb artifact
-            command: ./bin/packaging.sh
-        - run:
-            name: Deploy to prod
-            command: ./bin/deploy.sh
+  deploy-staging:
+    docker:
+      - image: tmyjoe/circleci-ruby-docker
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Publish docker image
+          command: ./bin/publish.sh
+      - run:
+          name: Packaging eb artifact
+          command: ./bin/packaging.sh
+      - run:
+          name: Deploy to prod
+          command: ./bin/deploy.sh
 
   deploy-prod:
     docker:
