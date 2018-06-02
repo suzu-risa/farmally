@@ -1,0 +1,19 @@
+<nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
+  <ul class="pagination-list">
+    <% if page[:min] < page[:current] - 1 %>
+      <li><a class="pagination-link" aria-label="Goto page <%= page[:min] %>"><%= page[:min] %></a></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <% end %>
+    <% if page[:min] < page[:current] %>
+      <li><a class="pagination-link" aria-label="Goto page <%=  page[:current] - 1 %>"><%= page[:current] - 1 %></a></li>
+    <% end %>
+    <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page"><%= page[:current] %></a></li>
+    <% if page[:max] > page[:current] %>
+      <li><a class="pagination-link" aria-label="Goto page <%= page[:current] + 1 %>"><%= page[:current] + 1 %></a></li>
+    <% end %>
+    <% if page[:max] > page[:current] + 1 %>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><a class="pagination-link" aria-label="Goto page <%= page[:max] %>"><%= page[:max] %></a></li>
+    <% end %>
+  </ul>
+</nav>

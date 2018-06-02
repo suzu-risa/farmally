@@ -1,4 +1,4 @@
-<article class="media">
+<article class="media c-cassette">
   <figure class="media-left">
     <p class="image is-128x128">
       <img src="TODO: img">
@@ -6,15 +6,18 @@
   </figure>
   <div class="media-content">
     <div class="content">
-      <p class="title is-8">
+      <p class="title is-5">
         <strong><%= item.category.name %> <%= item.model %></strong>
       </p>
     </div>
     <ul>
       <li>メーカー: <%= item.maker.name %></li>
       <li>型式: <%= item.model %></li>
-      <li>メーカー希望小売価格: <%= item.maker_price %></li>
+      <li>メーカー希望小売価格: <%= item.maker_price %> 円</li>
       <li>ファーマリー出品価格: <%= item.used_price %></li>
     </ul>
+  </div>
+  <div class="media-left">
+    <a class="button is-primary">問い合わせる</a>
   </div>
 </article>

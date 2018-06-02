@@ -1,4 +1,25 @@
-<section class="section">
+<%= render :partial => '/header' %>
+<section class="section hero is-light">
+  <div class="container">
+    <%= render :partial => '/search' %>
+  </div>
 </section>
-
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <h1 class="title is-4">
+          <%= @category.name %> の商品一覧
+        </h1>
+        <%= render :partial => '/breadcrumb', locals:{breadcrumb: @breadcrumb} %>
+        <% @items.each do |i| %>
+          <%= render :partial => '/item_cassette', locals:{item: i} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <%= render :partial => '/paging', locals:{page: @page} %>
+</section>
 <%= render :partial => '/footer' %>

@@ -1,9 +1,15 @@
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
-    <% @breadcrumb.each_with_index do |b| %>
-      <li <%= b.equal? @breadcrumb.last ? "class='is-active'" : "" %>
-        <a href="<%= b['path'] %>"><%= b['name'] %></a>
-      </li>
+    <% @breadcrumb.each_with_index do |b,index| %>
+      <% if  index == @breadcrumb.length - 1 %>
+        <li class='is-active' >
+          <a href="#" aria-current="page"><%= b[:name] %></a>
+        </li>
+      <% else %>
+        <li>
+          <a href="<%= b[:path] %>"><%= b[:name] %></a>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </nav>
