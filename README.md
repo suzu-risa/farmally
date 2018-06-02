@@ -1,24 +1,5 @@
-# README
+## Farmally
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### マスターデータ
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://docs.google.com/spreadsheets/d/14L6XAEhPKqdfldwQ0mD8HvxShdXRmMWSgJ7tMjV7aVI/edit#gid=0
