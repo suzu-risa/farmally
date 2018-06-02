@@ -47,7 +47,7 @@ jobs:
           name: Packaging eb artifact
           command: ./bin/packaging.sh
       - run:
-          name: Deploy to prod
+          name: Deploy to staging
           command: ./bin/deploy.sh
 
   deploy-prod:
@@ -67,7 +67,7 @@ jobs:
           name: Packaging eb artifact
           command: ./bin/packaging.sh prod
       - run:
-          name: Deploy to prod 
+          name: Deploy to prod
           command: ./bin/deploy.sh prod
 
 workflows:
