@@ -1,15 +1,15 @@
 トラクター,tractor
 コンバイン,combine
 田植機,taueki
-アルミブリッジ,Aluminum bridge
+アルミブリッジ,Aluminum_bridge
 ウエイト,weight
 エンジン,engine
-グレンコンテナー,grain container
+グレンコンテナー,grain_container
 クローラー,crawler
-ゴムロール,rubber roll
-コンバイン刈取刃,combine karitoriki
+ゴムロール,rubber_roll
+コンバイン刈取刃,combine_karitoriki
 コンプレッサー,compressor
-スピードスプレーヤー,speed sprayer
+スピードスプレーヤー,speed_sprayer
 タイヤ,tire
 チェーンソー,chainsaw
 テーラー,tailor
@@ -18,18 +18,18 @@
 トレンチャー,trencher
 ハーベスター,harvester
 バインダー,binder
-バックホー,back hoe
+バックホー,back_hoe
 ハロー,harrow
 フォークリフト,forklift
 プラウ,plow
 ブロードキャスター,broadcaster
 ポンプ,pomp
-マニアスプレッダー,mania spreader
-モアコン,mower conditioner
-ライスグレーダー,rice grader
-ライムソワー,rime sawer
+マニアスプレッダー,mania_spreader
+モアコン,mower_conditioner
+ライスグレーダー,rice_grader
+ライムソワー,rime_sawer
 ロータリー,rotary
-ロールベーラー,roll baler
+ロールベーラー,roll_baler
 運搬機,unnpannki
 刈払機,karibaraiki
 管理機,kannriki
