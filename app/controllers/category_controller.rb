@@ -2,6 +2,7 @@ class CategoryController < ApplicationController
   def index
     @items = Item.all
     @category = Category.where(code: 'tractor').first
+    @title = @category.name
     @breadcrumb = [
         {
             name: 'トップ',
