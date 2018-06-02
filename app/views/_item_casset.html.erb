@@ -1,3 +1,20 @@
-<li>
-
-</li>
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-128x128">
+      <img src="TODO: img">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p class="title is-8">
+        <strong><%= item.category.name %> <%= item.model %></strong>
+      </p>
+    </div>
+    <ul>
+      <li>メーカー: <%= item.maker.name %></li>
+      <li>型式: <%= item.model %></li>
+      <li>メーカー希望小売価格: <%= item.maker_price %></li>
+      <li>ファーマリー出品価格: <%= item.used_price %></li>
+    </ul>
+  </div>
+</article>
