@@ -17,7 +17,7 @@ end
 
 if ENV['RAILS_ENV'] != 'production'
   CSV.foreach('db/master/sample_item.csv') do |row|
-    FarmEquip.create(
+    Item.create(
         :maker_price => row[0],
         :used_price => row[1],
         :model => row[2],
