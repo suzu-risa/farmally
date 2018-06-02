@@ -36,7 +36,7 @@ test:
 
 production:
   <<: *default
-  database: farmally_prod
-  username: <%= Rails.application.credentials[Rails.env.to_sym][:mysql_username] %>
-  password: <%= Rails.application.credentials[Rails.env.to_sym][:mysql_password] %>
-  host: <%= ENV.fetch("RAILS_DB_HOST") { "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com" } %>
+#  database: farmally_prod
+#  username: <%= Rails.application.credentials[Rails.env.to_sym][:mysql_username] %>
+#  password: <%= Rails.application.credentials[Rails.env.to_sym][:mysql_password] %>
+#  host: <%= ENV.fetch("RAILS_DB_HOST") { "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com" } %>

@@ -70,7 +70,7 @@ cat > Dockerrun.aws.json <<EOS | jq
             "awslogs-group": "farmally-${PROFILE}"
         }
       },
-      "command": ["./bin/rails", "s"]
+      "command": ["./bin/start.sh"]
     },
     {
       "name": "nginx-proxy",
