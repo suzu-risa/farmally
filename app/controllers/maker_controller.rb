@@ -2,7 +2,7 @@ class MakerController < ApplicationController
 
   def index
     @items = Item.all
-    @maker = Maker.where(code: @params['maker_code']).first
+    @maker = Maker.where(code: params['maker_code']).first
     @title = @maker.name
     @breadcrumb = [
         {
