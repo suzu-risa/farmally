@@ -37,6 +37,19 @@ $ ./bin/rails s
 
 ### ステージング/本番環境について
 
+ステージング/本番環境は、AWS上に構築されています。
+アプリケーションはElastic Beanstalkにデプロイされており、DockerizeされたRailsアプリケーションコンテナ、Nginxコンテナをデプロイします。
+それぞれの環境のURLは以下の通りです。
+
+- ステージング: https://staging.farmally.jp
+- 本番:  https://farmally.jp
+
+デプロイはCircleCIによって自動化されています。
+ステージング環境へは、Developブランチへ更新があるたびに、ビルド、デプロイが走るように設定されています。
+本番環境は、vX.X.Xの形式 (Xは数字) でタグを打つと、そのタグに対して、ビルド、デプロイが走ります。マスターへマージしてからタグを打つと良いでしょう。
+
+デプロイのフローについてより理解したい場合は、(CircleCIのConfig)[https://github.com/tmyjoe/farmally/blob/develop/.circleci/config.yml] や、(DockerイメージのパブリッシュScript)[https://github.com/tmyjoe/farmally/blob/develop/bin/publish.sh] (EBのパッケージングスクリプト)[https://github.com/tmyjoe/farmally/blob/develop/bin/packaging.sh] (デプロイスクリプト)[https://github.com/tmyjoe/farmally/blob/develop/bin/deploy.sh] を参照してください。
+
 ### マスターデータ
 
 https://docs.google.com/spreadsheets/d/14L6XAEhPKqdfldwQ0mD8HvxShdXRmMWSgJ7tMjV7aVI/edit#gid=0
