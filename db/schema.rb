@@ -19,21 +19,6 @@ ActiveRecord::Schema.define(version: 2018_06_02_115459) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "farm_equips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
-    t.integer "maker_price"
-    t.integer "used_price"
-    t.string "model"
-    t.string "horse_power"
-    t.string "weight"
-    t.string "size"
-    t.integer "maker_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_farm_equips_on_category_id"
-    t.index ["maker_id"], name: "index_farm_equips_on_maker_id"
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "maker_price"
     t.integer "used_price"
