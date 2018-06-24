@@ -5,12 +5,26 @@
     width: 100%;
 }
 
-.c-cassette:hover {
+.c-cassette {
+  position: relative;
+  &:hover {
     background-color: #CCCCCC;
     cursor : pointer;
+  }
 }
 
 table.center {
     margin-left: auto;
     margin-right: auto;
+}
+
+a.item-detail {
+  color: black;
+  display: flex;
+  flex: 1;
+}
+
+.inquiry-btn {
+  position: absolute;
+  right: 0;
 }

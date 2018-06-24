@@ -1,4 +1,5 @@
-<article class="media c-cassette js-item-detail" data-item-id="<%= item.id %>">
+<article class="media c-cassette">
+    <%= link_to(item_path(item), class: 'item-detail') do %>
     <figure class="media-left">
       <p class="image is-128x128">
         <img src="TODO: img">
@@ -17,7 +18,6 @@
         <li>ファーマリー出品価格: <%= item.used_price %></li>
       </ul>
     </div>
-    <div class="media-left">
-      <%= link_to '問い合わせる', INQUIRY_URL, class: 'button is-primary'%>
-    </div>
+    <% end %>
+    <%= link_to '問い合わせる', INQUIRY_URL, class: 'button is-primary inquiry-btn'%>
 </article>
