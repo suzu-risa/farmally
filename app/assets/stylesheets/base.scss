@@ -22,6 +22,11 @@ a.item-detail {
   color: black;
   display: flex;
   flex: 1;
+
+  .image {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .inquiry-btn {

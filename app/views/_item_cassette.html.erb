@@ -1,9 +1,8 @@
 <article class="media c-cassette">
     <%= link_to(item_path(item), class: 'item-detail') do %>
     <figure class="media-left">
-      <p class="image is-128x128">
-        <img src="TODO: img">
-      </p>
+      <div class="image is-128x128" style="background-image:url(<%= asset_path "sample-thumb.jpg" %>)">
+      </div>
     </figure>
     <div class="media-content">
       <div class="content">
@@ -15,7 +14,7 @@
         <li>メーカー: <%= item.maker.name %></li>
         <li>型式: <%= item.model %></li>
         <li>メーカー希望小売価格: <%= item.maker_price %> 円</li>
-        <li>ファーマリー出品価格: <%= item.used_price %></li>
+        <li>ファーマリー出品価格: <%= item.used_price %> 円</li>
       </ul>
     </div>
     <% end %>
