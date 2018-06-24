@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'home#index'
   get '/categories/:category_code' => 'category#index'
-  get '/maker/:maker_code' => 'maker#index'
-  get '/items/:id' => 'item#index'
+  get '/makers/:maker_code' => 'maker#index'
   get '/search' => 'search#index'
+
+  resources :items, only: :show
 end
