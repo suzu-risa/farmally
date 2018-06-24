@@ -15,21 +15,4 @@
  */
 @import "bulma";
 @import "font-awesome";
-@import "carousel";
-
-.fixed-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
-.c-cassette:hover {
-    background-color: #CCCCCC;
-    cursor : pointer;
-}
-
-table.center {
-    margin-left: auto;
-    margin-right: auto;
-}
+@import "base";

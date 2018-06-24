@@ -14,9 +14,11 @@ services:
       - ./nginx-redirect:/etc/nginx/conf.d
   farmally:
     build: .
-    command: ./bin/rails s  
+    command: ./bin/rails s
     volumes:
       - .:/farmally
+      - bundle_install:/app/vendor/bundle
+      - bundle:/app/.bundle
     links:
       - db
   db:
@@ -25,5 +27,14 @@ services:
     environment:
       - MYSQL_DATABASE=farmally
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
+volumes:
+  mysql-data:
+    driver: local
+  bundle:
+    driver: local
+  bundle_install:
+    driver: local

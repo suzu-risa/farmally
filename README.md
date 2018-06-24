@@ -24,15 +24,15 @@ $ docker-compose up -d db
 次に、railsのマイグレーション、テストデータの納入をします。
 
 ```
-$ ./bin/rails db:create
-$ ./bin/rails db:migrate
-$ ./bin/rails db:seed
+$ docker-compose run farmally rails db:create
+$ docker-compose run farmally rails db:migrate
+$ docker-compose run farmally rails db:seed
 ```
 
 最後にサービスを立ち上げます。
 
 ```
-$ ./bin/rails s 
+$ docker-compose up -d
 ```
 
 ### ステージング/本番環境について

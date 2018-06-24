@@ -11,9 +11,9 @@ default: &default
   database: farmally
   pool: 5
   username: root
-  password:
+  password: ''
   port: 3306
-  host: 127.0.0.1
+  host: db
   timeout: 5000
 
 

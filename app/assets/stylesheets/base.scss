@@ -1,0 +1,35 @@
+.fixed-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.c-cassette {
+  position: relative;
+  &:hover {
+    background-color: #CCCCCC;
+    cursor : pointer;
+  }
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.item-detail {
+  color: black;
+  display: flex;
+  flex: 1;
+}
+
+.image {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.inquiry-btn {
+  position: absolute;
+  right: 0;
+}
