@@ -17,8 +17,8 @@ services:
     command: ./bin/rails s
     volumes:
       - .:/farmally
-      - bundle_install:/app/vendor/bundle
-      - bundle:/app/.bundle
+      - bundle_install:/farmally/vendor/bundle
+      - bundle:/farmally/.bundle
     links:
       - db
   db:
