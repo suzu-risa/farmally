@@ -9,7 +9,7 @@ Farmallyは、農機具を探している人が、ほしい農機具の中古を
 
 - Lang: Ruby 2.5
 - WAF: Ruby on Rails 5
-- DB: MySQL7 (AWS Aurora) 
+- DB: MySQL7 (AWS Aurora)
 - Web Server: Nginx
 
 ### How to run
@@ -48,7 +48,12 @@ $ docker-compose up -d
 ステージング環境へは、Developブランチへ更新があるたびに、ビルド、デプロイが走るように設定されています。
 本番環境は、vX.X.Xの形式 (Xは数字) でタグを打つと、そのタグに対して、ビルド、デプロイが走ります。マスターへマージしてからタグを打つと良いでしょう。
 
-デプロイのフローについてより理解したい場合は、(CircleCIのConfig)[https://github.com/tmyjoe/farmally/blob/develop/.circleci/config.yml] や、(DockerイメージのパブリッシュScript)[https://github.com/tmyjoe/farmally/blob/develop/bin/publish.sh] (EBのパッケージングスクリプト)[https://github.com/tmyjoe/farmally/blob/develop/bin/packaging.sh] (デプロイスクリプト)[https://github.com/tmyjoe/farmally/blob/develop/bin/deploy.sh] を参照してください。
+デプロイのフローについてより理解したい場合は、以下を参照してください。
+
+* [CircleCIのConfig](https://github.com/tmyjoe/farmally/blob/develop/.circleci/config.yml)
+* [DockerイメージのパブリッシュScript](https://github.com/tmyjoe/farmally/blob/develop/bin/publish.sh)
+* [EBのパッケージングスクリプト](https://github.com/tmyjoe/farmally/blob/develop/bin/packaging.sh)
+* [デプロイスクリプト](https://github.com/tmyjoe/farmally/blob/develop/bin/deploy.sh)
 
 ### マスターデータ
 
