@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     resources :items
     resources :makers
 
-    root to: 'categories#index'
+    post '/import', to: 'home#import'
+    root to: 'home#index'
   end
 
   get '/categories/:category_code' => 'category#index'
