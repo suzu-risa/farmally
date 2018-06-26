@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to :category
 
   def self.import(file)
-    categories_hash = Hash[*Category.all.map { |c| [c.name, c.id] }.flatten]
-    makers_hash = Hash[*Maker.all.map { |m| [m.name, m.id] }.flatten]
+    categories_hash = Hash[*Category.all.map { |c| [c.name, c] }.flatten]
+    makers_hash = Hash[*Maker.all.map { |m| [m.name, m] }.flatten]
     ActiveRecord::Base.transaction do
       CSV.foreach(file.path, headers: true) do |row|
         attributes = row.to_hash.slice(*acceptable_attributes)
@@ -14,8 +14,8 @@ class Item < ApplicationRecord
           model: attributes['model'],
           size: attributes['size'],
           weight: attributes['weight'],
-          category_id: categories_hash[attributes['category']],
-          maker_id: makers_hash[attributes['maker']]
+          category: categories_hash[attributes['category']],
+          maker: makers_hash[attributes['maker']]
         )
         item.save!
       end
