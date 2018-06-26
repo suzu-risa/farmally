@@ -3,6 +3,7 @@ module Admin
     def index; end
 
     def import
+      Item.import(params[:file])
       # flash.now[:error] = ['Some errors occured', 'hogehoge'].join('<br />')
       # render :index
       redirect_to admin_root_url, notice: '商品を追加しました'
