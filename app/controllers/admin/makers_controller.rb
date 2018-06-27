@@ -1,5 +1,7 @@
 module Admin
   class MakersController < Admin::ApplicationController
+    before_action :default_params
+
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
@@ -17,5 +19,12 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+
+    private
+
+    def default_params
+      params[:order] ||= 'id'
+      params[:direction] ||= 'asc'
+    end
   end
 end

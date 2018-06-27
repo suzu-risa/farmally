@@ -30,7 +30,9 @@ class ItemDashboard < Administrate::BaseDashboard
     :id,
     :category,
     :maker,
-    :maker_price
+    :model,
+    :maker_price,
+    :used_price
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
