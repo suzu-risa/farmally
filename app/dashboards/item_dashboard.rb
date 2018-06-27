@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class ItemDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -18,7 +18,7 @@ class ItemDashboard < Administrate::BaseDashboard
     size: Field::String,
     weight: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,10 +27,12 @@ class ItemDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :maker,
-    :category,
     :id,
+    :category,
+    :maker,
+    :model,
     :maker_price,
+    :used_price
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -46,7 +48,7 @@ class ItemDashboard < Administrate::BaseDashboard
     :size,
     :weight,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,13 +62,12 @@ class ItemDashboard < Administrate::BaseDashboard
     :model,
     :horse_power,
     :size,
-    :weight,
+    :weight
   ].freeze
 
   # Overwrite this method to customize how items are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(item)
-  #   "Item ##{item.id}"
-  # end
+  def display_resource(item)
+    item.model
+  end
 end
