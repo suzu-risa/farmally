@@ -2,6 +2,13 @@ class Item < ApplicationRecord
   belongs_to :maker
   belongs_to :category
 
+  validates :maker_price, numericality: { only_integer: true }, allow_nil: true
+  validates :used_price, numericality: { only_integer: true }, allow_nil: true
+  validates :model, length: { maximum: 255 }
+  validates :horse_power, length: { maximum: 255 }
+  validates :size, length: { maximum: 255 }
+  validates :weight, length: { maximum: 255 }
+
   def self.import(file)
     categories_hash = Hash[*Category.all.map { |c| [c.name, c] }.flatten]
     makers_hash = Hash[*Maker.all.map { |m| [m.name, m] }.flatten]
