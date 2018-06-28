@@ -8,19 +8,13 @@
           </p>
           <ul class="menu-list">
             <li>
-              <a href="/terms-of-service" rel="nofollow">
-                ご利用規約
-              </a>
+              <%= link_to 'ご利用規約', terms_of_service_path, rel: 'nofollow' %>
             </li>
             <li>
-              <a href="/privacy-policy" rel="nofollow">
-                プライバシーポリシー
-              </a>
+              <%= link_to 'プライバシーポリシー', privacy_policy_path, rel: 'nofollow' %>
             </li>
             <li>
-              <a href="/specified-commercial" rel="nofollow">
-                特定商取引法に基づく表記
-              </a>
+              <%= link_to '特定商取引法に基づく表記', specified_commercial_path, rel: 'nofollow' %>
             </li>
             <li>
           </ul>
@@ -34,9 +28,7 @@
           </p>
           <ul class="menu-list">
             <li>
-              <a href="#" target="_blank">
-                TODO: Add farmallyの会社名
-              </a>
+              <%= link_to '会社概要', company_path %>
             </li>
           </ul>
         </aside>
