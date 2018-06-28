@@ -13,6 +13,8 @@ class Item < ApplicationRecord
     categories_hash = Hash[*Category.all.map { |c| [c.name, c] }.flatten]
     makers_hash = Hash[*Maker.all.map { |m| [m.name, m] }.flatten]
 
+    return { success: false, messages: ['ファイルが空です'] } if file.nil?
+
     unless utf8_encoding?(file)
       return { success: false, messages: ['ファイルの文字コードはUTF-8である必要があります'] }
     end
