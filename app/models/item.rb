@@ -24,8 +24,8 @@ class Item < ApplicationRecord
     CSV.foreach(file.path, headers: true) do |row|
       attributes = row.to_hash.slice(*acceptable_attributes)
       item = Item.new(
-        maker_price: attributes['maker_price'],
-        used_price: attributes['used_price'],
+        maker_price: normalize_price(attributes['maker_price']),
+        used_price: normalize_price(attributes['used_price']),
         model: attributes['model'],
         size: attributes['size'],
         horse_power: attributes['horse_power'],
@@ -64,5 +64,11 @@ class Item < ApplicationRecord
     s.valid_encoding?
   end
 
-  private_class_method :acceptable_attributes, :utf8_encoding?
+  def self.normalize_price(price)
+    return price if price.instance_of?(Integer)
+    return price.delete(',').to_i if price.instance_of?(String)
+    price
+  end
+
+  private_class_method :acceptable_attributes, :utf8_encoding?, :normalize_price
 end
