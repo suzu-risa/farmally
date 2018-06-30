@@ -33,3 +33,16 @@ a.item-detail {
   position: absolute;
   right: 0;
 }
+
+.specified-commercial {
+  width: 70% !important;
+  margin: 0 auto;
+
+  tbody {
+    tr {
+      th {
+        width: 30%;
+      }
+    }
+  }
+}
