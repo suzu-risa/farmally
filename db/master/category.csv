@@ -1,7 +1,7 @@
 トラクター,tractor
 コンバイン,combine
 田植機,taueki
-アルミブリッジ,Aluminum_bridge
+アルミブリッジ,aluminum_bridge
 ウエイト,weight
 エンジン,engine
 グレンコンテナー,grain_container
@@ -55,7 +55,7 @@
 播種機,hasyuki
 培土機,baidoki
 発電機,hatsudennki
-苗コンテナー,nae-container
+苗コンテナー,nae_container
 防除機,bojoki
 籾摺機,momisuriki
 その他,other

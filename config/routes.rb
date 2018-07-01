@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   get '/search' => 'search#index'
 
   resources :items, only: :show
+  get '/terms-of-service', to: 'home#terms'
+  get '/privacy-policy', to: 'home#privacy'
+  get '/specified-commercial', to: 'home#commercial'
+  get '/company', to: 'home#company'
   root to: 'home#index'
 end
