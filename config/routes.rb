@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
-  get '/categories/:category_code' => 'category#index'
-  get '/makers/:maker_code' => 'maker#index'
-  get '/search' => 'search#index'
-
+  resources :categories, param: :category_code, only: :show
+  resources :makers, param: :maker_code, only: :show
   resources :items, only: :show
+
+  get '/search' => 'home#search'
   get '/terms-of-service', to: 'home#terms'
   get '/privacy-policy', to: 'home#privacy'
   get '/specified-commercial', to: 'home#commercial'

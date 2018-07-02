@@ -3,4 +3,8 @@ class Maker < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :code, presence: true, uniqueness: true
+
+  def to_param
+    maker_code
+  end
 end
