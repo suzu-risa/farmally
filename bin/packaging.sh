@@ -95,7 +95,8 @@ cat > Dockerrun.aws.json <<EOS | jq
         }
       ],
       "links": [
-        "farmally"
+        "farmally",
+        "wordpress"
       ],
       "mountPoints": [
         {
