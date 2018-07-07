@@ -30,7 +30,7 @@ export WP_NAME=farmally-wp
 WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:${CIRCLE_SHA1}"
 WP_REPO_LATEST="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:latest"
 
-docker build -t ${WP_REPO} .
+docker build -t ${WP_REPO} ./wordpress
 docker tag ${WP_REPO} ${WP_REPO_LATEST}
 
 echo "Start pushing to $WP_REPO"
