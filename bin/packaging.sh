@@ -30,12 +30,6 @@ cat > Dockerrun.aws.json <<EOS | jq
       "host": {
         "sourcePath": "/var/app/current/nginx-redirect"
       }
-    },
-    {
-      "name": "wp-data",
-      "host": {
-        "sourcePath": "/var/app/current/wp-data"
-      }
     }
   ],
   "containerDefinitions": [
@@ -105,11 +99,6 @@ cat > Dockerrun.aws.json <<EOS | jq
         {
           "sourceVolume": "awseb-logs-nginx-proxy",
           "containerPath": "/var/log/nginx"
-        },
-        {
-          "sourceVolume": "wp-data",
-          "containerPath": "/var/www/html",
-          "readOnly": true
         }
       ]
     }
@@ -117,6 +106,19 @@ cat > Dockerrun.aws.json <<EOS | jq
 }
 EOS
 
+# ,
+# {
+#   "name": "wp-data",
+#   "host": {
+#     "sourcePath": "/var/app/current/wp-data"
+#   }
+# }
+# ,
+# {
+#   "sourceVolume": "wp-data",
+#   "containerPath": "/var/www/html",
+#   "readOnly": true
+# }
 # ,
 # {
 #   "name": "wordpress",
@@ -162,7 +164,7 @@ cp Dockerrun.aws.json bundle/
 echo `ls` > ./index.html
 cd bundle
 mkdir wp-data
-cp ../index.html > wp-data/
+cp ../index.html wp-data/
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
