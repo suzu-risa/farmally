@@ -126,19 +126,19 @@ cat > Dockerrun.aws.json <<EOS | jq
         },
         {
           "name": "WORDPRESS_DB_HOST",
-          "value" "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com:3306"
+          "value": "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com:3306"
         },
         {
           "name": "WORDPRESS_DB_NAME",
-          "value" "wordpress_${RROFILE}"
+          "value": "wordpress_${RROFILE}"
         },
         {
           "name": "WORDPRESS_DB_USER",
-          "value" "${MYSQL_USERNAME}"
+          "value": "${MYSQL_USERNAME}"
         },
         {
           "name": "WORDPRESS_DB_PASSWORD",
-          "value" "${MYSQL_PASSWORD}"
+          "value": "${MYSQL_PASSWORD}"
         }
       ],
       "mountPoints": [
