@@ -10,7 +10,7 @@ export WP_NAME=farmally-wp
 REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
 WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:${CIRCLE_SHA1}"
 
-RAILS_ENV=PROFILE
+export RAILS_ENV=PROFILE
 MYSQL_USERNAME=`bin/rails r "print Rails.application.credentials[${PROFILE}.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`bin/rails r "print Rails.application.credentials[${PROFILE}.to_sym][:mysql_password]"`
 
@@ -44,7 +44,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "nginx-https-redirect",
       "image": "nginx",
       "essential": true,
-      "memory": 128,
+      "memory": 64,
       "portMappings": [
         {
           "hostPort": 81,
@@ -67,7 +67,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "farmally",
       "image": "${REPO}",
       "essential": true,
-      "memory": "512",
+      "memory": 512,
       "environment": [
         {
           "name": "RAILS_ENV",
@@ -119,7 +119,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "wordpress",
       "image": "${WP_REPO}",
       "essential": true,
-      "memory": 128,
+      "memory": 192,
       "environment": [
         {
           "name": "WORDPRESS_SUBDIRECTORY",
