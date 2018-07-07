@@ -13,10 +13,10 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      # - restore_cache:
-      #     keys:
-      #       - farmally-{{ checksum "Gemfile.lock" }}
-      #       - farmally
+      - restore_cache:
+          keys:
+            - farmally-{{ checksum "Gemfile.lock" }}
+            - farmally
       - run:
           name: Bundle install
           command: bundle check || bundle install
