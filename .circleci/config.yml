@@ -13,13 +13,13 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - restore_cache:
-          keys:
-            - farmally-{{ checksum "Gemfile.lock" }}
-            - farmally
+      # - restore_cache:
+      #     keys:
+      #       - farmally-{{ checksum "Gemfile.lock" }}
+      #       - farmally
       - run:
           name: Bundle install
-          command: bundle check || bundle install 
+          command: bundle check || bundle install
 
       - save_cache:
           key: farmally-{{ checksum "Gemfile.lock" }}
@@ -59,7 +59,7 @@ jobs:
           BUNDLE_PATH: vendor/bundle
     steps:
       - checkout
-      - setup_remote_docker 
+      - setup_remote_docker
       - run:
           name: Publish docker image
           command: ./bin/publish.sh
