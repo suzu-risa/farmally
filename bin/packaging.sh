@@ -10,6 +10,7 @@ export WP_NAME=farmally-wp
 REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
 WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:${CIRCLE_SHA1}"
 
+RAILS_ENV=PROFILE
 MYSQL_USERNAME=`bin/rails r "print Rails.application.credentials[${PROFILE}.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`bin/rails r "print Rails.application.credentials[${PROFILE}.to_sym][:mysql_password]"`
 
@@ -105,6 +106,11 @@ cat > Dockerrun.aws.json <<EOS | jq
         {
           "sourceVolume": "awseb-logs-nginx-proxy",
           "containerPath": "/var/log/nginx"
+        },
+        {
+          "sourceVolume": "wp-data",
+          "containerPath": "/var/www/html",
+          "readOnly": true
         }
       ]
     }
@@ -112,12 +118,6 @@ cat > Dockerrun.aws.json <<EOS | jq
 }
 EOS
 
-# ,
-# {
-#   "sourceVolume": "wp-data",
-#   "containerPath": "/var/www/html",
-#   "readOnly": true
-# }
 # ,
 # {
 #   "name": "wordpress",
