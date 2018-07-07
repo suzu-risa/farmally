@@ -94,8 +94,7 @@ cat > Dockerrun.aws.json <<EOS | jq
         }
       ],
       "links": [
-        "farmally",
-        "wordpress"
+        "farmally"
       ],
       "mountPoints": [
         {
@@ -135,7 +134,7 @@ EOS
 #     },
 #     {
 #       "name": "WORDPRESS_DB_NAME",
-#       "value": "wordpress_${RROFILE}"
+#       "value": "wordpress_${PROFILE}"
 #     },
 #     {
 #       "name": "WORDPRESS_DB_USER",
