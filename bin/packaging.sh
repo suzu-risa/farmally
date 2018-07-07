@@ -160,6 +160,7 @@ cp -r ./nginx ./bundle/nginx
 cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
 cd bundle
+mkdir wp-data
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
