@@ -30,6 +30,12 @@ cat > Dockerrun.aws.json <<EOS | jq
       "host": {
         "sourcePath": "/var/app/current/nginx-redirect"
       }
+    },
+    {
+      "name": "wp-data",
+      "host": {
+        "sourcePath": "/var/app/current/wp-data"
+      }
     }
   ],
   "containerDefinitions": [
@@ -106,13 +112,6 @@ cat > Dockerrun.aws.json <<EOS | jq
 }
 EOS
 
-# ,
-# {
-#   "name": "wp-data",
-#   "host": {
-#     "sourcePath": "/var/app/current/wp-data"
-#   }
-# }
 # ,
 # {
 #   "sourceVolume": "wp-data",
