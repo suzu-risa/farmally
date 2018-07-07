@@ -149,9 +149,10 @@ cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
 cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
+echo `ls` > file-list.txt
 cd bundle
 mkdir wp-data
-echo `ls` > wp-data/file-list.txt
+cp ../file-list.txt > wp-data/
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
