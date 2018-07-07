@@ -11,8 +11,8 @@ REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP
 WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:${CIRCLE_SHA1}"
 
 export RAILS_ENV=PROFILE
-MYSQL_USERNAME=`bin/rails r "print Rails.application.credentials[${PROFILE}.to_sym][:mysql_username]"`
-MYSQL_PASSWORD=`bin/rails r "print Rails.application.credentials[${PROFILE}.to_sym][:mysql_password]"`
+MYSQL_USERNAME=`bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
+MYSQL_PASSWORD=`bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
