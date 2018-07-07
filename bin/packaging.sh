@@ -113,46 +113,44 @@ cat > Dockerrun.aws.json <<EOS | jq
           "readOnly": true
         }
       ]
+    },
+    {
+      "name": "wordpress",
+      "image": "${WP_REPO}",
+      "essential": true,
+      "memory": 128,
+      "environment": [
+        {
+          "name": "WORDPRESS_SUBDIRECTORY",
+          "value": "blog"
+        },
+        {
+          "name": "WORDPRESS_DB_HOST",
+          "value": "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com:3306"
+        },
+        {
+          "name": "WORDPRESS_DB_NAME",
+          "value": "wordpress_${PROFILE}"
+        },
+        {
+          "name": "WORDPRESS_DB_USER",
+          "value": "${MYSQL_USERNAME}"
+        },
+        {
+          "name": "WORDPRESS_DB_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "wp-data",
+          "containerPath": "/var/www/html"
+        }
+      ]
     }
   ]
 }
 EOS
-
-# ,
-# {
-#   "name": "wordpress",
-#   "image": "${WP_REPO}",
-#   "essential": true,
-#   "memory": 256,
-#   "environment": [
-#     {
-#       "name": "WORDPRESS_SUBDIRECTORY",
-#       "value": "blog"
-#     },
-#     {
-#       "name": "WORDPRESS_DB_HOST",
-#       "value": "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com:3306"
-#     },
-#     {
-#       "name": "WORDPRESS_DB_NAME",
-#       "value": "wordpress_${PROFILE}"
-#     },
-#     {
-#       "name": "WORDPRESS_DB_USER",
-#       "value": "${MYSQL_USERNAME}"
-#     },
-#     {
-#       "name": "WORDPRESS_DB_PASSWORD",
-#       "value": "${MYSQL_PASSWORD}"
-#     }
-#   ],
-#   "mountPoints": [
-#     {
-#       "sourceVolume": "wp-data",
-#       "containerPath": "/var/www/html"
-#     }
-#   ]
-# }
 
 mkdir bundle
 chmod -R 777 bundle
@@ -160,10 +158,8 @@ cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
 cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
-echo `ls` > ./index.html
 cd bundle
 mkdir wp-data
-cp ../index.html wp-data/
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
