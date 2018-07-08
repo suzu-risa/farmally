@@ -16,7 +16,6 @@ MYSQL_USERNAME=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.
 MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
 touch info.txt
 echo `ls` >> info.txt
-echo `cat info2.txt` >> info.txt
 echo $RAILS_ENV >> info.txt
 echo `./bin/rails -v` >> info.txt
 echo `ls config/` >> info.txt
@@ -24,7 +23,11 @@ echo `ls bin/` >> info.txt
 echo `ruby -v` >> info.txt
 echo `ruby bin/rails -v` >> info.txt
 echo `ruby ./bin/rails -v` >> info.txt
-echo `bundle exec rails -v` >> info.txt
+echo `bundle exec rails r "puts Rails"` >> info.txt
+echo `bundle exec rails r "puts Rails.application"` >> info.txt
+echo `bundle exec rails r "puts Rails.application.credentials"` >> info.txt
+echo `bundle exec rails r "puts Rails.application.credentials[:staging]"` >> info.txt
+echo `bundle exec rails r "puts 'hoge'"` >> info.txt
 echo $MYSQL_USERNAME >> info.txt
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
