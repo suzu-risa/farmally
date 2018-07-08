@@ -17,21 +17,6 @@ echo "BUNDLE_PATH: \"vendor/bundle\"" >> .bundle/config
 export RAILS_ENV=$PROFILE
 MYSQL_USERNAME=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
-touch info.txt
-echo `ls` >> info.txt
-echo $RAILS_ENV >> info.txt
-echo `./bin/rails -v` >> info.txt
-echo `ls config/` >> info.txt
-echo `ls bin/` >> info.txt
-echo `ruby -v` >> info.txt
-echo `ruby bin/rails -v` >> info.txt
-echo `ruby ./bin/rails -v` >> info.txt
-echo `bundle exec rails r "puts Rails"` >> info.txt
-echo `bundle exec rails r "puts Rails.application"` >> info.txt
-echo `bundle exec rails r "puts Rails.application.credentials"` >> info.txt
-echo `bundle exec rails r "puts Rails.application.credentials[:staging]"` >> info.txt
-echo `bundle exec rails r "puts 'hoge'"` >> info.txt
-echo $MYSQL_USERNAME >> info.txt
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
@@ -178,7 +163,6 @@ cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
 cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
-cp info.txt bundle/
 cd bundle
 mkdir wp-data
 zip -r build.zip .
