@@ -14,12 +14,16 @@ export RAILS_ENV=$PROFILE
 MYSQL_USERNAME=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
 touch info.txt
+echo `ls` >> info.txt
+echo `cat info2.txt` >> info.txt
 echo $RAILS_ENV >> info.txt
 echo `./bin/rails -v` >> info.txt
 echo `ls config/` >> info.txt
+echo `ls bin/` >> info.txt
 echo `ruby -v` >> info.txt
 echo `ruby bin/rails -v` >> info.txt
 echo `ruby ./bin/rails -v` >> info.txt
+echo `bundle exec rails -v` >> info.txt
 echo $MYSQL_USERNAME >> info.txt
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
