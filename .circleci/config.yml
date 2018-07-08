@@ -64,9 +64,6 @@ jobs:
           name: Publish docker image
           command: ./bin/publish.sh
       - run:
-          name: hoge
-          command: bundle exec rails r "print Rails.application.credentials[:staging][:mysql_password]" > info2.txt
-      - run:
           name: Packaging eb artifact
           command: ./bin/packaging.sh prod
       - run:
