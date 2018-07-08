@@ -13,6 +13,10 @@ WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME
 export RAILS_ENV=$PROFILE
 MYSQL_USERNAME=`bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
+touch info.txt
+echo $RAILS_ENV >> info.txt
+echo `bin/rails -v` >> info.txt
+echo `ls config/` >> info.txt
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
@@ -159,6 +163,7 @@ cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
 cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
+cp info.txt bundle/
 cd bundle
 mkdir wp-data
 zip -r build.zip .
