@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def show
     @items = Item.all
-    @category = Category.find_by(code: params[:category_code])
+    @category = Category.find_by(code: params[:code])
     @title = @category.name
     @breadcrumb = [
       {

@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :categories
+    resources :categories, param: :code
     resources :items
-    resources :makers
+    resources :makers, param: :code
 
     post '/import', to: 'home#import'
     root to: 'home#index'
   end
 
-  resources :categories, param: :category_code, only: :show
-  resources :makers, param: :maker_code, only: :show
+  resources :categories, param: :code, only: :show
+  resources :makers, param: :code, only: :show
   resources :items, only: :show
 
   get '/search' => 'home#search'

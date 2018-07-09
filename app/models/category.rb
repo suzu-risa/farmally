@@ -5,6 +5,6 @@ class Category < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   def to_param
-    category_code
+    code
   end
 end

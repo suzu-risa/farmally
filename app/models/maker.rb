@@ -5,6 +5,6 @@ class Maker < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   def to_param
-    maker_code
+    code
   end
 end
