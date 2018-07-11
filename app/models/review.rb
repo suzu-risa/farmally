@@ -3,7 +3,7 @@ class Review < ApplicationRecord
 
   belongs_to :item
 
-  validates :content, length: { maximum: 10_000 }
+  validates :content, length: { minimum: 1, maximum: 10_000 }
 
   enum status: {
     unselected: 0,

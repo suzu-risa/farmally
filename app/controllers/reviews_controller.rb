@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     Review.create!(review_params)
-    # TODO: リダイレクト先変える
-    redirect_to root_path
+    redirect_to item_path(review_params[:item_id])
   end
 
   private
