@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categories, param: :code, only: :show
   resources :makers, param: :code, only: :show
   resources :items, only: :show
+  resources :reviews, only: :create
 
   get '/search' => 'home#search'
   get '/terms-of-service', to: 'home#terms'

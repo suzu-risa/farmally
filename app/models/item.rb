@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   belongs_to :maker
   belongs_to :category
 
+  has_many :reviews
+
   validates :maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :used_price, numericality: { only_integer: true }, allow_nil: true
   validates :model, length: { maximum: 255 }

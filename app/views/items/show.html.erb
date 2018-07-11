@@ -62,6 +62,32 @@
         </div>
       </div>
     </div>
+    <div class="columns is-centered">
+      <%= form_with(model: @item.reviews.build, local: true) do |form| %>
+        <div class="field">
+          <%= form.label :content %>
+          <%= form.text_field :content %>
+        </div>
+        <div class="field">
+          <%= form.label :star %>
+          <%= form.text_field :star %>
+        </div>
+        <div class="field">
+          <%= form.label :status %>
+          <%= form.text_field :status %>
+        </div>
+        <div class="field">
+          <%= form.label :purchase_price %>
+          <%= form.number_field :purchase_price %>
+        </div>
+        <div class="field">
+          <%= form.label :picture %>
+          <%= form.file_field :picture %>
+        </div>
+        <%= form.hidden_field :item_id %>
+        <%= form.submit %>
+      <% end %>
+    </div>
   </div>
   <br/>
   <br/>
