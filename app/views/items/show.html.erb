@@ -63,6 +63,21 @@
       </div>
     </div>
     <div class="columns is-centered">
+      <div class="content">
+        <% @item.reviews.each do |review| %>
+          <p><%= review.star %></p>
+          <p><%= review.status %></p>
+          <p><%= review.purchase_price %></p>
+          <% if review.picture.attached? %>
+            <div class="review-picture" style="background-image: url('<%= url_for(review.picture) %>');"></div>
+          <% else %>
+            <div class="review-picture"></div>
+          <% end %>
+          <p><%= review.content.blank? ? '-' : review.content %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="columns is-centered">
       <%= form_with(model: @item.reviews.build, local: true) do |form| %>
         <div class="field">
           <%= form.label :content %>
