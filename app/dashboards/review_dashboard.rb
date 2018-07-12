@@ -16,7 +16,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     star: Field::String.with_options(searchable: false),
     status: Field::String.with_options(searchable: false),
     purchase_price: Field::Number,
-    approved: Field::Boolean,
+    approved: Field::Boolean
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,8 +27,12 @@ class ReviewDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     # :picture_attachment,
     # :picture_blob,
-    :item,
     :id,
+    :item,
+    :star,
+    :status,
+    :purchase_price,
+    :approved
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,13 +40,13 @@ class ReviewDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     # :picture_attachment,
     # :picture_blob,
-    :item,
     :id,
+    :item,
     :content,
     :star,
     :status,
     :purchase_price,
-    :approved,
+    :approved
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,12 +55,12 @@ class ReviewDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     # :picture_attachment,
     # :picture_blob,
-    :item,
-    :content,
-    :star,
-    :status,
-    :purchase_price,
-    :approved,
+    # :item,
+    # :content,
+    # :star,
+    # :status,
+    # :purchase_price,
+    :approved
   ].freeze
 
   # Overwrite this method to customize how reviews are displayed
