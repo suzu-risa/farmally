@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :content, null: false
       t.integer :star, null: false, default: 0
       t.integer :status, null: false, default: 0
-      t.integer :purchase_price, null: false, default: 0
+      t.integer :purchase_price
       t.boolean :approved, null: false, default: false
     end
   end

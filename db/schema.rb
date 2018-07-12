@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2018_07_10_150334) do
     t.text "content", null: false
     t.integer "star", default: 0, null: false
     t.integer "status", default: 0, null: false
-    t.integer "purchase_price", default: 0, null: false
+    t.integer "purchase_price"
     t.boolean "approved", default: false, null: false
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
