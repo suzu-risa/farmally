@@ -5,6 +5,7 @@ ja:
       category: 種類
       maker: メーカー
       item: 商品
+      review: 口コミ
     attributes:
       category:
         name: 名前
@@ -21,6 +22,13 @@ ja:
         weight: 重量
         category: 種類
         maker: メーカー
+      review:
+        star: 評価
+        status: ステータス
+        purchase_price: 購入金額
+        approved: 承認
+        content: 内容
+        picture: 添付画像
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -165,6 +173,15 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    label:
+      review:
+        content: 内容
+        item: 商品
+        picture: 添付画像
+        star: 評価
+        status: ステータス
+        purchase_price: 購入金額
+        approved: 承認
   number:
     currency:
       format:
