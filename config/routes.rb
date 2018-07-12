@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :categories, param: :code
     resources :items
     resources :makers, param: :code
+    resources :reviews
 
     post '/import', to: 'home#import'
     root to: 'home#index'
