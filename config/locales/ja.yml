@@ -174,6 +174,27 @@ ja:
       submit: 保存する
       update: 更新する
     label:
+      category:
+        name: 名前
+        code: コード
+        created_at: 作成日時
+        updated_at: 更新日時
+      maker:
+        name: 名前
+        code: コード
+        created_at: 作成日時
+        updated_at: 更新日時
+      item:
+        category: 種類
+        maker: メーカー
+        model: 型式
+        maker_price: メーカー希望小売価格
+        used_price: ファーマリー中古価格
+        horse_power: 馬力
+        size: 大きさ
+        weight: 重量
+        created_at: 作成日時
+        updated_at: 更新日時
       review:
         content: 内容
         item: 商品
@@ -182,6 +203,8 @@ ja:
         status: ステータス
         purchase_price: 購入金額
         approved: 承認
+        created_at: 作成日時
+        updated_at: 更新日時
   number:
     currency:
       format:
