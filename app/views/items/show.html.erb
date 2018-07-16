@@ -84,12 +84,10 @@
           <%= form.text_field :content %>
         </div>
         <div class="field">
-          <%= form.label :star %>
-          <%= form.text_field :star %>
+          <%= form.select :star, [['未選択', 'unselected'], ['★', 'very_bad'], ['★★', 'bad'], ['★★★', 'normal'], ['★★★★', 'good'], ['★★★★★', 'very_good']] %>
         </div>
         <div class="field">
-          <%= form.label :status %>
-          <%= form.text_field :status %>
+          <%= form.select :status, [['未選択', 'unselected'], ['新品', 'new'], ['中古', 'used']] %>
         </div>
         <div class="field">
           <%= form.label :purchase_price %>
