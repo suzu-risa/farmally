@@ -13,3 +13,15 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  var deleteButton = document.getElementsByClassName("delete")[0];
+  if (deleteButton) {
+    deleteButton.addEventListener("click", function() {
+      var notificationElem = document.getElementsByClassName("notification")[0];
+      if (notificationElem) {
+        notificationElem.parentNode.removeChild(notificationElem);
+      }
+    });
+  }
+});

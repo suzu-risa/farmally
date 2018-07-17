@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @reviews = Review.where(item: @item, approved: true)
+    @review = @item.reviews.build
     @title = @item.model
     @breadcrumb = [
       {

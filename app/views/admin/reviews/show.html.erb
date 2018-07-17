@@ -34,13 +34,16 @@ as well as a link to its edit page.
 
 <section class="main-content__body">
   <dl>
-    <dt class="attribute-label" id="picture">
-      <%= t(
-        "helpers.label.#{resource_name}.picture",
-        default: 'picture'.titleize,
-      ) %>
-    </dt>
-    <dd class="attribute-data"><%= image_tag page.resource.picture %></dd>
+    <% if page.resource.picture.attached? %>
+      <dt class="attribute-label" id="picture">
+        <%= t(
+          "helpers.label.#{resource_name}.picture",
+          default: 'picture'.titleize,
+        ) %>
+      </dt>
+      <dd class="attribute-data"><%= image_tag page.resource.picture %></dd>
+    <% end %>
+
     <% page.attributes.each do |attribute| %>
       <dt class="attribute-label" id="<%= attribute.name %>">
       <%= t(
