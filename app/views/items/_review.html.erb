@@ -1,0 +1,11 @@
+<div class="review">
+  <p><%= review.star %></p>
+  <p><%= review.status %></p>
+  <p><%= review.purchase_price %></p>
+  <% if review.picture.attached? %>
+    <div class="review-picture" style="background-image: url('<%= url_for(review.picture) %>');"></div>
+  <% else %>
+    <div class="review-picture"></div>
+  <% end %>
+  <p><%= review.content.blank? ? '-' : review.content %></p>
+</div>
