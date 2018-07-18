@@ -4,6 +4,7 @@ class Review < ApplicationRecord
   belongs_to :item
 
   validates :content, length: { minimum: 1, maximum: 10_000 }
+  validates :purchase_price, numericality: { greater_than_or_equal_to: 0, allow_blank: true }
 
   enum status: {
     unselected: 0,

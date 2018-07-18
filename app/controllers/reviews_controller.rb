@@ -1,11 +1,10 @@
 class ReviewsController < ApplicationController
   def create
     Review.create!(review_params)
-    redirect_to item_path(review_params[:item_id]), flash: { success: 'レビューを投稿しました' }
+    redirect_to item_path(review_params[:item_id]), flash: { success: 'レビューを投稿しました。承認されるまでお待ちください' }
   rescue ActiveRecord::RecordInvalid => e
     @item = Item.find(review_params[:item_id])
-    # TODO: 入力した内容を復元する
-    @review = @item.reviews.build
+    @review = e.record
     @reviews = Review.where(item: @item, approved: true)
     @title = @item.model
     @breadcrumb = [
@@ -26,8 +25,7 @@ class ReviewsController < ApplicationController
         path: "/items/#{@item.id}"
       }
     ]
-    # TODO: エラーメッセージ変更
-    flash[:danger] = 'エラーが発生しました'
+    flash.now[:danger] = e.record.errors.full_messages.join('<br />').html_safe
     render template: 'items/show', status: :unprocessable_entity
   end
 
