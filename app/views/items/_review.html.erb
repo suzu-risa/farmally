@@ -1,11 +1,25 @@
-<div class="review">
-  <p><%= review.star %></p>
-  <p><%= review.status %></p>
-  <p><%= review.purchase_price %></p>
-  <% if review.picture.attached? %>
-    <div class="review-picture" style="background-image: url('<%= url_for(review.picture) %>');"></div>
-  <% else %>
-    <div class="review-picture"></div>
-  <% end %>
-  <p><%= review.content.blank? ? '-' : review.content %></p>
-</div>
+<article class="media review">
+  <figure class="media-left">
+    <% if review.picture.attached? %>
+      <div class="review-picture" style="background-image: url('<%= url_for(review.picture) %>');"></div>
+    <% else %>
+      <div class="review-picture"></div>
+    <% end %>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <% unless review.status_unselected? %>
+        <p><%= '★' * review.star_before_type_cast %></p>
+      <% else %>
+        <p>評価なし</p>
+      <% end %>
+      <% unless review.status_unselected? %>
+        <p><%= review.status_new? ? '新品' : '中古' %></p>
+      <% end %>
+      <% if review.purchase_price.present? %>
+        <p>購入金額 <%= review.purchase_price %>円</p>
+      <% end %>
+      <p><%= review.content.blank? ? '-' : simple_format(h(review.content)) %></p>
+    </div>
+  </div>
+</article>

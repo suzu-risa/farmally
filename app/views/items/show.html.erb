@@ -64,8 +64,13 @@
     </div>
     <div class="columns is-centered">
       <div class="content">
-        <% @reviews.each do |review| %>
-          <%= render partial: 'items/review', locals:{ review: review } %>
+        <h2 class="title is-4 has-text-centered">口コミ</h2>
+        <% if @reviews.present? %>
+          <% @reviews.each do |review| %>
+            <%= render partial: 'items/review', locals:{ review: review } %>
+          <% end %>
+        <% else %>
+          <p>まだ口コミはありません</p>
         <% end %>
       </div>
     </div>
