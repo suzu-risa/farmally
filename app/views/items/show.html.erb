@@ -77,28 +77,34 @@
     <div class="columns is-centered">
       <%= form_with(model: @review, local: true) do |form| %>
         <div class="field">
-          <%= form.label :content %>
-          <%= form.text_field :content %>
+          <%= form.label :content, class: 'label' %>
+          <%= form.text_area :content, class: 'textarea' %>
         </div>
         <div class="field">
-          <%= form.select :star, [['未選択', 'unselected'], ['★', 'very_bad'], ['★★', 'bad'], ['★★★', 'normal'], ['★★★★', 'good'], ['★★★★★', 'very_good']] %>
+          <%= form.label :star, class: 'label' %>
+          <div class="select">
+            <%= form.select :star, [['未選択', 'unselected'], ['★', 'very_bad'], ['★★', 'bad'], ['★★★', 'normal'], ['★★★★', 'good'], ['★★★★★', 'very_good']] %>
+          </div>
         </div>
         <div class="field">
-          <%= form.select :status, [['未選択', 'unselected'], ['新品', 'new'], ['中古', 'used']] %>
+          <%= form.label :status, class: 'label' %>
+          <div class="select">
+            <%= form.select :status, [['未選択', 'unselected'], ['新品', 'new'], ['中古', 'used']] %>
+          </div>
         </div>
         <div class="field">
-          <%= form.label :purchase_price %>
-          <%= form.number_field :purchase_price %>
+          <%= form.label :purchase_price, class: 'label' %>
+          <%= form.number_field :purchase_price, class: 'input' %>
         </div>
         <div class="field">
-          <%= form.label :picture %>
-          <%= form.file_field :picture %>
+          <%= form.label :picture, class: 'label' %>
+          <%= form.file_field :picture, class: 'file' %>
         </div>
         <%= form.hidden_field :item_id %>
-        <%= form.submit %>
+        <div class="control">
+          <%= form.submit '口コミを投稿する', class: 'button is-primary' %>
+        </div>
       <% end %>
     </div>
   </div>
-  <br/>
-  <br/>
 </section>

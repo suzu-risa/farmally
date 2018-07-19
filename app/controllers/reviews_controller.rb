@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     Review.create!(review_params)
-    redirect_to item_path(review_params[:item_id]), flash: { success: 'レビューを投稿しました。承認されるまでお待ちください' }
+    redirect_to item_path(review_params[:item_id]), flash: { success: '口コミを投稿しました。承認されるまでお待ちください' }
   rescue ActiveRecord::RecordInvalid => e
     @item = Item.find(review_params[:item_id])
     @review = e.record

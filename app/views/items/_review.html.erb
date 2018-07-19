@@ -8,7 +8,7 @@
   </figure>
   <div class="media-content">
     <div class="content">
-      <% unless review.status_unselected? %>
+      <% unless review.star_unselected? %>
         <p><%= '★' * review.star_before_type_cast %></p>
       <% else %>
         <p>評価なし</p>
