@@ -62,7 +62,49 @@
         </div>
       </div>
     </div>
+    <div class="columns is-centered">
+      <div class="content">
+        <h2 class="title is-4 has-text-centered">口コミ</h2>
+        <% if @reviews.present? %>
+          <% @reviews.each do |review| %>
+            <%= render partial: 'items/review', locals:{ review: review } %>
+          <% end %>
+        <% else %>
+          <p>まだ口コミはありません</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <%= form_with(model: @review, local: true) do |form| %>
+        <div class="field">
+          <%= form.label :content, class: 'label' %>
+          <%= form.text_area :content, class: 'textarea' %>
+        </div>
+        <div class="field">
+          <%= form.label :star, class: 'label' %>
+          <div class="select">
+            <%= form.select :star, [['未選択', 'unselected'], ['★', 'very_bad'], ['★★', 'bad'], ['★★★', 'normal'], ['★★★★', 'good'], ['★★★★★', 'very_good']] %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :status, class: 'label' %>
+          <div class="select">
+            <%= form.select :status, [['未選択', 'unselected'], ['新品', 'new'], ['中古', 'used']] %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :purchase_price, class: 'label' %>
+          <%= form.number_field :purchase_price, class: 'input' %>
+        </div>
+        <div class="field">
+          <%= form.label :picture, class: 'label' %>
+          <%= form.file_field :picture, class: 'file' %>
+        </div>
+        <%= form.hidden_field :item_id %>
+        <div class="control">
+          <%= form.submit '口コミを投稿する', class: 'button is-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <br/>
-  <br/>
 </section>

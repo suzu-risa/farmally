@@ -15,4 +15,10 @@
       </div>
     </header>
   </div>
+  <% if flash.present? %>
+    <div class="notification is-<%= flash.first[0] %>">
+      <button class="delete"></button>
+      <p><%= flash.first[1] %></p>
+    </div>
+  <% end %>
 </section>

@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   def search
     @category = Category.find_by(code: params[:category])
     @maker = Maker.find_by(code: params[:maker])
-    @items = Item.where(category_id: @category.id, maker_id: @maker.id).all
+    @items = Item.where(category_id: @category.id, maker_id: @maker.id)
+    @title = "#{@category.name} / #{@maker.name}"
     @breadcrumb = [
       {
         name: 'トップ',

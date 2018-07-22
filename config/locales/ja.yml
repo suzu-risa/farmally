@@ -5,6 +5,7 @@ ja:
       category: 種類
       maker: メーカー
       item: 商品
+      review: 口コミ
     attributes:
       category:
         name: 名前
@@ -21,6 +22,13 @@ ja:
         weight: 重量
         category: 種類
         maker: メーカー
+      review:
+        star: 評価
+        status: ステータス
+        purchase_price: 購入金額
+        approved: 承認
+        content: 内容
+        picture: 添付画像
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -165,6 +173,38 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    label:
+      category:
+        name: 名前
+        code: コード
+        created_at: 作成日時
+        updated_at: 更新日時
+      maker:
+        name: 名前
+        code: コード
+        created_at: 作成日時
+        updated_at: 更新日時
+      item:
+        category: 種類
+        maker: メーカー
+        model: 型式
+        maker_price: メーカー希望小売価格
+        used_price: ファーマリー中古価格
+        horse_power: 馬力
+        size: 大きさ
+        weight: 重量
+        created_at: 作成日時
+        updated_at: 更新日時
+      review:
+        content: 内容
+        item: 商品
+        picture: 添付画像
+        star: 評価
+        status: ステータス
+        purchase_price: 購入金額
+        approved: 承認
+        created_at: 作成日時
+        updated_at: 更新日時
   number:
     currency:
       format:
