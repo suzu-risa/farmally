@@ -13,12 +13,6 @@
       <% else %>
         <p>評価なし</p>
       <% end %>
-      <% unless review.status_unselected? %>
-        <p><%= review.status_new? ? '新品' : '中古' %></p>
-      <% end %>
-      <% if review.purchase_price.present? %>
-        <p>購入金額 <%= review.purchase_price %>円</p>
-      <% end %>
       <p><%= review.content.blank? ? '-' : simple_format(h(review.content)) %></p>
     </div>
   </div>

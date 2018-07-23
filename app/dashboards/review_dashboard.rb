@@ -14,8 +14,6 @@ class ReviewDashboard < Administrate::BaseDashboard
     id: Field::Number,
     content: Field::Text,
     star: Field::String.with_options(searchable: false),
-    status: Field::String.with_options(searchable: false),
-    purchase_price: Field::Number,
     approved: Field::Boolean
   }.freeze
 
@@ -30,8 +28,6 @@ class ReviewDashboard < Administrate::BaseDashboard
     :id,
     :item,
     :star,
-    :status,
-    :purchase_price,
     :approved
   ].freeze
 
@@ -44,8 +40,6 @@ class ReviewDashboard < Administrate::BaseDashboard
     :item,
     :content,
     :star,
-    :status,
-    :purchase_price,
     :approved
   ].freeze
 

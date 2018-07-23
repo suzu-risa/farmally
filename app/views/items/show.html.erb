@@ -87,16 +87,6 @@
           </div>
         </div>
         <div class="field">
-          <%= form.label :status, class: 'label' %>
-          <div class="select">
-            <%= form.select :status, [['未選択', 'unselected'], ['新品', 'new'], ['中古', 'used']] %>
-          </div>
-        </div>
-        <div class="field">
-          <%= form.label :purchase_price, class: 'label' %>
-          <%= form.number_field :purchase_price, class: 'input' %>
-        </div>
-        <div class="field">
           <%= form.label :picture, class: 'label' %>
           <%= form.file_field :picture, class: 'file' %>
         </div>

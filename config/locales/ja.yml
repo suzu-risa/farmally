@@ -24,8 +24,6 @@ ja:
         maker: メーカー
       review:
         star: 評価
-        status: ステータス
-        purchase_price: 購入金額
         approved: 承認
         content: 内容
         picture: 添付画像
@@ -200,8 +198,6 @@ ja:
         item: 商品
         picture: 添付画像
         star: 評価
-        status: ステータス
-        purchase_price: 購入金額
         approved: 承認
         created_at: 作成日時
         updated_at: 更新日時
