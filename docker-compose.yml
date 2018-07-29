@@ -10,10 +10,10 @@ services:
     links:
       - farmally
       - wordpress
-  nginx-redirect:
-    image: nginx
-    volumes:
-      - ./nginx-redirect:/etc/nginx/conf.d
+  # nginx-redirect:
+  #   image: nginx
+  #   volumes:
+  #     - ./nginx-redirect:/etc/nginx/conf.d
   farmally:
     build: .
     command: /bin/sh -c "rm -f /farmally/tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
