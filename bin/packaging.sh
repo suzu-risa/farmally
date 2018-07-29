@@ -32,12 +32,6 @@ cat > Dockerrun.aws.json <<EOS | jq
       }
     },
     {
-      "name": "nginx-redirect-conf",
-      "host": {
-        "sourcePath": "/var/app/current/nginx-redirect"
-      }
-    },
-    {
       "name": "wp-data",
       "host": {
         "sourcePath": "/efs"
@@ -45,29 +39,6 @@ cat > Dockerrun.aws.json <<EOS | jq
     }
   ],
   "containerDefinitions": [
-    {
-      "name": "nginx-https-redirect",
-      "image": "nginx",
-      "essential": true,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 81,
-          "containerPort": 80
-        }
-      ],
-      "mountPoints": [
-        {
-          "sourceVolume": "nginx-redirect-conf",
-          "containerPath": "/etc/nginx/conf.d",
-          "readOnly": true
-        },
-        {
-          "sourceVolume": "awseb-logs-nginx-proxy",
-          "containerPath": "/var/log/nginx"
-        }
-      ]
-    },
     {
       "name": "farmally",
       "image": "${REPO}",
@@ -92,7 +63,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "nginx-proxy",
       "image": "nginx",
       "essential": true,
-      "memory": 64,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
@@ -124,7 +95,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "wordpress",
       "image": "${WP_REPO}",
       "essential": true,
-      "memory": 192,
+      "memory": 256,
       "environment": [
         {
           "name": "WORDPRESS_SUBDIRECTORY",
@@ -162,10 +133,10 @@ mkdir bundle
 chmod -R 777 bundle
 cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
-cp -r ./nginx-redirect ./bundle/nginx-redirect
+# cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
 cd bundle
-mkdir wp-data
+# mkdir wp-data
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
