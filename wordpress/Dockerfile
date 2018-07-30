@@ -53,6 +53,9 @@ RUN set -ex; \
     rm wordpress.tar.gz; \
     chown -R www-data:www-data /usr/src/wordpress
 
+# https configuration
+RUN sed -i "2i\$_SERVER['HTTPS'] = 'on';\n\$_ENV['HTTPS'] = 'on';\n" /usr/src/wordpress/wp-config.php
+
 COPY docker-entrypoint.sh /usr/local/bin/
 
 # install plugins
