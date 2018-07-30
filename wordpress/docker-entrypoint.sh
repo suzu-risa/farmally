@@ -77,6 +77,8 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 			EOF
 			chown "$user:$group" .htaccess
 		fi
+		# custom configuration
+		sed -i "2i\$_SERVER['HTTPS'] = 'on';\n\$_ENV['HTTPS'] = 'on';\n" wp-config.php
 	fi
 
 	# TODO handle WordPress upgrades magically in the same way, but only if wp-includes/version.php's $wp_version is less than /usr/src/wordpress/wp-includes/version.php's $wp_version
