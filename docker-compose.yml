@@ -4,14 +4,16 @@ services:
     image: nginx
     volumes:
       - ./nginx:/etc/nginx/conf.d
+      - wp-data:/var/www/html
     ports:
       - "80:80"
     links:
       - farmally
-  nginx-redirect:
-    image: nginx
-    volumes:
-      - ./nginx-redirect:/etc/nginx/conf.d
+      - wordpress
+  # nginx-redirect:
+  #   image: nginx
+  #   volumes:
+  #     - ./nginx-redirect:/etc/nginx/conf.d
   farmally:
     build: .
     command: /bin/sh -c "rm -f /farmally/tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
@@ -34,8 +36,22 @@ services:
       - mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
+  wordpress:
+    build: ./wordpress
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_SUBDIRECTORY: blog
+      WORDPRESS_DB_HOST: "db:3306"
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: ''
+    volumes:
+      - wp-data:/var/www/html
 volumes:
   mysql-data:
     driver: local
   bundle_install:
+    driver: local
+  wp-data:
     driver: local

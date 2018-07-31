@@ -1,3 +1,6 @@
+branch-defaults:
+  develop:
+    environment: farmally-staging
 global:
   application_name: farmally
   default_ec2_keyname: null
