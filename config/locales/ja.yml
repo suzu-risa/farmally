@@ -27,6 +27,7 @@ ja:
         approved: 承認
         content: 内容
         picture: 添付画像
+        like_count: いいね
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -199,6 +200,7 @@ ja:
         picture: 添付画像
         star: 評価
         approved: 承認
+        like_count: いいね
         created_at: 作成日時
         updated_at: 更新日時
   number:

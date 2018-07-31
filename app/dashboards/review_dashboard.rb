@@ -14,6 +14,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     id: Field::Number,
     content: Field::Text,
     star: Field::String.with_options(searchable: false),
+    like_count: Field::Number,
     approved: Field::Boolean
   }.freeze
 
@@ -28,6 +29,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     :id,
     :item,
     :star,
+    :like_count,
     :approved
   ].freeze
 
@@ -40,6 +42,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     :item,
     :content,
     :star,
+    :like_count,
     :approved
   ].freeze
 
