@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   has_one_attached :picture
 
+  has_many :review_comments
+
   belongs_to :item
 
   validates :content, length: { minimum: 1, maximum: 10_000 }

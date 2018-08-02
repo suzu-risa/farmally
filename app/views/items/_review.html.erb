@@ -15,6 +15,9 @@
       <% end %>
       <p><%= review.content.blank? ? '-' : simple_format(h(review.content)) %></p>
       <p><%= review.like_count %>いいね</p>
+      <% review.review_comments.each do |comment| %>
+        <%= render partial: 'items/review_comment', locals:{ comment: comment } %>
+      <% end %>
     </div>
   </div>
 </article>
