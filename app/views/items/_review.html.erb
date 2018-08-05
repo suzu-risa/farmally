@@ -23,7 +23,9 @@
         <% end %>
       </div>
       <% review.review_comments.each do |comment| %>
-        <%= render partial: 'items/review_comment', locals:{ comment: comment } %>
+        <% if comment.approved %>
+          <%= render partial: 'items/review_comment', locals:{ comment: comment } %>
+        <% end %>
       <% end %>
       <div class="columns is-centered">
         <%= form_with(model: review.review_comments.build, local: true) do |form| %>

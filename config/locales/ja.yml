@@ -31,6 +31,7 @@ ja:
         like_count: いいね
       review_comment:
         content: 内容
+        approved: 承認
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -208,6 +209,7 @@ ja:
         updated_at: 更新日時
       review_comment:
         content: 内容
+        approved: 承認
         created_at: 作成日時
         updated_at: 更新日時
   number:

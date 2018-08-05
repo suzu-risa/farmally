@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :items
     resources :makers, param: :code
     resources :reviews
+    resources :review_comments
 
     post '/import', to: 'home#import'
     root to: 'home#index'
