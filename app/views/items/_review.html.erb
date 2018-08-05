@@ -15,6 +15,13 @@
       <% end %>
       <p><%= review.content.blank? ? '-' : simple_format(h(review.content)) %></p>
       <p><%= review.like_count %>いいね</p>
+      <div class="columns is-centered">
+        <%= form_with(url: likes_review_path(review), local: true) do |form| %>
+          <div class="control">
+            <%= form.submit 'いいねする', class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
       <% review.review_comments.each do |comment| %>
         <%= render partial: 'items/review_comment', locals:{ comment: comment } %>
       <% end %>

@@ -29,6 +29,12 @@ class ReviewsController < ApplicationController
     render template: 'items/show', status: :unprocessable_entity
   end
 
+  def likes
+    review = Review.find(params[:id])
+    review.increment!(:like_count)
+    redirect_to item_path(review.item_id), flash: { success: 'いいねしました' }
+  end
+
   private
 
   def review_params
