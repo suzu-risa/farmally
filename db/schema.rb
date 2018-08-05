@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_10_150334) do
+ActiveRecord::Schema.define(version: 2018_08_05_130035) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -60,15 +60,31 @@ ActiveRecord::Schema.define(version: 2018_07_10_150334) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "review_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.bigint "review_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "approved", default: false, null: false
+    t.index ["review_id"], name: "index_review_comments_on_review_id"
+  end
+
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "item_id"
     t.text "content", null: false
     t.integer "star", default: 0, null: false
-    t.integer "status", default: 0, null: false
-    t.integer "purchase_price"
     t.boolean "approved", default: false, null: false
+    t.integer "like_count", default: 0, null: false
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
+  create_table "twenty_four_hours_run", id: :integer, unsigned: true, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.integer "order", null: false
+    t.string "name", default: "", null: false
+    t.time "lap_time", null: false
+    t.time "elapsed_time", null: false
+  end
+
+  add_foreign_key "review_comments", "reviews"
   add_foreign_key "reviews", "items"
 end

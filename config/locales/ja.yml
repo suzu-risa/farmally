@@ -6,6 +6,7 @@ ja:
       maker: メーカー
       item: 商品
       review: 口コミ
+      review_comment: コメント
     attributes:
       category:
         name: 名前
@@ -24,11 +25,13 @@ ja:
         maker: メーカー
       review:
         star: 評価
-        status: ステータス
-        purchase_price: 購入金額
         approved: 承認
         content: 内容
         picture: 添付画像
+        like_count: いいね
+      review_comment:
+        content: 内容
+        approved: 承認
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -200,8 +203,12 @@ ja:
         item: 商品
         picture: 添付画像
         star: 評価
-        status: ステータス
-        purchase_price: 購入金額
+        approved: 承認
+        like_count: いいね
+        created_at: 作成日時
+        updated_at: 更新日時
+      review_comment:
+        content: 内容
         approved: 承認
         created_at: 作成日時
         updated_at: 更新日時

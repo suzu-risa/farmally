@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ReviewDashboard < Administrate::BaseDashboard
+class ReviewCommentDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,13 +8,11 @@ class ReviewDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    # picture_attachment: Field::HasOne,
-    # picture_blob: Field::HasOne,
-    item: Field::BelongsTo,
+    review: Field::BelongsTo,
     id: Field::Number,
     content: Field::Text,
-    star: Field::String.with_options(searchable: false),
-    like_count: Field::Number,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
     approved: Field::Boolean
   }.freeze
 
@@ -24,46 +22,33 @@ class ReviewDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    # :picture_attachment,
-    # :picture_blob,
     :id,
-    :item,
-    :star,
-    :like_count,
+    :review,
     :approved
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    # :picture_attachment,
-    # :picture_blob,
     :id,
-    :item,
+    :review,
     :content,
-    :star,
-    :like_count,
-    :approved
+    :approved,
+    :created_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    # :picture_attachment,
-    # :picture_blob,
-    # :item,
-    # :content,
-    # :star,
-    # :status,
-    # :purchase_price,
     :approved
   ].freeze
 
-  # Overwrite this method to customize how reviews are displayed
+  # Overwrite this method to customize how review comments are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(review)
-  #   "Review ##{review.id}"
+  # def display_resource(review_comment)
+  #   "ReviewComment ##{review_comment.id}"
   # end
 end

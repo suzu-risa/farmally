@@ -13,13 +13,32 @@
       <% else %>
         <p>評価なし</p>
       <% end %>
-      <% unless review.status_unselected? %>
-        <p><%= review.status_new? ? '新品' : '中古' %></p>
-      <% end %>
-      <% if review.purchase_price.present? %>
-        <p>購入金額 <%= review.purchase_price %>円</p>
-      <% end %>
       <p><%= review.content.blank? ? '-' : simple_format(h(review.content)) %></p>
+      <p><%= review.like_count %>いいね</p>
+      <div class="columns is-centered">
+        <%= form_with(url: likes_review_path(review), local: true) do |form| %>
+          <div class="control">
+            <%= form.submit 'いいねする', class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
+      <% review.review_comments.each do |comment| %>
+        <% if comment.approved %>
+          <%= render partial: 'items/review_comment', locals:{ comment: comment } %>
+        <% end %>
+      <% end %>
+      <div class="columns is-centered">
+        <%= form_with(model: review.review_comments.build, local: true) do |form| %>
+          <div class="field">
+            <%= form.label :content, class: 'label' %>
+            <%= form.text_area :content, class: 'textarea' %>
+          </div>
+          <%= form.hidden_field :review_id %>
+          <div class="control">
+            <%= form.submit 'コメントする', class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </article>

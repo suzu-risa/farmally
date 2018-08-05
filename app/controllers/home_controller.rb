@@ -8,20 +8,7 @@ class HomeController < ApplicationController
     @maker = Maker.find_by(code: params[:maker])
     @items = Item.where(category_id: @category.id, maker_id: @maker.id)
     @title = "#{@category.name} / #{@maker.name}"
-    @breadcrumb = [
-      {
-        name: 'トップ',
-        path: '/'
-      },
-      {
-        name: @category.name,
-        path: "/categories/#{@category.code}"
-      },
-      {
-        name: @maker.name,
-        path: "/makers/#{@maker.code}"
-      }
-    ]
+    @breadcrumb = breadcrumb(category: @category, maker: @maker)
   end
 
   def terms; end

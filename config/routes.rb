@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :items
     resources :makers, param: :code
     resources :reviews
+    resources :review_comments
 
     post '/import', to: 'home#import'
     root to: 'home#index'
@@ -12,7 +13,12 @@ Rails.application.routes.draw do
   resources :categories, param: :code, only: :show
   resources :makers, param: :code, only: :show
   resources :items, only: :show
-  resources :reviews, only: :create
+  resources :reviews, only: :create do
+    member do
+      post :likes
+    end
+  end
+  resources :review_comments, only: :create
 
   get '/search' => 'home#search'
   get '/terms-of-service', to: 'home#terms'
