@@ -9,24 +9,7 @@ class ReviewCommentsController < ApplicationController
     @review = @item.reviews.build
     @reviews = Review.where(item: @item, approved: true)
     @title = @item.model
-    @breadcrumb = [
-      {
-        name: 'トップ',
-        path: '/'
-      },
-      {
-        name: @item.category.name,
-        path: "/categories/#{@item.category.code}"
-      },
-      {
-        name: @item.maker.name,
-        path: "/makers/#{@item.maker.code}"
-      },
-      {
-        name: @item.model,
-        path: "/items/#{@item.id}"
-      }
-    ]
+    @breadcrumb = breadcrumb(item: @item)
     flash.now[:danger] = e.record.errors.full_messages.join('<br />').html_safe
     render template: 'items/show', status: :unprocessable_entity
   end

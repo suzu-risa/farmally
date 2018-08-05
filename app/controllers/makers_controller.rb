@@ -3,16 +3,7 @@ class MakersController < ApplicationController
     @items = Item.all
     @maker = Maker.find_by(code: params[:code])
     @title = @maker.name
-    @breadcrumb = [
-      {
-        name: 'トップ',
-        path: '/'
-      },
-      {
-        name: @maker.name,
-        path: "/makers/#{@maker.code}"
-      }
-    ]
+    @breadcrumb = breadcrumb(maker: @maker)
     @page = {
       min: 1,
       current: 2,

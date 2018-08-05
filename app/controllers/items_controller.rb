@@ -4,23 +4,6 @@ class ItemsController < ApplicationController
     @reviews = Review.includes(:review_comments).where(item: @item, approved: true)
     @review = @item.reviews.build
     @title = @item.model
-    @breadcrumb = [
-      {
-        name: 'トップ',
-        path: '/'
-      },
-      {
-        name: @item.category.name,
-        path: "/categories/#{@item.category.code}"
-      },
-      {
-        name: @item.maker.name,
-        path: "/makers/#{@item.maker.code}"
-      },
-      {
-        name: @item.model,
-        path: "/items/#{@item.id}"
-      }
-    ]
+    @breadcrumb = breadcrumb(item: @item)
   end
 end

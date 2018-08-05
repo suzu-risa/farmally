@@ -3,16 +3,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(code: params[:code])
     @items = Item.where(category: @category)
     @title = @category.name
-    @breadcrumb = [
-      {
-        name: 'トップ',
-        path: '/'
-      },
-      {
-        name: @category.name,
-        path: "/categories/#{@category.code}"
-      }
-    ]
+    @breadcrumb = breadcrumb(category: @category)
     @page = {
       min: 1,
       current: 2,
