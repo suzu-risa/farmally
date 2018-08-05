@@ -18,6 +18,18 @@
       <% review.review_comments.each do |comment| %>
         <%= render partial: 'items/review_comment', locals:{ comment: comment } %>
       <% end %>
+      <div class="columns is-centered">
+        <%= form_with(model: review.review_comments.build, local: true) do |form| %>
+          <div class="field">
+            <%= form.label :content, class: 'label' %>
+            <%= form.text_area :content, class: 'textarea' %>
+          </div>
+          <%= form.hidden_field :review_id %>
+          <div class="control">
+            <%= form.submit 'コメントする', class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </article>
