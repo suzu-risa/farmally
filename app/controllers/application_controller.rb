@@ -21,26 +21,17 @@ class ApplicationController < ActionController::Base
           path: "/items/#{item.id}"
         }
       ]
-    elsif category.present? && maker.present?
-      return breadcrumb + [
-        {
-          name: category.name,
-          path: "/categories/#{category.code}"
-        },
-        {
-          name: maker.name,
-          path: "/makers/#{maker.code}"
-        }
-      ]
-    elsif category.present?
-      return breadcrumb + [
+    end
+    if category.present?
+      breadcrumb = breadcrumb + [
         {
           name: category.name,
           path: "/categories/#{category.code}"
         }
       ]
-    elsif maker.present?
-      return breadcrumb + [
+    end
+    if maker.present?
+      breadcrumb = breadcrumb + [
         {
           name: maker.name,
           path: "/makers/#{maker.code}"
