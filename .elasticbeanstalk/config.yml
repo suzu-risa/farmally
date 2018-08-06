@@ -1,6 +1,8 @@
 branch-defaults:
   develop:
     environment: farmally-staging
+deploy:
+  artifact: build.zip
 global:
   application_name: farmally
   default_ec2_keyname: null
@@ -14,5 +16,3 @@ global:
   profile: eb-cli
   sc: git
   workspace_type: Application
-deploy:
-  artifact: build.zip
