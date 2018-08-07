@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   get '/privacy-policy', to: 'home#privacy'
   get '/specified-commercial', to: 'home#commercial'
   get '/company', to: 'home#company'
+  get '/form', to: 'home#form'
   root to: 'home#index'
 end
