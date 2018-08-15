@@ -66,6 +66,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.delivery_method = :aws_sdk
+  config.action_mailer.raise_delivery_errors = true
+  # メール本文のログ抑止
+  config.action_mailer.logger = Logger.new(config.paths['log'].first)
+  config.action_mailer.logger.level = Logger::INFO
+  config.action_mailer.default_url_options = { host: 'staging.farmally.jp', protocol: 'https' }
+
+  config.action_controller.asset_host = 'https://staging.farmally.jp'
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

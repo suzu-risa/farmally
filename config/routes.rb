@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
   resources :review_comments, only: :create
+  resources :forms, only: :create
 
   get '/search' => 'home#search'
   get '/terms-of-service', to: 'home#terms'

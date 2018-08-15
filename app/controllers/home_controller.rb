@@ -11,24 +11,16 @@ class HomeController < ApplicationController
     @breadcrumb = breadcrumb(category: @category, maker: @maker)
   end
 
-  def terms
-    render layout: 'without_form'
-  end
+  def terms; end
 
-  def privacy
-    render layout: 'without_form'
-  end
+  def privacy; end
 
-  def commercial
-    render layout: 'without_form'
-  end
+  def commercial; end
 
-  def company
-    render layout: 'without_form'
-  end
+  def company; end
 
   def form
     @form = Form.new
-    render layout: 'without_form'
+    render layout: 'form'
   end
 end

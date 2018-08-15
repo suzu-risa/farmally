@@ -1,0 +1,318 @@
+.form {
+  &__top {
+    background: image-url("form/tractor.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 500px;
+    .hero-body {
+      background: rgba(45, 26, 2, 0.5);
+      display: flex;
+      align-items: center;
+      .container {
+        .content {
+          .title {
+            color: white;
+            margin-bottom: 50px;
+            font-size: 2.4rem;
+          }
+          .subtitle {
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  &__feature {
+    .container {
+      .content {
+        h2 {
+          margin-bottom: 50px;
+        }
+
+        h3 {
+          min-height: 60px;
+        }
+      }
+    }
+    .circle {
+      background-color: $dark-brown;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 40px;
+      span {
+        color: white;
+        font-weight: bold;
+        font-size: 3rem;
+        line-height: 80px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+  }
+
+  &__trouble-list {
+    background-color: $light-brown;
+    .container {
+      .content {
+        h2 {
+          color: white;
+        }
+
+        .trouble-list {
+          background-color: white;
+          padding: 30px 50px;
+          padding-bottom: 20px;
+          margin: 30px auto 30px;
+          max-width: 800px;
+
+          .trouble {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+            align-items: center;
+
+            img {
+              width: 44px;
+              height: 26px;
+              margin-right: 30px;
+            }
+
+            p {
+              line-height: 26px;
+              text-align: left;
+            }
+          }
+        }
+
+        .triangle {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 30px 30px 0 30px;
+          border-color: white transparent transparent transparent;
+          margin: 0 auto;
+        }
+
+        .solution {
+          margin: 20px auto;
+
+          p {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 0.2em;
+          }
+        }
+      }
+    }
+  }
+
+  &__merits {
+    .container {
+      .content {
+        h2 {
+          margin-bottom: 50px;
+        }
+
+        .columns {
+          .content {
+            border: solid 2px black;
+            padding: 20px;
+            min-height: 150px;
+
+            h5 {
+              background-color: white;
+              margin-top: -30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__call-center {
+    background: image-url("form/call-center.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+      .margin {
+        flex: 0;
+      }
+    }
+
+    div {
+      flex: 1;
+      max-width: 400px;
+
+      h3 {
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__form {
+    background-color: $light-brown;
+    .container {
+      .content {
+        h2 {
+          color: white;
+          margin-bottom: 50px;
+        }
+
+        .field-container {
+          background-color: white;
+          padding: 20px 40px;
+          max-width: 800px;
+          margin: 0 auto;
+          
+          .field-label {
+            padding-top: 0;
+            display: flex;
+            align-items: center;
+
+            label {
+              text-align: left;
+              font-size: 0.8rem;
+            }
+          }
+
+          .field-body {
+            flex-grow: 4;
+          }
+        }
+
+        .terms {
+          margin: 20px 0;
+
+          span {
+            color: white;
+          }
+
+          a {
+            color: white;
+            text-decoration: underline;
+
+            &:visited {
+              color: white;
+            }
+          }
+        }
+
+        .submit {
+          color: white;
+          text-decoration: none;
+          display: block;
+          width: 260px;
+          height: 60px;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 15px;
+          border: none;
+          margin: 0 auto;
+          font-size: 24px;
+          font-weight: bold;
+          display: block;
+          text-align: center;
+          cursor: pointer;
+          background-color: $red;
+          box-shadow: 0px 5px $red-shadow;
+
+          &:visited {
+            color: white;
+            text-decoration: none;
+          }
+
+          &:hover {
+            color: white;
+            background: darken($red, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button-container-vertical {
+    .form__button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__button {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 240px;
+    height: 70px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+
+    > span {
+      font-size: 14px;
+      line-height: 24px;
+      display: block;
+      text-align: center;
+    }
+    p {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 36px;
+      display: block;
+      text-align: center;
+    }
+
+    &:visited {
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &__application-button {
+    background-color: $red;
+    box-shadow: 0px 5px $red-shadow;
+
+    &:hover {
+      background: darken($red, 10%);
+    }
+  }
+
+  &__tel-button {
+    background-color: $green;
+    box-shadow: 0px 5px $green-shadow;
+
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    &:hover {
+      background: darken($green, 10%);
+    }
+  }
+
+  .footer {
+    padding: 3rem 1.5rem 3rem;
+  }
+}

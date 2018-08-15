@@ -42,6 +42,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'administrate'
 gem "aws-sdk-s3", require: false
+gem 'aws-sdk'
+gem 'aws-sdk-rails'
+gem 'slack-notifier'
+gem 'config'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

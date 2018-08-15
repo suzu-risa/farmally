@@ -61,3 +61,40 @@ a.item-detail {
   box-sizing: border-box;
   border-top: solid 1px #cccccc;
 }
+
+.footer {
+  background-color: #3e3e3e;
+  .menu-list {
+    a {
+      color: white;
+
+      &:hover {
+        background-color: lighten(#3e3e3e, 10%);
+      }
+    }
+  }
+}
+
+.notification {
+  border-radius: 0;
+  &.is-success {
+    background-color: $success;
+  }
+}
+
+.primary-button {
+  background-color: $red;
+  box-shadow: 0px 3px $red-shadow;
+  border: none;
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: darken($red, 10%);
+    color: white;
+  }
+}

@@ -1,0 +1,29 @@
+<section class="hero is-small">
+  <header class="hero-head">
+    <div class="container">
+      <nav class="navbar" id="navbar">
+        <div class="navbar-brand" style="flex: 1;">
+          <a class="navbar-item" href="/">
+            <img class="logo" src="/logo.png" alt="Logo">
+          </a>
+          <div class="navbar-item" style="flex: 1;"></div>
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="button primary-button" href="/form#form-anchor">
+                  <span>無料相談</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <% if flash.present? %>
+    <div class="notification is-<%= flash.first[0] %>">
+      <button class="delete"></button>
+      <p><%= flash.first[1] %></p>
+    </div>
+  <% end %>
+</section>

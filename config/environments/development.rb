@@ -31,9 +31,18 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.delivery_method = :aws_sdk
+  config.action_mailer.raise_delivery_errors = true
+  # メール本文のログ抑止
+  config.action_mailer.logger = Logger.new(config.paths['log'].first)
+  config.action_mailer.logger.level = Logger::INFO
+  config.action_mailer.default_url_options = { host: 'localhost', protocol: 'http' }
+
+  config.action_controller.asset_host = 'http://localhost'
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
