@@ -1,0 +1,298 @@
+<%
+  categories = [
+    ['トラクター', 'トラクター'],
+    ['コンバイン', 'コンバイン'],
+    ['田植機', '田植機'],
+    ['アルミブリッジ', 'アルミブリッジ'],
+    ['ウエイト', 'ウエイト'],
+    ['エンジン', 'エンジン'],
+    ['グレンコンテナー', 'グレンコンテナー'],
+    ['クローラー', 'クローラー'],
+    ['ゴムロール', 'ゴムロール'],
+    ['コンバイン刈取刃', 'コンバイン刈取刃'],
+    ['コンプレッサー', 'コンプレッサー'],
+    ['スピードスプレーヤー', 'スピードスプレーヤー'],
+    ['タイヤ', 'タイヤ'],
+    ['チェーンソー', 'チェーンソー'],
+    ['テーラー', 'テーラー'],
+    ['デバイダー', 'デバイダー'],
+    ['トレーラー', 'トレーラー'],
+    ['トレンチャー', 'トレンチャー'],
+    ['ハーベスター', 'ハーベスター'],
+    ['バインダー', 'バインダー'],
+    ['バックホー', 'バックホー'],
+    ['ハロー', 'ハロー'],
+    ['フォークリフト', 'フォークリフト'],
+    ['プラウ', 'プラウ'],
+    ['ブロードキャスター', 'ブロードキャスター'],
+    ['ポンプ', 'ポンプ'],
+    ['マニアスプレッダー', 'マニアスプレッダー'],
+    ['モアコン', 'モアコン'],
+    ['ライスグレーダー', 'ライスグレーダー'],
+    ['ライムソワー', 'ライムソワー'],
+    ['ロータリー', 'ロータリー'],
+    ['ロールベーラー', 'ロールベーラー'],
+    ['運搬機', '運搬機'],
+    ['刈払機', '刈払機'],
+    ['管理機', '管理機'],
+    ['乾燥機', '乾燥機'],
+    ['畦塗機', '畦塗機'],
+    ['計量器', '計量器'],
+    ['結束機', '結束機'],
+    ['溝切機', '溝切機'],
+    ['耕運機', '耕運機'],
+    ['混合機', '混合機'],
+    ['催芽機', '催芽機'],
+    ['砕土機', '砕土機'],
+    ['散布機', '散布機'],
+    ['堆肥機', '堆肥機'],
+    ['車輪', '車輪'],
+    ['除雪機', '除雪機'],
+    ['精米機', '精米機'],
+    ['洗浄機', '洗浄機'],
+    ['選別機', '選別機'],
+    ['草刈機', '草刈機'],
+    ['貯蔵庫', '貯蔵庫'],
+    ['動力噴霧機', '動力噴霧機'],
+    ['播種機', '播種機'],
+    ['培土機', '培土機'],
+    ['発電機', '発電機'],
+    ['苗コンテナー', '苗コンテナー'],
+    ['防除機', '防除機'],
+    ['籾摺機', '籾摺機'],
+    ['その他', 'その他']
+  ]
+%>
+
+<section class="hero form__top">
+  <div class="hero-body">
+    <div class="container">
+      <div class="content has-text-centered">
+        <h1 class="title">農機具を高く売りませんか</h1>
+        <p class="subtitle">2種類の方法で高く農機具が売れる！</p>
+        <p class="subtitle">-即金買取-</p>
+        <p class="subtitle">-当社ホームページに出品-</p>
+        <%= render :partial => '/form_buttons' %>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section form__feature">
+  <div class="container">
+    <div class="content has-text-centered">
+      <h2>全国の農家から希望の農機具を見つけてきます。</h2>
+      <div class="columns">
+        <div class="column">
+          <div class="content">
+            <div class="circle">
+              <span>1</span>
+            </div>
+            <h3>30秒で送信</h3>
+            <p>フォームから条件を入力。30秒で簡単に終わります。電話相談も承ります。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <div class="circle">
+              <span>2</span>
+            </div>
+            <h3>お電話で詳細を確認</h3>
+            <p>お電話にてご連絡させていただき、条件を詳しく確認させていただきます。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <div class="circle">
+              <span>3</span>
+            </div>
+            <h3>希望にあった農機具をご提案</h3>
+            <p>日本全国の農機具からあなたの希望にあった農機具をご提案します。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <div class="circle">
+              <span>4</span>
+            </div>
+            <h3>ご納得いただくまでサポート！</h3>
+            <p>ご納得いくまでご検討、ご相談ください。良い農機具が見つかるまでサポートいたします。</p>
+          </div>
+        </div>
+      </div>
+      <%= render :partial => '/form_buttons' %>
+    </div>
+  </div>
+</section>
+<section class="section form__trouble-list">
+  <div class="container">
+    <div class="content has-text-centered">
+      <h2>こんな事で悩んでいませんか？</h2>
+      <div class="trouble-list">
+        <div class="trouble">
+          <%= image_tag 'form/futaba.png' %>
+          <p>一番お得な農機具を買いたい</p>
+        </div>
+        <div class="trouble">
+          <%= image_tag 'form/futaba.png' %>
+          <p>欲しい中古農機具が見つからない</p>
+        </div>
+        <div class="trouble">
+          <%= image_tag 'form/futaba.png' %>
+          <p>何を選べばいいか分からない</p>
+        </div>
+        <div class="trouble">
+          <%= image_tag 'form/futaba.png' %>
+          <p>今すぐトラクターが欲しい</p>
+        </div>
+        <div class="trouble">
+          <%= image_tag 'form/futaba.png' %>
+          <p>インターネットで買っても、故障したら相談できないんじゃないか？</p>
+        </div>
+        <div class="trouble">
+          <%= image_tag 'form/futaba.png' %>
+          <p>中古で買うのは初めてで不安</p>
+        </div>
+      </div>
+      <div class="triangle"></div>
+      <div class="solution">
+        <p>ファーマリーなら</p>
+        <p>希望の中古農機具を無料でご提案</p>
+        <p>購入後の修理対応までサポートします！</p>
+      </div>
+      <%= render :partial => '/form_buttons' %>
+    </div>
+  </div>
+</section>
+<section class="section form__merits">
+  <div class="container">
+    <div class="content has-text-centered">
+      <h2>ファーマリーは全国最大規模の中古農機具カタログサイト</h2>
+      <div class="columns">
+        <div class="column">
+          <div class="content">
+            <h5>全国からご提案</h5>
+            <p>北海道から沖縄まで、全国から農機具を探してきます。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h5>国内最安値</h5>
+            <p>全国の取引先から中古農機具を仕入れます。国内のどこで買うよりもお得に農機具を購入できます。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h5>整備保証</h5>
+            <p>万一故障した場合でも、当社が修理費用を保証します。安心してご利用ください。</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="content">
+            <h5>購入予約</h5>
+            <p>今在庫がない農機具でもご予約いただければ希望の条件にあった農機を見つけてご連絡いたします。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h5>希望に合わせたご提案</h5>
+            <p>価格のご希望や、馬力、作物、作地面積など用途に合わせて、当社スタッフが最適な農機具をご提案します。</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h5>無料相談</h5>
+            <p>何を買えばいいか分からないという場合でも、当社スタッフが無料で相談に乗ります。お気軽にご相談ください。</p>
+          </div>
+        </div>
+      </div>
+      <%= render :partial => '/form_buttons' %>
+    </div>
+  </div>
+</section>
+<section class="section form__call-center">
+  <div class="margin"></div>
+  <div>
+    <h3>まずはお気軽にご相談ください。</h3>
+    <%= render :partial => '/form_buttons', locals: { vertical: true } %>
+  </div>
+</section>
+<section class="section form__form" id="form-anchor">
+  <div class="container">
+    <div class="content has-text-centered">
+      <h2>簡単30秒無料相談</h2>
+      <%= form_with model: @form, local: true do |form| %>
+        <div class="field-container">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">機械の種類</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <%= form.select :category, categories %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">お名前</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded">
+                  <%= form.text_field :name, placeholder: 'お名前', class: 'input', required: true %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">電話番号</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded">
+                  <%= form.telephone_field :tel, placeholder: '電話番号', class: 'input', required: true %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">住所</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded">
+                  <%= form.text_field :address, placeholder: '住所', class: 'input', required: true %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">メールアドレス(任意)</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded">
+                  <%= form.email_field :email, placeholder: 'メールアドレス', class: 'input' %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="terms">
+          <%= link_to '利用規約', terms_of_service_path, class: '', target: '_blank' %>
+          <span>に同意して</span>
+        </p>
+        <%= form.submit '無料相談する', class: 'submit' %>
+      <% end %>
+    </div>
+  </div>
+</section>

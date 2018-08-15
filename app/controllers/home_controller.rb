@@ -23,4 +23,9 @@ class HomeController < ApplicationController
     @form = Form.new
     render layout: 'form'
   end
+
+  def sell_form
+    @form = Form.new
+    render layout: 'form'
+  end
 end

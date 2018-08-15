@@ -47,9 +47,7 @@
     <div class="hero-body">
       <div class="container has-text-centered content">
         <%= link_to '農機具選びを無料相談する', form_path, class: 'button is-link is-medium is-rounded form-button' %>
-        <a class="button is-info is-medium is-rounded form-button" href="<%= Constants::SELL_INQUIRY_URL %>" target="_blank">
-          農機を売る
-        </a>
+        <%= link_to '農機を売る', sell_form_path, class: 'button is-info is-medium is-rounded form-button' %>
       </div>
     </div>
   </section>
