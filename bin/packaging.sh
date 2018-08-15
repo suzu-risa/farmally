@@ -131,12 +131,13 @@ EOS
 
 mkdir bundle
 chmod -R 777 bundle
+if [ $PROFILE = 'production' ]; then
+  sed -i -e 's/fs-.*:\//fs-0ff61f2e:\//g' .ebextensions/01-efs-mount.config
+fi
 cp -r .ebextensions ./bundle/.ebextensions
 cp -r ./nginx ./bundle/nginx
-# cp -r ./nginx-redirect ./bundle/nginx-redirect
 cp Dockerrun.aws.json bundle/
 cd bundle
-# mkdir wp-data
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
