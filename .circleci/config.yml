@@ -1,36 +1,7 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.5.1-node
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
-          RAILS_ENV: test
-    steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - restore_cache:
-          keys:
-            - farmally-{{ checksum "Gemfile.lock" }}
-            - farmally
-      - run:
-          name: Bundle install
-          command: bundle check || bundle install
-
-      - save_cache:
-          key: farmally-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-#      - run:
-#          name: Run test
-#          command: ./bin/rails test
-
   # Dockerfile of the image is here. https://github.com/tmyjoe/circleci-docker/tree/master/ruby-docker
-  deploy-staging:
+  build:
     docker:
       - image: tmyjoe/circleci-ruby-docker
         environment:
@@ -43,6 +14,17 @@ jobs:
       - run:
           name: Publish docker image
           command: ./bin/publish.sh
+
+  deploy-staging:
+    docker:
+      - image: tmyjoe/circleci-ruby-docker
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - checkout
+      - setup_remote_docker
       - run:
           name: Packaging eb artifact
           command: ./bin/packaging.sh
@@ -60,9 +42,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Publish docker image
-          command: ./bin/publish.sh
       - run:
           name: Packaging eb artifact
           command: ./bin/packaging.sh prod

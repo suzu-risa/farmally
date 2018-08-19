@@ -20,7 +20,7 @@ module Admin
 
     http_basic_authenticate_with(
       name: 'admin',
-      password: 'password'
+      password: Rails.application.credentials[Rails.env.to_sym][:admin_password]
     )
   end
 end

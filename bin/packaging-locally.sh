@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-export AWS_DEFAULT_REGION=ap-northeast-1
-export AWS_ACCOUNT_ID=306657763353
-export APP_NAME=farmally
-export WP_NAME=farmally-wp
+AWS_DEFAULT_REGION=ap-northeast-1
+AWS_ACCOUNT_ID=306657763353
+APP_NAME=farmally
+WP_NAME=farmally-wp
 
 [ "$1" = "prod" ] && PROFILE=production || PROFILE=staging
 
 # push gutenberg image
-REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
-WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:${CIRCLE_SHA1}"
+REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:latest"
+WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:latest"
 
 bundle install --path vendor/bundle
-mkdir .bundle
+[ ! -e .bundle ] && mkdir .bundle
+[ -e .bundle/config ] && rm .bundle/config
 echo "---" >> .bundle/config
 echo "BUNDLE_PATH: \"vendor/bundle\"" >> .bundle/config
-export RAILS_ENV=$PROFILE
 MYSQL_USERNAME=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
 
@@ -131,13 +131,19 @@ EOS
 
 mkdir bundle
 chmod -R 777 bundle
-if [ $PROFILE = 'production' ]; then
-  sed -i -e 's/fs-.*:\//fs-0ff61f2e:\//g' .ebextensions/01-efs-mount.config
-fi
 cp -r .ebextensions ./bundle/.ebextensions
+if [ $PROFILE = 'production' ]; then
+  sed -i '' -e 's/fs-.*:\//fs-0ff61f2e:\//g' ./bundle/.ebextensions/01-efs-mount.config
+fi
 cp -r ./nginx ./bundle/nginx
 cp Dockerrun.aws.json bundle/
 cd bundle
 zip -r build.zip .
 cd ..
 cp ./bundle/build.zip ./
+
+# clean up
+[ -e bundle ] && rm -rf bundle
+[ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
+[ -e .bundle/config ] && rm .bundle/config
+# [ -e build.zip ] && rm build.zip
