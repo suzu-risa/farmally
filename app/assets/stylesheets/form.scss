@@ -70,11 +70,15 @@
     }
   }
 
-  &__trouble-list {
+  &__trouble-list, &__summary {
     background-color: $light-brown;
     .container {
       .content {
         h2 {
+          color: white;
+        }
+
+        p {
           color: white;
         }
 
@@ -100,6 +104,7 @@
             p {
               line-height: 26px;
               text-align: left;
+              color: #4a4a4a;
             }
           }
         }
