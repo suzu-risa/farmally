@@ -163,12 +163,10 @@
               <label class="label">機械の種類</label>
             </div>
             <div class="field-body">
-              <div class="field is-narrow">
-                <div class="control">
-                  <div class="select is-fullwidth">
-                    <%= form.select :category, category_options %>
-                  </div>
-                </div>
+              <div class="field">
+                <p class="control is-expanded">
+                  <%= form.text_field :category, placeholder: '機械の種類', class: 'input', required: true %>
+                </p>
               </div>
             </div>
           </div>
@@ -220,6 +218,7 @@
               </div>
             </div>
           </div>
+          <%= form.hidden_field :inquiry_type, value: '農機の査定依頼' %>
         </div>
         <p class="terms">
           <%= link_to '利用規約', terms_of_service_path, class: '', target: '_blank' %>

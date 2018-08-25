@@ -18,6 +18,6 @@ class FormsController < ApplicationController
   private
 
   def form_params
-    params.require(:form).permit(:category, :price, :name, :tel, :address, :email)
+    params.require(:form).permit(:category, :price, :name, :tel, :address, :email, :inquiry_type)
   end
 end
