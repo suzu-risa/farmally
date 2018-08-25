@@ -11,6 +11,8 @@ export WP_NAME=farmally-wp
 REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tmyjoe/${APP_NAME}:${CIRCLE_SHA1}"
 WP_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${WP_NAME}:${CIRCLE_SHA1}"
 
+aws s3 cp s3://farmally-secrets/master.key ./config/master.key
+
 bundle install --path vendor/bundle
 mkdir .bundle
 echo "---" >> .bundle/config

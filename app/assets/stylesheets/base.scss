@@ -55,6 +55,7 @@ a.item-detail {
   bottom: 0;
   box-sizing: border-box;
   border-top: solid 1px #cccccc;
+  z-index: 99;
 
   .form-button {
     width: 280px;

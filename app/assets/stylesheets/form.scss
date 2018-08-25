@@ -233,13 +233,30 @@
           }
         }
 
+        // iOSでのデフォルトスタイルをリセット
+        // ref: https://qiita.com/_upto_me_/items/b35f405a87a2dc56fd48
+        input[type="submit"], input[type="button"] {
+          border-radius: 0;
+          -webkit-box-sizing: content-box;
+          -webkit-appearance: button;
+          appearance: button;
+          border: none;
+          box-sizing: border-box;
+          &::-webkit-search-decoration {
+            display: none;
+          }
+          &::focus {
+            outline-offset: -2px;
+          }
+        }
+
         .submit {
           color: white;
           text-decoration: none;
           display: block;
           width: 260px;
           height: 60px;
-          border-radius: 5px;
+          border-radius: 5px !important;
           padding: 5px;
           margin: 15px;
           border: none;
