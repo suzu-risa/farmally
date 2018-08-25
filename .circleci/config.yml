@@ -56,7 +56,9 @@ workflows:
       - build:
           filters:
             tags:
-              only: /.*/
+              only: /v\d+\.\d+\.\d+/
+            branches:
+              only: develop
       - deploy-staging:
           requires:
             - build

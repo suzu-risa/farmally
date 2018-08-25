@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   get '/specified-commercial', to: 'home#commercial'
   get '/company', to: 'home#company'
   get '/form', to: 'home#form'
+  get '/sell-form', to: 'home#sell_form'
   root to: 'home#index'
 end

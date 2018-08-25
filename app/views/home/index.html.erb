@@ -13,7 +13,6 @@
               探し方がわからない場合は、無料でファーマリーがご相談に乗ります。
               無料相談ボタンから、電話か問合せフォームでご依頼頂けます。
             </p>
-            <br>
             <%= render :partial => '/search' %>
           </div>
         </div>
@@ -27,8 +26,6 @@
       <h2 class="title has-text-centered">
         種類から農機具を探す
       </h2>
-      <br />
-      <br />
       <% @category.each_with_index do |c, index| %>
         <% if index < 12 %>
           <% if index % 3== 0 %>

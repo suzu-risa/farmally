@@ -2,6 +2,7 @@ class Form
   include ActiveModel::Model
   include ActiveModel::Attributes
 
+  attribute :inquiry_type, :string
   attribute :category, :string
   attribute :price, :string
   attribute :name, :string
@@ -11,14 +12,14 @@ class Form
 
   def prettify
     <<~TXT
-      *農機具選びの無料相談依頼*
+      *#{inquiry_type}*
 
-      カテゴリー: #{category}
-      価格: #{price}
+      機械の種類: #{category}
+      価格: #{price.present? ? price : '未入力'}
       お名前: #{name}
       電話番号: #{tel}
       住所: #{address}
-      メールアドレス: #{email || '未入力'}
+      メールアドレス: #{email.present? ? email : '未入力'}
     TXT
   end
 end  
