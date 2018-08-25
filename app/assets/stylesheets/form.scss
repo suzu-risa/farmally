@@ -1,4 +1,22 @@
 .form {
+  .primary-button {
+    background-color: $red;
+    box-shadow: 0px 3px $red-shadow;
+    border: none;
+    text-decoration: none;
+    color: white;
+
+    &:visited {
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background: darken($red, 10%);
+      color: white;
+    }
+  }
+
   &__top {
     background: image-url("form/tractor.jpg") no-repeat;
     background-position: center;
