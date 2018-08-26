@@ -19,9 +19,9 @@ echo "BUNDLE_PATH: \"vendor/bundle\"" >> .bundle/config
 MYSQL_USERNAME=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
 
-[ $PROFILE = 'production' ] && RAILS_MEMORY=512 || RAILS_MEMORY=1024
-[ $PROFILE = 'production' ] && NGINX_MEMORY=128 || NGINX_MEMORY=256
-[ $PROFILE = 'production' ] && WP_MEMORY=256 || WP_MEMORY=512
+[ $PROFILE = 'production' ] && RAILS_MEMORY=1024 || RAILS_MEMORY=512
+[ $PROFILE = 'production' ] && NGINX_MEMORY=256 || NGINX_MEMORY=128
+[ $PROFILE = 'production' ] && WP_MEMORY=512 || WP_MEMORY=256
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
