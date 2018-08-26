@@ -21,6 +21,10 @@ export RAILS_ENV=$PROFILE
 MYSQL_USERNAME=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_username]"`
 MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.to_sym][:mysql_password]"`
 
+[ $PROFILE = 'production' ] && RAILS_MEMORY=512 || RAILS_MEMORY=1024
+[ $PROFILE = 'production' ] && NGINX_MEMORY=128 || NGINX_MEMORY=256
+[ $PROFILE = 'production' ] && WP_MEMORY=256 || WP_MEMORY=512
+
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
 cat > Dockerrun.aws.json <<EOS | jq
@@ -45,7 +49,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "farmally",
       "image": "${REPO}",
       "essential": true,
-      "memory": 512,
+      "memory": ${RAILS_MEMORY},
       "environment": [
         {
           "name": "RAILS_ENV",
@@ -65,7 +69,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "nginx-proxy",
       "image": "nginx",
       "essential": true,
-      "memory": 128,
+      "memory": ${NGINX_MEMORY},
       "portMappings": [
         {
           "hostPort": 80,
@@ -97,7 +101,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "name": "wordpress",
       "image": "${WP_REPO}",
       "essential": true,
-      "memory": 256,
+      "memory": ${WP_MEMORY},
       "environment": [
         {
           "name": "WORDPRESS_SUBDIRECTORY",
