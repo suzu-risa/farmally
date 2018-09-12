@@ -32,10 +32,24 @@ class SaleItemImageSlider extends React.Component {
         <img src={image.url} />
       )
     })
+
+    const thumbnailItemImages = this.state.itemImages.map((image, i)=>{
+      return (
+        <div className="column is-mobile-6">
+          <img src={image.url} />
+        </div>
+      )
+    })
+
     return (
-      <Slider {...settings}>
-        {itemImages}
-      </Slider>
+      <div className="container">
+        <Slider {...settings}>
+          {itemImages}
+        </Slider>
+        <div className="columns is-mobile">
+          {thumbnailItemImages}
+        </div>
+      </div>
     );
   }
 }
