@@ -1,29 +1,15 @@
-<section class="section hero is-light">
-  <div class="container">
-    <%= render :partial => '/search' %>
-  </div>
-</section>
 <section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-10">
-        <% if @items.empty? %>
-          <p class="title is-4 has-text-centered">
-            商品が見つかりませんでした
-          </p>
-        <% else %>
-          <h1 class="title is-4">
-            <%= @title %> の商品一覧
-          </h1>
-          <%= render :partial => '/breadcrumb', locals:{breadcrumb: @breadcrumb} %>
-          <% @items.each do |i| %>
-            <%= render :partial => '/item_cassette', locals:{item: i} %>
-          <% end %>
+  <div class="container item-list">
+    <% if @items.empty? %>
+      <p class="title is-4 has-text-centered">商品が見つかりませんでした</p>
+    <% else %>
+      <%= render :partial => '/breadcrumb', locals:{ breadcrumb: @breadcrumb } %>
+      <h1 class="title is-4"><%= @title %><span class="counter">（全<%= @items.size %>件）</span></h1>
+      <div class="columns is-mobile is-multiline">
+        <% @items.each do |i| %>
+          <%= render :partial => '/item_cassette', locals:{ item: i } %>
         <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
-  <br/>
-  <br/>
-  <%#= render :partial => '/paging', locals:{page: @page} %>
 </section>

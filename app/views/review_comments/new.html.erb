@@ -1,0 +1,75 @@
+<section class="section review-comments">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <%= image_tag 'sample-tractor.png', class: 'item-image' %>
+          <p><%= @item.maker.name %> <%= @item.model %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="reviewer">
+        <p><%= @review.name.present? ? @review.name : '名前なし' %></p>
+      </div>
+      <div class="stars">
+        <% unless @review.star_unselected? %>
+          <% point = @review.star_count %>
+          <% (1..point).each do |i| %>
+            <span class="icon star">
+              <i class="fas fa-star"></i>
+            </span>
+          <% end %>
+          <% (point...5).each do |i| %>
+            <span class="icon star">
+              <i class="far fa-star"></i>
+            </span>
+          <% end %>
+        <% else %>
+          <p>評価なし</p>
+        <% end %>
+      </div>
+      <div class="date">
+        <p><%= @review.created_at.strftime('%Y年%m月%d日') %></p>
+      </div>
+      <div class="columns">
+        <% if @review.picture.attached? %>
+          <div class="column is-12-mobile is-4-tablet is-4-desktop">
+            <%= image_tag @review.picture, class: 'review-picture' %>
+          </div>
+          <div class="column is-12-mobile is-8-tablet is-8-desktop">
+            <div class="content">
+              <%= @review.content.blank? ? '-' : simple_format(h(@review.content)) %>
+            </div>
+          </div>
+        <% else %>
+          <div class="column">
+            <div class="content">
+              <%= @review.content.blank? ? '-' : simple_format(h(@review.content)) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <%= form_with(model: @review_comment, local: true, class: 'review-comment-form') do |form| %>
+          <div class="field">
+            <%= form.label :name, class: 'label' %>
+            <%= form.text_field :name, class: 'input', placeholder: '名前' %>
+          </div>
+          <div class="field">
+            <%= form.label :content, class: 'label' %>
+            <%= form.text_area :content, class: 'textarea', placeholder: '本文' %>
+          </div>
+          <%= form.hidden_field :review_id %>
+          <div class="control has-text-right">
+            <%= form.submit 'コメントする', class: 'button review-comment-submit' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

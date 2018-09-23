@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_19_120707) do
+ActiveRecord::Schema.define(version: 2018_09_17_083001) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 2018_08_19_120707) do
     t.integer "maker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "machine_type"
+    t.string "work_efficiency"
+    t.text "other"
   end
 
   create_table "makers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -72,6 +75,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_120707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "approved", default: false, null: false
+    t.string "name", null: false
+    t.integer "like_count", default: 0, null: false
     t.index ["review_id"], name: "index_review_comments_on_review_id"
   end
 
@@ -81,14 +86,10 @@ ActiveRecord::Schema.define(version: 2018_08_19_120707) do
     t.integer "star", default: 0, null: false
     t.boolean "approved", default: false, null: false
     t.integer "like_count", default: 0, null: false
+    t.string "name", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["item_id"], name: "index_reviews_on_item_id"
-  end
-
-  create_table "twenty_four_hours_run", id: :integer, unsigned: true, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
-    t.integer "order", null: false
-    t.string "name", default: "", null: false
-    t.time "lap_time", null: false
-    t.time "elapsed_time", null: false
   end
 
   add_foreign_key "review_comments", "reviews"

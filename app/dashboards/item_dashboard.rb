@@ -17,6 +17,9 @@ class ItemDashboard < Administrate::BaseDashboard
     horse_power: Field::String,
     size: Field::String,
     weight: Field::String,
+    machine_type: Field::String,
+    work_efficiency: Field::String,
+    other: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -47,6 +50,9 @@ class ItemDashboard < Administrate::BaseDashboard
     :horse_power,
     :size,
     :weight,
+    :machine_type,
+    :work_efficiency,
+    :other,
     :created_at,
     :updated_at
   ].freeze
@@ -62,7 +68,10 @@ class ItemDashboard < Administrate::BaseDashboard
     :model,
     :horse_power,
     :size,
-    :weight
+    :weight,
+    :machine_type,
+    :work_efficiency,
+    :other
   ].freeze
 
   # Overwrite this method to customize how items are displayed

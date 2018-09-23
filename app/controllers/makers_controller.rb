@@ -1,7 +1,7 @@
 class MakersController < ApplicationController
   def show
-    @items = Item.all
     @maker = Maker.find_by(code: params[:code])
+    @items = Item.where(maker: @maker)
     @title = @maker.name
     @breadcrumb = breadcrumb(maker: @maker)
     @page = {

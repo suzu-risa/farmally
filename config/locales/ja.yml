@@ -23,15 +23,21 @@ ja:
         weight: 重量
         category: 種類
         maker: メーカー
+        machine_type: 機械の種類等
+        work_efficiency: 作業能率
+        other: 備考
       review:
         star: 評価
         approved: 承認
-        content: 内容
+        name: 名前
+        content: レビュー内容
         picture: 添付画像
         like_count: いいね
       review_comment:
+        name: 名前
         content: 内容
         approved: 承認
+        like_count: いいね
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -196,10 +202,14 @@ ja:
         horse_power: 馬力
         size: 大きさ
         weight: 重量
+        machine_type: 機械の種類等
+        work_efficiency: 作業能率
+        other: 備考
         created_at: 作成日時
         updated_at: 更新日時
       review:
-        content: 内容
+        name: 名前
+        content: レビュー内容
         item: 商品
         picture: 添付画像
         star: 評価
@@ -208,8 +218,10 @@ ja:
         created_at: 作成日時
         updated_at: 更新日時
       review_comment:
+        name: 名前
         content: 内容
         approved: 承認
+        like_count: いいね
         created_at: 作成日時
         updated_at: 更新日時
   number:

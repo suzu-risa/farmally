@@ -1,52 +1,30 @@
-.c-cassette {
-  position: relative;
-  &:hover {
-    background-color: #CCCCCC;
-    cursor : pointer;
-  }
-}
+.eye-catch {
+  border-bottom: solid 2px $base-brown;
 
-table.center {
-    margin-left: auto;
-    margin-right: auto;
-}
+  .container {
+    background-image: image-url('eye-catch.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 4rem 1rem;
 
-a.item-detail {
-  color: black;
-  display: flex;
-  flex: 1;
-}
-
-.image {
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.inquiry-btn {
-  position: absolute;
-  right: 0;
-}
-
-.company,
-.specified-commercial {
-  width: 70% !important;
-  margin: 0 auto;
-
-  tbody {
-    tr {
-      th {
-        width: 30%;
+    .eye-catch-text {
+      h1 {
+        color: white;
+        text-shadow: 0px 1px 3px black;
+      }
+      
+      p {
+        color: white;
+        font-weight: bold;
+        text-shadow: 0px 1px 3px black;
       }
     }
   }
-}
 
-.review-picture {
-  width: 300px;
-  height: 200px;
-  background-size: cover;
-  background-color: #efefef;
-  background-position: center;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 }
 
 .fixed-footer {
@@ -57,28 +35,129 @@ a.item-detail {
   border-top: solid 1px #cccccc;
   z-index: 99;
 
-  .form-button {
-    width: 280px;
-    margin: 5px 10px;
-  }
+  .container {
+    padding: 15px 0;
 
-  @media screen and (max-width: 400px) {
-    padding: 1rem 0;
+    .form-button {
+      width: 280px;
+      margin: 5px 10px;
+      height: 60px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border: none;
 
-    > .hero-body {
-      padding: 0.5rem 0;
+      &.buy-button {
+        background-color: #C60000;
+        box-shadow: 0px 5px $red-shadow;
+
+        &:hover {
+          background: darken($red, 10%);
+        }
+      }
+
+      &.sell-button {
+        background-color: #005B04;
+        box-shadow: 0px 5px $green-shadow;
+
+        &:hover {
+          background: darken($green, 10%);
+        }
+      }
     }
   }
 }
 
 .footer {
-  background-color: #3e3e3e;
-  .menu-list {
+  background-color: $base-brown;
+  .container {
+    text-align: center;
+
     a {
       color: white;
+      margin: 0 5px;
 
+      &:visited {
+        color: white;
+      }
       &:hover {
-        background-color: lighten(#3e3e3e, 10%);
+        color: darken(white, 20%);
+      }
+    }
+
+    span {
+      color: white;
+    }
+
+    h3 {
+      color: white;
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-top: 15px;
+    }
+
+    .copy {
+      color: white;
+    }
+  }
+}
+
+header#navbar {
+  border-bottom: solid 2px $base-brown;
+
+  .navbar-brand {
+    .navbar-item {
+      margin-right: 10px;
+
+      .logo {
+        margin-right: 5px;
+      }
+
+      .logo-name {
+        font-weight: bold;
+        color: $base-brown;
+        font-size: 1.3rem;
+      }
+    }
+
+    #navbarBurger {
+      span {
+        color: $base-brown;
+        height: 2px;
+      }
+    }
+  }
+
+  form.search-box {
+    margin-left: 5px;
+    align-items: center;
+
+    .control {
+      margin-right: 5px;
+      text-align: center;
+      .select {
+        width: 260px;
+        select {
+          width: 260px;
+        }
+      }
+    }
+    button {
+      background-color: $base-brown;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        background-color: darken($base-brown, 20%);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .control {
+        margin-bottom: 5px;
+      }
+
+      button {
+        width: 260px;
       }
     }
   }
@@ -88,5 +167,8 @@ a.item-detail {
   border-radius: 0;
   &.is-success {
     background-color: $success;
+  }
+  &.is-danger {
+    background-color: $danger;
   }
 }

@@ -1,0 +1,72 @@
+.review-comments {
+  .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .item-image {
+      width: 50px;
+      height: 50px;
+      box-sizing: border-box;
+      border: solid 3px lighten($base-brown, 20%);
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-left: 10px;
+    }
+  }
+
+  .review {
+    margin-bottom: 30px;
+
+    .reviewer {
+      margin-bottom: 5px;
+
+      p {
+        color: #686868;
+        font-weight: bold;
+      }
+    }
+
+    .stars {
+      margin-bottom: 5px;
+
+      .star {
+        color: #FFC200;
+        width: 1rem;
+      }
+    }
+
+    .date {
+      margin-bottom: 10px;
+    }
+
+    .review-picture {
+      width: 100%;
+      height: auto;
+      background-size: cover;
+      background-position: center;
+      box-sizing: border-box;
+      border: solid 1px #efefef;
+    }
+  }
+
+  .review-comment-form {
+    @media screen and (min-width: 605px) {
+      .input {
+        max-width: 50%;
+      }
+    }
+
+    .review-comment-submit {
+      background-color: $base-brown;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        background-color: darken($base-brown, 10%);
+      }
+    }
+  }
+}

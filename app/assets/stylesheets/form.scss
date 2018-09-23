@@ -1,4 +1,16 @@
 .form {
+  header {
+    .logo {
+      margin-right: 5px;
+    }
+
+    .logo-name {
+      font-weight: bold;
+      color: $base-brown;
+      font-size: 1.3rem;
+    }
+  }
+
   .primary-button {
     background-color: $red;
     box-shadow: 0px 3px $red-shadow;

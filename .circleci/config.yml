@@ -66,8 +66,8 @@ workflows:
             branches:
               only: develop
       - deploy-prod:
-          # requires:
-          #   - build
+          requires:
+            - build
           filters:
             tags:
               only: /v\d+\.\d+\.\d+/

@@ -1,0 +1,53 @@
+<section class="section reviews">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <%= image_tag 'sample-tractor.png', class: 'item-image' %>
+          <p><%= @item.maker.name %> <%= @item.model %></p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <%= form_with(model: @review, local: true, class: 'review-form') do |form| %>
+          <div class="field review-stars">
+            <%= form.label :star, class: 'label' %>
+            <% point = @review.star_count %>
+            <% (1..point).each do |i| %>
+              <span class="icon review-star">
+                <i class="fas fa-star"></i>
+              </span>
+            <% end %>
+            <% (point...5).each do |i| %>
+              <span class="icon review-star">
+                <i class="far fa-star"></i>
+              </span>
+            <% end %>
+            <%= form.hidden_field :star, value: @review.star %>
+          </div>
+          <div class="field">
+            <%= form.label :name, class: 'label' %>
+            <%= form.text_field :name, class: 'input', placeholder: '名前' %>
+          </div>
+          <div class="field">
+            <%= form.label :content, class: 'label' %>
+            <%= form.text_area :content, class: 'textarea', placeholder: '本文' %>
+          </div>
+          <div class="field file-field">
+            <%= form.label(:picture, class: 'label file-label') do %>
+              <%= image_tag 'picture.png', alt: '' %>
+              <span>写真を添付</span>
+              <%= form.file_field :picture, class: 'file', accept: '.jpg,.jpeg,.gif,.png,image/gif,image/jpeg,image/png' %>
+            <% end %>
+            <input type="text" id="uv" class="uploadValue" disabled />
+          </div>
+          <%= form.hidden_field :item_id %>
+          <div class="control has-text-right">
+            <%= form.submit '投稿', class: 'button review-submit' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

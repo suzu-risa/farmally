@@ -1,0 +1,92 @@
+.reviews {
+  .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .item-image {
+      width: 50px;
+      height: 50px;
+      box-sizing: border-box;
+      border: solid 3px lighten($base-brown, 20%);
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-left: 10px;
+    }
+  }
+
+  .review-form {
+    .review-stars {
+      .review-star {
+        font-size: 1.5rem;
+        width: 30px;
+        color: $base-brown;
+        cursor: pointer;
+        &:hover {
+          color: lighten($base-brown, 10%);
+          cursor: pointer;
+        }
+      }
+    }
+
+    @media screen and (min-width: 605px) {
+      .input {
+        max-width: 50%;
+      }
+    }
+
+    .file-field {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .file-label {
+        color: $base-brown;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 6px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+
+        img {
+          height: 30px;
+          width: 30px;
+          margin-right: 5px;
+        }
+
+        span {
+          margin-right: 5px;
+        }
+
+        .file {
+          display: none;
+        }
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      #uv {
+        border: none;
+        flex: 1;
+        min-width: 0;
+        background-color: white;
+      }
+    }
+
+    .review-submit {
+      background-color: $base-brown;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        background-color: darken($base-brown, 10%);
+      }
+    }
+  }
+}

@@ -12,13 +12,20 @@ Rails.application.routes.draw do
 
   resources :categories, param: :code, only: :show
   resources :makers, param: :code, only: :show
-  resources :items, only: :show
+  resources :items, only: :show do
+    resources :reviews, only: :new
+  end
   resources :reviews, only: :create do
     member do
       post :likes
     end
+    resources :review_comments, only: :new
   end
-  resources :review_comments, only: :create
+  resources :review_comments, only: :create do
+    member do
+      post :likes
+    end
+  end
   resources :forms, only: :create
 
   get '/search' => 'home#search'

@@ -10,6 +10,7 @@ class ReviewCommentDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     review: Field::BelongsTo,
     id: Field::Number,
+    name: Field::String,
     content: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -24,6 +25,7 @@ class ReviewCommentDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :review,
+    :name,
     :approved
   ].freeze
 
@@ -32,6 +34,7 @@ class ReviewCommentDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :review,
+    :name,
     :content,
     :approved,
     :created_at,

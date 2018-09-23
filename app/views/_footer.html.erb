@@ -1,54 +1,22 @@
 <footer class="footer">
   <div class="container">
-    <div class="columns">
-      <div class="column is-4">
-        <aside class="menu">
-          <p class="menu-label">
-            Farmally
-          </p>
-          <ul class="menu-list">
-            <li>
-              <%= link_to 'ご利用規約', terms_of_service_path, rel: 'nofollow' %>
-            </li>
-            <li>
-              <%= link_to 'プライバシーポリシー', privacy_policy_path, rel: 'nofollow' %>
-            </li>
-            <li>
-              <%= link_to '特定商取引法に基づく表記', specified_commercial_path, rel: 'nofollow' %>
-            </li>
-            <li>
-          </ul>
-        </aside>
-      </div>
-
-      <div class="column is-4">
-        <aside class="menu">
-          <p class="menu-label">
-            関連リンク
-          </p>
-          <ul class="menu-list">
-            <li>
-              <%= link_to '会社概要', company_path %>
-            </li>
-          </ul>
-        </aside>
-      </div>
-      <div class="column is-4">
-        <p class="has-text-grey">
-          Farmally, Inc. All Rights Reserved.
-        </p>
-      </div>
-    </div>
+    <%= link_to 'ご利用規約', terms_of_service_path, rel: 'nofollow' %>
+    <span>|</span>
+    <%= link_to 'プライバシーポリシー', privacy_policy_path, rel: 'nofollow' %>
+    <span>|</span>
+    <%= link_to '特定商取引法に基づく表記', specified_commercial_path, rel: 'nofollow' %>
+    <span>|</span>
+    <%= link_to '会社概要', company_path %>
+    <h3>ファーマリー</h3>
+    <p class="copy">&copy; Farmally, Inc. All Rights Reserved.</p>
   </div>
 </footer>
 <% if show_fixed_form %>
-  <div style="height: 94px;"></div>
+  <div style="height: 100px;"></div>
   <section class="hero is-white fixed-footer">
-    <div class="hero-body">
-      <div class="container has-text-centered content">
-        <%= link_to '農機具選びを無料相談する', form_path, class: 'button is-link is-medium is-rounded form-button' %>
-        <%= link_to '農機を売る', sell_form_path, class: 'button is-info is-medium is-rounded form-button' %>
-      </div>
+    <div class="container has-text-centered content">
+      <%= link_to '農機具選びを無料相談する', form_path, class: 'button form-button buy-button' %>
+      <%= link_to '農機を売る', sell_form_path, class: 'button form-button sell-button' %>
     </div>
   </section>
 <% end %>

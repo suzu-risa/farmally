@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def print_text(text)
+    text.present? ? text : '-'
+  end
+
+  def print_price(price)
+    price.present? ? price.to_s(:delimited) : '-'
+  end
+
   def category_options
     [
       ['トラクター', 'トラクター'],

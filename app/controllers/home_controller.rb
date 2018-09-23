@@ -1,12 +1,10 @@
 class HomeController < ApplicationController
-  def index
-    @category = Category.all
-  end
+  def index; end
 
   def search
     @category = Category.find_by(code: params[:category])
     @maker = Maker.find_by(code: params[:maker])
-    @items = Item.where(category_id: @category.id, maker_id: @maker.id)
+    @items = Item.where(category: @category, maker: @maker)
     @title = "#{@category.name} / #{@maker.name}"
     @breadcrumb = breadcrumb(category: @category, maker: @maker)
   end

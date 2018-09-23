@@ -1,5 +1,5 @@
 namespace :data_migration do
-  desc "Execute data migration"
+  desc 'Execute data migration'
   task exec: :environment do
     Rails.logger.info 'Start data migration task'
 

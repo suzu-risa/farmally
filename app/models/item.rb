@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   belongs_to :maker
   belongs_to :category
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :used_price, numericality: { only_integer: true }, allow_nil: true
@@ -10,6 +10,9 @@ class Item < ApplicationRecord
   validates :horse_power, length: { maximum: 255 }
   validates :size, length: { maximum: 255 }
   validates :weight, length: { maximum: 255 }
+  validates :machine_type, length: { maximum: 255 }
+  validates :work_efficiency, length: { maximum: 255 }
+  validates :other, length: { maximum: 3000 }
 
   def self.import(file)
     categories_hash = Hash[*Category.all.map { |c| [c.name, c] }.flatten]
@@ -33,7 +36,10 @@ class Item < ApplicationRecord
         horse_power: attributes['horse_power'],
         weight: attributes['weight'],
         category: categories_hash[attributes['category']],
-        maker: makers_hash[attributes['maker']]
+        maker: makers_hash[attributes['maker']],
+        machine_type: attributes['machine_type'],
+        work_efficiency: attributes['work_efficiency'],
+        other: attributes['other']
       )
       items << item
       if item.invalid?
@@ -57,7 +63,19 @@ class Item < ApplicationRecord
   end
 
   def self.acceptable_attributes
-    %w[maker_price used_price model horse_power size weight category maker]
+    %w[
+      category
+      maker
+      model
+      size
+      horse_power
+      machine_type
+      work_efficiency
+      weight
+      maker_price
+      used_price
+      other
+    ]
   end
 
   def self.utf8_encoding?(file)

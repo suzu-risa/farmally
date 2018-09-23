@@ -1,10 +1,11 @@
-<section class="hero is-light is-small">
+<section class="hero is-white is-small">
   <div class="hero-head">
     <header class="navbar" id="navbar">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
             <%= image_tag 'logo.png', alt: 'Farmally', class: 'logo' %>
+            <span class="logo-name">ファーマリー</span>
           </a>
           <div class="navbar-burger burger" id="navbarBurger" data-target="navMenu">
             <span></span>
@@ -12,8 +13,28 @@
             <span></span>
           </div>
         </div>
-
         <div id="navMenu" class="navbar-menu">
+          <form class="field is-horizontal has-text-centered search-box" action="/search" method="get">
+            <div class="control">
+              <div class="select">
+                <select name="category">
+                  <% Category.all.each do |c| %>
+                    <option value="<%= c.code %>"><%= c.name %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+              <div class="select">
+                <select name="maker">
+                  <% Maker.all.each do |m| %>
+                    <option value="<%= m.code %>"><%= m.name %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <button class="control button is-primary">検索する</button>
+          </form>
           <%# <div class="navbar-start">
             <a class="navbar-item" href="https://bulma.io/">
               Home

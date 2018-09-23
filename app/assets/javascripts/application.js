@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
   }
 
+  // Delete a notification
   var deleteButton = document.getElementsByClassName("delete")[0];
   if (deleteButton) {
     deleteButton.addEventListener("click", function() {
@@ -44,6 +45,47 @@ document.addEventListener("DOMContentLoaded", function(event) {
       if (notificationElem) {
         notificationElem.parentNode.removeChild(notificationElem);
       }
+    });
+  }
+
+  // Give five grade evaluation
+  const reviewStarOptions = [
+    "unselected",
+    "very_bad",
+    "bad",
+    "normal",
+    "good",
+    "very_good"
+  ];
+  const stars = Array.from(document.getElementsByClassName("review-star"));
+  stars.forEach((star, i) => {
+    star.addEventListener("click", () => {
+      const point = document.querySelectorAll(".review-star > .fas").length;
+      if (i === point - 1) {
+        stars.forEach(s => {
+          s.firstElementChild.classList.remove("fas");
+          s.firstElementChild.classList.add("far");
+        });
+        document.getElementById("review_star").value = reviewStarOptions[0];
+      } else {
+        stars.forEach((s, j) => {
+          if (j <= i) {
+            s.firstElementChild.classList.add("fas");
+            s.firstElementChild.classList.remove("far");
+          } else {
+            s.firstElementChild.classList.remove("fas");
+            s.firstElementChild.classList.add("far");
+          }
+        });
+        document.getElementById("review_star").value = reviewStarOptions[i + 1];
+      }
+    });
+  });
+
+  const reviewPic = document.getElementById("review_picture");
+  if (reviewPic) {
+    reviewPic.addEventListener("change", function(e) {
+      document.getElementById("uv").value = e.currentTarget.files[0].name;
     });
   }
 });

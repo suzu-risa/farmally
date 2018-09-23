@@ -1,22 +1,9 @@
-<article class="media c-cassette">
-    <%= link_to(item_path(item), class: 'item-detail') do %>
-    <figure class="media-left">
-      <div class="image is-128x128" style="background-image:url(<%= asset_path "sample-thumb.jpg" %>)">
-      </div>
-    </figure>
-    <div class="media-content">
-      <div class="content">
-        <p class="title is-5">
-          <strong><%= item.category.name %> <%= item.model %></strong>
-        </p>
-      </div>
-      <ul>
-        <li>メーカー: <%= item.maker.name %></li>
-        <li>型式: <%= item.model %></li>
-        <li>メーカー希望小売価格: <%= item.maker_price %> 円</li>
-        <li>ファーマリー出品価格: <%= item.used_price %> 円</li>
-      </ul>
+<div class="column is-12-mobile is-4-tablet is-4-desktop">
+  <%= link_to(item_path(item), class: 'item-detail') do %>
+    <%= image_tag 'sample-tractor.png' %>
+    <div class="item-desc">
+      <p class="name"><%= item.maker.name %> <%= item.model %></p>
+      <p class="price"><%= print_price(item.used_price) %>円</p>
     </div>
-    <% end %>
-    <%= link_to '問い合わせる', form_path, class: 'button is-primary inquiry-btn'%>
-</article>
+  <% end %>
+</div>

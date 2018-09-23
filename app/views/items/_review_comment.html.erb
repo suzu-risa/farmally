@@ -1,4 +1,17 @@
-<div style="margin-bottom: 50px">
-  <b>コメント</b>
-  <p><%= simple_format(h(comment.content)) %></p>
+<div class="comment">
+  <div class="commenter">
+    <p><%= comment.name.present? ? comment.name : '名前なし' %></p>
+  </div>
+  <div class="date">
+    <p><%= comment.created_at.strftime('%Y年%m月%d日') %></p>
+  </div>
+  <div class="content">
+    <%= simple_format(h(comment.content)) %>
+  </div>
+  <%= form_with(url: likes_review_comment_path(comment), local: true) do |form| %>
+    <%= button_tag type: 'submit', class: 'button like-button' do %>
+      <i class="far fa-heart"></i>
+      <span><%= comment.like_count %>件</span>
+    <% end %>
+  <% end %>
 </div>

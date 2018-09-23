@@ -12,6 +12,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     # picture_blob: Field::HasOne,
     item: Field::BelongsTo,
     id: Field::Number,
+    name: Field::String,
     content: Field::Text,
     star: Field::String.with_options(searchable: false),
     like_count: Field::Number,
@@ -28,6 +29,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     # :picture_blob,
     :id,
     :item,
+    :name,
     :star,
     :like_count,
     :approved
@@ -40,6 +42,7 @@ class ReviewDashboard < Administrate::BaseDashboard
     # :picture_blob,
     :id,
     :item,
+    :name,
     :content,
     :star,
     :like_count,

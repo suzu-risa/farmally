@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # FIXME: ApplicationHelperに移すべき
   def breadcrumb(item: nil, category: nil, maker: nil)
     breadcrumb = [
       {

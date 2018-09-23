@@ -1,6 +1,6 @@
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
-    <% @breadcrumb.each_with_index do |b,index| %>
+    <% @breadcrumb.each_with_index do |b, index| %>
       <% if  index == @breadcrumb.length - 1 %>
         <li class='is-active' >
           <a href="#" aria-current="page"><%= b[:name] %></a>
