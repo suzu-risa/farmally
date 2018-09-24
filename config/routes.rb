@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_roboto
   namespace :admin do
     resources :categories, param: :code
     resources :items

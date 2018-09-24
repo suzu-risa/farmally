@@ -46,6 +46,9 @@ gem 'aws-sdk'
 gem 'aws-sdk-rails'
 gem 'slack-notifier'
 gem 'config'
+gem 'sitemap_generator'
+gem 'whenever'
+gem 'roboto'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
