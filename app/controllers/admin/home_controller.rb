@@ -11,5 +11,11 @@ module Admin
       flash.now[:error] = result[:messages].join('<br />')
       render :index
     end
+
+    def sitemap
+      SitemapGenerator::Interpreter.run
+      SitemapGenerator::Sitemap.ping_search_engines
+      redirect_to admin_root_url, notice: 'サイトマップを更新しました'
+    end
   end
 end

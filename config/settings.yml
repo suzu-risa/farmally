@@ -1,3 +1,5 @@
 slack:
   icon_emoji: ':evergreen_tree:'
   username: ファーマリー
+sitemap:
+  bucket: 'jp.farmally.sitemap-dev'

@@ -47,7 +47,6 @@ gem 'aws-sdk-rails'
 gem 'slack-notifier'
 gem 'config'
 gem 'sitemap_generator'
-gem 'whenever'
 gem 'roboto'
 
 group :development, :test do

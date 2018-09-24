@@ -17,3 +17,15 @@
     </div>
   <% end %>
 </section>
+<section class="main-content__body">
+  <%= form_tag admin_sitemap_path, multipart: true, method: 'put' do %>
+    <div class="field-unit field-unit--string">
+      <div class="field-unit__label">
+        <label>サイトマップ</label>
+      </div>
+      <div class="field-unit__field">
+        <%= submit_tag '更新' %>
+      </div>
+    </div>
+  <% end %>
+</section>

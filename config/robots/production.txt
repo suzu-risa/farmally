@@ -2,4 +2,4 @@
 User-agent: *
 Disallow: /admin/
 Allow: /
-Sitemap: https://farmally.jp/sitemap.xml.gz
+Sitemap: https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz

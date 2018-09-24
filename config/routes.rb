@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :review_comments
 
     post '/import', to: 'home#import'
+    put '/sitemap', to: 'home#sitemap'
     root to: 'home#index'
   end
 

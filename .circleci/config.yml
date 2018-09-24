@@ -55,8 +55,8 @@ workflows:
     jobs:
       - build:
           filters:
-            # tags:
-            #   only: /v\d+\.\d+\.\d+/
+            tags:
+              only: /v\d+\.\d+\.\d+/
             branches:
               only: develop
       - deploy-staging:
