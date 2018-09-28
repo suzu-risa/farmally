@@ -29,13 +29,13 @@
       </div>
       <div class="column is-12-mobile is-8-tablet is-8-desktop">
         <div class="content">
-          <%= review.content.blank? ? '-' : simple_format(h(review.content)) %>
+          <%= review.content.blank? ? '-' : with_read_more(review.id, review.content, 'review') %>
         </div>
       </div>
     <% else %>
       <div class="column">
         <div class="content">
-          <%= review.content.blank? ? '-' : simple_format(h(review.content)) %>
+          <%= review.content.blank? ? '-' : with_read_more(review.id, review.content, 'review') %>
         </div>
       </div>
     <% end %>

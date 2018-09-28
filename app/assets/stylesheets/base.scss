@@ -149,6 +149,10 @@ header#navbar {
       &:hover {
         background-color: darken($base-brown, 20%);
       }
+
+      img {
+        width: 24px;
+      }
     }
 
     @media screen and (max-width: 768px) {

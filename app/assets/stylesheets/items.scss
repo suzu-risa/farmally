@@ -48,14 +48,35 @@
             color: white;
             background-color: $base-brown;
             margin-bottom: 10px;
+            height: 60px;
+            img {
+              width: 24px;
+              position: absolute;
+              left: 20px;
+            }
             &:hover {
               background-color: darken($base-brown, 10%);
+            }
+            span {
+              @media screen and (min-width: 400px) {
+                > .only-sp {
+                  display: none;
+                }
+              }
+              @media screen and (max-width: 399px) {
+                font-size: 14px;
+              }
             }
           }
 
           &.sell-button {
             color: $base-brown;
             border: solid 1px $base-brown;
+            img {
+              width: 24px;
+              position: absolute;
+              left: 20px;
+            }
             &:hover {
               background-color: darken(white, 10%);
             }
@@ -139,6 +160,28 @@
         background-position: center;
         box-sizing: border-box;
         border: solid 1px #efefef;
+      }
+
+      .content {
+        div {
+          p {
+            margin-bottom: 0;
+          }
+          .read-more, .read-less {
+            border: none;
+            background: transparent;
+            color: #8693FF;
+            font-size: 0.9rem;
+            padding: 0;
+            &:hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+          .hide {
+            display: none;
+          }
+        }
       }
 
       .buttons-container {

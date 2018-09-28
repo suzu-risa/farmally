@@ -1,5 +1,7 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
 User-agent: *
 Disallow: /admin/
+Disallow: /blog/wp-admin/
+Allow: /blog/wp-admin/admin-ajax.php
 Allow: /
 Sitemap: https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz

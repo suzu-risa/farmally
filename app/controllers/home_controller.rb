@@ -4,8 +4,24 @@ class HomeController < ApplicationController
   def search
     @category = Category.find_by(code: params[:category])
     @maker = Maker.find_by(code: params[:maker])
-    @items = Item.where(category: @category, maker: @maker)
-    @title = "#{@category.name} / #{@maker.name}"
+    @items = if @category.present? && @maker.present?
+      Item.where(category: @category, maker: @maker)
+    elsif @category.present?
+      Item.where(category: @category)
+    elsif @maker.present?
+      Item.where(maker: @maker)
+    else
+      Item.all
+    end
+    @title = if @category.present? && @maker.present?
+      "#{@category.name} / #{@maker.name}"
+    elsif @category.present?
+      @category.name
+    elsif @maker.present?
+      @maker.name
+    else
+      "全て"
+    end
     @breadcrumb = breadcrumb(category: @category, maker: @maker)
   end
 

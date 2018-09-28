@@ -89,4 +89,19 @@ module ApplicationHelper
       ['500万円以上', '500万円以上']
     ]
   end
+
+  def with_read_more(id, content, type)
+    threshold = 5
+    data = { id: id, type: type }
+    lines = content.split("\n")
+    if lines.size <= threshold
+      return content_tag(:div, simple_format(h(content)))
+    end
+    content_tag(:div) do
+      concat simple_format(h(lines[0...threshold].join("\n")))
+      concat content_tag(:button, 'もっと読む', class: 'read-more', id: "read-more-#{type}-button-#{id}", data: data)
+      concat content_tag(:div, simple_format(h(lines[threshold..-1].join("\n"))), class: 'hide', id: "read-more-#{type}-#{id}")
+      concat content_tag(:button, '少なく読む', class: 'read-less hide', id: "read-less-#{type}-button-#{id}", data: data)
+    end
+  end
 end

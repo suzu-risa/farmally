@@ -88,4 +88,42 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.getElementById("uv").value = e.currentTarget.files[0].name;
     });
   }
+
+  const readMoreButtons = Array.from(
+    document.getElementsByClassName("read-more")
+  );
+  readMoreButtons.forEach((btn, i) => {
+    const type = btn.dataset.type;
+    btn.addEventListener("click", function(e) {
+      const id = btn.dataset.id;
+      const readMoreContent = document.getElementById(
+        `read-more-${type}-${id}`
+      );
+      readMoreContent.classList.remove("hide");
+      const readLessButton = document.getElementById(
+        `read-less-${type}-button-${id}`
+      );
+      readLessButton.classList.remove("hide");
+      btn.classList.add("hide");
+    });
+  });
+
+  const readLessButtons = Array.from(
+    document.getElementsByClassName("read-less")
+  );
+  readLessButtons.forEach((btn, i) => {
+    const type = btn.dataset.type;
+    btn.addEventListener("click", function(e) {
+      const id = btn.dataset.id;
+      const readMoreContent = document.getElementById(
+        `read-more-${type}-${id}`
+      );
+      readMoreContent.classList.add("hide");
+      const readMoreButton = document.getElementById(
+        `read-more-${type}-button-${id}`
+      );
+      readMoreButton.classList.remove("hide");
+      btn.classList.add("hide");
+    });
+  });
 });

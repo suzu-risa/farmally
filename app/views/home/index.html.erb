@@ -21,11 +21,15 @@
     <div class="container content search-from-category">
       <h3 class="title">種類から農機具を探す</h3>
       <div class="columns is-mobile is-multiline">
-        <% Category.all.limit(8).each do |c| %>
-          <div class="column is-6-mobile is-3-tablet has-text-centered is-3-desktop">
+        <% codes = ['tractor', 'combine', 'taueki', 'kounnki', 'kusakariki', 'kannriki', 'kansoki', 'other'] %>
+        <% Category.where(code: codes).order("field(code, \"#{codes.join('","')}\")").each do |c| %>
+          <div class="column is-6-mobile is-3-tablet is-3-desktop">
             <%= link_to(category_path(c), class: 'category') do %>
-              <%= image_tag 'sample-tractor.png' %>
-              <p><%= c.name %></p>
+              <%= image_tag "category/#{c.code}.png" %>
+              <div class="name">
+                <%= image_tag "category/icons/#{c.code}.png" %>
+                <span><%= c.name %></span>
+              </div>
             <% end %>
           </div>
         <% end %>
