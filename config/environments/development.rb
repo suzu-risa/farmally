@@ -43,7 +43,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', protocol: 'http' }
 
   config.action_controller.asset_host = 'http://localhost'
-  routes.default_url_options = { host: 'localhost', protocol: 'http' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

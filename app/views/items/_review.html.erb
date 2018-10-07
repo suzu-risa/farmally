@@ -25,7 +25,7 @@
   <div class="columns">
     <% if review.picture.attached? %>
       <div class="column is-12-mobile is-4-tablet is-4-desktop">
-        <%= image_tag review.picture, class: 'review-picture' %>
+        <%= image_tag url_for(review.picture), class: 'review-picture' %>
       </div>
       <div class="column is-12-mobile is-8-tablet is-8-desktop">
         <div class="content">
