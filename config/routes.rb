@@ -31,10 +31,10 @@ Rails.application.routes.draw do
   resources :forms, only: :create
 
   get '/search' => 'home#search'
-  get '/terms-of-service', to: 'home#terms'
-  get '/privacy-policy', to: 'home#privacy'
-  get '/specified-commercial', to: 'home#commercial'
-  get '/company', to: 'home#company'
+  # get '/terms-of-service', to: 'home#terms'
+  # get '/privacy-policy', to: 'home#privacy'
+  # get '/specified-commercial', to: 'home#commercial'
+  # get '/company', to: 'home#company'
   get '/form', to: 'home#form'
   get '/sell-form', to: 'home#sell_form'
   root to: 'home#index'
