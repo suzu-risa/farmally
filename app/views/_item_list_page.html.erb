@@ -4,12 +4,13 @@
       <p class="title is-4 has-text-centered">商品が見つかりませんでした</p>
     <% else %>
       <%= render :partial => '/breadcrumb', locals:{ breadcrumb: @breadcrumb } %>
-      <h1 class="title is-4"><%= @title %><span class="counter">（全<%= @items.size %>件）</span></h1>
+      <h1 class="title is-4"><%= @title %><span class="counter">&nbsp;<%= @items.current_page %>ページ目 (全<%= @items.total_count %>件)</span></h1>
       <div class="columns is-mobile is-multiline">
         <% @items.each do |i| %>
           <%= render :partial => '/item_cassette', locals:{ item: i } %>
         <% end %>
       </div>
+      <%= paginate @items %>
     <% end %>
   </div>
 </section>

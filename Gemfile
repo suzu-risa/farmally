@@ -48,6 +48,7 @@ gem 'slack-notifier'
 gem 'config'
 gem 'sitemap_generator'
 gem 'roboto'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

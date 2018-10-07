@@ -5,13 +5,13 @@ class HomeController < ApplicationController
     @category = Category.find_by(code: params[:category])
     @maker = Maker.find_by(code: params[:maker])
     @items = if @category.present? && @maker.present?
-      Item.where(category: @category, maker: @maker)
+      Item.where(category: @category, maker: @maker).page(params[:page])
     elsif @category.present?
-      Item.where(category: @category)
+      Item.where(category: @category).page(params[:page])
     elsif @maker.present?
-      Item.where(maker: @maker)
+      Item.where(maker: @maker).page(params[:page])
     else
-      Item.all
+      Item.all.page(params[:page])
     end
     @title = if @category.present? && @maker.present?
       "#{@category.name} / #{@maker.name}"

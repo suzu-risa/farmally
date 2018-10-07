@@ -12,9 +12,10 @@
  *
  *= require_self
  */
+@import "variables";
+@import "bulma_custom";
 @import "bulma";
 @import "font-awesome";
-@import "variables";
 @import "base";
 @import "home";
 @import "form";

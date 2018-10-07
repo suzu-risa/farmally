@@ -14,6 +14,8 @@ class Item < ApplicationRecord
   validates :work_efficiency, length: { maximum: 255 }
   validates :other, length: { maximum: 3000 }
 
+  paginates_per 30
+
   def self.import(file)
     categories_hash = Hash[*Category.all.map { |c| [c.name, c] }.flatten]
     makers_hash = Hash[*Maker.all.map { |m| [m.name, m] }.flatten]
