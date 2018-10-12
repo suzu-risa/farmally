@@ -37,3 +37,24 @@
     </div>
   </div>
 </section>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container new-item-list">
+      <h3 class="title">新着商品</h3>
+      <div class="container item-list">
+        <% if @items.empty? %>
+          <p class="title is-4 has-text-centered">商品が見つかりませんでした</p>
+        <% else %>
+          <div class="columns is-mobile is-multiline">
+            <% @items.each do |i| %>
+              <%= render partial: '/item_cassette', locals: { item: i } %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="all-search-button-container">
+        <%= link_to 'もっと見る', search_path, class: 'button' %>
+      </div>
+    </div>
+  </div>
+</section>
