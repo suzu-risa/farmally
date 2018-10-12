@@ -41,7 +41,7 @@ as well as a link to its edit page.
           default: 'picture'.titleize,
         ) %>
       </dt>
-      <dd class="attribute-data"><%= image_tag page.resource.picture %></dd>
+      <dd class="attribute-data"><%= image_tag url_for(page.resource.picture) %></dd>
     <% end %>
 
     <% page.attributes.each do |attribute| %>
