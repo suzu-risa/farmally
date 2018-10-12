@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @items = Item.order(created_at: :desc, id: :desc).limit(15)
+  end
 
   def search
     @category = Category.find_by(code: params[:category])
