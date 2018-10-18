@@ -44,10 +44,7 @@ WORKDIR /farmally
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install
+COPY . /farmally
 
-ADD package.json package.json
-ADD yarn.lock yarn.lock
 RUN yarn install
 RUN yarn build
-
-COPY . /farmally
