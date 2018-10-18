@@ -1,5 +1,29 @@
 {
   "name": "farmally",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "dev": "webpack-dev-server --hot --mode development",
+    "build": "yarn run clean && webpack --mode production",
+    "clean": "rimraf ./public/dist"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-manifest-plugin": "^2.0.4"
+  }
 }

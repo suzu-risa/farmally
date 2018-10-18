@@ -37,3 +37,4 @@ config/environments/*.local.yml
 
 build.zip
 public/sitemap.xml.gz
+public/dist
