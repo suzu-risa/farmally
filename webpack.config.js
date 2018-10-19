@@ -2,7 +2,7 @@ const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 
-module.exports = (env, argv) => {
+module.exports = (_env, argv) => {
   const isProduction = argv.mode === "production";
   return {
     entry: {
@@ -15,15 +15,15 @@ module.exports = (env, argv) => {
     },
     output: {
       path: path.resolve(__dirname, "public", "dist"),
-      filename: "[name]-[hash].js",
-      chunkFilename: "[name]-[hash].chunk.js",
+      filename: "[name].[hash].js",
+      chunkFilename: "[name].[hash].chunk.js",
       publicPath: "/dist/"
     },
     module: {
       rules: [
         {
           test: /\.vue$/,
-          use: ["vue-loader"]
+          loader: "vue-loader"
         },
         {
           test: /\.js$/,
@@ -31,16 +31,17 @@ module.exports = (env, argv) => {
           exclude: /node_modules/
         },
         {
-          test: /\.json$/,
-          use: ["json-loader"]
-        },
-        {
           test: /\.(sass|scss)$/,
-          use: ["sass-loader"]
-        },
-        {
-          test: /\.css$/,
-          use: ["style-loader", "css-loader"]
+          use: [
+            "vue-style-loader",
+            "css-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                indentedSyntax: true
+              }
+            }
+          ]
         },
         {
           test: /\.(png|jpg|jpeg|gif|svg)$/,
@@ -50,6 +51,12 @@ module.exports = (env, argv) => {
           }
         }
       ]
+    },
+    resolve: {
+      alias: {
+        vue$: "vue/dist/vue.esm.js"
+      },
+      extensions: [".js", ".vue"]
     },
     plugins: [
       new VueLoaderPlugin(),
