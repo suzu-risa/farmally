@@ -1,18 +1,24 @@
 <template>
-  <ul>
-    <li v-for="article in articles" :key="article.id">
-      {{article.title.rendered}}
-    </li>
-  </ul>
+  <div>
+    <p v-if="loading">Loading...</p>
+    <ul v-else>
+      <article-item v-for="article in articles" :key="article.id" :article="article" />
+    </ul>
+  </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import ArticleItem from './ArticleItem'
 
   export default {
     name: 'NewArticleList',
+    components: {
+      ArticleItem
+    },
     data() {
       return {
+        loading: true,
         articles: []
       }
     },
@@ -24,11 +30,29 @@
         }
       })
       .then(response => {
-        console.log(response)
-        this.$set(this, 'articles', response.data)
+        const articles = response.data.map(data => {
+          const description = data.excerpt.rendered.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')
+          let image = null
+          if (
+            data['_embedded']['wp:featuredmedia'] &&
+            data['_embedded']['wp:featuredmedia'][0] && 
+            data['_embedded']['wp:featuredmedia'][0]['media_details'] &&
+            data['_embedded']['wp:featuredmedia'][0]['media_details']['sizes'] &&
+            data['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']
+          ) {
+            image = data['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url']
+          }
+          return {
+            title: data.title.rendered,
+            link: data.link,
+            description,
+            image
+          }
+        })
+        this.$set(this, 'articles', articles)
       })
-      .catch(error => {
-        console.log(error)
+      .finally(() => {
+        this.$set(this, 'loading', false)
       })
     }
   }
