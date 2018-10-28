@@ -17,7 +17,7 @@
             <span>(メーカー希望小売価格)</span>
           </p>
           <p class="farmally-price">
-            <strong><%= print_price(@item.used_price) %></strong>円
+            <strong>要見積もり</strong>
             <span>(ファーマリー中古価格)</span>
           </p>
         </div>
@@ -54,9 +54,24 @@
               <td><%= print_text(@item.horse_power) %></td>
             </tr>
             <tr>
-              <th>質量</th>
+              <th>質量(kg)</th>
               <td>:</td>
               <td><%= print_text(@item.weight) %></td>
+            </tr>
+            <tr>
+              <th>機械の種類</th>
+              <td>:</td>
+              <td><%= print_text(@item.machine_type) %></td>
+            </tr>
+            <tr>
+              <th>作業能率</th>
+              <td>:</td>
+              <td><%= print_text(@item.work_efficiency) %></td>
+            </tr>
+            <tr>
+              <th>備考</th>
+              <td>:</td>
+              <td class="other"><%= print_text(@item.other) %></td>
             </tr>
           </table>
         </div>

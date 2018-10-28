@@ -97,6 +97,19 @@
           tr, th, td {
             border: none;
           }
+
+          th {
+            @media screen and (min-width: 400px) {
+              min-width: 100px; 
+            }
+            @media screen and (max-width: 399px) {
+              min-width: 60px; 
+            }
+          }
+
+          .other {
+            white-space: pre-line;
+          }
         }
       }
     }

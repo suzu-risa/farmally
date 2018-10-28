@@ -1,7 +1,8 @@
 <template>
   <div>
     <p v-if="loading">Loading...</p>
-    <ul v-else>
+    <p v-else-if="error">読み込めませんでした</p>
+    <ul class="article-list" v-else>
       <article-item v-for="article in articles" :key="article.id" :article="article" />
     </ul>
   </div>
@@ -19,6 +20,7 @@
     data() {
       return {
         loading: true,
+        error: false,
         articles: []
       }
     },
@@ -31,7 +33,7 @@
       })
       .then(response => {
         const articles = response.data.map(data => {
-          const description = data.excerpt.rendered.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')
+          const description = data.content.rendered.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')
           let image = null
           if (
             data['_embedded']['wp:featuredmedia'] &&
@@ -50,10 +52,17 @@
           }
         })
         this.$set(this, 'articles', articles)
+        this.$set(this, 'loading', false)
       })
-      .finally(() => {
+      .catch(error => {
+        this.$set(this, 'error', true)
         this.$set(this, 'loading', false)
       })
     }
   }
 </script>
+
+<style lang="sass" scoped>
+  .article-list
+    margin: 0
+</style>

@@ -32,24 +32,37 @@
     background-color: #f4f2f1
     text-align: left
 
+    @media screen and (max-width: 768px)
+      flex-direction: column
+
     .thumbnail
-      width: 240px
-      height: 144px
       background-color: lightgray
       background-repeat: no-repeat
+      background-position: center
       background-size: cover
+      width: 100%
+      height: 200px
+
+      @media screen and (min-width: 769px)
+        width: 240px
+        height: 144px
 
     .content
       padding: 15px
       flex: 1
-      height: 144px;
+      height: 200px;
       overflow-y: hidden;
+
+      @media screen and (min-width: 769px)
+        height: 144px
 
       .title
         color: #616161
         h3
           color: #616161
           font-size: 24px
+          max-height: 54px
+          overflow: hidden
         &:hover
           text-decoration: underline
 </style>
