@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_17_083001) do
+ActiveRecord::Schema.define(version: 2018_10_31_132724) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_09_17_083001) do
     t.string "machine_type"
     t.string "work_efficiency"
     t.text "other"
+    t.integer "sub_maker_price"
   end
 
   create_table "makers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|

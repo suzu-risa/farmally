@@ -13,7 +13,7 @@
         <h1 class="title"><%= @item.maker.name %> <%= @title %></h1>
         <div class="prices">
           <p>
-            <span><%= print_price(@item.maker_price) %></span>円
+            <span><%= maker_price_range(@item) %></span>円
             <span>(メーカー希望小売価格)</span>
           </p>
           <p class="farmally-price">

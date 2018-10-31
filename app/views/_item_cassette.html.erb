@@ -4,7 +4,7 @@
     <div class="item-desc">
       <p class="name"><%= item.maker.name %> <%= item.model %></p>
       <p class="horse-power">馬力: <%= item.horse_power || '-' %></p>
-      <p class="maker-price"><%= print_price(item.maker_price) %>円(小売希望価格)</p>
+      <p class="maker-price"><%= maker_price_range(item) %>円(小売希望価格)</p>
       <p class="price">要見積もり<span>(ファーマリー中古価格)<span></p>
     </div>
   <% end %>

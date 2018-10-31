@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    maker_price 10_000
+    maker_price 100
     used_price 8_000
     model 'model'
     horse_power 'horse_power'

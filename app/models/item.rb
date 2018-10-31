@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   validates :maker_price, numericality: { only_integer: true }, allow_nil: true
+  validates :sub_maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :used_price, numericality: { only_integer: true }, allow_nil: true
   validates :model, length: { maximum: 255 }
   validates :horse_power, length: { maximum: 255 }
@@ -32,6 +33,7 @@ class Item < ApplicationRecord
       attributes = row.to_hash.slice(*acceptable_attributes)
       item = Item.new(
         maker_price: normalize_price(attributes['maker_price']),
+        sub_maker_price: normalize_price(attributes['sub_maker_price']),
         used_price: normalize_price(attributes['used_price']),
         model: attributes['model'],
         size: attributes['size'],
@@ -75,6 +77,7 @@ class Item < ApplicationRecord
       work_efficiency
       weight
       maker_price
+      sub_maker_price
       used_price
       other
     ]
