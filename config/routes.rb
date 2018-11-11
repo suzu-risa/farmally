@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :makers, param: :code
     resources :reviews
     resources :review_comments
+    namespace :sale do
+      resources :property_templates
+    end
 
     post '/import', to: 'home#import'
     put '/sitemap', to: 'home#sitemap'

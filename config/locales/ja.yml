@@ -7,6 +7,8 @@ ja:
       item: 商品
       review: 口コミ
       review_comment: コメント
+      sale/property_template: 出品商品プロパティテンプレート
+      sale/properties: プロパティ
     attributes:
       category:
         name: 名前
@@ -38,6 +40,9 @@ ja:
         content: 内容
         approved: 承認
         like_count: いいね
+      sale/property_template:
+        category: 種類
+        properties: プロパティ
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
