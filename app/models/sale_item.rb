@@ -1,6 +1,18 @@
 class SaleItem < ApplicationRecord
   belongs_to :item
-  belongs_to :property_template,
-             class_name: "Sale::PropertyTemplate",
-             foreign_key: :sale_property_template_id
+  belongs_to :sale_property_template, class_name: "Sale::PropertyTemplate"
+
+  has_many :sale_item_properties,
+           class_name: "SaleItemProperty"
+
+  def sale_item_property_attributes=(_sale_item_property_attributes)
+    if _sale_item_property_attributes.respond_to?(:values)
+      _sale_item_property_attributes = _sale_item_property_attributes.values
+    end
+
+    self.sale_item_properties =
+      _sale_item_property_attributes.map do |_sale_item_property_attribute|
+        sale_item_properties.build(_sale_item_property_attribute)
+      end
+  end
 end
