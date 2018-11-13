@@ -4,4 +4,4 @@ Disallow: /admin/
 Disallow: /blog/wp-admin/
 Allow: /blog/wp-admin/admin-ajax.php
 Allow: /
-Sitemap: https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz
+Sitemap: https://farmally.jp/sitemap

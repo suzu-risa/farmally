@@ -41,5 +41,6 @@ Rails.application.routes.draw do
   get '/company', to: 'home#index'
   get '/form', to: 'home#form'
   get '/sell-form', to: 'home#sell_form'
+  get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
   root to: 'home#index'
 end
