@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def default_meta_tags
+    {
+      title: '農機具・農業機械の中古販売・買取なら',
+      site: 'ファーマリー',
+      reverse: true
+    }
+  end
+
   def print_text(text)
     text.present? ? text : '-'
   end
