@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_132724) do
+ActiveRecord::Schema.define(version: 2018_11_18_111208) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,23 @@ ActiveRecord::Schema.define(version: 2018_10_31_132724) do
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
+  create_table "sale_properties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.bigint "sale_property_template_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sale_property_template_id"], name: "index_sale_properties_on_sale_property_template_id"
+  end
+
+  create_table "sale_property_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sale_property_templates_on_category_id"
+  end
+
   add_foreign_key "review_comments", "reviews"
   add_foreign_key "reviews", "items"
+  add_foreign_key "sale_properties", "sale_property_templates"
+  add_foreign_key "sale_property_templates", "categories"
 end
