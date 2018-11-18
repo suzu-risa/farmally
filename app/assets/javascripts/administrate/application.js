@@ -27,4 +27,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     $(target).prepend(new_table_row);
   })
+
+  $("#sale_item_sale_property_template_id").on("change", function(){
+    $.ajax({
+      url: $("form").attr("data-property-list-url"),
+      data: { sale_property_template_id: $(this).val() }
+    });
+  });
 });

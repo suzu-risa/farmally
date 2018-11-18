@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :makers, param: :code
     resources :reviews
     resources :review_comments
-    resources :sale_items
+    resources :sale_items do
+      collection do
+        get :property_list
+      end
+    end
     namespace :sale do
       resources :property_templates
     end

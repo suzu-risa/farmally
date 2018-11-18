@@ -25,7 +25,7 @@ module Admin
 
     def edit
       @sale_item = SaleItem.find(params[:id])
-      @property_template = ::Sale::PropertyTemplate.first
+      @property_template = @sale_item.sale_property_template
 
       render locals: {
         page: Administrate::Page::Form.new(dashboard, requested_resource),
@@ -33,7 +33,12 @@ module Admin
     end
 
     def property_list
-      @proerty_template = find_property_template(params[:template_id])
+      property_template = find_property_template(params[:sale_property_template_id])
+
+      @sale_item_properties =
+        property_template.property_ids.map do |sale_property_id|
+          SaleItemProperty.new(sale_property_id: sale_property_id)
+        end
     end
 
     # Define a custom finder by overriding the `find_resource` method:

@@ -1,0 +1,15 @@
+<table id="sale-item-property-table" class="property-table">
+  <thead>
+    <tr>
+      <th>プロパティ名</th>
+      <th>値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sale_item_properties.each do |sale_item_property| %>
+      <%= fields_for "sale_item[sale_item_property_attributes][]", sale_item_property do |p_form| %>
+        <%= render 'sale_item_property_fields', f: p_form %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

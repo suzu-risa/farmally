@@ -10,6 +10,8 @@ class SaleItem < ApplicationRecord
       _sale_item_property_attributes = _sale_item_property_attributes.values
     end
 
+    sale_item_properties.destroy_all
+
     self.sale_item_properties =
       _sale_item_property_attributes.map do |_sale_item_property_attribute|
         sale_item_properties.build(_sale_item_property_attribute)
