@@ -33,11 +33,18 @@ module Admin
     end
 
     def property_list
-      property_template = find_property_template(params[:sale_property_template_id])
+      @sale_item = SaleItem.find_by(id: params[:id])
+      sale_property_template_id = params[:sale_property_template_id].to_i
 
       @sale_item_properties =
-        property_template.property_ids.map do |sale_property_id|
-          SaleItemProperty.new(sale_property_id: sale_property_id)
+        if @sale_item && @sale_item.sale_property_template_id == sale_property_template_id
+          @sale_item.sale_item_properties
+        else
+          property_template = find_property_template(sale_property_template_id)
+
+          property_template.property_ids.map do |sale_property_id|
+            SaleItemProperty.new(sale_property_id: sale_property_id)
+          end
         end
     end
 
