@@ -22,7 +22,6 @@ module Admin
     end
 
     def create
-      binding.pry
       super
     end
 
@@ -38,7 +37,7 @@ module Admin
 
     def resource_params
       params.require(resource_class.model_name.param_key).
-        permit(:category_id, properties_attributes: [:name])
+        permit(:category_id, properties_attributes: [:name, :_destroy, :id])
     end
   end
 end

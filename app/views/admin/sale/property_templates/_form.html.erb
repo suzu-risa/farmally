@@ -44,12 +44,18 @@ and renders all form fields for a resource's editable attributes.
   <% # プロパティ %>
   <fieldset>
     <legend align="center">プロパティ一覧</legend>
-    <table>
+    <div>
+      <%= link_to "プロパティを追加する",
+                  '#',
+                  class: 'farmally-add-field-button',
+                  data: { target: ".property-table" } %>
+    </div>
+    <table class="property-table">
       <thead>
         <tr>
           <th></th>
           <th><%= Sale::Property.model_name.human %></th>
-          <th></th>
+          <th>削除</th>
         </tr>
       </thead>
       <tbody>

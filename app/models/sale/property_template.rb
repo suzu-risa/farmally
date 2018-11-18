@@ -4,5 +4,7 @@ class Sale::PropertyTemplate < ApplicationRecord
 
   accepts_nested_attributes_for :properties,
                                 allow_destroy: true,
-                                reject_if: ->(prop ){ prop[:name].blank? }
+                                reject_if: ->(prop){
+                                  prop[:name].blank?
+                                }
 end
