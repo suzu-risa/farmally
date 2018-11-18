@@ -46,8 +46,8 @@ class SaleItemDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :item,
-    :sale_property_template,
     :price,
+    :sale_property_template,
   ].freeze
 
   # Overwrite this method to customize how sale items are displayed
