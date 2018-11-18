@@ -51,6 +51,7 @@ gem 'roboto'
 gem 'kaminari'
 gem 'rack-proxy'
 gem 'meta-tags'
+gem 'acts_as_list'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
