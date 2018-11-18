@@ -37,7 +37,7 @@ module Admin
 
     def resource_params
       params.require(resource_class.model_name.param_key).
-        permit(:category_id, properties_attributes: [:name, :_destroy, :id])
+        permit(:category_id, properties_attributes: [:name, :_destroy, :id, :position])
     end
   end
 end
