@@ -14,7 +14,12 @@ and renders all form fields for a resource's editable attributes.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
 %>
 
-<%= form_for([namespace, @sale_item], html: { class: "form", "data-property-list-url" => property_list_admin_sale_items_path(id: @sale_item.try(:id)) }) do |f| %>
+<%= form_for([namespace, @sale_item],
+             html: {
+             class: "form",
+             multipart: true,
+             "data-property-list-url" => property_list_admin_sale_items_path(id: @sale_item.try(:id)) }) do |f|
+  %>
   <% if page.resource.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -47,4 +52,28 @@ and renders all form fields for a resource's editable attributes.
   <div class="form-actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<% if @sale_item.persisted? %>
+  <h2>画像アップロード</h2>
+  <%= form_for(@sale_item, url: admin_sale_item_images_path(sale_item_id: @sale_item),
+               html: { class: "form", multipart: true }, method: :post) do |f| %>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+
+    <%= f.submit "画像を登録する" %>
+  <% end %>
+
+  <table>
+    <tr>
+      <td></td>
+      <td>削除</td>
+    </tr>
+    <% @sale_item.images.each do |image| %>
+      <tr>
+        <td><%= image_tag(url_for(image)) %></td>
+        <td><%= link_to "削除", "#" %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>

@@ -64,7 +64,11 @@ module Admin
 
     def resource_params
       params.require(resource_class.model_name.param_key).
-        permit(:item_id, :price, :sale_property_template_id, sale_item_property_attributes: [:sale_property_id, :value])
+        permit(:item_id,
+               :price,
+               :sale_property_template_id,
+               images: [],
+               sale_item_property_attributes: [:sale_property_id, :value])
     end
   end
 end

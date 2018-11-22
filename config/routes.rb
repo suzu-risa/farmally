@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       collection do
         get :property_list
       end
+
+      scope module: :sale_items do
+        resources :images, only: [:create, :update, :destroy]
+      end
     end
     namespace :sale do
       resources :property_templates

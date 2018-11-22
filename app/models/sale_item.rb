@@ -1,4 +1,6 @@
 class SaleItem < ApplicationRecord
+  has_many_attached :images
+
   belongs_to :item
   belongs_to :sale_property_template, class_name: "Sale::PropertyTemplate"
 
