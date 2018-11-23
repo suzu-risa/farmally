@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
 
       scope module: :sale_items do
-        resources :images, only: [:create, :update, :destroy]
+        resources :images, only: [:create, :destroy]
       end
     end
     namespace :sale do
