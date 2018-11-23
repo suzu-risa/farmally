@@ -9,6 +9,7 @@ ja:
       review_comment: コメント
       sale/property_template: 出品商品プロパティテンプレート
       sale/properties: プロパティ
+      sale_item: 出品商品
     attributes:
       category:
         name: 名前
@@ -43,6 +44,13 @@ ja:
       sale/property_template:
         category: 種類
         properties: プロパティ
+      sale_item:
+        item: 商品
+        item_id: 商品
+        price: 価格
+        images: 画像
+        sale_property_template: プロパティテンプレート
+        sale_property_template_id: プロパティテンプレート
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
