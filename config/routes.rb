@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :makers, param: :code, only: :show
   resources :items, only: :show do
     resources :reviews, only: :new
+    resources :sale_items, only: :show, path: :sales
   end
   resources :reviews, only: :create do
     member do

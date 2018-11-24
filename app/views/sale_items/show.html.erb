@@ -1,0 +1,40 @@
+<% set_meta_tags title: @title %>
+<section class="section sale-item__detail">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <%= render partial: '/breadcrumb', locals: { breadcrumb: @breadcrumb } %>
+      </div>
+    </div>
+    <div class="columns is-centered main">
+      <div class="column is-12-mobile is-6-tablet is-6-desktop has-text-centered">
+        <%= image_tag url_for(@sale_item.images.first), class: 'sale-item-image' %>
+      </div>
+      <div class="column is-12-mobile is-6-tablet is-6-desktop">
+        <h1 class="title">
+          <%= @sale_item.model %>
+          <br>
+          <%= @sale_item.price %>
+        </h1>
+        <div class="properties">
+          <table class="table">
+            <thead>
+              <tr>
+                <th colspan="2">販売条件</tr>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @sale_item.sale_item_properties.each do |sale_item_property| %>
+                <tr>
+                  <th><%= sale_item_property.name %></th>
+                  <td><%= sale_item_property.value %></td>
+                <tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
