@@ -7,6 +7,8 @@ class SaleItem < ApplicationRecord
   has_many :sale_item_properties,
            class_name: "SaleItemProperty"
 
+  has_many :inquiries, foreign_key: :sale_item_id, class_name: "SaleItemInquiry"
+
   def sale_item_property_attributes=(_sale_item_property_attributes)
     if _sale_item_property_attributes.respond_to?(:values)
       _sale_item_property_attributes = _sale_item_property_attributes.values
