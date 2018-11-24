@@ -49,6 +49,8 @@ ja:
         item_id: 商品
         price: 価格
         images: 画像
+        sale_item_properties: プロパティ
+        properties: プロパティ
         sale_property_template: プロパティテンプレート
         sale_property_template_id: プロパティテンプレート
     errors:

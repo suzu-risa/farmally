@@ -52,7 +52,10 @@ as well as a link to its edit page.
       <%= page.resource.price %>
     </td>
   </tr>
+</table>
 
+<table>
+  <caption><%= SaleItem.human_attribute_name(:sale_item_properties) %></caption>
   <% page.resource.sale_item_properties.each do |sale_item_property| %>
     <tr>
       <td>
@@ -64,7 +67,10 @@ as well as a link to its edit page.
       </td>
     </tr>
   <% end %>
+</table>
 
+<table>
+  <caption><%= SaleItem.human_attribute_name(:images) %></caption>
   <% page.resource.images.each_with_index do |image, i| %>
     <tr>
       <td>
@@ -76,4 +82,4 @@ as well as a link to its edit page.
       </td>
     </tr>
   <% end %>
-</section>
+</table>
