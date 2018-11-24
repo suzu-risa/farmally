@@ -50,9 +50,16 @@ ja:
         price: 価格
         images: 画像
         sale_item_properties: プロパティ
+        inquiries: 問い合わせ
         properties: プロパティ
         sale_property_template: プロパティテンプレート
         sale_property_template_id: プロパティテンプレート
+      sale_item_inquiry:
+        name: 氏名
+        phone_number: 電話番号
+        email: メール
+        address: 住所
+        created_at: 問い合わせ日時
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

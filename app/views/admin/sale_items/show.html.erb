@@ -83,3 +83,17 @@ as well as a link to its edit page.
     </tr>
   <% end %>
 </table>
+
+<h2><%= SaleItem.human_attribute_name(:inquiries) %></h2>
+<table>
+  <tr>
+    <td><%= SaleItemInquiry.human_attribute_name(:name) %></td>
+    <td><%= SaleItemInquiry.human_attribute_name(:created_at) %></td>
+  </tr>
+  <% page.resource.inquiries.each do |inquiry| %>
+    <tr>
+      <td><%= inquiry.name %></td>
+      <td><%= I18n.l(inquiry.created_at) %></td>
+    </tr>
+  <% end %>
+</table>
