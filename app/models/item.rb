@@ -4,6 +4,8 @@ class Item < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
 
+  has_many :sale_items, class_name: "SaleItem"
+
   validates :maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :sub_maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :used_price, numericality: { only_integer: true }, allow_nil: true

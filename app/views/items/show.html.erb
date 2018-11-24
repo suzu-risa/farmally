@@ -81,7 +81,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section item__sale-items">
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
@@ -93,7 +93,7 @@
         <div class="content">
           <% if @sale_items.present? %>
             <% @sale_items.each do |sale_item| %>
-              <%# render partial: 'items/review', locals:{ review: review } %>
+              <%= render partial: 'items/sale_item', locals:{ sale_item: sale_item } %>
             <% end %>
           <% else %>
             <p>出品中の商品はありません</p>
