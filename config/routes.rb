@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       scope module: :sale_items do
         resources :images, only: [:create, :destroy]
       end
+
+      resources :sale_item_inquiries, as: :inquiries
     end
     namespace :sale do
       resources :property_templates

@@ -1,6 +1,6 @@
 module Admin
   module SaleItems
-    class ImagesController < ActionController::Base
+    class ImagesController < Admin::ApplicationController
       def create
         sale_item = find_sale_item(params[:sale_item_id])
 

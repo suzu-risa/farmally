@@ -23,6 +23,12 @@ module Admin
       super
     end
 
+    def show
+      @inquiry = SaleItem.find(params[:id]).inquiries.build
+
+      super
+    end
+
     def edit
       @sale_item = SaleItem.find(params[:id])
       @property_template = @sale_item.sale_property_template

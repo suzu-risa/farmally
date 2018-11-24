@@ -10,7 +10,7 @@ as defined by the routes in the `admin/` namespace
 <nav class="navigation" role="navigation">
   <%= link_to 'ホーム', admin_root_path, class: "navigation__link navigation__link--#{controller_name == 'home' ? 'active' : 'inactive'}" %>
   <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
-    <% next if resource.resource.in?(['home', 'sale_items/images']) %>
+    <% next if resource.resource.in?(['home', 'sale_items/images', 'sale_item_inquiries']) %>
     <%= link_to(
       display_resource_name(resource),
       [namespace, resource_index_route_key(resource)],
