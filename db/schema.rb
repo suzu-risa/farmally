@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_132724) do
+ActiveRecord::Schema.define(version: 2018_11_05_131441) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_132724) do
     t.string "size"
     t.string "weight"
     t.integer "category_id", null: false
+    t.bigint "sub_category_id"
     t.integer "maker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_132724) do
     t.string "work_efficiency"
     t.text "other"
     t.integer "sub_maker_price"
+    t.index ["sub_category_id"], name: "index_items_on_sub_category_id"
   end
 
   create_table "makers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -93,6 +95,17 @@ ActiveRecord::Schema.define(version: 2018_10_31_132724) do
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
+  create_table "sub_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "code", null: false
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  end
+
+  add_foreign_key "items", "sub_categories"
   add_foreign_key "review_comments", "reviews"
   add_foreign_key "reviews", "items"
+  add_foreign_key "sub_categories", "categories"
 end

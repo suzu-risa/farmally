@@ -3,7 +3,6 @@
                       current_page?(privacy_policy_path) ||
                       current_page?(specified_commercial_path) ||
                       current_page?(company_path)
-  show_new_article_list = current_page?(root_path)
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,13 +26,14 @@
         gtag('config', 'UA-126381641-1');
       </script>
     <% end %>
-    <% if show_new_article_list %>
-      <%= javascript_bundle_tag 'application' %>
-    <% end %>
+    <%= javascript_bundle_tag 'application' %>
   </head>
   <body>
     <%= render :partial => '/header' %>
     <%= yield %>
     <%= render :partial => '/footer', locals: { show_fixed_form: !hide_fixed_form } %>
+    <input type="hidden" id="category-master-data" value="<%= @master_categories %>" />
+    <input type="hidden" id="sub-category-master-data" value="<%= @master_sub_categories %>" />
+    <input type="hidden" id="maker-master-data" value="<%= @master_makers %>" />
   </body>
 </html>

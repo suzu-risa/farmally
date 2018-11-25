@@ -103,6 +103,9 @@
 }
 
 header#navbar {
+  @media screen and (min-width: 1088px) {
+    height: 4.5rem;
+  }
   border-bottom: solid 2px $base-brown;
 
   .navbar-brand {
@@ -130,22 +133,38 @@ header#navbar {
 
   form.search-box {
     margin-left: 5px;
+    margin-right: 5px;
     align-items: center;
 
     .control {
-      margin-right: 5px;
+      @media screen and (min-width: 769px) {
+        margin-right: 5px;
+      }
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .select-type {
+        color: gray;
+        font-size: 13px;
+      }
+
       .select {
-        width: 260px;
+        width: 220px;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         select {
-          width: 260px;
+          width: 100%;
         }
       }
     }
-    button {
+    a {
+      margin-top: 19px;
       background-color: $base-brown;
       color: white;
       font-weight: bold;
+      align-items: center !important;
       &:hover {
         background-color: darken($base-brown, 20%);
       }
@@ -161,7 +180,7 @@ header#navbar {
       }
 
       button {
-        width: 260px;
+        width: 100%;
       }
     }
   }

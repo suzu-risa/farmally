@@ -5,26 +5,12 @@ class HomeController < ApplicationController
 
   def search
     @category = Category.find_by(code: params[:category])
+    @sub_category = SubCategory.find_by(category: @category, code: params[:sub_category])
     @maker = Maker.find_by(code: params[:maker])
-    @items = if @category.present? && @maker.present?
-      Item.where(category: @category, maker: @maker).page(params[:page])
-    elsif @category.present?
-      Item.where(category: @category).page(params[:page])
-    elsif @maker.present?
-      Item.where(maker: @maker).page(params[:page])
-    else
-      Item.all.page(params[:page])
-    end
-    @title = if @category.present? && @maker.present?
-      "#{@category.name} / #{@maker.name}"
-    elsif @category.present?
-      @category.name
-    elsif @maker.present?
-      @maker.name
-    else
-      "全て"
-    end
-    @breadcrumb = breadcrumb(category: @category, maker: @maker)
+    arguments = { category: @category, sub_category: @sub_category, maker: @maker }
+    @items = Item.where(search_condition(arguments)).includes(:maker).page(params[:page])
+    @title = search_title(arguments)
+    @breadcrumb = breadcrumb(arguments)
   end
 
   def terms; end
@@ -43,5 +29,23 @@ class HomeController < ApplicationController
   def sell_form
     @form = Form.new
     render layout: 'form'
+  end
+
+  private
+
+  def search_condition(category: nil, sub_category: nil, maker: nil)
+    conditions = []
+    conditions.push("category_id = #{category.id}") if category.present?
+    conditions.push("sub_category_id = #{sub_category.id}") if sub_category.present?
+    conditions.push("maker_id = #{maker.id}") if maker.present?
+    conditions.join(' and ')
+  end
+
+  def search_title(category: nil, sub_category: nil, maker: nil)
+    items = []
+    items.push(category.name) if category.present?
+    items.push(sub_category.name) if sub_category.present?
+    items.push(maker.name) if maker.present?
+    items.size.zero? ? '全て' : items.join(' / ')
   end
 end

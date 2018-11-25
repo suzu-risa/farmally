@@ -139,3 +139,25 @@
     }
   }
 }
+
+.sub-category-search {
+  padding: 0.75rem;
+  .column {
+    a {
+      background-color: white;
+      border: solid 1px $dark-brown;
+      color: black;
+      font-weight: bold;
+      &:visited {
+        color: black;
+      }
+      &:hover {
+        background-color: #efefef;
+      }
+      display: flex;
+      height: 60px;
+      align-items: center;
+      padding: 5px;
+    }
+  }
+}

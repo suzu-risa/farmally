@@ -8,5 +8,6 @@ FactoryBot.define do
     weight 'weight'
     category
     maker
+    sub_category
   end
 end
