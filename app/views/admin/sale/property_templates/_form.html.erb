@@ -14,7 +14,7 @@ and renders all form fields for a resource's editable attributes.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
 %>
 
-<%= form_for([namespace, @property_template], html: { class: "form" }) do |f| %>
+<%= form_for([namespace, @property_template], html: { class: "form", multipart: true }) do |f| %>
   <% if page.resource.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -33,38 +33,48 @@ and renders all form fields for a resource's editable attributes.
     </div>
   <% end %>
 
-  <% page.attributes.each do |attribute| -%>
-    <% next if attribute.attribute == :properties %>
-
-    <div class="field-unit field-unit--<%= attribute.html_class %>">
-      <%= render_field attribute, f: f %>
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :category %>
     </div>
-  <% end -%>
-
-  <% # プロパティ %>
-  <fieldset>
-    <legend align="center">プロパティ一覧</legend>
-    <div>
-      <%= link_to "プロパティを追加する",
-                  '#',
-                  class: 'farmally-add-field-button',
-                  data: { target: ".property-table" } %>
+    <div class="field-unit__field">
+      <%= f.select :category_id, @categories.map {|category| [category.name, category.id] } %>
     </div>
-    <table class="property-table">
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <label>CSVファイル</label>
+    </div>
+    <div class="field-unit__field">
+      <%= f.file_field :detail_file %>
+    </div>
+  </div>
+
+  <% if @property_template.persisted? %>
+    <table class="table">
       <thead>
         <tr>
-          <th>並び順</th>
-          <th><%= Sale::Property.model_name.human %></th>
-          <th>削除</th>
+          <td>table_num</td>
+          <td>table_name</td>
+          <td>key</td>
+          <td>name</td>
         </tr>
       </thead>
       <tbody>
-        <%= f.fields_for :properties do |p_form| %>
-          <%= render 'property_fields', f: p_form %>
+        <% @property_template.detail.tables.each.with_index(1) do |table, i| %>
+          <% table.properties.each do |property| %>
+            <tr>
+              <td><%= i %></td>
+              <td><%= table.name %></td>
+              <td><%= property.property_key %></td>
+              <td><%= property.property_name %></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
-  </fieldset>
+  <% end %>
 
   <div class="form-actions">
     <%= f.submit %>

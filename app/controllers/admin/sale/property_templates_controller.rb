@@ -13,16 +13,30 @@ module Admin
     def new
       @property_template = ::Sale::PropertyTemplate.new
       @property_template.properties.build
+      @categories = Category.all
       super
     end
 
     def edit
       @property_template = find_resource(params[:id])
+      @categories = Category.all
       super
     end
 
     def create
-      super
+      resource = resource_class.new(resource_params)
+      authorize_resource(resource)
+
+      if resource.save
+        redirect_to(
+          [namespace, resource],
+          notice: translate_with_resource("create.success"),
+        )
+      else
+        render :new, locals: {
+          page: Administrate::Page::Form.new(dashboard, resource),
+        }
+      end
     end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
@@ -37,7 +51,7 @@ module Admin
 
     def resource_params
       params.require(resource_class.model_name.param_key).
-        permit(:category_id, properties_attributes: [:name, :_destroy, :id, :position])
+        permit(:category_id, :detail_file)
     end
   end
 end
