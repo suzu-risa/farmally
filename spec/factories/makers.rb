@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :maker do
-    name 'メーカー'
-    code 'メーカー'
+    name 'maker'
+    code 'maker'
   end
 end

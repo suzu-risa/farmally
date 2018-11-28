@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :maker
   belongs_to :category
+  belongs_to :sub_category
 
   has_many :reviews, dependent: :destroy
 
@@ -17,10 +18,15 @@ class Item < ApplicationRecord
   validates :work_efficiency, length: { maximum: 255 }
   validates :other, length: { maximum: 3000 }
 
+  validate :sub_category_should_be_category_child
+
   paginates_per 30
 
   def self.import(file)
     categories_hash = Hash[*Category.all.map { |c| [c.name, c] }.flatten]
+    sub_categories_hash = Hash[
+      *SubCategory.all.includes(:category).map { |s| ["#{s.category.name}-#{s.name}", s] }.flatten
+    ]
     makers_hash = Hash[*Maker.all.map { |m| [m.name, m] }.flatten]
 
     return { success: false, messages: ['ファイルが空です'] } if file.nil?
@@ -42,6 +48,7 @@ class Item < ApplicationRecord
         horse_power: attributes['horse_power'],
         weight: attributes['weight'],
         category: categories_hash[attributes['category']],
+        sub_category: sub_categories_hash["#{attributes['category']}-#{attributes['sub_category']}"],
         maker: makers_hash[attributes['maker']],
         machine_type: attributes['machine_type'],
         work_efficiency: attributes['work_efficiency'],
@@ -71,6 +78,7 @@ class Item < ApplicationRecord
   def self.acceptable_attributes
     %w[
       category
+      sub_category
       maker
       model
       size
@@ -95,6 +103,14 @@ class Item < ApplicationRecord
     return price if price.instance_of?(Integer)
     return price.delete(',').to_i if price.instance_of?(String)
     price
+  end
+
+  private
+
+  def sub_category_should_be_category_child
+    return if sub_category.nil?
+    return if sub_category.category_id == category_id
+    errors.add(:sub_category, 'の親カテゴリーと商品のカテゴリーが違います')
   end
 
   private_class_method :acceptable_attributes, :utf8_encoding?, :normalize_price

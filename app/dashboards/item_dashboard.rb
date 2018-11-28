@@ -10,6 +10,7 @@ class ItemDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     maker: Field::BelongsTo,
     category: Field::BelongsTo,
+    sub_category: Field::BelongsTo,
     id: Field::Number,
     maker_price: Field::Number,
     sub_maker_price: Field::Number,
@@ -33,6 +34,7 @@ class ItemDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :category,
+    :sub_category,
     :maker,
     :model,
     :maker_price,
@@ -44,6 +46,7 @@ class ItemDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :maker,
     :category,
+    :sub_category,
     :id,
     :maker_price,
     :sub_maker_price,
@@ -65,6 +68,7 @@ class ItemDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :maker,
     :category,
+    :sub_category,
     :maker_price,
     :sub_maker_price,
     :used_price,

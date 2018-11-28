@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_132421) do
     t.string "size"
     t.string "weight"
     t.integer "category_id", null: false
+    t.bigint "sub_category_id"
     t.integer "maker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_132421) do
     t.string "work_efficiency"
     t.text "other"
     t.integer "sub_maker_price"
+    t.index ["sub_category_id"], name: "index_items_on_sub_category_id"
   end
 
   create_table "makers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -141,6 +143,16 @@ ActiveRecord::Schema.define(version: 2018_11_28_132421) do
     t.index ["category_id"], name: "index_sale_property_templates_on_category_id"
   end
 
+  create_table "sub_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "code", null: false
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  end
+
+  add_foreign_key "items", "sub_categories"
   add_foreign_key "review_comments", "reviews"
   add_foreign_key "reviews", "items"
   add_foreign_key "sale_item_inquiries", "sale_items"
@@ -150,4 +162,5 @@ ActiveRecord::Schema.define(version: 2018_11_28_132421) do
   add_foreign_key "sale_items", "sale_property_templates"
   add_foreign_key "sale_properties", "sale_property_templates"
   add_foreign_key "sale_property_templates", "categories"
+  add_foreign_key "sub_categories", "categories"
 end

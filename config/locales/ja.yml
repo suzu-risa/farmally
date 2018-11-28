@@ -3,6 +3,7 @@ ja:
   activerecord:
     models:
       category: 種類
+      sub_category: 小種類
       maker: メーカー
       item: 商品
       review: 口コミ
@@ -14,6 +15,10 @@ ja:
       category:
         name: 名前
         code: コード
+      sub_category:
+        name: 名前
+        code: コード
+        category: 種類
       maker:
         name: 名前
         code: コード
@@ -25,6 +30,7 @@ ja:
         size: 大きさ
         weight: 重量
         category: 種類
+        sub_category: 小種類
         maker: メーカー
         machine_type: 機械の種類等
         work_efficiency: 作業能率
@@ -210,6 +216,12 @@ ja:
         code: コード
         created_at: 作成日時
         updated_at: 更新日時
+      sub_category:
+        name: 名前
+        code: コード
+        category: 種類
+        created_at: 作成日時
+        updated_at: 更新日時
       maker:
         name: 名前
         code: コード
@@ -217,6 +229,7 @@ ja:
         updated_at: 更新日時
       item:
         category: 種類
+        sub_category: 小種類
         maker: メーカー
         model: 型式
         maker_price: メーカー希望小売価格

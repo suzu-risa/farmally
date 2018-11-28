@@ -19,11 +19,22 @@ SitemapGenerator::Sitemap.create do
   Item.all.each do |item|
     add item_path(item)
   end
-  # TODO: add search_path
-  add terms_of_service_path
-  add privacy_policy_path
-  add specified_commercial_path
-  add company_path
+  SubCategory.all.eager_load(:category).each do |sub_category|
+    add sub_category_category_path(
+      code: sub_category.category.code,
+      sub_code: sub_category.code
+    )
+  end
+
+  # TODO: 追加すべきか検討
+  # add search_path
+
+  # TODO: ページが完成したら追加する
+  # add terms_of_service_path
+  # add privacy_policy_path
+  # add specified_commercial_path
+  # add company_path
+
   add form_path
   add sell_form_path
   add root_path

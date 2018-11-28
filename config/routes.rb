@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount_roboto
   namespace :admin do
     resources :categories, param: :code
+    resources :sub_categories
     resources :items
     resources :makers, param: :code
     resources :reviews
@@ -26,7 +27,11 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
-  resources :categories, param: :code, only: :show
+  resources :categories, param: :code, only: :show do
+    member do
+      get ':sub_code', to: 'sub_categories#show', as: :sub_category
+    end
+  end
   resources :makers, param: :code, only: :show
   resources :items, only: :show do
     resources :reviews, only: :new
