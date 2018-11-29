@@ -24,7 +24,7 @@ class Sale::PropertyTemplate < ApplicationRecord
     CSV.foreach(file.path, headers: true) do |row|
       table_num = row["table"]
       table_name = row["table_name"]
-      property_key = row["property_key"]
+      property_key = row["property_key"] # Hashieの都合で`key`が使えないため
       property_name = row["property_name"]
       next if property_key.nil? || property_name.nil?
       property = { property_key: row["property_key"].strip, property_name: row["property_name"].strip }

@@ -10,8 +10,8 @@
     <tbody>
       <% table.properties.each do |property| %>
         <tr>
-          <td><%= property.property_name %><%= hidden_field_tag "sale_item[properties_json][attributes][][key]", property.property_key %></td>
-          <td><%= text_field_tag "sale_item[properties_json][attributes][][value]" %></td>
+          <td><%= property.property_name %></td>
+          <td><%= text_field_tag "sale_item[detail_json][properties][#{property.property_key}]" %></td>
         </tr>
       <% end %>
     </tbody>
