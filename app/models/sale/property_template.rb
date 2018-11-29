@@ -11,6 +11,8 @@ class Sale::PropertyTemplate < ApplicationRecord
                                   prop[:name].blank?
                                 }
 
+  validate :detail_property_keys_must_be_uniq
+
   def detail_file=(file)
     table_names = {}
 
@@ -53,5 +55,17 @@ class Sale::PropertyTemplate < ApplicationRecord
 
   def detail
     Hashie::Mash.new(JSON.parse(detail_json))
+  end
+
+  private
+
+  def detail_property_keys
+    detail.tables.map(&:properties).flatten.map(&:property_key)
+  end
+
+  def detail_property_keys_must_be_uniq
+    if detail_property_keys.size != detail_property_keys.uniq.size
+      errors.add(:detail_json, "property_keyはユニークである必要があります")
+    end
   end
 end
