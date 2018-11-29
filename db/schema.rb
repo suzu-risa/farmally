@@ -106,16 +106,6 @@ ActiveRecord::Schema.define(version: 2018_11_28_155837) do
     t.index ["sale_item_id"], name: "index_sale_item_inquiries_on_sale_item_id"
   end
 
-  create_table "sale_item_properties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "sale_item_id"
-    t.bigint "sale_property_id"
-    t.string "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["sale_item_id"], name: "index_sale_item_properties_on_sale_item_id"
-    t.index ["sale_property_id"], name: "index_sale_item_properties_on_sale_property_id"
-  end
-
   create_table "sale_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.integer "price", default: 0, null: false
@@ -125,15 +115,6 @@ ActiveRecord::Schema.define(version: 2018_11_28_155837) do
     t.json "detail_json"
     t.index ["item_id"], name: "index_sale_items_on_item_id"
     t.index ["sale_property_template_id"], name: "index_sale_items_on_sale_property_template_id"
-  end
-
-  create_table "sale_properties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "sale_property_template_id"
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "position", null: false
-    t.index ["sale_property_template_id"], name: "index_sale_properties_on_sale_property_template_id"
   end
 
   create_table "sale_property_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -157,11 +138,8 @@ ActiveRecord::Schema.define(version: 2018_11_28_155837) do
   add_foreign_key "review_comments", "reviews"
   add_foreign_key "reviews", "items"
   add_foreign_key "sale_item_inquiries", "sale_items"
-  add_foreign_key "sale_item_properties", "sale_items"
-  add_foreign_key "sale_item_properties", "sale_properties"
   add_foreign_key "sale_items", "items"
   add_foreign_key "sale_items", "sale_property_templates"
-  add_foreign_key "sale_properties", "sale_property_templates"
   add_foreign_key "sale_property_templates", "categories"
   add_foreign_key "sub_categories", "categories"
 end

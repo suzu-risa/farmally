@@ -4,9 +4,6 @@ class SaleItem < ApplicationRecord
   belongs_to :item
   belongs_to :sale_property_template, class_name: "Sale::PropertyTemplate"
 
-  has_many :sale_item_properties,
-           class_name: "SaleItemProperty"
-
   has_many :inquiries, foreign_key: :sale_item_id, class_name: "SaleItemInquiry"
 
   delegate :model, to: :item
