@@ -38,11 +38,32 @@ and renders all form fields for a resource's editable attributes.
     </div>
   <% end %>
 
-  <% page.attributes.each do |attribute| -%>
-    <div class="field-unit field-unit--<%= attribute.html_class %>">
-      <%= render_field attribute, f: f %>
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :item %>
     </div>
-  <% end -%>
+    <div class="field-unit__field">
+      <%= f.select :item_id, @items.map {|item| [item.model, item.id] } %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :price %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.number_field :price %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :sale_property_template_id %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.select :sale_property_template_id, @sale_property_templates.map {|template| [template.category.name, template.id] } %>
+    </div>
+  </div>
 
   <fieldset>
     <legend align="center">プロパティ一覧</legend>

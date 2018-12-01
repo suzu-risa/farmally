@@ -12,13 +12,9 @@ module Admin
     #
     def new
       @sale_item = SaleItem.new
-      @property_template = ::Sale::PropertyTemplate.first
-
-      @property_template.property_ids.each do |sale_property_id|
-        @sale_item.sale_item_properties.build(
-          sale_property_id: sale_property_id
-        )
-      end
+      @items = Item.all
+      @sale_property_templates = ::Sale::PropertyTemplate.all
+      @property_template = @sale_property_templates.first
 
       super
     end
@@ -31,11 +27,26 @@ module Admin
 
     def edit
       @sale_item = SaleItem.find(params[:id])
+      @items = Item.all
+      @sale_property_templates = ::Sale::PropertyTemplate.all
       @property_template = @sale_item.sale_property_template
 
       render locals: {
         page: Administrate::Page::Form.new(dashboard, requested_resource),
       }
+    end
+
+    def update
+      if requested_resource.update(resource_params)
+        redirect_to(
+          [namespace, requested_resource],
+          notice: translate_with_resource("update.success"),
+        )
+      else
+        render :edit, locals: {
+          page: Administrate::Page::Form.new(dashboard, requested_resource),
+        }
+      end
     end
 
     def property_list
@@ -73,8 +84,8 @@ module Admin
         permit(:item_id,
                :price,
                :sale_property_template_id,
-               images: [],
-               sale_item_property_attributes: [:sale_property_id, :value])
+               detail_json: { properties: {} },
+               images: [])
     end
   end
 end

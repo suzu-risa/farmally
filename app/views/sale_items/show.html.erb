@@ -25,12 +25,6 @@
             </thead>
 
             <tbody>
-              <% @sale_item.sale_item_properties.each do |sale_item_property| %>
-                <tr>
-                  <th><%= sale_item_property.name %></th>
-                  <td><%= sale_item_property.value %></td>
-                <tr>
-              <% end %>
             </tbody>
           </table>
         </div>
@@ -38,3 +32,18 @@
     </div>
   </div>
 </section>
+
+<% @sale_item.detail_with_template.tables.each do |table| %>
+  <table class="property-table">
+    <caption><%= table.name %></caption>
+    <tbody>
+      <% table.properties.each do |property| %>
+        <tr>
+          <th><%= property.name %></td>
+          <td><%= property.value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>

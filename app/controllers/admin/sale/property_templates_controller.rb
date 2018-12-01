@@ -12,7 +12,6 @@ module Admin
     # end
     def new
       @property_template = ::Sale::PropertyTemplate.new
-      @property_template.properties.build
       @categories = Category.all
       super
     end

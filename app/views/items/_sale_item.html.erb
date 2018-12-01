@@ -5,7 +5,7 @@
     </figure>
   </div>
   <div class="column is-12-mobile is-4-tablet is-4-desktop">
-    <%= sale_item.sale_item_properties.map(&:value).join("/") %>
+    <p>ここに共通属性を入れる</p>
   </div>
   <div class="column is-12-mobile is-4-tablet is-4-desktop">
     <%= link_to "詳細を見る", item_sale_item_path(sale_item, item_id: sale_item.item_id), class: "button" %>
