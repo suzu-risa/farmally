@@ -67,7 +67,7 @@ and renders all form fields for a resource's editable attributes.
 
   <fieldset>
     <legend align="center">プロパティ一覧</legend>
-    <%= render "sale_item_property_table", property_template: @property_template %>
+    <%= render "sale_item_property_table", sale_item: @sale_item, property_template: @property_template %>
   </fieldset>
 
   <div class="form-actions">
