@@ -16,15 +16,13 @@
           <br>
           <%= @sale_item.price %>
         </h1>
-        <div class="properties">
+        <div class="detail">
           <table class="table">
-            <thead>
-              <tr>
-                <th colspan="2">販売条件</tr>
-              </tr>
-            </thead>
-
             <tbody>
+              <tr>
+                <th><%= @sale_item.class.human_attribute_name(:price) %></th>
+                <td><%= @sale_item.price %> 
+              </tr>
             </tbody>
           </table>
         </div>
@@ -33,17 +31,19 @@
   </div>
 </section>
 
-<% @sale_item.detail_with_template.tables.each do |table| %>
-  <table class="property-table">
-    <caption><%= table.name %></caption>
-    <tbody>
-      <% table.properties.each do |property| %>
-        <tr>
-          <th><%= property.name %></td>
-          <td><%= property.value %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <br>
-<% end %>
+<section class="section sale-item__detail">
+  <% @sale_item.detail_with_template.tables.each do |table| %>
+    <table class="table">
+      <caption><%= table.name %></caption>
+      <tbody>
+        <% table.properties.each do |property| %>
+          <tr>
+            <th><%= property.name %></td>
+            <td><%= property.value %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  <% end %>
+</section>
