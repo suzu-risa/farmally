@@ -17,13 +17,14 @@ end
 
 if ENV['RAILS_ENV'] != 'production'
   CSV.foreach('db/master/sample_item.csv') do |row|
-    Item.create(
+    Item.create!(
         :maker_price => row[0],
         :used_price => row[1],
         :model => row[2],
         :size => row[5],
         :weight => row[6],
-        :category_id => 1,
+        :category_id => Category.first.id,
+        :sub_category_id => Category.first.sub_categories.first.id,
         :maker_id => 1,
     )
   end
