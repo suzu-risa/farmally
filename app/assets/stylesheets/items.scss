@@ -115,6 +115,14 @@
     }
   }
 
+  &__sale-items {
+    .columns {
+      &.sale-item {
+        border: solid 2px $base-brown;
+      }
+    }
+  }
+
   &__reviews {
     .review-button {
       border: solid 2px $base-brown;
