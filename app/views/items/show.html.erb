@@ -7,10 +7,7 @@
       </div>
     </div>
     <div class="columns is-centered main">
-      <div class="column is-12-mobile is-6-tablet is-6-desktop has-text-centered">
-        <%= image_tag 'category/tractor.png', class: 'item-image' %>
-      </div>
-      <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="column is-12-mobile is-12-tablet is-12-desktop">
         <h1 class="title"><%= @title %> -【中古取り扱い/高価買取】</h1>
         <div class="prices">
           <p>
@@ -22,16 +19,7 @@
             <span>(ファーマリー中古価格)</span>
           </p>
         </div>
-        <div class="buttons">
-          <%= link_to(form_path, class: 'button form-button buy-button') do %>
-            <%= image_tag 'talk.png', alt: '' %>
-            <span>農機具選びを<br class="only-sp" />無料相談する</span>
-          <% end %>
-          <%= link_to(sell_form_path, class: 'button form-button sell-button') do %>
-            <%= image_tag 'cart.png', alt: '' %>
-            <span>農機を売る</span>
-          <% end %>
-        </div>
+
         <div class="detail">
           <table class="table">
             <tr>
@@ -76,6 +64,22 @@
             </tr>
           </table>
         </div>
+
+        <div class="columns buttons">
+          <div class="column is-12-mobile is-6-tablet is-6-desktop">
+            <%= link_to(form_path, class: 'button form-button buy-button') do %>
+              <%= image_tag 'talk.png', alt: '' %>
+              <span>農機具選びを<br class="only-sp" />無料相談する</span>
+            <% end %>
+          </div>
+          <div class="column is-12-mobile is-6-tablet is-6-desktop">
+            <%= link_to(sell_form_path, class: 'button form-button sell-button') do %>
+              <%= image_tag 'cart.png', alt: '' %>
+              <span>農機を売る</span>
+            <% end %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
