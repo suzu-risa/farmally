@@ -49,6 +49,11 @@
             background-color: $base-brown;
             margin-bottom: 10px;
             height: 60px;
+
+            @media screen and (max-width: 399px) {
+              margin-bottom: -10px;
+            }
+
             img {
               width: 24px;
               position: absolute;
@@ -72,6 +77,8 @@
           &.sell-button {
             color: $base-brown;
             border: solid 1px $base-brown;
+            height: 60px;
+            margin-bottom: 10px;
             img {
               width: 24px;
               position: absolute;
