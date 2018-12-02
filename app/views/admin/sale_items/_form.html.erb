@@ -15,11 +15,7 @@ and renders all form fields for a resource's editable attributes.
 %>
 
 <%= form_for([namespace, @sale_item],
-             html: {
-             class: "form",
-             multipart: true,
-             "data-property-list-url" => property_list_admin_sale_items_path(id: @sale_item.try(:id)) }) do |f|
-  %>
+             html: { class: "form", multipart: true } ) do |f| %>
   <% if page.resource.errors.any? %>
     <div id="error_explanation">
       <h2>

@@ -8,10 +8,6 @@ Rails.application.routes.draw do
     resources :reviews
     resources :review_comments
     resources :sale_items do
-      collection do
-        get :property_list
-      end
-
       scope module: :sale_items do
         resources :images, only: [:create, :destroy]
       end

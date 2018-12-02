@@ -48,22 +48,6 @@ module Admin
       end
     end
 
-    def property_list
-      @sale_item = SaleItem.find_by(id: params[:id])
-      sale_item_template_id = params[:sale_item_template_id].to_i
-
-      @sale_item_properties =
-        if @sale_item && @sale_item.sale_item_template_id == sale_item_template_id
-          @sale_item.sale_item_properties
-        else
-          property_template = find_property_template(sale_item_template_id)
-
-          property_template.property_ids.map do |sale_property_id|
-            SaleItemProperty.new(sale_property_id: sale_property_id)
-          end
-        end
-    end
-
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
     #   SaleItem.find_by!(slug: param)
