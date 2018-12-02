@@ -29,6 +29,11 @@ as well as a link to its edit page.
       [:edit, namespace, page.resource],
       class: "button",
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
+
+    <%= link_to(
+      "出品商品を新規作成", new_admin_sale_item_path(item_id: page.resource),
+      class: "button"
+    ) %>
   </div>
 </header>
 

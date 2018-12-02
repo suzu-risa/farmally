@@ -20,6 +20,8 @@ class Item < ApplicationRecord
 
   validate :sub_category_should_be_category_child
 
+  delegate :sale_item_template, to: :category
+
   paginates_per 30
 
   def self.import(file)

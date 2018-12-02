@@ -43,7 +43,9 @@ and renders all form fields for a resource's editable attributes.
       <%= f.label :item %>
     </div>
     <div class="field-unit__field">
-      <%= f.select :item_id, @items.map {|item| [item.model, item.id] } %>
+      <%= f.object.model %>
+      <%= f.hidden_field :item_id %>
+      <%= f.hidden_field :sale_item_template_id %>
     </div>
   </div>
 
@@ -53,15 +55,6 @@ and renders all form fields for a resource's editable attributes.
     </div>
     <div class="field-unit__field">
       <%= f.number_field :price %>
-    </div>
-  </div>
-
-  <div class="field-unit field-unit--string">
-    <div class="field-unit__label">
-      <%= f.label :sale_item_template_id %>
-    </div>
-    <div class="field-unit__field">
-      <%= f.select :sale_item_template_id, @sale_item_templates.map {|template| [template.category.name, template.id] } %>
     </div>
   </div>
 

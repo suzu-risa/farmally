@@ -11,10 +11,9 @@ module Admin
     # end
     #
     def new
-      @sale_item = SaleItem.new
-      @items = Item.all
-      @sale_item_templates = SaleItemTemplate.all
-      @property_template = @sale_item_templates.first
+      @item = Item.find(params[:item_id])
+      @sale_item = @item.sale_items.build(sale_item_template_id: @item.sale_item_template.id)
+      @property_template = @sale_item.sale_item_template
 
       super
     end
