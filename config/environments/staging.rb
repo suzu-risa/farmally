@@ -74,6 +74,8 @@ Rails.application.configure do
   config.action_mailer.logger.level = Logger::INFO
   config.action_mailer.default_url_options = { host: 'staging.farmally.jp', protocol: 'https' }
 
+  routes.default_url_options = { host: 'staging.farmally.jp', protocol: 'https' }
+
   config.action_controller.asset_host = 'https://staging.farmally.jp'
 
   # Ignore bad email addresses and do not raise email delivery errors.
