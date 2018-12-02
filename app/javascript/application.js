@@ -4,7 +4,7 @@ import Search from "./components/SearchField";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import Slider from "react-slick";
+import SaleItemImageSlider from "./react_components/SaleItemImageSlider";
 
 Vue.config.productionTip = false;
 
@@ -19,40 +19,10 @@ new Vue({
   render: h => h(Search)
 }).$mount("#search");
 
-class SimpleSlider extends React.Component {
-  render() {
-    var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-    return (
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
-    );
-  }
-}
+const saleItemImageContainer = document.getElementById("sale-item-image");
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<SimpleSlider />, document.getElementById("sale-item-image"));
-});
+if(saleItemImageContainer) {
+  document.addEventListener('DOMContentLoaded', () => {
+    ReactDOM.render(<SaleItemImageSlider url={saleItemImageContainer.getAttribute('data-url')}/>, saleItemImageContainer);
+  });
+}

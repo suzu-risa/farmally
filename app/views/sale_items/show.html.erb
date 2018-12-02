@@ -8,8 +8,8 @@
     </div>
     <div class="columns is-centered main">
       <div class="column is-12-mobile is-6-tablet is-6-desktop has-text-centered">
-        <%#= image_tag url_for(@sale_item.images.first), class: 'sale-item-image' %>
-        <div id="sale-item-image" />
+        <div id="sale-item-image" data-url="<%= item_sale_item_images_path(sale_item_id: @sale_item, item_id: @item) %>">
+        </div>
       </div>
       <div class="column is-12-mobile is-6-tablet is-6-desktop">
         <h1 class="title">
@@ -22,7 +22,7 @@
             <tbody>
               <tr>
                 <th><%= @sale_item.class.human_attribute_name(:price) %></th>
-                <td><%= @sale_item.price %> 
+                <td><%= @sale_item.price %>
               </tr>
             </tbody>
           </table>
