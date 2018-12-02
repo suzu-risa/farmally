@@ -18,9 +18,7 @@ Rails.application.routes.draw do
 
       resources :sale_item_inquiries, as: :inquiries
     end
-    namespace :sale do
-      resources :property_templates
-    end
+    resources :sale_item_templates
 
     post '/import', to: 'home#import'
     put '/sitemap', to: 'home#sitemap'

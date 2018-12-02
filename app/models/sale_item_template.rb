@@ -1,4 +1,4 @@
-class Sale::PropertyTemplate < ApplicationRecord
+class SaleItemTemplate < ApplicationRecord
   belongs_to :category
 
   validate :detail_property_keys_must_be_uniq

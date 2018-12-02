@@ -1,5 +1,5 @@
 module Admin
-  class Sale::PropertyTemplatesController < Admin::ApplicationController
+  class SaleItemTemplatesController < Admin::ApplicationController
     before_action :default_params
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
@@ -11,7 +11,7 @@ module Admin
     #     per(10)
     # end
     def new
-      @property_template = ::Sale::PropertyTemplate.new
+      @property_template = SaleItemTemplate.new
       @categories = Category.all
       super
     end

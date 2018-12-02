@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class Sale::PropertyTemplateDashboard < Administrate::BaseDashboard
+class SaleItemTemplateDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -48,6 +48,6 @@ class Sale::PropertyTemplateDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   # def display_resource(property_template)
-  #   "Sale::PropertyTemplate ##{property_template.id}"
+  #   "SaleItemTemplate ##{property_template.id}"
   # end
 end

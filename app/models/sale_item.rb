@@ -2,7 +2,9 @@ class SaleItem < ApplicationRecord
   has_many_attached :images
 
   belongs_to :item
-  belongs_to :sale_property_template, class_name: "Sale::PropertyTemplate"
+  belongs_to :sale_item_template,
+             class_name: "SaleItemTemplate",
+             foreign_key: :sale_item_template_id # TODO: カラム名変更
   has_many :inquiries, foreign_key: :sale_item_id, class_name: "SaleItemInquiry"
 
   delegate :model, to: :item
@@ -27,7 +29,7 @@ class SaleItem < ApplicationRecord
       ]
     }
 
-    sale_property_template.detail.tables.each do |detail_table|
+    sale_item_template.detail.tables.each do |detail_table|
       _hash = { name: detail_table.name, properties: [] }
 
       detail_table.properties.each do |property|

@@ -9,8 +9,8 @@ class SaleItemDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     item: Field::BelongsTo,
-    sale_property_template: Field::BelongsTo.with_options(
-      class_name: "Sale::PropertyTemplate"
+    sale_item_template: Field::BelongsTo.with_options(
+      class_name: "SaleItemTemplate"
     ),
     id: Field::Number,
     price: Field::Number,
@@ -25,7 +25,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :item,
-    :sale_property_template,
+    :sale_item_template,
     :id,
     :price,
   ].freeze
@@ -34,7 +34,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :item,
-    :sale_property_template,
+    :sale_item_template,
     :id,
     :price,
     :created_at,
@@ -47,7 +47,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :item,
     :price,
-    :sale_property_template,
+    :sale_item_template,
   ].freeze
 
   # Overwrite this method to customize how sale items are displayed

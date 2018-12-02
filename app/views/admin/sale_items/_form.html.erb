@@ -58,10 +58,10 @@ and renders all form fields for a resource's editable attributes.
 
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
-      <%= f.label :sale_property_template_id %>
+      <%= f.label :sale_item_template_id %>
     </div>
     <div class="field-unit__field">
-      <%= f.select :sale_property_template_id, @sale_property_templates.map {|template| [template.category.name, template.id] } %>
+      <%= f.select :sale_item_template_id, @sale_item_templates.map {|template| [template.category.name, template.id] } %>
     </div>
   </div>
 

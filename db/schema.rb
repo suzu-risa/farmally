@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_130634) do
+ActiveRecord::Schema.define(version: 2018_12_02_132851) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -117,12 +117,12 @@ ActiveRecord::Schema.define(version: 2018_12_02_130634) do
   create_table "sale_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.integer "price", default: 0, null: false
-    t.bigint "sale_property_template_id"
+    t.bigint "sale_item_template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.json "detail_json"
     t.index ["item_id"], name: "index_sale_items_on_item_id"
-    t.index ["sale_property_template_id"], name: "index_sale_items_on_sale_property_template_id"
+    t.index ["sale_item_template_id"], name: "index_sale_items_on_sale_item_template_id"
   end
 
   create_table "sub_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -140,6 +140,6 @@ ActiveRecord::Schema.define(version: 2018_12_02_130634) do
   add_foreign_key "sale_item_inquiries", "sale_items"
   add_foreign_key "sale_item_templates", "categories"
   add_foreign_key "sale_items", "items"
-  add_foreign_key "sale_items", "sale_item_templates", column: "sale_property_template_id"
+  add_foreign_key "sale_items", "sale_item_templates"
   add_foreign_key "sub_categories", "categories"
 end

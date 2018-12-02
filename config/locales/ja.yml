@@ -8,8 +8,7 @@ ja:
       item: 商品
       review: 口コミ
       review_comment: コメント
-      sale/property_template: 出品商品プロパティテンプレート
-      sale/properties: プロパティ
+      sale_item_template: 出品商品プロパティテンプレート
       sale_item: 出品商品
     attributes:
       category:
@@ -47,7 +46,7 @@ ja:
         content: 内容
         approved: 承認
         like_count: いいね
-      sale/property_template:
+      sale_item_template:
         category: 種類
         properties: プロパティ
       sale_item:
@@ -58,8 +57,8 @@ ja:
         sale_item_properties: プロパティ
         inquiries: 問い合わせ
         properties: プロパティ
-        sale_property_template: プロパティテンプレート
-        sale_property_template_id: プロパティテンプレート
+        sale_item_template: プロパティテンプレート
+        sale_item_template_id: プロパティテンプレート
       sale_item_inquiry:
         name: 氏名
         phone_number: 電話番号

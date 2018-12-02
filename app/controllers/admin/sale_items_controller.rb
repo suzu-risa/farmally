@@ -13,8 +13,8 @@ module Admin
     def new
       @sale_item = SaleItem.new
       @items = Item.all
-      @sale_property_templates = ::Sale::PropertyTemplate.all
-      @property_template = @sale_property_templates.first
+      @sale_item_templates = SaleItemTemplate.all
+      @property_template = @sale_item_templates.first
 
       super
     end
@@ -28,8 +28,8 @@ module Admin
     def edit
       @sale_item = SaleItem.find(params[:id])
       @items = Item.all
-      @sale_property_templates = ::Sale::PropertyTemplate.all
-      @property_template = @sale_item.sale_property_template
+      @sale_item_templates = SaleItemTemplate.all
+      @property_template = @sale_item.sale_item_template
 
       render locals: {
         page: Administrate::Page::Form.new(dashboard, requested_resource),
@@ -51,13 +51,13 @@ module Admin
 
     def property_list
       @sale_item = SaleItem.find_by(id: params[:id])
-      sale_property_template_id = params[:sale_property_template_id].to_i
+      sale_item_template_id = params[:sale_item_template_id].to_i
 
       @sale_item_properties =
-        if @sale_item && @sale_item.sale_property_template_id == sale_property_template_id
+        if @sale_item && @sale_item.sale_item_template_id == sale_item_template_id
           @sale_item.sale_item_properties
         else
-          property_template = find_property_template(sale_property_template_id)
+          property_template = find_property_template(sale_item_template_id)
 
           property_template.property_ids.map do |sale_property_id|
             SaleItemProperty.new(sale_property_id: sale_property_id)
@@ -76,14 +76,14 @@ module Admin
     private
 
     def find_property_template(id)
-      ::Sale::PropertyTemplate.find(id)
+      SaleItemTemplate.find(id)
     end
 
     def resource_params
       params.require(resource_class.model_name.param_key).
         permit(:item_id,
                :price,
-               :sale_property_template_id,
+               :sale_item_template_id,
                detail_json: { properties: {} },
                images: [])
     end
