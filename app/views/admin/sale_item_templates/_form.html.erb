@@ -42,6 +42,17 @@ and renders all form fields for a resource's editable attributes.
     </div>
   </div>
 
+  <% if @property_template.persisted? %>
+    <div class="field-unit field-unit--string">
+      <div class="field-unit__label">
+        <label>現在のテンプレートCSVをダウンロード</label>
+      </div>
+      <div class="field-unit__field">
+        <%= link_to "CSVをダウンロード", detail_file_admin_sale_item_template_path(@property_template) %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
       <label>CSVファイル</label>

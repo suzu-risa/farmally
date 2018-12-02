@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
       resources :sale_item_inquiries, as: :inquiries
     end
-    resources :sale_item_templates
+    resources :sale_item_templates do
+      member do
+        get :detail_file
+      end
+    end
 
     post '/import', to: 'home#import'
     put '/sitemap', to: 'home#sitemap'

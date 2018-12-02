@@ -38,6 +38,13 @@ module Admin
       end
     end
 
+    def detail_file
+      property_template = find_resource(params[:id])
+      file = property_template.detail_file
+
+      send_file(file.path, :filename => "#{property_template.category.name}の出品商品テンプレート.csv")
+    end
+
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
 

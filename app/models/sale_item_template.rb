@@ -1,7 +1,11 @@
+require 'tempfile'
+
 class SaleItemTemplate < ApplicationRecord
   belongs_to :category
 
   validate :detail_property_keys_must_be_uniq
+
+  delegate :name, to: :category, prefix: :category
 
   def detail_file=(file)
     table_names = {}
@@ -41,6 +45,24 @@ class SaleItemTemplate < ApplicationRecord
   end
 
   def detail_file
+    data = [["table", "table_name", "property_key", "property_name"]]
+    detail.tables.each.with_index(1) do |table, i|
+      table.properties.each do |property|
+        data.push(
+          [i, table.name, property.property_key, property.property_name]
+        )
+      end
+    end
+
+    file = Tempfile.new
+
+    CSV.open(file.path, 'w') do |csv|
+      data.each do |row|
+        csv << row
+      end
+    end
+
+    file
   end
 
   def detail
