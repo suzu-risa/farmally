@@ -1,4 +1,4 @@
 slack:
-  channel: '#general'
+  channel: '#sales'
 sitemap:
   bucket: 'jp.farmally.sitemap'
