@@ -3,7 +3,7 @@
     <div class="container">
       <nav class="navbar" id="navbar">
         <div class="navbar-brand" style="flex: 1;">
-          <a class="navbar-item" href="/">
+          <a class="navbar-item" href="<%= current_page?(form_path) ? form_path : sell_form_path %>">
             <span class="logo-name">ファーマリー</span>
           </a>
           <div class="navbar-item" style="flex: 1;"></div>
