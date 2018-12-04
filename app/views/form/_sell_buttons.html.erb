@@ -5,13 +5,13 @@
     <span>今すぐ簡単</span>
     <p>査定依頼</p>
   </a>
-  <a href="tel:09039429192" class="form__tel-button form__button">
+  <a href="tel:<%= contact_phone_number %>" class="form__tel-button form__button">
     <span>電話相談はこちら</span>
     <p>
       <span class="icon">
         <i class="fas fa-phone"></i>
       </span>
-      <span>090-3942-9192</span>
+      <span><%= Settings.phone.contact %></span>
     </p>
   </a>
 </div>

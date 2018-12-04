@@ -4,6 +4,52 @@
     box-sizing: border-box;
     border-bottom: solid 2px $base-brown;
 
+    .buttons {
+      border-bottom: solid 2px $base-brown;
+      padding: 10px 0;
+
+      .form-button {
+        width: 100%;
+        margin: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-sizing: border-box;
+
+        &.phone-button {
+          color: white;
+          background-color: $base-brown;
+          margin-bottom: 10px;
+          height: 60px;
+
+          margin-bottom: -10px;
+
+          &:hover {
+            background-color: darken($base-brown, 10%);
+          }
+        }
+
+        &.contact-button {
+          color: $base-brown;
+          border: solid 1px $base-brown;
+          height: 60px;
+          margin-bottom: 10px;
+          span {
+            @media screen and (min-width: 400px) {
+              > .only-sp {
+                display: none;
+              }
+            }
+            @media screen and (max-width: 399px) {
+              font-size: 14px;
+            }
+          }
+          &:hover {
+            background-color: darken(white, 10%);
+          }
+        }
+      }
+    }
+
     .detail {
       padding: 15px;
       margin-top: 10px;

@@ -3,3 +3,5 @@ slack:
   username: ファーマリー
 sitemap:
   bucket: 'jp.farmally.sitemap-dev'
+phone:
+  contact: "090-3942-9192"

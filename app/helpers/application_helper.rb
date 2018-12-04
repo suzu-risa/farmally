@@ -112,4 +112,8 @@ module ApplicationHelper
       concat content_tag(:button, '少なく読む', class: 'read-less hide', id: "read-less-#{type}-button-#{id}", data: data)
     end
   end
+
+  def contact_phone_number
+    Settings.phone.contact.gsub(/-/, '')
+  end
 end

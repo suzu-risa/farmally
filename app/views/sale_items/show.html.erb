@@ -17,6 +17,26 @@
           <br>
           <%= @sale_item.price %>円
         </h1>
+
+        <div class="columns buttons">
+          <div class="column is-12-mobile is-12-tablet is-12-desktop">
+            <a href="tel:<%= contact_phone_number %>" class="button form-button phone-button">
+              <span class="icon">
+                <i class="fas fa-phone"></i>
+              </span>
+              <span>電話お問い合わせ</span>
+            </a>
+          </div>
+          <div class="column is-12-mobile is-12-tablet is-12-desktop">
+            <%= link_to(sell_form_path, class: 'button form-button contact-button') do %>
+              <span class="icon">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span>この商品に関して<br class="only-sp" />問い合わせる</span>
+            <% end %>
+          </div>
+        </div>
+
         <div class="detail">
           <table class="table">
             <tbody>
@@ -27,6 +47,7 @@
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
   </div>
