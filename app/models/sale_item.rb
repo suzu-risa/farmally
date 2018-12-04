@@ -7,7 +7,7 @@ class SaleItem < ApplicationRecord
              foreign_key: :sale_item_template_id # TODO: カラム名変更
   has_many :inquiries, foreign_key: :sale_item_id, class_name: "SaleItemInquiry"
 
-  delegate :model, to: :item
+  delegate :model, :category, :sub_category, :maker, to: :item
 
   def detail_json=(hash_or_json)
     if hash_or_json.is_a?(Hash)

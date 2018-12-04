@@ -2,13 +2,39 @@ class ApplicationController < ActionController::Base
   before_action :read_master_data
 
   # FIXME: ApplicationHelperに移すべき
-  def breadcrumb(item: nil, category: nil, sub_category: nil, maker: nil)
+  def breadcrumb(item: nil, category: nil, sub_category: nil, maker: nil, sale_item: nil)
     breadcrumb = [
       {
         name: 'トップ',
         path: '/'
       }
     ]
+
+    if sale_item.present?
+      return breadcrumb + [
+        {
+          name: sale_item.category.name,
+          path: "/categories/#{sale_item.category.code}"
+        },
+        {
+          name: sale_item.sub_category.name,
+          path: "/categories/#{sale_item.category.code}/#{sale_item.sub_category.code}"
+        },
+        {
+          name: sale_item.maker.name,
+          path: "/makers/#{sale_item.maker.code}"
+        },
+        {
+          name: sale_item.model,
+          path: "/items/#{sale_item.item.id}"
+        },
+        {
+          name: "#{sale_item.class.model_name.human}番号:#{sale_item.id}",
+          path: "/items/#{sale_item.item.id}/sales/#{sale_item.id}"
+        }
+      ]
+    end
+
     if item.present?
       return breadcrumb + [
         {
