@@ -730,6 +730,8 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     hashie (3.6.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -914,6 +916,7 @@ DEPENDENCIES
   config
   factory_bot_rails
   font-awesome-rails
+  gretel
   hashie
   jbuilder (~> 2.5)
   kaminari
