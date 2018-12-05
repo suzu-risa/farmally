@@ -10,7 +10,6 @@ class HomeController < ApplicationController
     arguments = { category: @category, sub_category: @sub_category, maker: @maker }
     @items = Item.where(search_condition(arguments)).includes(:maker).page(params[:page])
     @title = search_title(arguments)
-    @breadcrumb = breadcrumb(arguments)
   end
 
   def terms; end

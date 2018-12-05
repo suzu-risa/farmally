@@ -3,7 +3,8 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
-        <%= render partial: '/breadcrumb', locals: { breadcrumb: @breadcrumb } %>
+        <% breadcrumb(@item) %>
+        <%= render partial: '/breadcrumb' %>
       </div>
     </div>
     <div class="columns is-centered main">

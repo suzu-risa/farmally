@@ -16,9 +16,9 @@ crumb :sub_category do |sub_category|
        )
 end
 
-crumb :maker do |maker, sub_category|
-  if sub_category
-    parent :sub_category, sub_category
+crumb :maker do |maker, category_or_subcategory|
+  if category_or_subcategory
+    parent category_or_subcategory
   else
     parent :root
   end
@@ -27,13 +27,13 @@ crumb :maker do |maker, sub_category|
 end
 
 crumb :item do |item|
-  parent :maker, item.maker
+  parent :maker, item.maker, item.sub_category
   link item.model, item_path(item)
 end
 
 crumb :sale_item do |sale_item|
   parent :item, sale_item.item
-  link "#{sale_item.class.model_name.human}番号:#{sale_item.id}", sale_item_path(sale_item)
+  link "#{sale_item.class.model_name.human}番号:#{sale_item.id}", item_sale_item_path(sale_item)
 end
 
 # crumb :projects do

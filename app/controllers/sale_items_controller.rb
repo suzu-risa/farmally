@@ -3,7 +3,6 @@ class SaleItemsController < ApplicationController
     @item = find_item(params[:item_id])
     @sale_item = find_sale_item(params[:id])
     @title = @item.model
-    @breadcrumb = breadcrumb(sale_item: @sale_item)
   end
 
   def images
