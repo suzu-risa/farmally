@@ -8,6 +8,7 @@ class SaleItem < ApplicationRecord
   has_many :inquiries, foreign_key: :sale_item_id, class_name: "SaleItemInquiry"
 
   delegate :model, :category, :sub_category, :maker, to: :item
+  delegate :name, to: :category, prefix: :category
 
   def detail_json=(hash_or_json)
     if hash_or_json.is_a?(Hash)

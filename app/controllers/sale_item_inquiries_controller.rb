@@ -2,7 +2,16 @@ class SaleItemInquiriesController < ApplicationController
   def create
     sale_item = find_sale_item(params[:sale_item_id])
 
-    if sale_item.inquiries.create(sale_item_inquiry_params)
+    if sale_item_inquiry = sale_item.inquiries.create(sale_item_inquiry_params)
+      notifier =
+        Slack::Notifier.new(Rails.application.credentials[:slack_webhook_url])
+      notifier.post(
+        text: sale_item_inquiry.prettify,
+        icon_emoji: Settings.slack.icon_emoji,
+        channel: Settings.slack.channel,
+        username: Settings.slack.username
+      )
+
       flash[:success] = '送信しました。担当者からの連絡をお待ちください'
     else
       flash[:alert] = '送信に失敗しました。再度お試しください。'
