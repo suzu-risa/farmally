@@ -63,7 +63,7 @@ ja:
       sale_item_inquiry:
         sale_item: 出品商品
         sale_item_id: 出品商品
-        name: 氏名
+        name: お名前
         phone_number: 電話番号
         email: メール
         address: 住所

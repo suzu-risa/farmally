@@ -2,6 +2,7 @@ class SaleItemsController < ApplicationController
   def show
     @item = find_item(params[:item_id])
     @sale_item = find_sale_item(params[:id])
+    @inquiry = @sale_item.inquiries.build
     @title = @item.model
   end
 
