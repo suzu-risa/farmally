@@ -3,14 +3,8 @@ class SaleItemInquiriesController < ApplicationController
     sale_item = find_sale_item(params[:sale_item_id])
 
     if sale_item_inquiry = sale_item.inquiries.create(sale_item_inquiry_params)
-      notifier =
-        Slack::Notifier.new(Rails.application.credentials[:slack_webhook_url])
-      notifier.post(
-        text: sale_item_inquiry.prettify,
-        icon_emoji: Settings.slack.icon_emoji,
-        channel: Settings.slack.channel,
-        username: Settings.slack.username
-      )
+      notifier = InquiryNotifier.new(sale_item_inquiry)
+      notifier.notify
 
       flash[:success] = '送信しました。担当者からの連絡をお待ちください'
     else

@@ -2,13 +2,9 @@ class FormsController < ApplicationController
   def create
     @form = Form.new(form_params)
     if @form.valid?
-      notifier = Slack::Notifier.new(Rails.application.credentials[:slack_webhook_url])
-      notifier.post(
-        text: @form.prettify,
-        icon_emoji: Settings.slack.icon_emoji,
-        channel: Settings.slack.channel,
-        username: Settings.slack.username
-      )
+      notifier = InquiryNotifier.new(@form)
+      notifier.notify
+
       redirect_to form_path, flash: { success: '送信しました。担当者からの連絡をお待ちください' }
       return
     end
