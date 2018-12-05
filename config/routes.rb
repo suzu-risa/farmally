@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :sale_items, only: :show, path: :sales do
       get :images
 
-      resources :sale_item_inquiries, only: [:new, :create], path: :inquiries
+      resources :sale_item_inquiries, only: :create, path: :inquiries
     end
   end
   resources :reviews, only: :create do

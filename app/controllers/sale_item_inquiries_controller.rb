@@ -1,15 +1,14 @@
 class SaleItemInquiriesController < ApplicationController
-  def new
-    @sale_item = find_sale_item(params[:sale_item_id])
-    @inquiry = @sale_item.inquiries.build
-  end
-
   def create
     sale_item = find_sale_item(params[:sale_item_id])
 
     if sale_item.inquiries.create(sale_item_inquiry_params)
+      flash[:success] = '送信しました。担当者からの連絡をお待ちください'
     else
+      flash[:alert] = '送信に失敗しました。再度お試しください。'
     end
+
+    redirect_to request.referer
   end
 
   private
