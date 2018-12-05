@@ -51,7 +51,6 @@ gem 'roboto'
 gem 'kaminari'
 gem 'rack-proxy'
 gem 'meta-tags'
-gem 'acts_as_list'
 gem 'hashie'
 gem 'gretel'
 
