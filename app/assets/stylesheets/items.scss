@@ -126,6 +126,16 @@
     .columns {
       &.sale-item {
         border: solid 2px $base-brown;
+        border-bottom: none;
+        &:last-child {
+          border-bottom: solid 2px $base-brown;
+        }
+
+        .detail-button {
+          background-color: $base-brown;
+          color: white;
+          width: 100%;
+        }
       }
     }
   }
