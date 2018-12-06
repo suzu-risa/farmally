@@ -59,4 +59,7 @@ class SaleItemInquiryDashboard < Administrate::BaseDashboard
   # def display_resource(sale_item_inquiry)
   #   "SaleItemInquiry ##{sale_item_inquiry.id}"
   # end
+  def display_resource(resource)
+    "#{resource.class.model_name.human} ID: #{resource.id}"
+  end
 end

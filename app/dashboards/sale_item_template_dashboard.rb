@@ -50,4 +50,7 @@ class SaleItemTemplateDashboard < Administrate::BaseDashboard
   # def display_resource(property_template)
   #   "SaleItemTemplate ##{property_template.id}"
   # end
+  def display_resource(resource)
+    "#{resource.category_name}の#{resource.class.model_name.human}"
+  end
 end

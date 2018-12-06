@@ -56,4 +56,8 @@ class SaleItemDashboard < Administrate::BaseDashboard
   # def display_resource(sale_item)
   #   "SaleItem ##{sale_item.id}"
   # end
+
+  def display_resource(resource)
+    "#{resource.class.model_name.human} ID: #{resource.id}"
+  end
 end
