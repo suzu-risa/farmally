@@ -4,6 +4,9 @@ class SaleItemTemplate < ApplicationRecord
   belongs_to :category
 
   validate :detail_property_keys_must_be_uniq
+  validates :category_id, uniqueness: true
+  validates :detail_json, presence: true
+  validates :detail_tables, presence: true
 
   delegate :name, to: :category, prefix: :category
 
@@ -67,6 +70,10 @@ class SaleItemTemplate < ApplicationRecord
 
   def detail
     Hashie::Mash.new(JSON.parse(detail_json))
+  end
+
+  def detail_tables
+    detail.tables
   end
 
   private

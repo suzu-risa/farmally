@@ -38,7 +38,12 @@ and renders all form fields for a resource's editable attributes.
       <%= f.label :category %>
     </div>
     <div class="field-unit__field">
-      <%= f.select :category_id, @categories.map {|category| [category.name, category.id] } %>
+      <% if page.resource.persisted? %>
+        <%= page.resource.category_name %>
+        <%= f.hidden_field :category_id %>
+      <% else %>
+        <%= f.select :category_id, @categories.map {|category| [category.name, category.id] } %>
+      <% end %>
     </div>
   </div>
 
@@ -58,7 +63,7 @@ and renders all form fields for a resource's editable attributes.
       <label>CSVファイル</label>
     </div>
     <div class="field-unit__field">
-      <%= f.file_field :detail_file %>
+      <%= f.file_field :detail_file, required: true %>
     </div>
   </div>
 

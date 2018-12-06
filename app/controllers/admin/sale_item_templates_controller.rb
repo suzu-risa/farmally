@@ -12,7 +12,7 @@ module Admin
     # end
     def new
       @property_template = SaleItemTemplate.new
-      @categories = Category.all
+      @categories = Category.not_has_sale_item_templates
       super
     end
 
@@ -32,8 +32,27 @@ module Admin
           notice: translate_with_resource("create.success"),
         )
       else
+        @property_template = SaleItemTemplate.new
+        @categories = Category.not_has_sale_item_templates
+
         render :new, locals: {
           page: Administrate::Page::Form.new(dashboard, resource),
+        }
+      end
+    end
+
+    def update
+      if requested_resource.update(resource_params)
+        redirect_to(
+          [namespace, requested_resource],
+          notice: translate_with_resource("update.success"),
+        )
+      else
+        @property_template = find_resource(params[:id])
+        @categories = Category.all
+
+        render :edit, locals: {
+          page: Administrate::Page::Form.new(dashboard, requested_resource),
         }
       end
     end
