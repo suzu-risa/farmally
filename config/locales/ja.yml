@@ -261,6 +261,13 @@ ja:
         like_count: いいね
         created_at: 作成日時
         updated_at: 更新日時
+      sale_item:
+        item: 商品
+        sale_item_template: テンプレート
+        price: 価格
+      sale_item_template:
+        category: 種類
+        created_at: 作成日時
   number:
     currency:
       format:
