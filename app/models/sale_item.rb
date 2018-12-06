@@ -7,6 +7,8 @@ class SaleItem < ApplicationRecord
              foreign_key: :sale_item_template_id # TODO: カラム名変更
   has_many :inquiries, foreign_key: :sale_item_id, class_name: "SaleItemInquiry"
 
+  validates :price, presence: true
+
   delegate :model, :category, :sub_category, :maker, to: :item
   delegate :name, to: :category, prefix: :category
 

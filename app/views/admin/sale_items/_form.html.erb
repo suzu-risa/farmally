@@ -50,7 +50,7 @@ and renders all form fields for a resource's editable attributes.
       <%= f.label :price %>
     </div>
     <div class="field-unit__field">
-      <%= f.number_field :price %>
+      <%= f.number_field :price, required: true %>
     </div>
   </div>
 
@@ -69,7 +69,7 @@ and renders all form fields for a resource's editable attributes.
   <%= form_for(@sale_item, url: admin_sale_item_images_path(sale_item_id: @sale_item),
                html: { class: "form", multipart: true }, method: :post) do |f| %>
     <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
+    <%= f.file_field :images, multiple: true, required: true %>
 
     <%= f.submit "画像を登録する" %>
   <% end %>
