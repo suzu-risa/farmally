@@ -5,6 +5,8 @@ class Item < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
 
+  has_many :sale_items, class_name: "SaleItem"
+
   validates :maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :sub_maker_price, numericality: { only_integer: true }, allow_nil: true
   validates :used_price, numericality: { only_integer: true }, allow_nil: true
@@ -17,6 +19,8 @@ class Item < ApplicationRecord
   validates :other, length: { maximum: 3000 }
 
   validate :sub_category_should_be_category_child
+
+  delegate :sale_item_template, to: :category
 
   paginates_per 30
 

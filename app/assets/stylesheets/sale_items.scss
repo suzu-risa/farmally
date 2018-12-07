@@ -1,0 +1,93 @@
+.sale-item {
+  &__detail {
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    border-bottom: solid 2px $base-brown;
+
+    .buttons {
+      border-bottom: solid 2px $base-brown;
+      padding: 10px 0;
+
+      .form-button {
+        width: 100%;
+        margin: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-sizing: border-box;
+
+        &.phone-button {
+          color: white;
+          background-color: $base-brown;
+          margin-bottom: 10px;
+          height: 60px;
+
+          margin-bottom: -10px;
+
+          &:hover {
+            background-color: darken($base-brown, 10%);
+          }
+        }
+
+        &.contact-button {
+          color: $base-brown;
+          border: solid 1px $base-brown;
+          height: 60px;
+          margin-bottom: 10px;
+          span {
+            @media screen and (min-width: 400px) {
+              > .only-sp {
+                display: none;
+              }
+            }
+            @media screen and (max-width: 399px) {
+              font-size: 14px;
+            }
+          }
+          &:hover {
+            background-color: darken(white, 10%);
+          }
+        }
+      }
+    }
+
+    .detail {
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    .table {
+      width: 100%;
+      display: block;
+      padding: 5px 15px;
+      margin: 0;
+
+      caption {
+        display: block;
+        font-weight: bold;
+        padding-bottom: 8px;
+      }
+
+      tbody {
+        display: block;
+        background-color: #eee;
+      }
+
+      tr, th, td {
+        border: none;
+      }
+
+      th {
+        @media screen and (min-width: 400px) {
+          min-width: 100px; 
+        }
+        @media screen and (max-width: 399px) {
+          min-width: 60px; 
+        }
+      }
+
+      .other {
+        white-space: pre-line;
+      }
+    }
+  }
+}

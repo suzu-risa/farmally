@@ -1,0 +1,16 @@
+<article class="columns sale-item">
+  <div class="column is-12-mobile is-4-tablet is-4-desktop">
+    <figure class="image is-96x96">
+      <%= image_tag(url_for(sale_item.images.first)) %>
+    </figure>
+  </div>
+  <div class="column is-12-mobile is-4-tablet is-4-desktop">
+    <p>TODO: ここに共通属性が入る</p>
+  </div>
+  <div class="column is-12-mobile is-4-tablet is-4-desktop">
+    <%= link_to "詳細を見る",
+      item_sale_item_path(sale_item, item_id: sale_item.item_id),
+      class: "button detail-button" %>
+    <p>詳細ご希望の方は電話でお問い合わせください。</p>
+  </div>
+</article>

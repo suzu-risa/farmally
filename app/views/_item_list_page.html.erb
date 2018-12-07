@@ -3,7 +3,13 @@
     <% if @items.empty? %>
       <p class="title is-4 has-text-centered">商品が見つかりませんでした</p>
     <% else %>
-      <%= render partial: '/breadcrumb', locals:{ breadcrumb: @breadcrumb } %>
+      <% if @maker %>
+        <% breadcrumb(:maker, @maker, @sub_category || @category) %>
+      <% elsif @sub_category || @category %>
+        <% breadcrumb(@sub_category || @category) %>
+      <% end %>
+
+      <%= render partial: '/breadcrumb' %>
       <% if local_assigns.has_key? :sub_categories %>
         <h3 class="title is-4">もっと絞り込む</h3>
         <div class="columns is-mobile is-multiline sub-category-search">

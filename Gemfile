@@ -51,6 +51,8 @@ gem 'roboto'
 gem 'kaminari'
 gem 'rack-proxy'
 gem 'meta-tags'
+gem 'hashie'
+gem 'gretel'
 gem 'ckeditor'
 
 group :development, :test do

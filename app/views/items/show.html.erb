@@ -3,7 +3,8 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
-        <%= render partial: '/breadcrumb', locals: { breadcrumb: @breadcrumb } %>
+        <% breadcrumb(@item) %>
+        <%= render partial: '/breadcrumb' %>
       </div>
     </div>
     <div class="columns is-centered main">
@@ -84,6 +85,29 @@
     </div>
   </div>
 </section>
+
+<section class="section item__sale-items">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <h3 class="title">現在出品中の商品</h3>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <% if @sale_items.present? %>
+            <% @sale_items.each do |sale_item| %>
+              <%= render partial: 'items/sale_item', locals:{ sale_item: sale_item } %>
+            <% end %>
+          <% else %>
+            <p>出品中の商品はありません</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</section>
+
 <section class="section item__reviews">
   <div class="container">
     <div class="columns is-centered">
