@@ -60,6 +60,7 @@ ja:
         properties: プロパティ
         sale_item_template: プロパティテンプレート
         sale_item_template_id: プロパティテンプレート
+        sold_at: 売却日時
       sale_item_inquiry:
         sale_item: 出品商品
         sale_item_id: 出品商品

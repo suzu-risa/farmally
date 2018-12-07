@@ -54,6 +54,15 @@ and renders all form fields for a resource's editable attributes.
     </div>
   </div>
 
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :sold_at %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.datetime_field :sold_at, required: true %>
+    </div>
+  </div>
+
   <fieldset>
     <legend align="center">プロパティ一覧</legend>
     <%= render "sale_item_property_table", sale_item: @sale_item, property_template: @property_template %>
