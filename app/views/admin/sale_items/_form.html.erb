@@ -1,0 +1,100 @@
+<%#
+# Form Partial
+
+This partial is rendered on a resource's `new` and `edit` pages,
+and renders all form fields for a resource's editable attributes.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Form][1].
+  Contains helper methods to display a form,
+  and knows which attributes should be displayed in the resource's form.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
+%>
+
+<%= form_for([namespace, @sale_item],
+             html: { class: "form", multipart: true } ) do |f| %>
+  <% if page.resource.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t(
+          "administrate.form.errors",
+          pluralized_errors: pluralize(page.resource.errors.count, t("administrate.form.error")),
+          resource_name: display_resource_name(page.resource_name)
+        ) %>
+      </h2>
+
+      <ul>
+        <% page.resource.errors.full_messages.each do |message| %>
+          <li class="flash-error"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :item %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.object.model %>
+      <%= f.hidden_field :item_id %>
+      <%= f.hidden_field :sale_item_template_id %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :price %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.number_field :price, required: true %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :sold_at %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.datetime_field :sold_at, required: true %>
+    </div>
+  </div>
+
+  <fieldset>
+    <legend align="center">プロパティ一覧</legend>
+    <%= render "sale_item_property_table", sale_item: @sale_item, property_template: @property_template %>
+  </fieldset>
+
+  <div class="form-actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% if @sale_item.persisted? %>
+  <h2>画像アップロード</h2>
+  <%= form_for(@sale_item, url: admin_sale_item_images_path(sale_item_id: @sale_item),
+               html: { class: "form", multipart: true }, method: :post) do |f| %>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true, required: true %>
+
+    <%= f.submit "画像を登録する" %>
+  <% end %>
+
+  <table>
+    <tr>
+      <td></td>
+      <td>削除</td>
+    </tr>
+    <% @sale_item.images.each do |image| %>
+      <tr>
+        <td><%= image_tag(url_for(image)) %></td>
+        <td>
+          <%= link_to "削除", admin_sale_item_image_path(image, sale_item_id: @sale_item.id), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

@@ -1,0 +1,107 @@
+<%#
+# Show
+
+This view is the template for the show page.
+It renders the attributes of a resource,
+as well as a link to its edit page.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Show][1].
+  Contains methods for accessing the resource to be displayed on the page,
+  as well as helpers for describing how each attribute of the resource
+  should be displayed.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
+%>
+
+<% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
+
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title">
+    <%= content_for(:title) %>
+  </h1>
+
+  <div>
+    <%= link_to(
+      t("administrate.actions.edit_resource", name: page.page_title),
+      [:edit, namespace, page.resource],
+      class: "button",
+    ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
+
+    <%= link_to "問い合わせを登録する",
+      new_admin_sale_item_inquiry_path(sale_item_id: page.resource),
+      class: "button"
+    %>
+  </div>
+</header>
+
+<table>
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:item) %>
+    </td>
+
+    <td>
+      <%= page.resource.item.model %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:price) %>
+    </td>
+
+    <td>
+      <%= page.resource.price %>
+    </td>
+  </tr>
+</table>
+
+<% page.resource.detail_with_template.tables.each do |table| %>
+  <table>
+    <caption><%= table.name %></caption>
+    <tbody>
+      <% table.properties.each do |property| %>
+        <tr>
+          <th><%= property.name %></td>
+          <td><%= property.value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>
+
+<table>
+  <caption><%= SaleItem.human_attribute_name(:images) %></caption>
+  <% page.resource.images.each_with_index do |image, i| %>
+    <tr>
+      <td>
+        <%= "#{SaleItem.human_attribute_name(:images)} #{i}" %>
+      </td>
+
+      <td>
+        <%= image_tag(url_for(image)) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<h2><%= SaleItem.human_attribute_name(:inquiries) %></h2>
+
+<table>
+  <tr>
+    <td><%= SaleItemInquiry.human_attribute_name(:name) %></td>
+    <td><%= SaleItemInquiry.human_attribute_name(:phone_number) %></td>
+    <td><%= SaleItemInquiry.human_attribute_name(:created_at) %></td>
+  </tr>
+  <% page.resource.inquiries.each do |inquiry| %>
+    <tr class="js-table-row" data-url="<%= edit_admin_sale_item_inquiry_path(inquiry) %>">
+      <td><%= inquiry.name %></td>
+      <td><%= inquiry.phone_number %></td>
+      <td><%= I18n.l(inquiry.created_at) %></td>
+    </tr>
+  <% end %>
+</table>

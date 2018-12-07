@@ -1,0 +1,24 @@
+<% @property_template.detail.tables.each do |table| %>
+  <table class="property-table">
+    <caption><%= table.name %></caption>
+    <thead>
+      <tr>
+        <td>属性</td>
+        <td>値</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% table.properties.each do |property| %>
+        <tr>
+          <td><%= property.property_name %></td>
+          <td>
+            <%= text_field_tag "sale_item[detail_json][properties][#{property.property_key}]", 
+                               sale_item.detail.properties[property.property_key]
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>

@@ -26,9 +26,14 @@ module.exports = (_env, argv) => {
           loader: "vue-loader"
         },
         {
-          test: /\.js$/,
-          use: ["babel-loader"],
-          exclude: /node_modules/
+          test: /\.js(x?)$/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ['@babel/react', '@babel/env']
+            }
+          },
+          exclude: /node_modules/,
         },
         {
           test: /\.(sass|scss)$/,

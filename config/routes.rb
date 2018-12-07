@@ -7,6 +7,18 @@ Rails.application.routes.draw do
     resources :makers, param: :code
     resources :reviews
     resources :review_comments
+    resources :sale_items do
+      scope module: :sale_items do
+        resources :images, only: [:create, :destroy]
+      end
+
+      resources :sale_item_inquiries, as: :inquiries
+    end
+    resources :sale_item_templates do
+      member do
+        get :detail_file
+      end
+    end
 
     post '/import', to: 'home#import'
     put '/sitemap', to: 'home#sitemap'
@@ -21,6 +33,11 @@ Rails.application.routes.draw do
   resources :makers, param: :code, only: :show
   resources :items, only: :show do
     resources :reviews, only: :new
+    resources :sale_items, only: :show, path: :sales do
+      get :images
+
+      resources :sale_item_inquiries, only: :create, path: :inquiries
+    end
   end
   resources :reviews, only: :create do
     member do
