@@ -67,7 +67,47 @@ and renders all form fields for a resource's editable attributes.
     </div>
   </div>
 
+  <h2>CSVファイルに関する説明</h2>
+  <p>
+  テーブル番号、テーブル名、属性キー、属性名
+  <br>
+  のCSVをアップロードしてください。
+  <br>
+  列名行除く2行目(実際の3行目)以降はテーブル名は省略可能です。
+  <br>
+  属性キーは一度設定したら属性を破棄するまではしないでください(ユーザー側に出るものではないので適当で問題ないです)。
+  <br>
+  属性キーを変更してしまうと、出品商品が持つデータと紐付かなくなってしまい、表示されなくなってしまいます。
+  <br>
+  ※属性キーまたは属性名がない行はスキップします
+  </p>
+  <h2>例:</h2>
+  <p>
+    table,table_name,property_key,property_name
+    <br>
+    1,基本情報,year,年式
+    <br>
+    1,,teiin,乗車定員
+    <br>
+    1,,kyori,走行距離
+    <br>
+    2,エンジン情報,model,型式
+    <br>
+    2,,type,種類
+    <br>
+    2,,haikiryo,排気量
+    <br>
+    2,,nenryo,使用燃料
+    <br>
+    3,ミッション情報,kudo,駆動方式
+    <br>
+    3,,mission,ミッションギア
+    <br>
+    3,,pedal,ペダル数
+  </p>
+
   <% if @property_template.persisted? %>
+    <h2>現在のデータ</h2>
     <table class="table">
       <thead>
         <tr>
