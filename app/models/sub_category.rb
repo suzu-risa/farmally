@@ -2,7 +2,7 @@ class SubCategory < ApplicationRecord
   belongs_to :category
   has_many :items
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :category }
   validates :code, presence: true, uniqueness: { scope: :category }
 
   validate :category_should_be_parent
