@@ -22,9 +22,14 @@ module Admin
 
     private
 
-    def default_params
-      params[:order] ||= 'id'
-      params[:direction] ||= 'asc'
-    end
+      def default_params
+        params[:order] ||= 'id'
+        params[:direction] ||= 'asc'
+      end
+
+      def resource_params
+        params.require(resource_class.model_name.param_key).
+          permit(:name, :code, :description_content)
+      end
   end
 end
