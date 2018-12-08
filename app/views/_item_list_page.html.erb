@@ -4,7 +4,7 @@
       <p class="title is-4 has-text-centered">商品が見つかりませんでした</p>
     <% else %>
       <% if @maker %>
-        <% breadcrumb(:maker, @maker, @sub_category || @category) %>
+        <% breadcrumb(:maker, @maker) %>
       <% elsif @sub_category || @category %>
         <% breadcrumb(@sub_category || @category) %>
       <% end %>

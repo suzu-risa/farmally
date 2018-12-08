@@ -2,6 +2,12 @@ crumb :root do
   link "トップ", root_path
 end
 
+crumb :maker do |maker|
+  parent :root
+
+  link maker.name, maker_path(maker.code)
+end
+
 crumb :category do |category|
   parent :root
   link category.name, category_path(category.code)
@@ -16,18 +22,8 @@ crumb :sub_category do |sub_category|
        )
 end
 
-crumb :maker do |maker, category_or_subcategory|
-  if category_or_subcategory
-    parent category_or_subcategory
-  else
-    parent :root
-  end
-
-  link maker.name, maker_path(maker.code)
-end
-
 crumb :item do |item|
-  parent :maker, item.maker, item.sub_category
+  parent :sub_category, item.sub_category
   link item.model, item_path(item)
 end
 
