@@ -1,6 +1,2 @@
-<section class="section container">
-  <%= raw @category.description_content %>
-</section>
-
 <% set_meta_tags title: "#{@title}一覧" %>
 <%= render partial: '/item_list_page', locals: { sub_categories: @category.sub_categories } %>
