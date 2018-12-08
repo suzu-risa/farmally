@@ -4,6 +4,8 @@
 //= require moment
 //= require datetime_picker
 //= require ckeditor/init
+//= require ./ckeditor_config
+//= require ./ckeditor_styles
 //= require_tree .
 
 document.addEventListener("DOMContentLoaded", function(event) {
