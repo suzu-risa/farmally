@@ -48,6 +48,25 @@ and renders all form fields for a resource's editable attributes.
     </div>
   </div>
 
+  <pre>
+    <code>
+      <% text =<<-EOS
+        <article class="category-about">
+          <h2 class="about-title">
+            見出し
+          </h2>
+          <div class="about-contents">
+            <p>
+              内容
+            </p>
+          </div>
+        </article>
+      EOS
+     %>
+     <%= text %>
+    </code>
+  </pre>
+
   <div class="form-actions">
     <%= f.submit %>
   </div>
