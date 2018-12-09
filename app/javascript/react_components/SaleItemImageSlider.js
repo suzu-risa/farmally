@@ -29,56 +29,30 @@ class SaleItemImageSlider extends React.Component {
 
     const itemImages = this.state.itemImages.map((image, i)=>{
       return (
-        <img src={image.url}/>
+        <img src={image.url} key={i}/>
       )
-    })
+    });
 
-    const thumbnailItemImages = this.state.itemImages.reduce((elements, image, i)=>{
-      elements = elements || [];
-
-      const lastColumns = elements[elements.length - 1];
-      var insertIndex = 0;
-
-      if(lastColumns){
-        if(lastColumns.length < 4) {
-          insertIndex = elements.length - 1;
-        } else {
-          insertIndex = elements.length;
-          elements[insertIndex] = [];
-        }
-      } else {
-        elements[0] = [];
-      }
-
+    const thumbnailItemImageColumns = this.state.itemImages.map((image, i)=>{
       const onClick = (e)=> {
         return this.slider.slickGoTo(e.target.getAttribute("data-image-index"));
       }
 
-      elements[insertIndex].push(
-        <div className="column is-3-mobile is-3-tablet is-3-desktop" data-image-index={i} onClick={ e => onClick(e)}>
+      return (
+        <div className="column is-3-mobile is-2-tablet is-2-desktop" data-image-index={i} onClick={ e => onClick(e)} key={i}>
           <img src={image.url} data-image-index={i} />
         </div>
-      )
-
-      return elements;
-    }, [])
-
-    const thumbnailColumns = ()=> {
-      return thumbnailItemImages.map((columns, image)=>{
-        return(
-          <div className="columns is-mobile">
-            {columns}
-          </div>
-        )
-      });
-    }
+      );
+    });
 
     return (
-      <div className="container">
+      <div>
         <Slider ref={slider => (this.slider = slider)} {...settings}>
           {itemImages}
         </Slider>
-        {thumbnailColumns()}
+        <div className="columns is-mobile is-multiline">
+          {thumbnailItemImageColumns}
+        </div>
       </div>
     );
   }
