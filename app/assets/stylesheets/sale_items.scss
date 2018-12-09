@@ -1,8 +1,33 @@
 .sale-item {
   &__detail {
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     box-sizing: border-box;
     border-bottom: solid 2px $base-brown;
+
+    .slick-slider {
+       margin-bottom: 30px;
+     }
+
+    .thumbnail-list {
+      width: 300px;
+      margin: 0px auto;
+      padding-top: 10px;
+    }
+    .thumbnail-item{
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      &:after{
+        background-color: rgba(0,0,0,0.5);
+        opacity: 1;
+      }
+      &.thumbnail-current:after{
+        opacity: 0;
+      }
+      img{
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
 
     .buttons {
       border-bottom: solid 2px $base-brown;

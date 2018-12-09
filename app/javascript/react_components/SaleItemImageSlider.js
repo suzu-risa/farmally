@@ -29,13 +29,31 @@ class SaleItemImageSlider extends React.Component {
 
     const itemImages = this.state.itemImages.map((image, i)=>{
       return (
-        <img src={image.url} />
+        <img src={image.url} key={i}/>
       )
-    })
+    });
+
+    const thumbnailItemImageColumns = this.state.itemImages.map((image, i)=>{
+      const onClick = (e)=> {
+        return this.slider.slickGoTo(e.target.getAttribute("data-image-index"));
+      }
+
+      return (
+        <div className="column is-3-mobile is-2-tablet is-2-desktop" data-image-index={i} onClick={ e => onClick(e)} key={i}>
+          <img src={image.url} data-image-index={i} />
+        </div>
+      );
+    });
+
     return (
-      <Slider {...settings}>
-        {itemImages}
-      </Slider>
+      <div>
+        <Slider ref={slider => (this.slider = slider)} {...settings}>
+          {itemImages}
+        </Slider>
+        <div className="columns is-mobile is-multiline">
+          {thumbnailItemImageColumns}
+        </div>
+      </div>
     );
   }
 }

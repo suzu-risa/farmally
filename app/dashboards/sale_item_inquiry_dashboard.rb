@@ -14,6 +14,7 @@ class SaleItemInquiryDashboard < Administrate::BaseDashboard
     phone_number: Field::String,
     address: Field::String,
     email: Field::String,
+    contents: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -39,6 +40,7 @@ class SaleItemInquiryDashboard < Administrate::BaseDashboard
     :phone_number,
     :address,
     :email,
+    :contents,
     :created_at,
     :updated_at,
   ].freeze
@@ -51,6 +53,7 @@ class SaleItemInquiryDashboard < Administrate::BaseDashboard
     :phone_number,
     :address,
     :email,
+    :contents
   ].freeze
 
   # Overwrite this method to customize how sale item inquiries are displayed

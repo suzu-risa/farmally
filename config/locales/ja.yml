@@ -68,6 +68,7 @@ ja:
         phone_number: 電話番号
         email: メール
         address: 住所
+        contents: お問い合わせ内容
         created_at: 問い合わせ日時
     errors:
       messages:
