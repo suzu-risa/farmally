@@ -14,6 +14,7 @@ class SaleItemInquiry < ApplicationRecord
       価格: #{price.present? ? price : '未入力'}
       お名前: #{name}
       電話番号: #{phone_number}
+      お問い合わせ内容: #{contents? ? contents : '記入なし'}
     TXT
   end
 

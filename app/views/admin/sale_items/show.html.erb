@@ -98,7 +98,7 @@ as well as a link to its edit page.
     <td><%= SaleItemInquiry.human_attribute_name(:created_at) %></td>
   </tr>
   <% page.resource.inquiries.each do |inquiry| %>
-    <tr class="js-table-row" data-url="<%= edit_admin_sale_item_inquiry_path(inquiry) %>">
+    <tr class="js-table-row" data-url="<%= edit_admin_sale_item_inquiry_path(page.resource, inquiry) %>">
       <td><%= inquiry.name %></td>
       <td><%= inquiry.phone_number %></td>
       <td><%= I18n.l(inquiry.created_at) %></td>
