@@ -21,7 +21,9 @@
 
         <div class="columns buttons">
           <div class="column is-12-mobile is-12-tablet is-12-desktop">
-            <a href="tel:<%= contact_phone_number %>" class="button form-button phone-button">
+            <a href="tel:<%= contact_phone_number %>"
+               class="button form-button phone-button"
+               onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_category': '出品商品' });">
               <span class="icon">
                 <i class="fas fa-phone"></i>
               </span>
@@ -29,7 +31,10 @@
             </a>
           </div>
           <div class="column is-12-mobile is-12-tablet is-12-desktop">
-            <a href="#" id="open-modal" class='button form-button contact-button'>
+            <a href="#"
+              id="open-modal"
+              class='button form-button contact-button'
+              onClick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });">
               <span class="icon">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -93,8 +98,8 @@
         <%= f.text_area :contents, class: "textarea", placeholder: "詳しく聞きたい。相談したい。など", required: true %>
       </div>
 
-      <%= f.submit "送信する", class: "button is-success" %>
+      <%= f.submit "送信する", class: "button is-success", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '出品商品' });" %>
     <% end %>
   </div>
-  <button class="modal-close is-large" aria-label="close"></button>
+  <button class="modal-close is-large" aria-label="close" onClick="gtag('event', 'お問い合わせモーダル閉じるボタンクリック', { 'event_category': '出品商品' });"></button>
 </div>
