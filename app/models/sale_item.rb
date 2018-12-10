@@ -1,4 +1,7 @@
 class SaleItem < ApplicationRecord
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
   has_many_attached :images
 
   belongs_to :item
