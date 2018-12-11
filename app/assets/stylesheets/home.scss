@@ -90,6 +90,23 @@ $search-color: #feb64a;
   }
 }
 
+// 検索フォーム
+.search-section {
+  .search-box {
+    background-color: #ddd;
+    padding: 10px;
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+// 電話ボタン、問い合わせボタン共通
+.inquiry-buttons {
+  .message {
+    text-align: center;
+  }
+}
+
 .search-from-category {
   h3.title {
     border-bottom: solid 2px $base-brown;
