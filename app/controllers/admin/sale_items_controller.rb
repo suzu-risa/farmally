@@ -66,6 +66,11 @@ module Admin
       params.require(resource_class.model_name.param_key).
         permit(:item_id,
                :price,
+               :used_hours,
+               :year,
+               :horse_power,
+               :prefecture_code,
+               :sold_at,
                :sale_item_template_id,
                detail_json: { properties: {} },
                images: [])
