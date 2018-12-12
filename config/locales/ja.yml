@@ -61,6 +61,11 @@ ja:
         sale_item_template: プロパティテンプレート
         sale_item_template_id: プロパティテンプレート
         sold_at: 売却日時
+        horse_power: 馬力
+        used_hours: アワーメーター
+        prefecture_code: 地域
+        year: 年式
+        status: ステータス
       sale_item_inquiry:
         sale_item: 出品商品
         sale_item_id: 出品商品
@@ -76,6 +81,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  enums:
+    sale_item:
+      status:
+        try_display: お試し出品
+        under_maintenance: 整備中
+        maintenanced: 整備済
   date:
     abbr_day_names:
     - 日

@@ -48,8 +48,34 @@
             <tbody>
               <tr>
                 <th><%= @sale_item.class.human_attribute_name(:price) %></th>
-                <td><%= @sale_item.price %>
+                <td><%= number_to_currency(@sale_item.price) %>
               </tr>
+
+              <tr>
+                <th><%= @sale_item.class.human_attribute_name(:prefecture_code) %></th>
+                <td><%= @sale_item.prefecture_name %>
+              </tr>
+
+              <tr>
+                <th><%= @sale_item.class.human_attribute_name(:year) %></th>
+                <td><%= @sale_item.year_text %>
+              </tr>
+
+              <tr>
+                <th><%= @sale_item.class.human_attribute_name(:horse_power) %></th>
+                <td><%= @sale_item.horse_power_with_unit %>
+              </tr>
+
+              <tr>
+                <th><%= @sale_item.class.human_attribute_name(:used_hours) %></th>
+                <td><%= @sale_item.used_hours_with_unit %>
+              </tr>
+
+              <tr>
+                <th><%= @sale_item.class.human_attribute_name(:status) %></th>
+                <td><%= @sale_item.status_i18n %>
+              </tr>
+
             </tbody>
           </table>
         </div>

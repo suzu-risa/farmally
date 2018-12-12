@@ -56,6 +56,52 @@ and renders all form fields for a resource's editable attributes.
 
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
+      <%= f.label :prefecture_code %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :used_hours %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.number_field :used_hours %>
+    </div>
+  </div>
+
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :year%>
+    </div>
+    <div class="field-unit__field">
+      <%= f.number_field :year %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :horse_power %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.text_field :horse_power %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :status %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.select :status, @sale_item.class.statuses_i18n.keys.map { |k| [@sale_item.class.statuses_i18n[k], k]}, include_blank: true %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
       <%= f.label :sold_at %>
     </div>
     <div class="field-unit__field">
