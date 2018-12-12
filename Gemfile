@@ -56,6 +56,7 @@ gem 'gretel'
 gem 'ckeditor'
 gem 'jp_prefecture'
 gem 'enum_help'
+gem 'active_decorator'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
