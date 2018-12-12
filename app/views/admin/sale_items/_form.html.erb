@@ -93,6 +93,15 @@ and renders all form fields for a resource's editable attributes.
 
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
+      <%= f.label :status %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.select :status, @sale_item.class.statuses_i18n.keys.map { |k| [@sale_item.class.statuses_i18n[k], k]}, include_blank: true %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
       <%= f.label :sold_at %>
     </div>
     <div class="field-unit__field">

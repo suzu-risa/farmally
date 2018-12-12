@@ -72,6 +72,7 @@ module Admin
                :prefecture_code,
                :sold_at,
                :sale_item_template_id,
+               :status,
                detail_json: { properties: {} },
                images: [])
     end

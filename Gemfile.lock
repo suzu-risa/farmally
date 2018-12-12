@@ -722,6 +722,8 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.13.1)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.10.0)
@@ -922,6 +924,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.2)
   config
+  enum_help
   factory_bot_rails
   font-awesome-rails
   gretel

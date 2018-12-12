@@ -2,6 +2,8 @@ class SaleItem < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
+  enum status: { try_display: 0, under_maintenance: 1, maintenanced: 2 }
+
   has_many_attached :images
 
   belongs_to :item
