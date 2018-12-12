@@ -9,9 +9,11 @@
         <% breadcrumb(@sub_category || @category) %>
       <% end %>
 
-      <%= render partial: '/breadcrumb' %>
+      <% if local_assigns.has_key?(:breadcrumb) && !local_assigns[:breadcrumb] %>
+        <%= render partial: '/breadcrumb' %>
+      <% end %>
 
-      <% if @category.try(:description_content?) %>
+      <% if local_assigns.has_key?(:category_about) && !local_assigns[:category_about] && @category.try(:description_content?) %>
         <h1 class="category-name title is-2">
           <%= @category.name %>
         </h1>
