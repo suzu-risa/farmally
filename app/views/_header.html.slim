@@ -3,8 +3,7 @@ section.hero.is-white.is-small
     header#navbar.navbar.is-fixed-top
       .navbar-brand
         a.navbar-item[href="/"]
-          span.logo-name
-            | ファーマリー
+          = image_tag("logo.svg", class: 'logo-img')
         a#navbarBurger.navbar-burger[role="button" data-target="navMenu" aria-label="menu" aria-expanded="false"]
           span
           span
