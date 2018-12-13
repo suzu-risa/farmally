@@ -740,6 +740,9 @@ GEM
     gretel (3.0.9)
       rails (>= 3.1.0)
     hashie (3.6.0)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -939,6 +942,7 @@ DEPENDENCIES
   font-awesome-rails
   gretel
   hashie
+  html2slim
   jbuilder (~> 2.5)
   jp_prefecture
   kaminari
