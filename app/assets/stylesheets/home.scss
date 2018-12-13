@@ -1,3 +1,23 @@
+// アイキャッチ
+.eye-catch {
+  background: image-url("eye-catch.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 500px;
+
+  .eye-catch-text {
+    text-align: center;
+    h1 {
+      color: white;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
 .search-from-category {
   h3.title {
     border-bottom: solid 2px $base-brown;
