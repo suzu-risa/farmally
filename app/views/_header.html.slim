@@ -17,7 +17,14 @@ section.hero.is-white.is-small
           a.navbar-item
             |  農機を売りたい
           a.navbar-item
+            |  農機を探したい
+          a.navbar-item
             |  ブログ
+          a.navbar-item.navbar-item-phone-number
+            | 無料相談
+            br
+            span.phone-number
+              = Settings.phone.contact
       #search
   - if flash.present?
     div class="notification is-#{flash.first[0]}"

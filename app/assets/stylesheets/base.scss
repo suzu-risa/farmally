@@ -134,6 +134,17 @@ header#navbar {
   .navbar-menu {
     .navbar-item {
       color: rgba(0, 0, 0, 0.5);
+
+      &.navbar-item-phone-number {
+        color: white;
+        display: block;
+        text-align: center;
+
+        background-color: #01818a;
+        .phone-number {
+          font-size: 0.8em;
+        }
+      }
     }
   }
 
