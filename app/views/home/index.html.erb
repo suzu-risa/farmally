@@ -21,8 +21,7 @@
     <div class="container content search-from-category">
       <h3 class="title">種類から農機具を探す</h3>
       <div class="columns is-mobile is-multiline">
-        <% codes = ['tractor', 'beibakuyosyukaku-kansokikai-shisetsu', 'taue-ikubyo-isyokuyoukanrenkiki', 'kouunuyokanrenkikai', 'saibaikanriyokikai', 'other'] %>
-        <% Category.where(code: codes).order("field(code, \"#{codes.join('","')}\")").each do |c| %>
+        <% @categories.each do |c| %>
           <div class="column is-6-mobile is-3-tablet is-3-desktop">
             <%= link_to(category_path(c), class: 'category') do %>
               <%= image_tag "category/#{c.code}.png" %>
