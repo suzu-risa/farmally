@@ -1,3 +1,7 @@
+$buy-color: #fb3c3c;
+$sell-color: #128b8e;
+$search-color: #feb64a;
+
 // アイキャッチ
 .eye-catch {
   background: image-url("eye-catch.jpg") no-repeat;
@@ -24,19 +28,64 @@
       color: white;
 
       &.eye-catch-button-buy {
-        background-color: #fb3c3c;
-        border-color: #fb3c3c;
+        background-color: $buy-color;
+        border-color: $buy-color;
       }
 
       &.eye-catch-button-sell{
-        background-color: #128b8e;
-        border-color: #128b8e;
+        background-color: $sell-color;
+        border-color: $sell-color;
       }
 
       &.eye-catch-button-search {
-        background-color: #feb64a;
-        border-color: #feb64a;
+        background-color: $search-color;
+        border-color: $search-color;
       }
+    }
+  }
+}
+
+// ファーマリーの特徴
+.feature-section {
+  text-align: center;
+  margin-top: 10px;
+
+  .columns {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .title-image {
+    img {
+      width: 300px;
+    }
+  }
+
+  .content-image {
+    .question-image {
+      width: 200px;
+    }
+  }
+
+  .content-title {
+    font-size: 1.8em;
+    text-align: center;
+    margin-top: 20px;
+
+    .content-title-buy {
+      border-bottom: 2px solid $buy-color;
+      padding-bottom: 4px;
+      margin-right: 8px;
+    }
+
+    .content-title-sell {
+      border-bottom: 2px solid $sell-color;
+      padding-bottom: 4px;
+    }
+
+    .content-title-search {
+      border-bottom: 2px solid $search-color;
+      padding-bottom: 4px;
     }
   }
 }
