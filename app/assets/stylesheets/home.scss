@@ -5,6 +5,7 @@
   background-size: cover;
   min-height: 500px;
 
+  // アイキャッチのタイトルとテキスト
   .eye-catch-text {
     text-align: center;
     h1 {
@@ -14,6 +15,28 @@
     p {
       color: white;
       font-weight: bold;
+    }
+  }
+
+  // アイキャッチのボタン
+  .eye-catch-button-columns {
+    .button {
+      color: white;
+
+      &.eye-catch-button-buy {
+        background-color: #fb3c3c;
+        border-color: #fb3c3c;
+      }
+
+      &.eye-catch-button-sell{
+        background-color: #128b8e;
+        border-color: #128b8e;
+      }
+
+      &.eye-catch-button-search {
+        background-color: #feb64a;
+        border-color: #feb64a;
+      }
     }
   }
 }
