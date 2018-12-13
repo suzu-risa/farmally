@@ -132,6 +132,12 @@ header#navbar {
     }
   }
 
+  .navbar-menu {
+    .navbar-item {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
   form.search-box {
     margin-left: 5px;
     margin-right: 5px;

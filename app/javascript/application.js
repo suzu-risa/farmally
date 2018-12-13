@@ -1,6 +1,5 @@
 import Vue from "vue";
 import App from "./components/App";
-import Search from "./components/SearchField";
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -14,10 +13,6 @@ if (isAppMountable) {
     render: h => h(App)
   }).$mount("#app");
 }
-
-new Vue({
-  render: h => h(Search)
-}).$mount("#search");
 
 const saleItemImageContainer = document.getElementById("sale-item-image");
 

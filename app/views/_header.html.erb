@@ -1,19 +1,39 @@
 <section class="hero is-white is-small">
   <div class="hero-head">
     <header class="navbar is-fixed-top" id="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <span class="logo-name">ファーマリー</span>
-          </a>
-          <div class="navbar-burger burger" id="navbarBurger" data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div id="search"></div>
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <span class="logo-name">ファーマリー</span>
+        </a>
+        <a role="button" class="navbar-burger" id="navbarBurger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
       </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item">
+            TOP
+          </a>
+
+          <a class="navbar-item">
+            農機を買いたい
+          </a>
+
+          <a class="navbar-item">
+            農機を売りたい
+          </a>
+
+          <a class="navbar-item">
+            ブログ
+          </a>
+        </div>
+      </div>
+
+
+      <div id="search"></div>
     </header>
   </div>
   <% if flash.present? %>
