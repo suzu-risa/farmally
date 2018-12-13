@@ -1,0 +1,47 @@
+section.hero
+  .hero-body.eye-catch
+    .container.content
+      .columns.is-right.is-centered
+        .column.is-8
+          .eye-catch-text
+            h1.is-size-2.has-text-weight-bold
+              | 農機具・農業機械の中古販売・買取なら｜ファーマリー
+            p
+              |  全国の農機店が出品している中古農機を希望の条件に応じて検索できます。 探し方がわからない場合は、無料でファーマリーがご相談に乗ります。 無料相談ボタンから、電話か問合せフォームでご依頼頂けます。 
+section.hero
+  .hero-body
+    .container.content.search-from-category
+      h3.title
+        | 種類から農機具を探す
+      .columns.is-mobile.is-multiline
+        - @categories.each do |c|
+          .column.is-6-mobile.is-3-tablet.is-3-desktop
+            = link_to(category_path(c), class: 'category') do
+              = image_tag "category/#{c.code}.png"
+              .name
+                = image_tag "category/icons/#{c.code}.png"
+                span
+                  = c.name
+section.hero
+  .hero-body
+    .container.new-item-list
+      h3.title
+        | 新着商品
+      .container.item-list
+        - if @items.empty?
+          p.title.is-4.has-text-centered
+            | 商品が見つかりませんでした
+        - else
+          .columns.is-mobile.is-multiline
+            - @items.each do |i|
+              = render partial: '/item_cassette', locals: { item: i }
+      .all-search-button-container
+        = link_to 'もっと見る', search_path, class: 'button'
+section.hero
+  .hero-body
+    .container.content.new-article-list
+      h3.title
+        | 新着記事
+      #app
+      .all-search-button-container
+        = link_to 'もっと見る', '/blog/', class: 'button'
