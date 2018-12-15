@@ -32,9 +32,9 @@ main.home
     .title-image
       = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
     .columns.feature-columns
-      .column.is-3-desktop.content-image
+      .column.is-3-tablet.is-3-desktop.content-image
         = image_tag "robot_question.png", alt: "クエスチョン", class: 'question-image'
-      .column.is-9-desktop.content-title.has-text-lefted
+      .column.is-9-tablet.is-9-desktop.content-title.has-text-lefted
         .columns
           .column.is-6-tablet.is-6-desktop
             span.content-title-buy
@@ -87,8 +87,13 @@ main.home
         | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
       .columns
         .column.is-6-tablet.is-6-desktop
-          a.button.phone-number-button
-            = Settings.phone.contact
+          a.button.phone-number-button href="tel:#{contact_phone_number}"
+            span.staff-message
+              | 専門スタッフが丁寧にお応えします
+            br
+            = image_tag "phone-icon.png", alt: "電話"
+            span.phone-number
+              = Settings.phone.contact
         .column.is-6-tablet.is-6-desktop
           a.button.inquiry-button
             | お問い合わせフォーム
