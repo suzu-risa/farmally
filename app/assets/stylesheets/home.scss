@@ -231,6 +231,28 @@ $search-color: #feb64a;
   }
 }
 
+.category-section {
+  width: 80%;
+  margin: 0 auto;
+
+  .title {
+    text-align: center;
+  }
+
+  .column {
+     padding: 0.3rem;
+   }
+
+  .category-button {
+    height: 70px;
+    width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 0.8em;
+  }
+}
+
+// 新着記事
 .all-search-button-container {
   text-align: center;
   width: 100%;

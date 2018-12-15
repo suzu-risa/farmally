@@ -147,8 +147,15 @@ section.sale-item-section
     a.button.view-all-button
       | すべてを表示する
 
-section
 // 農機をカテゴリーから検索
+section.category-section
+  h2.title
+    | 農機をカテゴリーから検索
+  .columns.is-multiline
+    - @categories.each do |category|
+      .column.is-2-tablet.is-2-desktop
+        .button.category-button
+          = category.name
 
 // 探し方がわからない方〜、電話、フォームへのボタン
 
