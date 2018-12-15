@@ -1,273 +1,275 @@
-$buy-color: #fb3c3c;
-$sell-color: #128b8e;
-$search-color: #feb64a;
+.home {
+  $buy-color: #fb3c3c;
+  $sell-color: #128b8e;
+  $search-color: #feb64a;
 
-//
-// 共通
-//
-.view-all-button {
-  display: block;
-  margin: 0 auto;
-  width: 60%;
-  font-size: 1.2em;
-  background-color: orange;
-  color: white;
-  font-weight: bold;
-  border-color: orange;
-  height: 50px;
-  line-height: 50px;
-  padding: 0;
-}
-
-// アイキャッチ
-.eye-catch {
-  background: image-url("eye-catch.jpg") no-repeat;
-  background-position: center;
-  background-size: cover;
-  min-height: 500px;
-
-  // アイキャッチのタイトルとテキスト
-  .eye-catch-text {
-    text-align: center;
-    h1 {
-      color: white;
-    }
-
-    p {
-      color: white;
-      font-weight: bold;
-    }
-  }
-
-  // アイキャッチのボタン
-  .eye-catch-button-columns {
-    .button {
-      color: white;
-
-      &.eye-catch-button-buy {
-        background-color: $buy-color;
-        border-color: $buy-color;
-      }
-
-      &.eye-catch-button-sell{
-        background-color: $sell-color;
-        border-color: $sell-color;
-      }
-
-      &.eye-catch-button-search {
-        background-color: $search-color;
-        border-color: $search-color;
-      }
-    }
-  }
-}
-
-// ファーマリーの特徴
-.feature-section {
-  text-align: center;
-  margin-top: 10px;
-
-  .columns {
-    width: 60%;
+  //
+  // 共通
+  //
+  .view-all-button {
+    display: block;
     margin: 0 auto;
+    width: 60%;
+    font-size: 1.2em;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border-color: orange;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
   }
 
-  .title-image {
-    img {
-      width: 300px;
+  // アイキャッチ
+  .eye-catch {
+    background: image-url("eye-catch.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 500px;
+
+    // アイキャッチのタイトルとテキスト
+    .eye-catch-text {
+      text-align: center;
+      h1 {
+        color: white;
+      }
+
+      p {
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    // アイキャッチのボタン
+    .eye-catch-button-columns {
+      .button {
+        color: white;
+
+        &.eye-catch-button-buy {
+          background-color: $buy-color;
+          border-color: $buy-color;
+        }
+
+        &.eye-catch-button-sell{
+          background-color: $sell-color;
+          border-color: $sell-color;
+        }
+
+        &.eye-catch-button-search {
+          background-color: $search-color;
+          border-color: $search-color;
+        }
+      }
     }
   }
 
-  .content-image {
-    .question-image {
-      width: 200px;
-    }
-  }
-
-  .content-title {
-    font-size: 1.8em;
+  // ファーマリーの特徴
+  .feature-section {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 
-    .content-title-buy {
-      border-bottom: 2px solid $buy-color;
-      padding-bottom: 4px;
-      margin-right: 8px;
+    .columns {
+      width: 60%;
+      margin: 0 auto;
     }
 
-    .content-title-sell {
-      border-bottom: 2px solid $sell-color;
-      padding-bottom: 4px;
+    .title-image {
+      img {
+        width: 300px;
+      }
     }
 
-    .content-title-search {
-      border-bottom: 2px solid $search-color;
-      padding-bottom: 4px;
+    .content-image {
+      .question-image {
+        width: 200px;
+      }
+    }
+
+    .content-title {
+      font-size: 1.8em;
+      text-align: center;
+      margin-top: 20px;
+
+      .content-title-buy {
+        border-bottom: 2px solid $buy-color;
+        padding-bottom: 4px;
+        margin-right: 8px;
+      }
+
+      .content-title-sell {
+        border-bottom: 2px solid $sell-color;
+        padding-bottom: 4px;
+      }
+
+      .content-title-search {
+        border-bottom: 2px solid $search-color;
+        padding-bottom: 4px;
+      }
     }
   }
-}
 
-// 検索フォーム
-.search-section {
-  .search-box {
-    background-color: whitesmoke;
-    padding: 10px;
+  // 検索フォーム
+  .search-section {
+    .search-box {
+      background-color: whitesmoke;
+      padding: 10px;
+      margin: 0 auto;
+      width: 80%;
+
+      .select {
+        width: 100%;
+
+        select {
+          width: 100%;
+        }
+      }
+
+      .button {
+        background-color: #363636;
+        color: white;
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+      }
+    }
+  }
+
+  // 電話ボタン、問い合わせボタン共通
+  .inquiry-buttons {
     margin: 0 auto;
     width: 80%;
 
-    .select {
+    .button {
+      display: block;
       width: 100%;
+      padding: 30px 0;
+    }
 
-      select {
-        width: 100%;
+    .inquiry-message {
+      text-align: center;
+    }
+  }
+
+  @mixin howto-section($base-color) {
+    width: 80%;
+    margin: 0 auto;
+
+    .title {
+      text-align: center;
+
+      span {
+        position: relative;
+        display: inline-block;
+        margin: 0 2.5em;
+        padding: 0 1em;
+        text-align: left;
+        &::before, &::after {
+          background-color: $base-color;
+          box-sizing: border-box;
+          position: absolute;
+          top: 50%;
+          content: '';
+          height: 4px;
+          width: 200px; // TODO: mobileの時のサイズ変える
+        }
+
+        &::before {
+          right: 100%;
+        }
+
+        &::after {
+          left: 100%;
+        }
       }
     }
+
+    .content-columns {
+      background-color: whitesmoke;
+
+      .description-title {
+        background-color: $base-color;
+      }
+    }
+  }
+
+  .buy-section {
+    @include howto-section($buy-color);
+  }
+
+  .sale-item-section {
+    width: 80%;
+    margin: 0 auto;
+
+    .title {
+      background: linear-gradient(#eaeaea, #c5c5c5);
+      border: 1px solid #ababab;
+      font-size: 1.5em;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .sale-item-columns {
+      .sale-item {
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        padding: 10px;
+
+        .table {
+          background-color: inherit;
+          width: 100%;
+
+          .price-td {
+            background-color: black;
+            color: white;
+            text-align: center;
+          }
+
+          td {
+            border: 1px solid gray;
+          }
+        }
+      }
+    }
+  }
+
+  .category-section {
+    width: 80%;
+    margin: 0 auto;
+
+    .title {
+      text-align: center;
+    }
+
+    .column {
+       padding: 0.3rem;
+     }
+
+    .category-button {
+      height: 70px;
+      width: 100%;
+      word-wrap: break-word;
+      white-space: normal;
+      font-size: 0.8em;
+    }
+  }
+
+  // 新着記事
+  .all-search-button-container {
+    text-align: center;
+    width: 100%;
 
     .button {
-      background-color: #363636;
-      color: white;
-      display: block;
-      margin: 0 auto;
-      width: 80%;
-    }
-  }
-}
-
-// 電話ボタン、問い合わせボタン共通
-.inquiry-buttons {
-  margin: 0 auto;
-  width: 80%;
-
-  .button {
-    display: block;
-    width: 100%;
-    padding: 30px 0;
-  }
-
-  .inquiry-message {
-    text-align: center;
-  }
-}
-
-@mixin howto-section($base-color) {
-  width: 80%;
-  margin: 0 auto;
-
-  .title {
-    text-align: center;
-
-    span {
-      position: relative;
-      display: inline-block;
-      margin: 0 2.5em;
-      padding: 0 1em;
-      text-align: left;
-      &::before, &::after {
-        background-color: $base-color;
-        box-sizing: border-box;
-        position: absolute;
-        top: 50%;
-        content: '';
-        height: 4px;
-        width: 200px; // TODO: mobileの時のサイズ変える
+      color: $light-brown;
+      background-color: $top-button-brown;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 30px 0;
+      width: 90%;
+      height: 80px;
+      &:hover {
+        background-color: darken($top-button-brown, 10%);
+        color: lighten($light-brown, 50%);
       }
-
-      &::before {
-        right: 100%;
-      }
-
-      &::after {
-        left: 100%;
-      }
-    }
-  }
-
-  .content-columns {
-    background-color: whitesmoke;
-
-    .description-title {
-      background-color: $base-color;
-    }
-  }
-}
-
-.buy-section {
-  @include howto-section($buy-color);
-}
-
-.sale-item-section {
-  width: 80%;
-  margin: 0 auto;
-
-  .title {
-    background: linear-gradient(#eaeaea, #c5c5c5);
-    border: 1px solid #ababab;
-    font-size: 1.5em;
-    text-align: center;
-    padding: 4px;
-  }
-
-  .sale-item-columns {
-    .sale-item {
-      background-color: whitesmoke;
-      border: 1px solid gray;
-      padding: 10px;
-
-      .table {
-        background-color: inherit;
-        width: 100%;
-
-        .price-td {
-          background-color: black;
-          color: white;
-          text-align: center;
-        }
-
-        td {
-          border: 1px solid gray;
-        }
-      }
-    }
-  }
-}
-
-.category-section {
-  width: 80%;
-  margin: 0 auto;
-
-  .title {
-    text-align: center;
-  }
-
-  .column {
-     padding: 0.3rem;
-   }
-
-  .category-button {
-    height: 70px;
-    width: 100%;
-    word-wrap: break-word;
-    white-space: normal;
-    font-size: 0.8em;
-  }
-}
-
-// 新着記事
-.all-search-button-container {
-  text-align: center;
-  width: 100%;
-
-  .button {
-    color: $light-brown;
-    background-color: $top-button-brown;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 30px 0;
-    width: 90%;
-    height: 80px;
-    &:hover {
-      background-color: darken($top-button-brown, 10%);
-      color: lighten($light-brown, 50%);
     }
   }
 }

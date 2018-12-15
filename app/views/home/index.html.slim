@@ -1,176 +1,177 @@
-// アイキャッチ
-section
-  .hero-body.eye-catch
-    .container.content
-      .columns.is-right.is-centered
-        .column.is-8
-          .eye-catch-text
-            h1.is-size-2.has-text-weight-bold
-              | 農機具・農業機械の中古販売・買取なら ファーマリー
-            p
-              | ファーマリーの特徴は3つ。
-              br
-              |農機が「探せる」「買える」「売れる」
-              br
-              |農機具を探している方が、ほしい農機具の中古を探す依頼ができるサービスです。
-          .columns.eye-catch-button-columns
-            .column
-              a.button.eye-catch-button-buy
-                | 農機を買いたい方
-            .column
-              a.button.eye-catch-button-sell
-                | 農機を売りたい方
-            .column
-              a.button.eye-catch-button-search
-                | 農機を探したい方
+main.home
+  // アイキャッチ
+  section
+    .hero-body.eye-catch
+      .container.content
+        .columns.is-right.is-centered
+          .column.is-8
+            .eye-catch-text
+              h1.is-size-2.has-text-weight-bold
+                | 農機具・農業機械の中古販売・買取なら ファーマリー
+              p
+                | ファーマリーの特徴は3つ。
+                br
+                |農機が「探せる」「買える」「売れる」
+                br
+                |農機具を探している方が、ほしい農機具の中古を探す依頼ができるサービスです。
+            .columns.eye-catch-button-columns
+              .column
+                a.button.eye-catch-button-buy
+                  | 農機を買いたい方
+              .column
+                a.button.eye-catch-button-sell
+                  | 農機を売りたい方
+              .column
+                a.button.eye-catch-button-search
+                  | 農機を探したい方
 
-// ファーマリーの特徴
-section.feature-section
-  .title-image
-    = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
-  .columns
-    .column.is-4-desktop.content-image
-      = image_tag "robot_question.png", alt: "クエスチョン", class: 'question-image'
-    .column.is-8-desktop.content-title.has-text-lefted
-      p
-        span.content-title-buy
-          | 農機を買いたい？
-        span.content-title-sell
-          | 農機を売りたい？
-        br
-        span.content-title-search
-          | 農機を探したい？
-  .content-text
-    | 全国の農機店が出品している中古農機を希望の条件に応じて検索できます。
-    br
-    | 探し方がわからない場合は、無料でファーマリーにご相談ください。
-
-// 検索フォーム
-section.search-section
-  .search-box
-    = form_for @search_item_form, url: "" do |f|
-      .columns.is-multiline
-        .column.is-6-tablet.is-6-desktop
-          .field
-            = f.label :category, class: 'label'
-            .select
-              = f.collection_select :category, @categories, :id, :name, class: 'input', prompt: "全て"
-
-        .column.is-6-tablet.is-6.desktop
-          .field
-            = f.label :sub_category, class: 'label'
-
-            .select
-              = f.collection_select :sub_category,
-                                    [], :id, :name,
-                                    { prompt: "カテゴリーを選択してください" },
-                                    { disabled: true }
-
-        .column.is-6-tablet.is-6-desktop
-          .field
-            = f.label :maker, class: 'label'
-            .select
-              = f.collection_select :maker, @makers, :id, :name, class: 'input', prompt: "全て"
-      .columns
-        .column
-          = f.submit "検索", class: 'button'
-
-  // お問い合わせ
-  .inquiry-buttons
-    p.inquiry-message
-      | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+  // ファーマリーの特徴
+  section.feature-section
+    .title-image
+      = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
     .columns
+      .column.is-4-desktop.content-image
+        = image_tag "robot_question.png", alt: "クエスチョン", class: 'question-image'
+      .column.is-8-desktop.content-title.has-text-lefted
+        p
+          span.content-title-buy
+            | 農機を買いたい？
+          span.content-title-sell
+            | 農機を売りたい？
+          br
+          span.content-title-search
+            | 農機を探したい？
+    .content-text
+      | 全国の農機店が出品している中古農機を希望の条件に応じて検索できます。
+      br
+      | 探し方がわからない場合は、無料でファーマリーにご相談ください。
+
+  // 検索フォーム
+  section.search-section
+    .search-box
+      = form_for @search_item_form, url: "" do |f|
+        .columns.is-multiline
+          .column.is-6-tablet.is-6-desktop
+            .field
+              = f.label :category, class: 'label'
+              .select
+                = f.collection_select :category, @categories, :id, :name, class: 'input', prompt: "全て"
+
+          .column.is-6-tablet.is-6.desktop
+            .field
+              = f.label :sub_category, class: 'label'
+
+              .select
+                = f.collection_select :sub_category,
+                                      [], :id, :name,
+                                      { prompt: "カテゴリーを選択してください" },
+                                      { disabled: true }
+
+          .column.is-6-tablet.is-6-desktop
+            .field
+              = f.label :maker, class: 'label'
+              .select
+                = f.collection_select :maker, @makers, :id, :name, class: 'input', prompt: "全て"
+        .columns
+          .column
+            = f.submit "検索", class: 'button'
+
+    // お問い合わせ
+    .inquiry-buttons
+      p.inquiry-message
+        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+      .columns
+        .column.is-6-tablet.is-6-desktop
+          a.button.phone-number-button
+            = Settings.phone.contact
+        .column.is-6-tablet.is-6-desktop
+          a.button.inquiry-button
+            | お問い合わせフォーム
+
+  // 農機を買いたい方へ
+  section.buy-section
+    h2.title
+      span
+        | 農機を買いたい方へ
+    .columns.content-columns
       .column.is-6-tablet.is-6-desktop
-        a.button.phone-number-button
-          = Settings.phone.contact
       .column.is-6-tablet.is-6-desktop
-        a.button.inquiry-button
-          | お問い合わせフォーム
+        h3.title.description-title
+          | 農機購入の流れ
+        ol.description
+          li
+            | ご予算、メーカー、年式、走行距離、各種仕様などのご希望を
+            a href=""
+              |【お問い合わせフォーム】
+            | または
+            a href=""
+              | お電話
+            | にてお伝えください。
+          li
+            | 全国から農機をお探しいたします。
+          li
+            | 車両が見つかりましたらファーマリーにて各種手続きを代行させていただき、お客様にお届けいたします。
 
-// 農機を買いたい方へ
-section.buy-section
-  h2.title
-    span
-      | 農機を買いたい方へ
-  .columns.content-columns
-    .column.is-6-tablet.is-6-desktop
-    .column.is-6-tablet.is-6-desktop
-      h3.title.description-title
-        | 農機購入の流れ
-      ol.description
-        li
-          | ご予算、メーカー、年式、走行距離、各種仕様などのご希望を
-          a href=""
-            |【お問い合わせフォーム】
-          | または
-          a href=""
-            | お電話
-          | にてお伝えください。
-        li
-          | 全国から農機をお探しいたします。
-        li
-          | 車両が見つかりましたらファーマリーにて各種手続きを代行させていただき、お客様にお届けいたします。
+  // 最新農機車両
+  section.sale-item-section
+    h2.title
+      | ファーマリー最新農機車両
+    .columns.sale-item-columns
+      - 4.times do
+        .column.sale-item-column.is-3-tablet.is-3-desktop
+          .sale-item
+            p
+              | APU1610
+              br
+              | 松山ニプロ
+            table.table
+              tr
+                td
+                  | 年式
+                td
+                  | 平成11年
+              tr
+                td
+                  | 走行距離
+                td
+                  | 3,0000 Km
+              tr
+                td
+                  | 馬力
+                td
+                  | 30〜50P
+              tr
+                td.price-td colspan="2"
+                  | 価格 878,000円
 
-// 最新農機車両
-section.sale-item-section
-  h2.title
-    | ファーマリー最新農機車両
-  .columns.sale-item-columns
-    - 4.times do
-      .column.sale-item-column.is-3-tablet.is-3-desktop
-        .sale-item
-          p
-            | APU1610
-            br
-            | 松山ニプロ
-          table.table
-            tr
-              td
-                | 年式
-              td
-                | 平成11年
-            tr
-              td
-                | 走行距離
-              td
-                | 3,0000 Km
-            tr
-              td
-                | 馬力
-              td
-                | 30〜50P
-            tr
-              td.price-td colspan="2"
-                | 価格 878,000円
+    .columns
+      a.button.view-all-button
+        | すべてを表示する
 
-  .columns
-    a.button.view-all-button
-      | すべてを表示する
+  // 農機をカテゴリーから検索
+  section.category-section
+    h2.title
+      | 農機をカテゴリーから検索
+    .columns.is-multiline
+      - @categories.each do |category|
+        .column.is-2-tablet.is-2-desktop
+          .button.category-button
+            = category.name
 
-// 農機をカテゴリーから検索
-section.category-section
-  h2.title
-    | 農機をカテゴリーから検索
-  .columns.is-multiline
-    - @categories.each do |category|
-      .column.is-2-tablet.is-2-desktop
-        .button.category-button
-          = category.name
+  // 探し方がわからない方〜、電話、フォームへのボタン
 
-// 探し方がわからない方〜、電話、フォームへのボタン
+  // 農機を売りたい方へ
 
-// 農機を売りたい方へ
+  // ファーマリー買取実績
 
-// ファーマリー買取実績
+  // 探し方がわからない方〜、電話、フォームへのボタン(上と共通)
 
-// 探し方がわからない方〜、電話、フォームへのボタン(上と共通)
-
-// 新着ブログ
-section
-  .hero-body
-    .container.content.new-article-list
-      h3.title
-        | 新着記事
-      #app
-      .all-search-button-container
-        = link_to 'もっと見る', '/blog/', class: 'button'
+  // 新着ブログ
+  section
+    .hero-body
+      .container.content.new-article-list
+        h3.title
+          | 新着記事
+        #app
+        .all-search-button-container
+          = link_to 'もっと見る', '/blog/', class: 'button'
