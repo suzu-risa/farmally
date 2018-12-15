@@ -171,6 +171,9 @@ main.home
         .column.is-2-tablet.is-2-desktop
           = link_to category_path(code: category.code), class: "button category-button" do
             = category.name
+    .columns
+      = link_to items_path, class: "button view-all-button"  do
+        | すべてを表示する
 
   // 探し方がわからない方〜、電話、フォームへのボタン
 
