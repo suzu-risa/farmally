@@ -4,8 +4,8 @@
       <div v-if="article.image" class="thumbnail" :style="{ backgroundImage: `url(${article.image})` }" />
       <div v-else class="thumbnail" />
       <div class="content">
-        <a :href="article.link" class="title">
-          <h3>{{article.title}}</h3>
+        <a :href="article.link">
+          <h3 class="title">{{article.title}}</h3>
         </a>
         <p class="description">{{`${article.description.substr(0, 100)}...`}}</p>
       </div>

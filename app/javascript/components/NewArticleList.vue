@@ -2,7 +2,7 @@
   <div>
     <p v-if="loading">Loading...</p>
     <p v-else-if="error">読み込めませんでした</p>
-    <div class="article-list columns" v-else>
+    <div class="article-list columns is-multiline" v-else>
       <article-item v-for="article in articles" :key="article.id" :article="article" />
     </div>
   </div>
