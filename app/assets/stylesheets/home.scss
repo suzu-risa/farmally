@@ -132,6 +132,41 @@ $search-color: #feb64a;
   }
 }
 
+@mixin motivation-title($line-color) {
+  text-align: center;
+
+  span {
+    position: relative;
+    display: inline-block;
+    margin: 0 2.5em;
+    padding: 0 1em;
+    text-align: left;
+    &::before, &::after {
+      background-color: $line-color;
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      content: '';
+      height: 4px;
+      width: 200px; // TODO: mobileの時のサイズ変える
+    }
+
+    &::before {
+      right: 100%;
+    }
+
+    &::after {
+      left: 100%;
+    }
+  }
+}
+
+.buy-section {
+  .title {
+    @include motivation-title($buy-color);
+  }
+}
+
 .all-search-button-container {
   text-align: center;
   width: 100%;
