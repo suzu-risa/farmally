@@ -132,39 +132,50 @@ $search-color: #feb64a;
   }
 }
 
-@mixin motivation-title($line-color) {
-  text-align: center;
+@mixin howto-section($base-color) {
+  width: 80%;
+  margin: 0 auto;
 
-  span {
-    position: relative;
-    display: inline-block;
-    margin: 0 2.5em;
-    padding: 0 1em;
-    text-align: left;
-    &::before, &::after {
-      background-color: $line-color;
-      box-sizing: border-box;
-      position: absolute;
-      top: 50%;
-      content: '';
-      height: 4px;
-      width: 200px; // TODO: mobileの時のサイズ変える
+  .title {
+    text-align: center;
+
+    span {
+      position: relative;
+      display: inline-block;
+      margin: 0 2.5em;
+      padding: 0 1em;
+      text-align: left;
+      &::before, &::after {
+        background-color: $base-color;
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        content: '';
+        height: 4px;
+        width: 200px; // TODO: mobileの時のサイズ変える
+      }
+
+      &::before {
+        right: 100%;
+      }
+
+      &::after {
+        left: 100%;
+      }
     }
+  }
 
-    &::before {
-      right: 100%;
-    }
+  .content-columns {
+    background-color: whitesmoke;
 
-    &::after {
-      left: 100%;
+    .description-title {
+      background-color: $base-color;
     }
   }
 }
 
 .buy-section {
-  .title {
-    @include motivation-title($buy-color);
-  }
+  @include howto-section($buy-color);
 }
 
 .all-search-button-container {
