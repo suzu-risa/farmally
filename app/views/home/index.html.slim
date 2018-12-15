@@ -1,5 +1,5 @@
 // アイキャッチ
-section.hero
+section
   .hero-body.eye-catch
     .container.content
       .columns.is-right.is-centered
@@ -25,7 +25,7 @@ section.hero
                 | 農機を探したい方
 
 // ファーマリーの特徴
-section.hero.feature-section
+section.feature-section
   .title-image
     = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
   .columns
@@ -46,7 +46,7 @@ section.hero.feature-section
     | 探し方がわからない場合は、無料でファーマリーにご相談ください。
 
 // 検索フォーム
-section.hero.search-section
+section.search-section
   .search-box
     = form_for @search_item_form, url: "" do |f|
       .columns.is-multiline
@@ -88,7 +88,7 @@ section.hero.search-section
           | お問い合わせフォーム
 
 // 農機を買いたい方へ
-section.hero.buy-section
+section.buy-section
   h2.title
     span
       | 農機を買いたい方へ
@@ -112,7 +112,7 @@ section.hero.buy-section
           | 車両が見つかりましたらファーマリーにて各種手続きを代行させていただき、お客様にお届けいたします。
 
 // 最新農機車両
-section.hero.sale-item-section
+section.sale-item-section
   h2.title
     | ファーマリー最新農機車両
   .columns.sale-item-columns
@@ -147,7 +147,7 @@ section.hero.sale-item-section
     a.button.view-all-button
       | すべてを表示する
 
-section.hero.
+section
 // 農機をカテゴリーから検索
 
 // 探し方がわからない方〜、電話、フォームへのボタン
@@ -159,7 +159,7 @@ section.hero.
 // 探し方がわからない方〜、電話、フォームへのボタン(上と共通)
 
 // 新着ブログ
-section.hero
+section
   .hero-body
     .container.content.new-article-list
       h3.title
