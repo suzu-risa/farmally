@@ -1,8 +1,11 @@
 // ヘッダーメニュー
 header#navbar {
+  height: 4rem;
+
   @media screen and (min-width: 1088px) {
     height: 4.5rem;
   }
+
   border-bottom: solid 2px $base-brown;
   background-color: white;
 
@@ -15,8 +18,8 @@ header#navbar {
       }
 
      .logo-img {
-        height: 100%;
-        width: 100%;
+        width: 200px;
+        max-height: none;
       }
     }
 
@@ -28,6 +31,10 @@ header#navbar {
     }
   }
 
+  .navbar-burger {
+    height: inherit;
+  }
+
   .navbar-menu {
     .navbar-item {
       color: rgba(0, 0, 0, 0.5);
@@ -36,7 +43,9 @@ header#navbar {
         color: white;
         display: block;
         text-align: center;
-
+        font-weight: bold;
+        line-height: 1;
+        padding-top: 17px;
         background-color: #01818a;
         .phone-number {
           font-size: 0.8em;

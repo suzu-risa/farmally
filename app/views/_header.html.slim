@@ -1,31 +1,31 @@
+header#navbar.navbar.is-fixed-top
+  .navbar-brand
+    a.navbar-item[href="/"]
+      = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
+    a#navbarBurger.navbar-burger[role="button" data-target="navMenu" aria-label="menu" aria-expanded="false"]
+      span
+      span
+      span
+  .navbar-menu
+    .navbar-start
+    .navbar-end
+      a.navbar-item
+        |  TOP
+      a.navbar-item
+        |  農機を買いたい
+      a.navbar-item
+        |  農機を売りたい
+      a.navbar-item
+        |  農機を探したい
+      a.navbar-item
+        |  ブログ
+      a.navbar-item.navbar-item-phone-number
+        | 無料相談
+        br
+        span.phone-number
+          = Settings.phone.contact
+  #search
 section.hero.is-white.is-small
-  .hero-head
-    header#navbar.navbar.is-fixed-top
-      .navbar-brand
-        a.navbar-item[href="/"]
-          = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
-        a#navbarBurger.navbar-burger[role="button" data-target="navMenu" aria-label="menu" aria-expanded="false"]
-          span
-          span
-          span
-      .navbar-menu
-        .navbar-end
-          a.navbar-item
-            |  TOP
-          a.navbar-item
-            |  農機を買いたい
-          a.navbar-item
-            |  農機を売りたい
-          a.navbar-item
-            |  農機を探したい
-          a.navbar-item
-            |  ブログ
-          a.navbar-item.navbar-item-phone-number
-            | 無料相談
-            br
-            span.phone-number
-              = Settings.phone.contact
-      #search
   - if flash.present?
     div class="notification is-#{flash.first[0]}"
       button.delete
