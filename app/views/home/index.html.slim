@@ -1,0 +1,285 @@
+main.home
+  // アイキャッチ
+  section.eye-catch-section
+    .hero-body.eye-catch
+      .container.content
+        .columns.is-right.is-centered
+          .column.is-8
+            .eye-catch-text
+              h1.has-text-weight-bold
+                | 農機具・農業機械の中古販売・買取なら
+                br
+                | ファーマリー
+              p
+                | ファーマリーの特徴は3つ。
+                br
+                |農機が「探せる」「買える」「売れる」
+                br
+                |農機具を探している方が、ほしい農機具の中古を探す依頼ができるサービスです。
+            .columns.eye-catch-button-columns
+              .column
+                a.button.eye-catch-button-buy
+                  | 農機を買いたい方
+              .column
+                a.button.eye-catch-button-sell
+                  | 農機を売りたい方
+              .column
+                a.button.eye-catch-button-search
+                  | 農機を探したい方
+
+  // ファーマリーの特徴
+  section.feature-section
+    .title-image
+      = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
+    .columns.feature-columns
+      .column.is-3-tablet.is-3-desktop.content-image
+        = image_tag "robot_question.png", alt: "クエスチョン", class: 'question-image'
+      .column.is-9-tablet.is-9-desktop.content-title.has-text-lefted
+        .columns
+          .column.is-6-tablet.is-6-desktop
+            span.content-title-buy
+              | 農機を買いたい？
+          .column.is-6-tablet.is-6-desktop
+            span.content-title-sell
+              | 農機を売りたい？
+        .columns
+          .column
+            span.content-title-search
+              | 農機を探したい？
+    .content-text
+      | 全国の農機店が出品している中古農機を希望の条件に応じて検索できます。
+      br
+      | 探し方がわからない場合は、無料でファーマリーにご相談ください。
+
+  // 検索フォーム
+  section.search-section
+    .search-box
+      = form_for @search_item_form, url: "" do |f|
+        .columns.is-multiline
+          .column.is-6-tablet.is-6-desktop
+            .field
+              = f.label :category, class: 'label'
+              .select
+                = f.collection_select :category, @categories, :id, :name, class: 'input', prompt: "全て"
+
+          .column.is-6-tablet.is-6.desktop
+            .field
+              = f.label :sub_category, class: 'label'
+
+              .select
+                = f.collection_select :sub_category,
+                                      [], :id, :name,
+                                      { prompt: "カテゴリーを選択してください" },
+                                      { disabled: true }
+
+          .column.is-6-tablet.is-6-desktop
+            .field
+              = f.label :maker, class: 'label'
+              .select
+                = f.collection_select :maker, @makers, :id, :name, class: 'input', prompt: "全て"
+        .columns
+          .column
+            = f.submit "検索", class: 'button'
+
+    // お問い合わせ
+    .inquiry-buttons
+      p.inquiry-message
+        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+      .columns
+        .column.is-6-tablet.is-6-desktop
+          a.button.phone-number-button href="tel:#{contact_phone_number}"
+            span.staff-message
+              | 専門スタッフが丁寧にお応えします
+            br
+            = image_tag "phone-icon.png", alt: "電話"
+            span.phone-number
+              = Settings.phone.contact
+        .column.is-6-tablet.is-6-desktop
+          a.button.inquiry-button
+            | お問い合わせフォーム
+
+  // 農機を買いたい方へ
+  section.buy-section
+    h2.title
+      span
+        | 農機を買いたい方へ
+    .columns.content-columns
+      .column.is-6-tablet.is-6-desktop
+      .column.is-6-tablet.is-6-desktop
+        h3.title.description-title
+          | 農機購入の流れ
+        ul.description
+          li
+            | 1. ご予算、メーカー、年式、走行距離、各種仕様などのご希望を
+            a href=""
+              |【お問い合わせフォーム】
+            | または
+            a href=""
+              | お電話
+            | にてお伝えください。
+          li
+            | 2. 全国から農機をお探しいたします。
+          li
+            | 3. 車両が見つかりましたらファーマリーにて各種手続きを代行させていただき、お客様にお届けいたします。
+
+  // 最新農機車両
+  section.sale-item-section
+    h2.title
+      | ファーマリー最新農機車両
+    .columns.sale-item-columns
+      - 4.times do
+        .column.sale-item-column.is-3-tablet.is-3-desktop
+          .sale-item
+            .sale-item-model-name
+              = image_tag "tractor-icon.png", alt: "車両アイコン"
+              span
+                | APU1610
+                br
+                | 松山ニプロ
+            table.table
+              tr
+                td
+                  | 年式
+                td
+                  | 平成11年
+              tr
+                td
+                  | 走行距離
+                td
+                  | 3,0000 Km
+              tr
+                td
+                  | 馬力
+                td
+                  | 30〜50P
+              tr
+                td.price-td colspan="2"
+                  span
+                    | 価格
+                  | 878,000円
+
+    .columns
+      = link_to sale_items_path, class: "button view-all-button"  do
+        | すべてを表示する
+
+  // 農機をカテゴリーから検索
+  section.category-section
+    h2.title
+      | 農機をカテゴリーから検索
+    .columns.is-multiline
+      - @categories.each do |category|
+        .column.is-2-tablet.is-2-desktop
+          = link_to category_path(code: category.code), class: "button category-button" do
+            = category.name
+    .columns
+      = link_to items_path, class: "button view-all-button"  do
+        | すべてを表示する
+
+    // 探し方がわからない方〜、電話、フォームへのボタン
+    // お問い合わせ
+    .inquiry-buttons
+      p.inquiry-message
+        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+      .columns
+        .column.is-6-tablet.is-6-desktop
+          a.button.phone-number-button href="tel:#{contact_phone_number}"
+            span.staff-message
+              | 専門スタッフが丁寧にお応えします
+            br
+            = image_tag "phone-icon.png", alt: "電話"
+            span.phone-number
+              = Settings.phone.contact
+        .column.is-6-tablet.is-6-desktop
+          a.button.inquiry-button.inquiry-button-buy href=""
+            | 農機を買いたい方
+
+  // 農機を売りたい方へ
+  section.sell-section
+    h2.title
+      span
+        | 農機を売りたい方へ
+    .columns.content-columns
+      .column.is-6-tablet.is-6-desktop
+      .column.is-6-tablet.is-6-desktop
+        h3.title.description-title
+          | 売却の流れ
+        ul.description
+          li
+            | 1. お電話/査定依頼フォームにて依頼するボタンよりお問い合わせください
+          li
+            | 2. 査定員が、農機車両の状態を査定させていただきます。査定により買取価格を算出します。
+          li
+            | 3. 買取金額に納得頂けましたら売買契約が成立となります。
+          li
+            | 4. ご成約となった農機車両は、お客様と引取日を決定後、後日ファーマリースタッフが引き取りに伺います。
+          li
+            | 5. お支払いは、2週間以内に振込いたします。
+  section.sale-item-section
+    h2.title
+      | ファーマリー買い取り実績
+    .columns.sale-item-columns
+      - 4.times do
+        .column.sale-item-column.is-3-tablet.is-3-desktop
+          .sale-item
+            .sale-item-model-name
+              = image_tag "tractor-icon.png", alt: "車両アイコン"
+              span
+                | APU1610
+                br
+                | 松山ニプロ
+            table.table
+              tr
+                td
+                  | 年式
+                td
+                  | 平成11年
+              tr
+                td
+                  | 走行距離
+                td
+                  | 3,0000 Km
+              tr
+                td
+                  | 馬力
+                td
+                  | 30〜50P
+              /tr
+                td.price-td colspan="2"
+                  span
+                    | 価格
+                  | 878,000円
+
+    .columns
+      = link_to sold_items_path, class: "button view-all-button"  do
+        | 買取一覧を表示する
+
+    // 探し方がわからない方〜、電話、フォームへのボタン
+    // お問い合わせ
+    .inquiry-buttons
+      p.inquiry-message
+        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+      .columns
+        .column.is-6-tablet.is-6-desktop
+          a.button.phone-number-button href="tel:#{contact_phone_number}"
+            span.staff-message
+              | 専門スタッフが丁寧にお応えします
+            br
+            = image_tag "phone-icon.png", alt: "電話"
+            span.phone-number
+              = Settings.phone.contact
+        .column.is-6-tablet.is-6-desktop
+          a.button.inquiry-button.inquiry-button-sell href=""
+            | 農機を売りたい方
+
+
+  // ファーマリー買取実績
+
+  // 探し方がわからない方〜、電話、フォームへのボタン(上と共通)
+
+  // 新着ブログ
+  section.new-article-section
+    .new-article-section-container
+      .new-article-section-contents
+        h2.title
+          | 新着ブログ
+        #app

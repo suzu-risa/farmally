@@ -28,7 +28,7 @@
     <% end %>
     <%= javascript_bundle_tag 'application' %>
   </head>
-  <body>
+  <body class="has-navbar-fixed-top">
     <%= render :partial => '/header' %>
     <%= yield %>
     <%= render :partial => '/footer', locals: { show_fixed_form: !hide_fixed_form } %>

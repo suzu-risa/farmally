@@ -67,5 +67,10 @@ Rails.application.routes.draw do
   get '/sell-form', to: 'home#sell_form'
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
 
+  # TODO TOPページコーディング時点のためのダミーなので、ページ作成時に変更する
+  get "/sale_items", to: "home#form", as: :sale_items
+  get "/sold_items", to: "home#form", as: :sold_items
+  get "/items", to: "home#form", as: :items
+
   root to: 'home#index'
 end

@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
     @items = Item.order(created_at: :desc, id: :desc).limit(15)
+    @categories = Category.all
+    @makers = Maker.all
+
+    @search_item_form = SearchItemForm.new
   end
 
   def search

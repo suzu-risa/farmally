@@ -1,3 +1,5 @@
+<!-- TOPページのリニューアルで一旦このファイルは不要かもしれないが、仕様が固まっていないので残します。不要だと判断したら削除してください -->
+
 <template>
   <div id="navMenu" class="navbar-menu">
     <form class="field is-horizontal has-text-centered search-box">

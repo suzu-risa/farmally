@@ -81,6 +81,14 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  activemodel:
+    models:
+      search_item_form: 商品検索
+    attributes:
+      search_item_form:
+        category: カテゴリー
+        sub_category: サブカテゴリー
+        maker: メーカー
   enums:
     sale_item:
       status:
