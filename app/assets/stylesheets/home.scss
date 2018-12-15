@@ -93,7 +93,7 @@ $search-color: #feb64a;
 // 検索フォーム
 .search-section {
   .search-box {
-    background-color: #ddd;
+    background-color: whitesmoke;
     padding: 10px;
     margin: 0 auto;
     width: 80%;
@@ -118,7 +118,16 @@ $search-color: #feb64a;
 
 // 電話ボタン、問い合わせボタン共通
 .inquiry-buttons {
-  .message {
+  margin: 0 auto;
+  width: 80%;
+
+  .button {
+    display: block;
+    width: 100%;
+    padding: 30px 0;
+  }
+
+  .inquiry-message {
     text-align: center;
   }
 }
