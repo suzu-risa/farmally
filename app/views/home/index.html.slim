@@ -130,10 +130,12 @@ main.home
       - 4.times do
         .column.sale-item-column.is-3-tablet.is-3-desktop
           .sale-item
-            p
-              | APU1610
-              br
-              | 松山ニプロ
+            .sale-item-model-name
+              = image_tag "tractor-icon.png", alt: "車両アイコン"
+              span
+                | APU1610
+                br
+                | 松山ニプロ
             table.table
               tr
                 td
@@ -152,10 +154,12 @@ main.home
                   | 30〜50P
               tr
                 td.price-td colspan="2"
-                  | 価格 878,000円
+                  span
+                    | 価格
+                  | 878,000円
 
     .columns
-      a.button.view-all-button
+      = link_to sale_items_path, class: "button view-all-button"  do
         | すべてを表示する
 
   // 農機をカテゴリーから検索
