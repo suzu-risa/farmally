@@ -18,13 +18,13 @@ main.home
                 |農機具を探している方が、ほしい農機具の中古を探す依頼ができるサービスです。
             .columns.eye-catch-button-columns
               .column
-                a.button.eye-catch-button-buy
+                = link_to sale_items_path, class: "button eye-catch-button-buy"
                   | 農機を買いたい方
               .column
-                a.button.eye-catch-button-sell
+                = link_to sold_items_path, class: "button eye-catch-button-sell"
                   | 農機を売りたい方
               .column
-                a.button.eye-catch-button-search
+                = link_to items_path, class: "button eye-catch-button-search"
                   | 農機を探したい方
 
   // ファーマリーの特徴
