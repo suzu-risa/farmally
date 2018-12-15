@@ -35,6 +35,11 @@ $ docker-compose run farmally rails db:seed
 $ docker-compose up -d
 ```
 
+### wordpress
+TOPページでwordpressのブログ記事最新記事の表示をする場合には、wordpressの設定の必要です。
+`/blog`にアクセスして登録後、パーマリンクをデフォルトから変更します。
+(デフォルトのパーマリンクのままではAPIが利用できません)
+
 ### ステージング/本番環境について
 
 ステージング/本番環境は、AWS上に構築されています。
