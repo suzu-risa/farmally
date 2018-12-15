@@ -2,6 +2,23 @@ $buy-color: #fb3c3c;
 $sell-color: #128b8e;
 $search-color: #feb64a;
 
+//
+// 共通
+//
+.view-all-button {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  font-size: 1.2em;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  border-color: orange;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+
 // アイキャッチ
 .eye-catch {
   background: image-url("eye-catch.jpg") no-repeat;
