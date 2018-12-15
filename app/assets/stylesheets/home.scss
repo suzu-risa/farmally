@@ -77,7 +77,7 @@
     margin-top: 10px;
 
     .columns {
-      width: 60%;
+      width: 80%;
       margin: 0 auto;
     }
 
@@ -251,6 +251,32 @@
       white-space: normal;
       width: 100%;
       word-wrap: break-word;
+    }
+  }
+
+  // 新着記事
+  .new-article-section {
+    width: 100%;
+    background: image-url("footer-eye-catch.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 500px;
+
+    .new-article-section-container {
+      background-color: rgba(0,0,0,0.6);
+      min-height: 500px;
+
+      .new-article-section-contents {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 16px;
+
+        .title {
+          color: white;
+          border-bottom: 3px solid;
+          padding-bottom: 4px;
+        }
+      }
     }
   }
 
