@@ -278,23 +278,15 @@
         }
       }
     }
-  }
 
-  // 新着記事
-  .all-search-button-container {
-    text-align: center;
-
-    .button {
-      color: $light-brown;
-      background-color: $top-button-brown;
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin: 30px 0;
-      width: 90%;
-      height: 80px;
-      &:hover {
-        background-color: darken($top-button-brown, 10%);
-        color: lighten($light-brown, 50%);
+    #app {
+      .column {
+        .article-column-content {
+          background-color: white;
+          border-radius: 8px;
+          padding: 16px;
+          width: 90%;
+        }
       }
     }
   }

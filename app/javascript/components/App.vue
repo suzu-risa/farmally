@@ -14,11 +14,3 @@
     }
   }
 </script>
-
-<style lang="sass" scoped>
-  #app
-    font-family: inherit
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    text-align: center
-</style>

@@ -2,9 +2,9 @@
   <div>
     <p v-if="loading">Loading...</p>
     <p v-else-if="error">読み込めませんでした</p>
-    <ul class="article-list" v-else>
+    <div class="article-list columns" v-else>
       <article-item v-for="article in articles" :key="article.id" :article="article" />
-    </ul>
+    </div>
   </div>
 </template>
 
@@ -61,8 +61,3 @@
     }
   }
 </script>
-
-<style lang="sass" scoped>
-  .article-list
-    margin: 0
-</style>
