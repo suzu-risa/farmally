@@ -178,6 +178,42 @@ $search-color: #feb64a;
   @include howto-section($buy-color);
 }
 
+.sale-item-section {
+  width: 80%;
+  margin: 0 auto;
+
+  .title {
+    background: linear-gradient(#eaeaea, #c5c5c5);
+    border: 1px solid #ababab;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 4px;
+  }
+
+  .sale-item-columns {
+    .sale-item {
+      background-color: whitesmoke;
+      border: 1px solid gray;
+      padding: 10px;
+
+      .table {
+        background-color: inherit;
+        width: 100%;
+
+        .price-td {
+          background-color: black;
+          color: white;
+          text-align: center;
+        }
+
+        td {
+          border: 1px solid gray;
+        }
+      }
+    }
+  }
+}
+
 .all-search-button-container {
   text-align: center;
   width: 100%;
