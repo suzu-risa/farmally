@@ -175,7 +175,23 @@ main.home
       = link_to items_path, class: "button view-all-button"  do
         | すべてを表示する
 
-  // 探し方がわからない方〜、電話、フォームへのボタン
+    // 探し方がわからない方〜、電話、フォームへのボタン
+    // お問い合わせ
+    .inquiry-buttons
+      p.inquiry-message
+        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+      .columns
+        .column.is-6-tablet.is-6-desktop
+          a.button.phone-number-button href="tel:#{contact_phone_number}"
+            span.staff-message
+              | 専門スタッフが丁寧にお応えします
+            br
+            = image_tag "phone-icon.png", alt: "電話"
+            span.phone-number
+              = Settings.phone.contact
+        .column.is-6-tablet.is-6-desktop
+          a.button.inquiry-button.inquiry-button-buy href=""
+            | 農機を買いたい方
 
   // 農機を売りたい方へ
 
