@@ -194,6 +194,83 @@ main.home
             | 農機を買いたい方
 
   // 農機を売りたい方へ
+  section.sell-section
+    h2.title
+      span
+        | 農機を売りたい方へ
+    .columns.content-columns
+      .column.is-6-tablet.is-6-desktop
+      .column.is-6-tablet.is-6-desktop
+        h3.title.description-title
+          | 売却の流れ
+        ul.description
+          li
+            | 1. お電話/査定依頼フォームにて依頼するボタンよりお問い合わせください
+          li
+            | 2. 査定員が、農機車両の状態を査定させていただきます。査定により買取価格を算出します。
+          li
+            | 3. 買取金額に納得頂けましたら売買契約が成立となります。
+          li
+            | 4. ご成約となった農機車両は、お客様と引取日を決定後、後日ファーマリースタッフが引き取りに伺います。
+          li
+            | 5. お支払いは、2週間以内に振込いたします。
+  section.sale-item-section
+    h2.title
+      | ファーマリー買い取り実績
+    .columns.sale-item-columns
+      - 4.times do
+        .column.sale-item-column.is-3-tablet.is-3-desktop
+          .sale-item
+            .sale-item-model-name
+              = image_tag "tractor-icon.png", alt: "車両アイコン"
+              span
+                | APU1610
+                br
+                | 松山ニプロ
+            table.table
+              tr
+                td
+                  | 年式
+                td
+                  | 平成11年
+              tr
+                td
+                  | 走行距離
+                td
+                  | 3,0000 Km
+              tr
+                td
+                  | 馬力
+                td
+                  | 30〜50P
+              /tr
+                td.price-td colspan="2"
+                  span
+                    | 価格
+                  | 878,000円
+
+    .columns
+      = link_to sold_items_path, class: "button view-all-button"  do
+        | 買取一覧を表示する
+
+    // 探し方がわからない方〜、電話、フォームへのボタン
+    // お問い合わせ
+    .inquiry-buttons
+      p.inquiry-message
+        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+      .columns
+        .column.is-6-tablet.is-6-desktop
+          a.button.phone-number-button href="tel:#{contact_phone_number}"
+            span.staff-message
+              | 専門スタッフが丁寧にお応えします
+            br
+            = image_tag "phone-icon.png", alt: "電話"
+            span.phone-number
+              = Settings.phone.contact
+        .column.is-6-tablet.is-6-desktop
+          a.button.inquiry-button.inquiry-button-sell href=""
+            | 農機を売りたい方
+
 
   // ファーマリー買取実績
 

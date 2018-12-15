@@ -279,6 +279,10 @@
     @include howto-section($buy-color);
   }
 
+  .sell-section {
+    @include howto-section($sell-color);
+  }
+
   .sale-item-section {
 
     .title {
