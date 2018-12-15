@@ -31,18 +31,21 @@ main.home
   section.feature-section
     .title-image
       = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
-    .columns
-      .column.is-4-desktop.content-image
+    .columns.feature-columns
+      .column.is-3-desktop.content-image
         = image_tag "robot_question.png", alt: "クエスチョン", class: 'question-image'
-      .column.is-8-desktop.content-title.has-text-lefted
-        p
-          span.content-title-buy
-            | 農機を買いたい？
-          span.content-title-sell
-            | 農機を売りたい？
-          br
-          span.content-title-search
-            | 農機を探したい？
+      .column.is-9-desktop.content-title.has-text-lefted
+        .columns
+          .column.is-6-tablet.is-6-desktop
+            span.content-title-buy
+              | 農機を買いたい？
+          .column.is-6-tablet.is-6-desktop
+            span.content-title-sell
+              | 農機を売りたい？
+        .columns
+          .column
+            span.content-title-search
+              | 農機を探したい？
     .content-text
       | 全国の農機店が出品している中古農機を希望の条件に応じて検索できます。
       br

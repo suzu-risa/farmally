@@ -88,20 +88,24 @@
     text-align: center;
     margin-top: 10px;
 
-    .columns {
+    .feature-columns {
       width: 80%;
       margin: 0 auto;
+
+      @media screen and (max-width: 769px) {
+        width: 100%;
+      }
     }
 
     .title-image {
       img {
-        width: 300px;
+        width: 400px;
       }
     }
 
     .content-image {
       .question-image {
-        width: 200px;
+        width: 110px;
       }
     }
 
@@ -170,12 +174,16 @@
     width: 80%;
 
     .title {
+      font-size: 1.5em;
       text-align: center;
-
       span {
         position: relative;
         display: inline-block;
         margin: 0 2.5em;
+        @media screen and (max-width: 769px) {
+          margin: 0;
+        }
+
         padding: 0 1em;
         text-align: left;
         &::before, &::after {
@@ -186,6 +194,10 @@
           content: '';
           height: 4px;
           width: 200px; // TODO: mobileの時のサイズ変える
+
+          @media screen and (max-width: 769px) {
+            width: 10px;
+          }
         }
 
         &::before {
