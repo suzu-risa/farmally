@@ -43,9 +43,12 @@
 
 // フッター
 .footer {
-  background-color: $base-brown;
+  padding: 0;
+
   .container {
     text-align: center;
+    background-color: #616161;
+    padding: 20px;
 
     a {
       color: white;

@@ -256,11 +256,11 @@
 
   // 新着記事
   .new-article-section {
-    width: 100%;
     background: image-url("footer-eye-catch.jpg") no-repeat;
     background-position: center;
     background-size: cover;
     min-height: 500px;
+    width: 100%;
 
     .new-article-section-container {
       background-color: rgba(0,0,0,0.3);
