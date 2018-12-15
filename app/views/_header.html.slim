@@ -6,20 +6,20 @@ header#navbar.navbar.is-fixed-top
       span
       span
       span
-  .navbar-menu
+  .navbar-menu#navMenu
     .navbar-start
     .navbar-end
-      a.navbar-item
+      = link_to root_path, class: 'navbar-item' do
         |  TOP
-      a.navbar-item
+      = link_to sale_items_path, class: 'navbar-item' do
         |  農機を買いたい
-      a.navbar-item
+      = link_to sold_items_path, class: 'navbar-item' do
         |  農機を売りたい
-      a.navbar-item
+      = link_to items_path, class: 'navbar-item' do
         |  農機を探したい
-      a.navbar-item
-        |  ブログ
-      a.navbar-item.navbar-item-phone-number
+      = link_to '/blog', class: 'navbar-item' do
+        | ブログ
+      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
         | 無料相談
         br
         span.phone-number

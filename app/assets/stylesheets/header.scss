@@ -36,6 +36,7 @@ header#navbar {
   }
 
   .navbar-menu {
+    padding-bottom: 0; // ハンバーガー展開した時の空白をなくす
     .navbar-item {
       color: rgba(0, 0, 0, 0.5);
 
