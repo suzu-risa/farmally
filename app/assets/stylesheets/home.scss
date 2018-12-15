@@ -215,12 +215,13 @@
         position: relative;
         display: inline-block;
         margin: 0 2.5em;
+        padding: 0 1em;
+        text-align: left;
         @media screen and (max-width: 769px) {
+          padding: 0 0.5em;
           margin: 0;
         }
 
-        padding: 0 1em;
-        text-align: left;
         &::before, &::after {
           background-color: $base-color;
           box-sizing: border-box;
@@ -231,7 +232,7 @@
           width: 200px; // TODO: mobileの時のサイズ変える
 
           @media screen and (max-width: 769px) {
-            width: 10px;
+            width: 30px;
           }
         }
 
@@ -250,6 +251,18 @@
 
       .description-title {
         background-color: $base-color;
+        text-align: left;
+        padding: 8px;
+        font-size: 1em;
+        color: white;
+        margin-bottom: 8px;
+      }
+
+      .description {
+        font-size: 0.8em;
+        li {
+          padding-bottom: 4px;
+        }
       }
     }
   }
@@ -265,7 +278,9 @@
       border: 1px solid #ababab;
       font-size: 1.5em;
       text-align: center;
-      padding: 4px;
+      padding: 8px;
+      text-align: left;
+      font-size: 1.2em;
     }
 
     .sale-item-columns {
