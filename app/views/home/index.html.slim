@@ -169,7 +169,7 @@ main.home
     .columns.is-multiline
       - @categories.each do |category|
         .column.is-2-tablet.is-2-desktop
-          .button.category-button
+          = link_to category_path(code: category.code), class: "button category-button" do
             = category.name
 
   // 探し方がわからない方〜、電話、フォームへのボタン
