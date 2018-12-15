@@ -7,25 +7,38 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
+# カテゴリー
 CSV.foreach('db/master/category.csv') do |row|
-  Category.create(:name => row[0], :code => row[1])
+  Category.create(name: row[0], code: row[1])
 end
 
+# サブカテゴリー
+category_ids = Hash[*Category.all.map { |c| [c.code, c.id] }.flatten]
+CSV.foreach('db/data_migrate/additional_sub_categories.csv', headers: true) do |row|
+  SubCategory.create(
+    name: row['sub_category'],
+    code: row['code'],
+    category_id: category_ids[row['category_code']]
+  )
+end
+
+# メーカー
 CSV.foreach('db/master/maker.csv') do |row|
-  Maker.create(:name => row[0], :code => row[0])
+  Maker.create(name: row[1], code: row[2])
 end
 
 if ENV['RAILS_ENV'] != 'production'
+  sub_category = SubCategory.first # TODO: CSVにサブカテゴリも含める
   CSV.foreach('db/master/sample_item.csv') do |row|
     Item.create!(
-        :maker_price => row[0],
-        :used_price => row[1],
-        :model => row[2],
-        :size => row[5],
-        :weight => row[6],
-        :category_id => Category.first.id,
-        :sub_category_id => Category.first.sub_categories.first.id,
-        :maker_id => 1,
+      maker_price: row[0],
+      used_price: row[1],
+      model: row[2],
+      size: row[5],
+      weight: row[6],
+      category_id: sub_category.category_id,
+      sub_category_id: sub_category.id,
+      maker_id: 1,
     )
   end
 end
