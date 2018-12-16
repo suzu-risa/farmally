@@ -5,10 +5,14 @@ footer.footer
     = link_to '特定商取引法に基づく表記', specified_commercial_path, rel: 'nofollow'
     = link_to '会社概要', "", rel: 'nofollow'
   .category-list
-    p
-      | (仮) フッターにカテゴリ一覧載せる処理は全体に影響して少し重いので後ほど対応します
+    h2.title
+      | 農機カテゴリー
+    .contents
+      - @categories.each do |category|
+        = link_to category.name, category.show_path
+
 - if show_fixed_form
-  div[style="height: 100px;"]
+  div[style="height: 60px;"]
   section.hero.is-white.fixed-footer
     .columns.inquiry-buttons
       .column.is-6-tablet.is-6-desktop
