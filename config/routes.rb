@@ -41,6 +41,9 @@ Rails.application.routes.draw do
       resources :sale_item_inquiries, only: :create, path: :inquiries
     end
   end
+
+  resources :sale_items, only: :index
+
   resources :reviews, only: :create do
     member do
       post :likes
@@ -70,7 +73,6 @@ Rails.application.routes.draw do
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
 
   # TODO TOPページコーディング時点のためのダミーなので、ページ作成時に変更する
-  get "/sale_items", to: "home#form", as: :sale_items
   get "/sold_items", to: "home#form", as: :sold_items
 
   root to: 'home#index'

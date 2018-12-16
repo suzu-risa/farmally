@@ -1,4 +1,8 @@
 class SaleItemsController < ApplicationController
+  def index
+    @sale_items = SaleItem.for_sale.page(params[:page])
+  end
+
   def show
     @item = find_item(params[:item_id])
     @sale_item = find_sale_item(params[:id])
