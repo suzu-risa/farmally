@@ -128,11 +128,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
-  const openModalLink = document.querySelector('a#open-modal');
+  const openModalLink = document.querySelector('#js-open-modal');
   if(openModalLink) {
     openModalLink.addEventListener('click', function(event) {
       event.preventDefault();
-      var modal = document.querySelector('.modal');  // assuming you have only 1
+      const target = openModalLink.dataset.target;
+      var modal = document.getElementById(target);
       var html = document.querySelector('html');
       modal.classList.add('is-active');
       html.classList.add('is-clipped');

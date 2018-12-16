@@ -25,7 +25,11 @@ section.section.sale-item__detail
           span
             | 電話お問い合わせ
         .column.is-12-mobile.is-12-tablet.is-12-desktop
-          a#open-modal.button.form-button.contact-button[href="#" onclick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"]
+          a#js-open-modal.button.form-button.contact-button(
+            href="#"
+            onclick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"
+            data-target="js-sale-item-inquiry-modal")
+
             span.icon
               i.fas.fa-envelope
             span
@@ -80,7 +84,7 @@ section.section.sale-item__detail
     br
 
 // お問い合わせモーダル
-.modal
+.modal#js-sale-item-inquiry-modal
   .modal-background
   .modal-content[style="background-color: white; padding: 40px;"]
     div
