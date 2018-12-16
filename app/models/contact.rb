@@ -12,4 +12,14 @@
 #
 
 class Contact < ApplicationRecord
+
+  def prettify
+    <<~TXT
+      *お問い合わせフォームからのお問い合わせ*
+
+      #{self.class.human_attribute_name(:name)}: #{name}
+      #{self.class.human_attribute_name(:phone_number)}: #{phone_number}
+      #{self.class.human_attribute_name(:contents)}: #{contents? ? contents : '記入なし'}
+    TXT
+  end
 end

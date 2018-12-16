@@ -75,6 +75,11 @@ ja:
         address: 住所
         contents: お問い合わせ内容
         created_at: 問い合わせ日時
+      contact:
+        name: お名前
+        phone_number: 電話番号
+        category: お問い合わせ内容
+        contents: 詳細なお問い合わせ内容
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

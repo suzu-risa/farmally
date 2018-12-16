@@ -128,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
-  const openModalLink = document.querySelector('#js-open-modal');
-  if(openModalLink) {
+  const openModalLinks = document.querySelectorAll('.js-open-modal');
+  openModalLinks.forEach(function(openModalLink){
     openModalLink.addEventListener('click', function(event) {
       event.preventDefault();
       const target = openModalLink.dataset.target;
@@ -144,5 +144,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
         html.classList.remove('is-clipped');
       });
     });
-  }
+  });
 });
