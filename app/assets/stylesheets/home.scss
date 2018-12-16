@@ -296,6 +296,10 @@
     }
 
     .sale-item-columns {
+      a {
+        color: black;
+      }
+
       .sale-item {
         background-color: whitesmoke;
         border: 1px solid gray;

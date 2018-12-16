@@ -16,6 +16,10 @@ module SaleItemDecorator
     used_hours ? "#{used_hours}h" : nil
   end
 
+  def show_path
+    item_sale_item_path(id, item_id: item_id)
+  end
+
   private
 
     def used_hours_text
