@@ -44,6 +44,14 @@ footer.footer
       .field
         = f.label :phone_number, @contact.class.human_attribute_name(:phone_number) + " (必須)", class: "label"
         = f.telephone_field :phone_number, class: "input", placeholder: "電話番号", required: true
+      .field.controll
+        p.label
+          = @contact.class.human_attribute_name(:category) + " (必須)"
+        - @contact.class.categories.each do |key, v|
+          = f.label :category, class: 'radio', for: "contact_category_#{key}" do
+            = @contact.class.categories_i18n[key]
+            = f.radio_button :category, key, checked: v.zero?
+
       .field
         = f.label :contents, @contact.class.human_attribute_name(:contents) + " (任意)", class: "label"
         = f.text_area :contents, class: "textarea", placeholder: "詳しく聞きたい。相談したい。など", required: true

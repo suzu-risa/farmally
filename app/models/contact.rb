@@ -12,6 +12,7 @@
 #
 
 class Contact < ApplicationRecord
+  enum category: { buy: 0, sell: 1, other: 2 }
 
   def prettify
     <<~TXT
@@ -19,6 +20,7 @@ class Contact < ApplicationRecord
 
       #{self.class.human_attribute_name(:name)}: #{name}
       #{self.class.human_attribute_name(:phone_number)}: #{phone_number}
+      #{self.class.human_attribute_name(:category)}: #{category_i18n}
       #{self.class.human_attribute_name(:contents)}: #{contents? ? contents : '記入なし'}
     TXT
   end
