@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :read_master_data
+  before_action :set_categories
 
   private
 
@@ -15,5 +16,12 @@ class ApplicationController < ActionController::Base
     @master_makers = Rails.cache.fetch('master-maker-data', expires_in: 6.hours) do
       Maker.all.pluck(:code, :name).map { |m| { code: m[0], name: m[1] } }.to_json
     end
+  end
+
+  # フッターで共通で利用しています
+  # 他に良い方法あれば変えたいです。
+  # 基本遅延ロードなので、インスタンス変数を使わないアクションではパフォーマンスに影響ないと思います
+  def set_categories
+    @categories = Category.all
   end
 end
