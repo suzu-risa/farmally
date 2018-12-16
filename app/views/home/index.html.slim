@@ -95,7 +95,10 @@ main.home
             span.phone-number
               = Settings.phone.contact
         .column.is-6-tablet.is-6-desktop
-          a.button.inquiry-button
+          a.js-open-modal.button.inquiry-button(
+              href="#"
+              onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': 'TOP' });"
+              data-target="js-contact-form-modal")
             | お問い合わせフォーム
 
   // 農機を買いたい方へ
@@ -195,9 +198,11 @@ main.home
             span.phone-number
               = Settings.phone.contact
         .column.is-6-tablet.is-6-desktop
-          a.button.inquiry-button.inquiry-button-buy href=""
+          a.js-open-modal.button.inquiry-button.inquiry-button-buy(
+              href="#"
+              onclick="gtag('event', '「農機を買いたい方」問い合わせボタンクリック', { 'event_category': 'TOP' });"
+              data-target="js-contact-form-modal")
             | 農機を買いたい方
-
   // 農機を売りたい方へ
   section.sell-section
     h2.title
@@ -278,9 +283,11 @@ main.home
             span.phone-number
               = Settings.phone.contact
         .column.is-6-tablet.is-6-desktop
-          a.button.inquiry-button.inquiry-button-sell href=""
+          a.js-open-modal.button.inquiry-button.inquiry-button-sell(
+              href="#"
+              onclick="gtag('event', '「農機を売りたい方」問い合わせボタンクリック', { 'event_category': 'TOP' });"
+              data-target="js-contact-form-modal")
             | 農機を売りたい方
-
 
   // ファーマリー買取実績
 

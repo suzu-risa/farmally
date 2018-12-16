@@ -1,3 +1,7 @@
 @import "item_list_page";
 @import "header";
 @import "footer";
+
+.modal {
+  z-index: 100;
+}

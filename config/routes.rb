@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   end
   resources :forms, only: :create
 
+  resources :contacts, only: :create
+
   get '/search' => 'home#search'
   # get '/terms-of-service', to: 'home#terms'
   # get '/privacy-policy', to: 'home#privacy'
@@ -172,6 +174,7 @@ end
 #                 likes_review_comment POST   /review_comments/:id/likes(.:format)                                                     review_comments#likes
 #                      review_comments POST   /review_comments(.:format)                                                               review_comments#create
 #                                forms POST   /forms(.:format)                                                                         forms#create
+#                             contacts POST   /contacts(.:format)                                                                      contacts#create
 #                               search GET    /search(.:format)                                                                        home#search
 #                     terms_of_service GET    /terms-of-service(.:format)                                                              home#index
 #                       privacy_policy GET    /privacy-policy(.:format)                                                                home#index
