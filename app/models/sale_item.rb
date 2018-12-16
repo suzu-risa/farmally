@@ -1,3 +1,32 @@
+# == Schema Information
+#
+# Table name: sale_items
+#
+#  id                    :bigint(8)        not null, primary key
+#  detail_json           :json
+#  horse_power           :string(255)
+#  prefecture_code       :integer
+#  price                 :integer          default(0), not null
+#  sold_at               :datetime
+#  status                :integer
+#  used_hours            :integer
+#  year                  :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  item_id               :bigint(8)
+#  sale_item_template_id :bigint(8)
+#
+# Indexes
+#
+#  index_sale_items_on_item_id                (item_id)
+#  index_sale_items_on_sale_item_template_id  (sale_item_template_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (item_id => items.id)
+#  fk_rails_...  (sale_item_template_id => sale_item_templates.id)
+#
+
 class SaleItem < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code

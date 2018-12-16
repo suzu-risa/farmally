@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: sale_item_templates
+#
+#  id          :bigint(8)        not null, primary key
+#  detail_json :json
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :bigint(8)
+#
+# Indexes
+#
+#  index_sale_item_templates_on_category_id  (category_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (category_id => categories.id)
+#
+
 require 'tempfile'
 
 class SaleItemTemplate < ApplicationRecord

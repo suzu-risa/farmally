@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: sale_item_inquiries
+#
+#  id           :bigint(8)        not null, primary key
+#  address      :string(255)
+#  contents     :text(65535)
+#  email        :string(255)
+#  name         :string(255)      not null
+#  phone_number :string(255)      not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  sale_item_id :bigint(8)
+#
+# Indexes
+#
+#  index_sale_item_inquiries_on_sale_item_id  (sale_item_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (sale_item_id => sale_items.id)
+#
+
 class SaleItemInquiry < ApplicationRecord
   belongs_to :sale_item
 

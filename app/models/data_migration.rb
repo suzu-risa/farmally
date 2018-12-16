@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: data_migrations
+#
+#  id         :bigint(8)        not null, primary key
+#  version    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class DataMigration < ApplicationRecord
   class << self
     def exec_migration_v2
