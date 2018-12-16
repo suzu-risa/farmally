@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
   resources :makers, param: :code, only: :show
-  resources :items, only: :show do
+  resources :items, only: [:index, :show] do
     resources :reviews, only: :new
     resources :sale_items, only: :show, path: :sales do
       get :images
@@ -70,7 +70,6 @@ Rails.application.routes.draw do
   # TODO TOPページコーディング時点のためのダミーなので、ページ作成時に変更する
   get "/sale_items", to: "home#form", as: :sale_items
   get "/sold_items", to: "home#form", as: :sold_items
-  get "/items", to: "home#form", as: :items
 
   root to: 'home#index'
 end
