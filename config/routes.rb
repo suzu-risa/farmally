@@ -41,6 +41,10 @@ Rails.application.routes.draw do
       resources :sale_item_inquiries, only: :create, path: :inquiries
     end
   end
+
+  resources :sale_items, only: :index
+  resources :sold_items, only: :index
+
   resources :reviews, only: :create do
     member do
       post :likes
@@ -68,10 +72,6 @@ Rails.application.routes.draw do
   get '/form', to: 'home#form'
   get '/sell-form', to: 'home#sell_form'
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
-
-  # TODO TOPページコーディング時点のためのダミーなので、ページ作成時に変更する
-  get "/sale_items", to: "home#form", as: :sale_items
-  get "/sold_items", to: "home#form", as: :sold_items
 
   root to: 'home#index'
 end
@@ -168,6 +168,8 @@ end
 #                       item_sale_item GET    /items/:item_id/sales/:id(.:format)                                                      sale_items#show
 #                                items GET    /items(.:format)                                                                         items#index
 #                                 item GET    /items/:id(.:format)                                                                     items#show
+#                           sale_items GET    /sale_items(.:format)                                                                    sale_items#index
+#                           sold_items GET    /sold_items(.:format)                                                                    sold_items#index
 #                         likes_review POST   /reviews/:id/likes(.:format)                                                             reviews#likes
 #            new_review_review_comment GET    /reviews/:review_id/review_comments/new(.:format)                                        review_comments#new
 #                              reviews POST   /reviews(.:format)                                                                       reviews#create
@@ -183,8 +185,6 @@ end
 #                                 form GET    /form(.:format)                                                                          home#form
 #                            sell_form GET    /sell-form(.:format)                                                                     home#sell_form
 #                              sitemap GET    /sitemap(.:format)                                                                       redirect(301, https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz)
-#                           sale_items GET    /sale_items(.:format)                                                                    home#form
-#                           sold_items GET    /sold_items(.:format)                                                                    home#form
 #                                 root GET    /                                                                                        home#index
 #                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show

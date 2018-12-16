@@ -296,49 +296,49 @@
     }
 
     .sale-item-columns {
-      a {
+      .sale-item-column {
         color: black;
-      }
 
-      .sale-item {
-        background-color: whitesmoke;
-        border: 1px solid gray;
-        font-size: 0.8em;
-        padding: 8px;
+        .sale-item {
+          background-color: whitesmoke;
+          border: 1px solid gray;
+          font-size: 0.8em;
+          padding: 8px;
 
-        .sale-item-model-name {
-          font-weight: bold;
-          overflow: hidden;
-          padding-bottom: 4px;
-          img {
-            display: block;
-            float: left;
-            width: 36px;
-          }
+          .sale-item-model-name {
+            font-weight: bold;
+            overflow: hidden;
+            padding-bottom: 4px;
+            img {
+              display: block;
+              float: left;
+              width: 36px;
+            }
 
-          span {
-            display: block;
-            padding-left: 4px;
-            float: left;
-          }
-        }
-
-        .table {
-          background-color: inherit;
-          width: 100%;
-
-          .price-td {
-            background-color: black;
-            color: white;
-            text-align: center;
             span {
-              font-size: 0.8em;
-              padding-right: 4px;
+              display: block;
+              padding-left: 4px;
+              float: left;
             }
           }
 
-          td {
-            border: 1px solid gray;
+          .table {
+            background-color: inherit;
+            width: 100%;
+
+            .price-td {
+              background-color: black;
+              color: white;
+              text-align: center;
+              span {
+                font-size: 0.8em;
+                padding-right: 4px;
+              }
+            }
+
+            td {
+              border: 1px solid gray;
+            }
           }
         }
       }
