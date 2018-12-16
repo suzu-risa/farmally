@@ -1,0 +1,44 @@
+- breadcrumb = local_assigns.has_key?(:breadcrumb) ? local_assigns[:breadcrumb] : true
+- category_about = local_assigns.has_key?(:category_about) ? local_assigns[:category_about] : false
+- maker = local_assigns.has_key?(:maker) ? maker : nil
+- category = local_assigns.has_key?(:category) ? category : nil
+- sub_category = local_assigns.has_key?(:sub_category) ? sub_category : nil
+
+section.section
+  .container.item-list
+    - if items.empty?
+      p.title.is-4.has-text-centered
+        | 商品が見つかりませんでした
+    - else
+      - if maker
+        - breadcrumb(:maker, maker)
+      - elsif sub_category || category
+        - breadcrumb(sub_category || category)
+      - if breadcrumb
+        = render partial: '/breadcrumb'
+      - if category_about && category.try!(:description_content?)
+        h1.category-name.title.is-2
+          = category.name
+        section.section.containe.category-about-section
+          = raw category.description_content
+      - if local_assigns.has_key? :sub_categories
+        h3.title.is-4
+          | もっと絞り込む
+        .columns.is-mobile.is-multiline.sub-category-search
+          - sub_categories.each do |sub_category|
+            .column.is-6-mobile.is-3-tablet.is-3-desktop
+              = link_to(sub_category_category_path(code: category.code, sub_code: sub_category.code)) do
+                span
+                  = sub_category.name
+      h1.title.is-4
+        = title
+        span.counter
+          |  
+          = items.current_page
+          | ページ目 (全
+          = items.total_count
+          | 件)
+      .columns.is-mobile.is-multiline
+        - items.each do |i|
+          = render partial: '/item_cassette', locals: { item: i }
+      = paginate items, views_prefix: 'templates'
