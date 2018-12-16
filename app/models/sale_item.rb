@@ -46,7 +46,7 @@ class SaleItem < ApplicationRecord
   delegate :model, :category, :sub_category, :maker, to: :item
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :maker, prefix: :maker
-  delegate :name, to: :prefecture, prefix: :prefecture
+  delegate :name, to: :prefecture, prefix: :prefecture, allow_nil: true
 
   def detail_json=(hash_or_json)
     if hash_or_json.is_a?(Hash)
