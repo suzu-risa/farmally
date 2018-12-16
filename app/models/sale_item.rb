@@ -48,6 +48,14 @@ class SaleItem < ApplicationRecord
   delegate :name, to: :maker, prefix: :maker
   delegate :name, to: :prefecture, prefix: :prefecture, allow_nil: true
 
+  scope :for_sale, -> {
+    where(sold_at: nil)
+  }
+
+  scope :sold, -> {
+    where.not(sold_at: nil)
+  }
+
   def detail_json=(hash_or_json)
     if hash_or_json.is_a?(Hash)
       hash_or_json = hash_or_json.to_json
