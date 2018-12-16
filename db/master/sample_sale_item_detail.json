@@ -1,0 +1,14 @@
+{
+  "properties":{
+    "year": 2018,
+    "teiin": 1,
+    "kyori": "200km",
+    "model": "ABC-1",
+    "type": "種類",
+    "haikiryo": "100",
+    "nenryo": "ガソリン",
+    "kudo": "test",
+    "mission": "10",
+    "pedal": 2
+  }
+}

@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   def index
     @categories = Category.all
     @makers = Maker.all
+    @sale_items = SaleItem.for_sale.order(created_at: :desc).limit(4)
+    @sold_items = SaleItem.sold.order(created_at: :desc).limit(4)
 
     @search_item_form = SearchItemForm.new
   end

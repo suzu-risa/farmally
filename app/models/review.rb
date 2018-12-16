@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id         :bigint(8)        not null, primary key
+#  approved   :boolean          default(FALSE), not null
+#  content    :text(65535)      not null
+#  like_count :integer          default(0), not null
+#  name       :string(255)      not null
+#  star       :integer          default("unselected"), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  item_id    :bigint(8)
+#
+# Indexes
+#
+#  index_reviews_on_item_id  (item_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (item_id => items.id)
+#
+
 class Review < ApplicationRecord
   has_one_attached :picture
 

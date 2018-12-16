@@ -30,7 +30,7 @@ end
 if ENV['RAILS_ENV'] != 'production'
   sub_category = SubCategory.first # TODO: CSVにサブカテゴリも含める
   CSV.foreach('db/master/sample_item.csv') do |row|
-    Item.create!(
+    Item.create(
       maker_price: row[0],
       used_price: row[1],
       model: row[2],
@@ -39,6 +39,20 @@ if ENV['RAILS_ENV'] != 'production'
       category_id: sub_category.category_id,
       sub_category_id: sub_category.id,
       maker_id: 1,
+    )
+  end
+
+  SaleItemTemplate.create(
+    category_id: sub_category.category_id,
+    detail_file: File.open("db/master/sample_sale_item_template.csv")
+  )
+
+  ([nil] * 10 + [Time.zone.local(2018,12,1)] * 10).each do |sold_at|
+    SaleItem.create!(
+      item: Item.first,
+      sale_item_template: SaleItemTemplate.first,
+      detail_json: JSON.parse(File.read("db/master/sample_sale_item_detail.json")),
+      sold_at: sold_at
     )
   end
 end

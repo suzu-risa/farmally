@@ -127,36 +127,41 @@ main.home
     h2.title
       | ファーマリー最新農機車両
     .columns.sale-item-columns
-      - 4.times do
+      - @sale_items.each do |sale_item|
         .column.sale-item-column.is-3-tablet.is-3-desktop
           .sale-item
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
-                | APU1610
+                = sale_item.model
                 br
-                | 松山ニプロ
+                = sale_item.category_name
             table.table
               tr
                 td
                   | 年式
                 td
-                  | 平成11年
+                  = sale_item.year_text
               tr
                 td
-                  | 走行距離
+                  | 地域
                 td
-                  | 3,0000 Km
+                  = sale_item.prefecture_name
               tr
                 td
                   | 馬力
                 td
-                  | 30〜50P
+                  = sale_item.horse_power_with_unit
+              tr
+                td
+                  | アワー
+                td
+                  = sale_item.used_hours_with_unit
               tr
                 td.price-td colspan="2"
                   span
                     | 価格
-                  | 878,000円
+                  = number_to_currency(sale_item.price)
 
     .columns
       = link_to sale_items_path, class: "button view-all-button"  do
@@ -218,36 +223,41 @@ main.home
     h2.title
       | ファーマリー買い取り実績
     .columns.sale-item-columns
-      - 4.times do
+      - @sold_items.each do |sale_item|
         .column.sale-item-column.is-3-tablet.is-3-desktop
           .sale-item
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
-                | APU1610
+                = sale_item.model
                 br
-                | 松山ニプロ
+                = sale_item.category_name
             table.table
               tr
                 td
                   | 年式
                 td
-                  | 平成11年
+                  = sale_item.year_text
               tr
                 td
-                  | 走行距離
+                  | 地域
                 td
-                  | 3,0000 Km
+                  = sale_item.prefecture_name
               tr
                 td
                   | 馬力
                 td
-                  | 30〜50P
-              /tr
+                  = sale_item.horse_power_with_unit
+              tr
+                td
+                  | アワー
+                td
+                  = sale_item.used_hours_with_unit
+              tr
                 td.price-td colspan="2"
                   span
                     | 価格
-                  | 878,000円
+                  = number_to_currency(sale_item.price)
 
     .columns
       = link_to sold_items_path, class: "button view-all-button"  do

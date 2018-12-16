@@ -16,7 +16,7 @@
         <h1 class="title">
           <%= @sale_item.model %>
           <br>
-          <%= @sale_item.price %>円
+          <%= number_to_currency(@sale_item.price) %>
         </h1>
 
         <div class="columns buttons">
