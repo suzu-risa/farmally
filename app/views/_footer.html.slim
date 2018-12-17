@@ -58,6 +58,6 @@ footer.footer
 
       .field
         = f.label :contents, @contact.class.human_attribute_name(:contents) + " (任意)", class: "label"
-        = f.text_area :contents, class: "textarea", placeholder: "詳しく聞きたい。相談したい。など", required: true
+        = f.text_area :contents, class: "textarea", placeholder: "詳しく聞きたい。相談したい。など"
       = f.submit "送信する", class: "button is-success", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '固定フッター/TOP' });"
   button.modal-close.is-large[aria-label="close" onclick="gtag('event', 'お問い合わせモーダル閉じるボタンクリック', { 'event_category': '固定フッター/TOP' });"]
