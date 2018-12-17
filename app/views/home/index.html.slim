@@ -54,13 +54,13 @@ main.home
   // 検索フォーム
   section.search-section
     .search-box
-      = form_for @search_item_form, url: "" do |f|
+      = form_for @search_item_form, url: search_path, method: :get do |f|
         .columns.is-multiline
           .column.is-6-tablet.is-6-desktop
             .field
               = f.label :category, class: 'label'
               .select
-                = f.collection_select :category, @categories, :id, :name, class: 'input', prompt: "全て"
+                = f.collection_select :category, @categories, :code, :name, class: 'input', prompt: "全て"
 
           .column.is-6-tablet.is-6.desktop
             .field
@@ -76,7 +76,7 @@ main.home
             .field
               = f.label :maker, class: 'label'
               .select
-                = f.collection_select :maker, @makers, :id, :name, class: 'input', prompt: "全て"
+                = f.collection_select :maker, @makers, :code, :name, class: 'input', prompt: "全て"
         .columns
           .column
             = f.submit "検索", class: 'button'

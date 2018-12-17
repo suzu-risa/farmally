@@ -9,9 +9,9 @@ class HomeController < ApplicationController
   end
 
   def search
-    @category = Category.find_by(code: params[:category])
-    @sub_category = SubCategory.find_by(category: @category, code: params[:sub_category])
-    @maker = Maker.find_by(code: params[:maker])
+    @category = Category.find_by(code: search_item_form_params[:category])
+    @sub_category = SubCategory.find_by(category: @category, code: search_item_form_params[:sub_category])
+    @maker = Maker.find_by(code: search_item_form_params[:maker])
     arguments = { category: @category, sub_category: @sub_category, maker: @maker }
     @items = Item.where(search_condition(arguments)).includes(:maker).page(params[:page])
     @title = search_title(arguments)
@@ -36,6 +36,10 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def search_item_form_params
+    params[:search_item_form]
+  end
 
   def search_condition(category: nil, sub_category: nil, maker: nil)
     conditions = []
