@@ -32,6 +32,9 @@ Rails.application.routes.draw do
       get ':sub_code', to: 'sub_categories#show', as: :sub_category
     end
   end
+
+  resources :sub_categories, only: :index
+
   resources :makers, param: :code, only: :show
   resources :items, only: [:index, :show] do
     resources :reviews, only: :new
@@ -161,6 +164,7 @@ end
 #                           admin_root GET    /admin(.:format)                                                                         admin/home#index
 #                sub_category_category GET    /categories/:code/:sub_code(.:format)                                                    sub_categories#show
 #                             category GET    /categories/:code(.:format)                                                              categories#show
+#                       sub_categories GET    /sub_categories(.:format)                                                                sub_categories#index
 #                                maker GET    /makers/:code(.:format)                                                                  makers#show
 #                      new_item_review GET    /items/:item_id/reviews/new(.:format)                                                    reviews#new
 #                item_sale_item_images GET    /items/:item_id/sales/:sale_item_id/images(.:format)                                     sale_items#images

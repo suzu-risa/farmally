@@ -14,7 +14,7 @@ end
 
 # サブカテゴリー
 category_ids = Hash[*Category.all.map { |c| [c.code, c.id] }.flatten]
-CSV.foreach('db/data_migrate/additional_sub_categories.csv', headers: true) do |row|
+CSV.foreach('db/data_migrate/sub_categories.csv', headers: true) do |row|
   SubCategory.create(
     name: row['sub_category'],
     code: row['code'],
@@ -48,7 +48,7 @@ if ENV['RAILS_ENV'] != 'production'
   )
 
   ([nil] * 10 + [Time.zone.local(2018,12,1)] * 10).each do |sold_at|
-    SaleItem.create!(
+    SaleItem.create(
       item: Item.first,
       sale_item_template: SaleItemTemplate.first,
       detail_json: JSON.parse(File.read("db/master/sample_sale_item_detail.json")),

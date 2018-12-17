@@ -3,7 +3,7 @@
 # Table name: contacts
 #
 #  id           :bigint(8)        not null, primary key
-#  category     :integer          default(0), not null
+#  category     :integer          default("buy"), not null
 #  contents     :text(65535)
 #  name         :string(255)      not null
 #  phone_number :string(255)      not null
