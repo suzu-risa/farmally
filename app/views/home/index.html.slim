@@ -114,10 +114,13 @@ main.home
         ul.description
           li
             | 1. ご予算、メーカー、年式、走行距離、各種仕様などのご希望を
-            a href=""
-              |【お問い合わせフォーム】
+            a.js-open-modal(
+                href="#"
+                onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': 'TOP' });"
+                data-target="js-contact-form-modal")
+              | お問い合わせフォーム
             | または
-            a href=""
+            a href="tel:#{contact_phone_number}"
               | お電話
             | にてお伝えください。
           li
@@ -216,7 +219,16 @@ main.home
           | 売却の流れ
         ul.description
           li
-            | 1. お電話/査定依頼フォームにて依頼するボタンよりお問い合わせください
+            | 1.
+            a href="tel:#{contact_phone_number}"
+              | お電話
+            |/
+            a.js-open-modal(
+                href="#"
+                onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': 'TOP' });"
+                data-target="js-contact-form-modal")
+              | 査定依頼フォーム
+            | にて依頼するボタンよりお問い合わせください
           li
             | 2. 査定員が、農機車両の状態を査定させていただきます。査定により買取価格を算出します。
           li
