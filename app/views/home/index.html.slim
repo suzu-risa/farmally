@@ -128,6 +128,7 @@ main.home
   // 最新農機車両
   section.sale-item-section
     h2.title
+      = image_tag "logo-icon.png", alt: 'ロゴアイコン'
       | ファーマリー最新農機車両
     .columns.sale-item-columns
       - @sale_items.each do |sale_item|
@@ -226,6 +227,7 @@ main.home
             | 5. お支払いは、2週間以内に振込いたします。
   section.sale-item-section
     h2.title
+      = image_tag "logo-icon.png", alt: 'ロゴアイコン'
       | ファーマリー買い取り実績
     .columns.sale-item-columns
       - @sold_items.each do |sale_item|

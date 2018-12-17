@@ -286,13 +286,20 @@
   .sale-item-section {
 
     .title {
+      position: relative;
       background: linear-gradient(white, #ddd);
       border: 1px solid #ababab;
       font-size: 1.5em;
       text-align: center;
       padding: 8px;
+      padding-left: 42px;
       text-align: left;
       font-size: 1.2em;
+      img {
+        height: 25px;
+        position: absolute;
+        left: 5px;
+      }
     }
 
     .sale-item-columns {
