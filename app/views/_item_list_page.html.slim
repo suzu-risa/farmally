@@ -37,13 +37,14 @@ section.section
                 = sub_category.name
 
       h1.item-list-title.title.is-4
-        = title
         span.counter
           |  
           = items.current_page
-          | ページ目 (全
+          | ページ目 / 全
           = items.total_count
-          | 件)
+          | 件
+        span.title
+          = title
       .columns.is-mobile.is-multiline
         - items.each do |i|
           = render partial: '/item_cassette', locals: { item: i }
