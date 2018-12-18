@@ -15,3 +15,20 @@
     font-weight: bold;
   }
 }
+
+// カテゴリーボタン
+.category-button-columns {
+  margin-bottom: 24px;
+  .column {
+     padding: 0.3rem;
+
+    .category-button {
+      background: linear-gradient(white, #ddd);
+      font-size: 0.8em;
+      height: 70px;
+      white-space: normal;
+      width: 100%;
+      word-wrap: break-word;
+    }
+  }
+}

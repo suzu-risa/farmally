@@ -25,14 +25,17 @@ section.section
 
           hr
       - if local_assigns.has_key? :sub_categories
-        h3.title.is-4
-          | もっと絞り込む
-        .columns.is-mobile.is-multiline.sub-category-search
+        h3.title.is-4.item-list-more-title
+          span.category-name
+            | #{category.name}
+          | からもっと絞る >>
+
+        .columns.category-button-columns.is-multiline
           - sub_categories.each do |sub_category|
             .column.is-6-mobile.is-3-tablet.is-3-desktop
-              = link_to(sub_category_category_path(code: category.code, sub_code: sub_category.code)) do
-                span
-                  = sub_category.name
+              = link_to sub_category.show_path, class: "button category-button" do
+                = sub_category.name
+
       h1.item-list-title.title.is-4
         = title
         span.counter
