@@ -1,0 +1,29 @@
+.column.item-column.is-12-mobile.is-6-tablet.is-3-desktop
+  .item
+    .item-model-name
+      = image_tag "tractor-icon.png", alt: "車両アイコン"
+      span
+        = item.maker_name
+        br
+        = item.model
+    table.table
+      tr
+        td
+          | 馬力
+        td
+          = item.horse_power || "-"
+
+      tr
+        td
+          | 小売希望価格
+        td
+          = maker_price_range(item)
+          | 円
+      tr
+        td.price-td colspan="2"
+          span
+            | 価格
+          | 要見積り
+    = link_to item_path(item), class: "detail-link"
+      | 詳細はこちら
+

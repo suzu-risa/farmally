@@ -12,11 +12,11 @@ section.section.sale-item-list
           | ページ目 (全
           = sale_items.total_count
           | 件)
-      .columns.is-multiline.sale-item-columns
+      .columns.is-multiline.item-columns
         - sale_items.each do |sale_item|
-          .column.sale-item-column.is-6-tablet.is-3-desktop
-            .sale-item
-              .sale-item-model-name
+          .column.item-column.is-6-tablet.is-3-desktop
+            .item
+              .item-model-name
                 = image_tag "tractor-icon.png", alt: "車両アイコン"
                 span
                   = sale_item.model

@@ -32,7 +32,7 @@ section.section
 
         .columns.category-button-columns.is-multiline
           - sub_categories.each do |sub_category|
-            .column.is-6-mobile.is-3-tablet.is-3-desktop
+            .column.is-3-tablet.is-3-desktop
               = link_to sub_category.show_path, class: "button category-button" do
                 = sub_category.name
 

@@ -32,3 +32,63 @@
     }
   }
 }
+
+// 出品商品column
+.item-column {
+  color: black;
+
+  .item {
+    background-color: white;
+    border: 1px solid gray;
+    font-size: 0.8em;
+    padding: 8px;
+    height: 100%;
+
+    .item-model-name {
+      font-weight: bold;
+      padding-bottom: 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      img {
+        display: block;
+        width: 36px;
+      }
+
+      span {
+        display: block;
+        padding-left: 4px;
+      }
+    }
+
+    .table {
+      background-color: whitesmoke;
+      margin-bottom: 4px;
+      width: 100%;
+
+      .price-td {
+        background-color: black;
+        color: white;
+        text-align: center;
+        span {
+          font-size: 0.8em;
+          padding-right: 4px;
+        }
+      }
+
+      td {
+        border: 1px solid gray;
+      }
+    }
+
+    .detail-link {
+      background-color: #ff112e;
+      color: white;
+      width: 100%;
+      display: block;
+      text-align: center;
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+}
