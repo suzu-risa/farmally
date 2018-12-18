@@ -1,17 +1,24 @@
 .category-about-section {
   padding: 0;
   margin-bottom: 16px;
+
+  hr {
+    background-color: black;
+    height: 2px;
+  }
 }
 
 .category-about {
   .category-about-title {
-    background-color: #B99B80;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     margin-bottom: 8px;
-    padding: 8px;
+    padding: 4px 8px;
+    border-left: 3px solid;
   }
 
   .category-about-contents {
-
+    margin: 0 16px;
+    font-size: 0.9em;
   }
 }
