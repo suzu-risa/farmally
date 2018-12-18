@@ -51,6 +51,7 @@ class Item < ApplicationRecord
   validate :sub_category_should_be_category_child
 
   delegate :sale_item_template, to: :category
+  delegate :name, to: :maker, prefix: :maker
 
   paginates_per 30
 

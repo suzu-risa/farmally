@@ -177,7 +177,7 @@ main.home
   section.category-section
     h2.title
       | 農機をカテゴリーから検索
-    .columns.is-multiline
+    .columns.category-button-columns.is-multiline
       - @categories.each do |category|
         .column.is-2-tablet.is-2-desktop
           = link_to category_path(code: category.code), class: "button category-button" do
