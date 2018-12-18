@@ -12,9 +12,28 @@
       }
 
       .title {
-        padding-bottom: 5px;
-        border-bottom: solid 2px $base-brown;
+        padding: 8px 16px;
+        background-color: whitesmoke;
+        font-size: 1.5rem;
         margin-bottom: 10px;
+        display: flex;
+        align-items: baseline;
+
+        @media screen and (max-width: 769px) {
+          flex-direction: column;
+        }
+
+
+        .model-name {
+
+        }
+        span {
+          font-size: 1rem;
+          margin-left: 16px;
+          @media screen and (max-width: 769px) {
+            margin-left: 0px;
+          }
+        }
       }
 
       .prices {
