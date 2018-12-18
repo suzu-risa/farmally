@@ -4,14 +4,15 @@ section.section.sale-item-list
       p.title.is-4.has-text-centered
         | 商品が見つかりませんでした
     - else
-      h1.title.is-4
-        = title
+      h1.item-list-title.title.is-4
         span.counter
           |  
           = sale_items.current_page
-          | ページ目 (全
+          | ページ目 / 全
           = sale_items.total_count
-          | 件)
+          | 件
+        span.title
+          = title
       .columns.is-multiline.item-columns
         - sale_items.each do |sale_item|
           .column.item-column.is-6-tablet.is-3-desktop
