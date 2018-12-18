@@ -314,18 +314,18 @@
 
           .sale-item-model-name {
             font-weight: bold;
-            overflow: hidden;
             padding-bottom: 4px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             img {
               display: block;
-              float: left;
               width: 36px;
             }
 
             span {
               display: block;
               padding-left: 4px;
-              float: left;
             }
           }
 
