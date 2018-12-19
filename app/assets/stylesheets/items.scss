@@ -110,32 +110,26 @@
         }
       }
 
-      .detail {
-        padding: 15px;
-        margin-top: 10px;
+      // 基本情報テーブル
+      .detail-table {
+        width: 100%;
 
-        .table {
-          width: 100%;
-          background-color: #eee;
-          display: block;
-          padding: 5px 15px;
+        caption {
+          background: linear-gradient(white, #ddd);
+          border: 1px solid #ddd;
+          padding: 4px;
+          text-align: center;
+        }
 
-          tr, th, td {
-            border: none;
-          }
+        th, td {
+          border: 1px solid #ddd;
+        }
 
-          th {
-            @media screen and (min-width: 400px) {
-              min-width: 100px; 
-            }
-            @media screen and (max-width: 399px) {
-              min-width: 60px; 
-            }
-          }
-
-          .other {
-            white-space: pre-line;
-          }
+        th {
+          background-color: whitesmoke;
+          font-weight: normal;
+          text-align: center;
+          width: 40%;
         }
       }
     }

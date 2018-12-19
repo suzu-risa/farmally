@@ -6,7 +6,53 @@ section.section.item__detail
         - breadcrumb(@item)
         = render partial: '/breadcrumb'
     .columns.is-centered.main
-      .column.is-12-mobile.is-12-tablet.is-12-desktop
+      .column.is-12-mobile.is-7-tablet.is-7-desktop
+        table.table.detail-table
+          caption
+            | 基本情報
+          tr
+            th
+              | メーカー
+            td
+              = @item.maker.name
+          tr
+            th
+              | 種類
+            td
+              = @item.category.name
+          tr
+            th
+              | 大きさ
+            td
+              = print_text(@item.size)
+          tr
+            th
+              | 馬力
+            td
+              = print_text(@item.horse_power)
+          tr
+            th
+              | 質量(kg)
+            td
+              = print_text(@item.weight)
+          tr
+            th
+              | 機械の種類
+            td
+              = print_text(@item.machine_type)
+          tr
+            th
+              | 作業能率
+            td
+              = print_text(@item.work_efficiency)
+          tr
+            th
+              | 備考
+            td.other
+              = print_text(@item.other)
+
+
+      .column.is-12-mobile.is-5-tablet.is-5-desktop
         h1.title.columns
           .model-name
             = @title
@@ -24,64 +70,6 @@ section.section.item__detail
               | 要見積もり
             span
               | (ファーマリー中古価格)
-        .detail
-          table.table
-            tr
-              th
-                | メーカー
-              td
-                | :
-              td
-                = @item.maker.name
-            tr
-              th
-                | 種類
-              td
-                | :
-              td
-                = @item.category.name
-            tr
-              th
-                | 大きさ
-              td
-                | :
-              td
-                = print_text(@item.size)
-            tr
-              th
-                | 馬力
-              td
-                | :
-              td
-                = print_text(@item.horse_power)
-            tr
-              th
-                | 質量(kg)
-              td
-                | :
-              td
-                = print_text(@item.weight)
-            tr
-              th
-                | 機械の種類
-              td
-                | :
-              td
-                = print_text(@item.machine_type)
-            tr
-              th
-                | 作業能率
-              td
-                | :
-              td
-                = print_text(@item.work_efficiency)
-            tr
-              th
-                | 備考
-              td
-                | :
-              td.other
-                = print_text(@item.other)
         .columns.buttons
           .column.is-12-mobile.is-6-tablet.is-6-desktop
             = link_to(form_path, class: 'button form-button buy-button') do
