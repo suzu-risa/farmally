@@ -110,7 +110,7 @@
 
   .phone-number-button {
     border-radius: 16px;
-    background-color: #ef0000;
+    background-color: $inquiry-red;
     color: white;
 
     .staff-message {
@@ -130,7 +130,7 @@
 
   .inquiry-button {
     border-radius: 16px;
-    background-color: #02669a;
+    background-color: $inquiry-blue;
     color: white;
     font-size: 1.5em;
     padding: 18px;

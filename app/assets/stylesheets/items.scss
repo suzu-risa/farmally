@@ -1,8 +1,29 @@
 .item {
-  &__detail {
+  // モデル名
+  @mixin title {
+    padding: 8px 16px;
+    background-color: whitesmoke;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+
+    @media screen and (max-width: 769px) {
+      flex-direction: column;
+    }
+
+    span {
+      font-size: 1rem;
+      margin-left: 16px;
+      @media screen and (max-width: 769px) {
+        margin-left: 0px;
+      }
+    }
+  }
+
+  &__detail { // .item__detail
     padding-bottom: 30px;
     box-sizing: border-box;
-    border-bottom: solid 2px $base-brown;
 
     .main {
       .item-image {
@@ -12,56 +33,68 @@
       }
 
       .title {
-        padding-bottom: 5px;
-        border-bottom: solid 2px $base-brown;
-        margin-bottom: 10px;
+        @include title;
       }
 
+      // 要見積り・価格
       .prices {
-        border-bottom: solid 2px $base-brown;
-        padding-bottom: 10px;
+        border: 1px solid;
 
         .farmally-price {
           color: red;
-          font-size: 32px;
+          padding: 32px;
+          text-align: center;
+
           strong {
+            font-size: 1.2rem;
             color: red;
           }
+
           span {
-            font-size: 1rem;
+            font-size: 0.8em;
+          }
+        }
+
+        .maker-price {
+          background-color: black;
+          color: white;
+          padding: 4px;
+          text-align: center;
+
+          span {
+            font-size: 0.8em;
           }
         }
       }
 
+      // 農機選びを無料相談する/農機を売るボタン
       .buttons {
-        border-bottom: solid 2px $base-brown;
         padding: 10px 0;
+
+        &>.column:first-child {
+          padding-bottom: 0px;
+        }
 
         .form-button {
           width: 100%;
           margin: 0;
           font-weight: bold;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           box-sizing: border-box;
+          color: white;
+          height: 72px;
 
           &.buy-button {
-            color: white;
-            background-color: $base-brown;
-            margin-bottom: 10px;
-            height: 60px;
+            background-color: $inquiry-red;
 
             @media screen and (max-width: 399px) {
               margin-bottom: -10px;
             }
 
-            img {
-              width: 24px;
-              position: absolute;
-              left: 20px;
-            }
             &:hover {
-              background-color: darken($base-brown, 10%);
+              background-color: darken($inquiry-red,10%);
             }
+
             span {
               @media screen and (min-width: 400px) {
                 > .only-sp {
@@ -75,72 +108,51 @@
           }
 
           &.sell-button {
-            color: $base-brown;
-            border: solid 1px $base-brown;
-            height: 60px;
-            margin-bottom: 10px;
-            img {
-              width: 24px;
-              position: absolute;
-              left: 20px;
-            }
+            background-color: $inquiry-blue;
+
             &:hover {
-              background-color: darken(white, 10%);
+              background-color: darken($inquiry-blue, 10%);
             }
           }
         }
       }
 
-      .detail {
-        padding: 15px;
-        margin-top: 10px;
+      // 「基本情報」テーブル
+      .detail-table {
+        width: 100%;
 
-        .table {
-          width: 100%;
-          background-color: #eee;
-          display: block;
-          padding: 5px 15px;
+        caption {
+          background: linear-gradient(white, #ddd);
+          border: 1px solid #ddd;
+          padding: 4px;
+          text-align: center;
+        }
 
-          tr, th, td {
-            border: none;
-          }
+        th, td {
+          border: 1px solid #ddd;
+        }
 
-          th {
-            @media screen and (min-width: 400px) {
-              min-width: 100px; 
-            }
-            @media screen and (max-width: 399px) {
-              min-width: 60px; 
-            }
-          }
-
-          .other {
-            white-space: pre-line;
-          }
+        th {
+          background-color: whitesmoke;
+          font-weight: normal;
+          text-align: center;
+          width: 40%;
         }
       }
     }
   }
 
-  &__sale-items {
-    .columns {
-      &.sale-item {
-        border: solid 2px $base-brown;
-        border-bottom: none;
-        &:last-child {
-          border-bottom: solid 2px $base-brown;
-        }
-
-        .detail-button {
-          background-color: $base-brown;
-          color: white;
-          width: 100%;
-        }
-      }
+  &__sale-items { // .item__sale-items
+    .title {
+      @include title;
     }
   }
 
-  &__reviews {
+  &__reviews { // .item__reviews
+    .title {
+      @include title;
+    }
+
     .review-button {
       border: solid 2px $base-brown;
       border-radius: 5px;
@@ -167,159 +179,22 @@
     }
 
     .review {
-      margin-bottom: 30px;
+      article {
+        padding: 8px;
+        border: 1px solid #ddd;
+        height: 100%;
 
-      .reviewer {
-        margin-bottom: 5px;
-
-        p {
-          color: #686868;
-          font-weight: bold;
+        .point-text {
+          font-size: 0.9rem;
         }
-      }
-
-      .stars {
-        margin-bottom: 5px;
-
-        .star {
-          color: #FFC200;
-          width: 1rem;
-        }
-      }
-
-      .date {
-        margin-bottom: 10px;
-      }
-
-      .review-picture {
-        width: 100%;
-        height: auto;
-        background-size: cover;
-        background-position: center;
-        box-sizing: border-box;
-        border: solid 1px #efefef;
-      }
-
-      .content {
-        div {
-          p {
-            margin-bottom: 0;
-            word-break: break-all;
-          }
-          .read-more, .read-less {
-            border: none;
-            background: transparent;
-            color: #8693FF;
-            font-size: 0.9rem;
-            padding: 0;
-            &:hover {
-              cursor: pointer;
-              text-decoration: underline;
-            }
-          }
-          .hide {
-            display: none;
-          }
-        }
-      }
-
-      .buttons-container {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 20px;
-
-        .like-button {
-          color: $base-brown;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 50px;
-          border: solid 2px $base-brown;
-          width: 70px;
-          box-sizing: border-box;
-          margin-right: 5px;
-
-          i {
-            font-size: 24px;
-            line-height: 28px;
-          }
-
-          span {
-            font-size: 14px;
-            line-height: 18px;
-            font-weight: bold;
-          }
-
-          &:hover {
-            opacity: 0.6;
-          }
+        .fa-star {
+          color: orange;
         }
 
-        .reply-button {
-          color: $base-brown;
-          height: 50px;
-          border: solid 2px $base-brown;
-          box-sizing: border-box;
-          font-weight: bold;
-          padding: 0 20px;
-
-          &:hover {
-            opacity: 0.6;
-          }
-        }
-      }
-
-      .comments {
-        margin-left: 20%;
-
-        .comment {
-          margin-bottom: 20px;
-
-          .commenter {
-            margin-bottom: 5px;
-
-            p {
-              color: #686868;
-              font-weight: bold;
-            }
-          }
-
-          .date {
-            margin-bottom: 10px;
-          }
-
-          .content {
-            margin-bottom: 15px;
-          }
-
-          .like-button {
-            color: $base-brown;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 50px;
-            border: solid 2px $base-brown;
-            width: 70px;
-            box-sizing: border-box;
-            margin-right: 5px;
-
-            i {
-              font-size: 24px;
-              line-height: 28px;
-            }
-
-            span {
-              font-size: 14px;
-              line-height: 18px;
-              font-weight: bold;
-            }
-
-            &:hover {
-              opacity: 0.6;
-            }
-          }
+        img {
+          max-height: 80px;
+          height: 72px;
+          max-width: 100%;
         }
       }
     }

@@ -1,0 +1,145 @@
+- set_meta_tags title: "#{@title} 中古販売・買取"
+
+// Itemの情報
+section.section.item__detail
+  .container
+    .columns.is-centered
+      .column
+        - breadcrumb(@item)
+        = render partial: '/breadcrumb'
+
+    .columns.is-centered.main.is-multiline
+      .column.is-12-mobile.is-12-tablet.is-12-desktop
+        h1.title
+          .model-name
+            = @title
+          span
+            | ◯中古取り扱い ◯高価買取
+
+      .column.is-12-mobile.is-7-tablet.is-7-desktop
+        table.table.detail-table
+          caption
+            | 基本情報
+          tr
+            th
+              | メーカー
+            td
+              = @item.maker.name
+          tr
+            th
+              | 種類
+            td
+              = @item.category.name
+          tr
+            th
+              | 大きさ
+            td
+              = print_text(@item.size)
+          tr
+            th
+              | 馬力
+            td
+              = print_text(@item.horse_power)
+          tr
+            th
+              | 質量(kg)
+            td
+              = print_text(@item.weight)
+          tr
+            th
+              | 機械の種類
+            td
+              = print_text(@item.machine_type)
+          tr
+            th
+              | 作業能率
+            td
+              = print_text(@item.work_efficiency)
+          tr
+            th
+              | 備考
+            td.other
+              = print_text(@item.other)
+
+
+      .column.is-12-mobile.is-5-tablet.is-5-desktop
+        .prices
+          p.farmally-price
+            strong
+              | 要見積もり
+            br
+            span
+              | (ファーマリー中古価格)
+          p.maker-price
+            = maker_price_range(@item)
+            | 円 
+            br 
+            span
+              | (メーカー希望小売価格)
+
+        .columns.buttons
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
+            = link_to(form_path, class: 'button form-button buy-button') do
+              span
+                | 農機具選びを
+                br.only-sp
+                | 無料相談する
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
+            = link_to(sell_form_path, class: 'button form-button sell-button') do
+              span
+                | 農機を売る
+
+
+// 現在出品中の商品
+section.section.item__sale-items
+  .container
+    .columns.is-centered
+      .column
+        h3.title
+          | 現在出品中の商品
+    .columns.is-centered
+      .column
+        .content
+          - if @sale_items.present?
+            = render 'items/sale_items', sale_items: @sale_items
+          - else
+            p
+              | 出品中の商品はありません
+
+
+// 口コミ
+section.section.item__reviews
+  .container
+    .title
+      | #{@item.maker_name} #{@item.model} の口コミ
+    .columns.is-centered
+      .column
+        .content
+          - if @reviews.present?
+            = render 'items/reviews', reviews: @reviews
+          - else
+            p
+              | まだ口コミはありません
+
+    .columns.is-centered
+      = link_to 'レビューする', new_item_review_path(@item), class: 'review-button'
+
+// お問い合わせ
+section.section.inquiry-buttons
+  p.inquiry-message
+    | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+  .columns
+    .column.is-6-tablet.is-6-desktop
+      a.button.phone-number-button href="tel:#{contact_phone_number}"
+        span.staff-message
+          | 専門スタッフが丁寧にお応えします
+        br
+        = image_tag "phone-icon.png", alt: "電話"
+        span.phone-number
+          = Settings.phone.contact
+    .column.is-6-tablet.is-6-desktop
+      a.js-open-modal.button.inquiry-button(
+          href="#"
+          onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': '商品一覧' });"
+          data-target="js-contact-form-modal")
+        | お問い合わせフォーム

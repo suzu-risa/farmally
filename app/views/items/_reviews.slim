@@ -1,0 +1,31 @@
+.columns.is-multiline
+  - reviews.each do |review|
+    .column.is-12-mobile.is-6-tablet.is-6-desktop.review
+      article
+        .columns
+          .column.is-6-mobile.is-6-tablet.is-6-desktop
+            - if review.picture.attached?
+              = image_tag url_for(review.picture)
+          .column.is-6-mobile.is-6-tablet.is-6-desktop
+            div
+              // TODO: デコレータ
+              = review.name? ? "#{review.name}様" : '名前なし'
+            div
+              - if review.star_unselected?
+                p.point-text
+                  | 評価なし
+              - else
+                p
+                  span.point-text
+                    | 評価
+                  - 5.times do |i|
+                    span.icon.star
+                      - if i + 1 <= review.star_count
+                        i.fas.fa-star
+                      - else
+                        i.far.fa-star
+
+        .columns
+          .column
+            p
+              = review.content.blank? ? '-' : with_read_more(review.id, review.content, 'review')
