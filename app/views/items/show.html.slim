@@ -1,4 +1,6 @@
 - set_meta_tags title: "#{@title} 中古販売・買取"
+
+// Itemの情報
 section.section.item__detail
   .container
     .columns.is-centered
@@ -86,6 +88,9 @@ section.section.item__detail
             = link_to(sell_form_path, class: 'button form-button sell-button') do
               span
                 | 農機を売る
+
+
+// 現在出品中の商品
 section.section.item__sale-items
   .container
     .columns.is-centered
@@ -96,11 +101,13 @@ section.section.item__sale-items
       .column
         .content
           - if @sale_items.present?
-            - @sale_items.each do |sale_item|
-              = render partial: 'items/sale_item', locals:{ sale_item: sale_item }
+            = render 'items/sale_items', sale_items: @sale_items
           - else
             p
               | 出品中の商品はありません
+
+
+// 口コミ
 section.section.item__reviews
   .container
     .columns.is-centered

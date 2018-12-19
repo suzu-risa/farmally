@@ -1,9 +1,4 @@
 module SaleItemDecorator
-  def attribute_list_text
-    [year_text, prefecture_name, status_i18n, horse_power_with_unit, used_hours_text]
-      .select(&:present?).join(" / ")
-  end
-
   def year_text
     year ? "#{year}#{self.class.human_attribute_name(:year)}" : nil
   end
