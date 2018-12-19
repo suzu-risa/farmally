@@ -5,7 +5,14 @@ section.section.item__detail
       .column
         - breadcrumb(@item)
         = render partial: '/breadcrumb'
-    .columns.is-centered.main
+
+    .columns.is-centered.main.is-multiline
+      h1.title.column.is-12-mobile.is-12-tablet.is-12-desktop
+        .model-name
+          = @title
+        span
+          | ◯中古取り扱い ◯高価買取
+
       .column.is-12-mobile.is-7-tablet.is-7-desktop
         table.table.detail-table
           caption
@@ -53,32 +60,29 @@ section.section.item__detail
 
 
       .column.is-12-mobile.is-5-tablet.is-5-desktop
-        h1.title.columns
-          .model-name
-            = @title
-          span
-            | ◯中古取り扱い ◯高価買取
         .prices
-          p
-            span
-              = maker_price_range(@item)
-            | 円 
-            span
-              | (メーカー希望小売価格)
           p.farmally-price
             strong
               | 要見積もり
+            br
             span
               | (ファーマリー中古価格)
+          p.maker-price
+            = maker_price_range(@item)
+            | 円 
+            br 
+            span
+              | (メーカー希望小売価格)
+
         .columns.buttons
-          .column.is-12-mobile.is-6-tablet.is-6-desktop
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
             = link_to(form_path, class: 'button form-button buy-button') do
               = image_tag 'talk.png', alt: ''
               span
                 | 農機具選びを
                 br.only-sp
                 | 無料相談する
-          .column.is-12-mobile.is-6-tablet.is-6-desktop
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
             = link_to(sell_form_path, class: 'button form-button sell-button') do
               = image_tag 'cart.png', alt: ''
               span
