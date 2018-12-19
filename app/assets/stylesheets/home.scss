@@ -28,11 +28,16 @@
   // アイキャッチセクション
   .eye-catch-section {
     width: 100%;
+
+    .hero-body {
+      padding: 4rem 1.5rem;
+    }
+
     .eye-catch {
       background: image-url("eye-catch.jpg") no-repeat;
       background-position: center;
       background-size: cover;
-      padding-bottom: 1rem;
+      padding-bottom: 2.5rem;
 
       // アイキャッチのタイトルとテキスト
       .eye-catch-text {
