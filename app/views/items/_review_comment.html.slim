@@ -1,0 +1,15 @@
+.comment
+  .commenter
+    p
+      = comment.name.present? ? comment.name : '名前なし'
+  .date
+    p
+      = comment.created_at.strftime('%Y年%m月%d日')
+  .content
+    = with_read_more(comment.id, comment.content, 'review_comment')
+  = form_with(url: likes_review_comment_path(comment), local: true) do |form|
+    = button_tag type: 'submit', class: 'button like-button' do
+      i.far.fa-heart
+      span
+        = comment.like_count
+        | 件
