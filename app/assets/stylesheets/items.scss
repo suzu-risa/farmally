@@ -149,6 +149,10 @@
   }
 
   &__reviews { // .item__reviews
+    .title {
+      @include title;
+    }
+
     .review-button {
       border: solid 2px $base-brown;
       border-radius: 5px;

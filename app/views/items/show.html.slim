@@ -113,7 +113,7 @@ section.section.item__reviews
     .columns.is-centered
       .column
         h3.title
-          | 口コミ
+          | #{@item.maker_name} #{@item.model} の口コミ
         = link_to 'レビューする', new_item_review_path(@item), class: 'review-button'
     .columns.is-centered
       .column
