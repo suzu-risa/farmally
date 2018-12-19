@@ -66,34 +66,32 @@
 
       // 農機選びを無料相談する/農機を売るボタン
       .buttons {
-        border-bottom: solid 2px $base-brown;
         padding: 10px 0;
+
+        &>.column:first-child {
+          padding-bottom: 0px;
+        }
 
         .form-button {
           width: 100%;
           margin: 0;
           font-weight: bold;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           box-sizing: border-box;
+          color: white;
+          height: 72px;
 
           &.buy-button {
-            color: white;
-            background-color: $base-brown;
-            margin-bottom: 10px;
-            height: 60px;
+            background-color: $inquiry-red;
 
             @media screen and (max-width: 399px) {
               margin-bottom: -10px;
             }
 
-            img {
-              width: 24px;
-              position: absolute;
-              left: 20px;
-            }
             &:hover {
-              background-color: darken($base-brown, 10%);
+              background-color: darken($inquiry-red,10%);
             }
+
             span {
               @media screen and (min-width: 400px) {
                 > .only-sp {
@@ -107,17 +105,10 @@
           }
 
           &.sell-button {
-            color: $base-brown;
-            border: solid 1px $base-brown;
-            height: 60px;
-            margin-bottom: 10px;
-            img {
-              width: 24px;
-              position: absolute;
-              left: 20px;
-            }
+            background-color: $inquiry-blue;
+
             &:hover {
-              background-color: darken(white, 10%);
+              background-color: darken($inquiry-blue, 10%);
             }
           }
         }
