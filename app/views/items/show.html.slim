@@ -123,18 +123,23 @@ section.section.item__reviews
 
     .columns.is-centered
       = link_to 'レビューする', new_item_review_path(@item), class: 'review-button'
-  /
-    .columns.is-centered
-      .column
-        h3.title
-          | #{@item.maker_name} #{@item.model} の口コミ
-        = link_to 'レビューする', new_item_review_path(@item), class: 'review-button'
-    .columns.is-centered
-      .column
-        .content
-          - if @reviews.present?
-            - @reviews.each do |review|
-              = render partial: 'items/review', locals:{ review: review }
-          - else
-            p
-              | まだ口コミはありません
+
+// お問い合わせ
+section.section.inquiry-buttons
+  p.inquiry-message
+    | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
+  .columns
+    .column.is-6-tablet.is-6-desktop
+      a.button.phone-number-button href="tel:#{contact_phone_number}"
+        span.staff-message
+          | 専門スタッフが丁寧にお応えします
+        br
+        = image_tag "phone-icon.png", alt: "電話"
+        span.phone-number
+          = Settings.phone.contact
+    .column.is-6-tablet.is-6-desktop
+      a.js-open-modal.button.inquiry-button(
+          href="#"
+          onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': '商品一覧' });"
+          data-target="js-contact-form-modal")
+        | お問い合わせフォーム
