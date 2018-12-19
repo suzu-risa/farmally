@@ -110,9 +110,19 @@ section.section.item__sale-items
 // 口コミ
 section.section.item__reviews
   .container
-    .columns.is-multiline
+    .title
+      | #{@item.maker_name} #{@item.model} の口コミ
+    .columns.is-centered
+      .column
+        .content
+          - if @reviews.present?
+            = render 'items/reviews', reviews: @reviews
+          - else
+            p
+              | まだ口コミはありません
 
-
+    .columns.is-centered
+      = link_to 'レビューする', new_item_review_path(@item), class: 'review-button'
   /
     .columns.is-centered
       .column

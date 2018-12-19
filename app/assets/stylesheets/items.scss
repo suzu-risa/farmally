@@ -179,159 +179,22 @@
     }
 
     .review {
-      margin-bottom: 30px;
+      article {
+        padding: 8px;
+        border: 1px solid #ddd;
+        height: 100%;
 
-      .reviewer {
-        margin-bottom: 5px;
-
-        p {
-          color: #686868;
-          font-weight: bold;
+        .point-text {
+          font-size: 0.9rem;
         }
-      }
-
-      .stars {
-        margin-bottom: 5px;
-
-        .star {
-          color: #FFC200;
-          width: 1rem;
-        }
-      }
-
-      .date {
-        margin-bottom: 10px;
-      }
-
-      .review-picture {
-        width: 100%;
-        height: auto;
-        background-size: cover;
-        background-position: center;
-        box-sizing: border-box;
-        border: solid 1px #efefef;
-      }
-
-      .content {
-        div {
-          p {
-            margin-bottom: 0;
-            word-break: break-all;
-          }
-          .read-more, .read-less {
-            border: none;
-            background: transparent;
-            color: #8693FF;
-            font-size: 0.9rem;
-            padding: 0;
-            &:hover {
-              cursor: pointer;
-              text-decoration: underline;
-            }
-          }
-          .hide {
-            display: none;
-          }
-        }
-      }
-
-      .buttons-container {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 20px;
-
-        .like-button {
-          color: $base-brown;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 50px;
-          border: solid 2px $base-brown;
-          width: 70px;
-          box-sizing: border-box;
-          margin-right: 5px;
-
-          i {
-            font-size: 24px;
-            line-height: 28px;
-          }
-
-          span {
-            font-size: 14px;
-            line-height: 18px;
-            font-weight: bold;
-          }
-
-          &:hover {
-            opacity: 0.6;
-          }
+        .fa-star {
+          color: orange;
         }
 
-        .reply-button {
-          color: $base-brown;
-          height: 50px;
-          border: solid 2px $base-brown;
-          box-sizing: border-box;
-          font-weight: bold;
-          padding: 0 20px;
-
-          &:hover {
-            opacity: 0.6;
-          }
-        }
-      }
-
-      .comments {
-        margin-left: 20%;
-
-        .comment {
-          margin-bottom: 20px;
-
-          .commenter {
-            margin-bottom: 5px;
-
-            p {
-              color: #686868;
-              font-weight: bold;
-            }
-          }
-
-          .date {
-            margin-bottom: 10px;
-          }
-
-          .content {
-            margin-bottom: 15px;
-          }
-
-          .like-button {
-            color: $base-brown;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 50px;
-            border: solid 2px $base-brown;
-            width: 70px;
-            box-sizing: border-box;
-            margin-right: 5px;
-
-            i {
-              font-size: 24px;
-              line-height: 28px;
-            }
-
-            span {
-              font-size: 14px;
-              line-height: 18px;
-              font-weight: bold;
-            }
-
-            &:hover {
-              opacity: 0.6;
-            }
-          }
+        img {
+          max-height: 80px;
+          height: 72px;
+          max-width: 100%;
         }
       }
     }
