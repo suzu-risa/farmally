@@ -7,11 +7,12 @@ section.section.item__detail
         = render partial: '/breadcrumb'
 
     .columns.is-centered.main.is-multiline
-      h1.title.column.is-12-mobile.is-12-tablet.is-12-desktop
-        .model-name
-          = @title
-        span
-          | ◯中古取り扱い ◯高価買取
+      .column.is-12-mobile.is-12-tablet.is-12-desktop
+        h1.title
+          .model-name
+            = @title
+          span
+            | ◯中古取り扱い ◯高価買取
 
       .column.is-12-mobile.is-7-tablet.is-7-desktop
         table.table.detail-table
