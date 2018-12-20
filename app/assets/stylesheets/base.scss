@@ -3,6 +3,20 @@
 @import "header";
 @import "footer";
 
+.only-mobile {
+  @include until($tablet) {
+    display: none;
+  }
+}
+
+.except-mobile {
+  display: none;
+
+  @include from($tablet) {
+    display: initial;
+  }
+}
+
 .modal {
   z-index: 100;
 }

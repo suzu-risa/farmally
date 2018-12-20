@@ -14,13 +14,13 @@ footer.footer
 - if show_fixed_form
   div[style="height: 60px;"]
   section.hero.is-white.fixed-footer
-    .columns.inquiry-buttons
+    .columns.fixed-footer-inquiry-buttons
       .column.is-6-mobile.is-6-tablet.is-6-desktop
         a.button.phone-number-button href="tel:#{contact_phone_number}"
           span.staff-message
             | 専門スタッフが丁寧にお応えします
           br
-          = image_tag "phone-icon.png", alt: "電話"
+          = image_tag "phone-icon.png", alt: "電話", class: 'except-mobile'
           span.phone-number
             = Settings.phone.contact
       .column.is-6-mobile.is-6-tablet.is-6-desktop
