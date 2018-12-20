@@ -62,7 +62,8 @@ ja:
         sale_item_template_id: プロパティテンプレート
         sold_at: 売却日時
         horse_power: 馬力
-        used_hours: アワーメーター
+        used_hours: アワー
+        prefecture: 地域
         prefecture_code: 地域
         year: 年式
         status: ステータス

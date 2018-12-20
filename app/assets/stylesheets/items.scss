@@ -1,12 +1,12 @@
 .item {
   // モデル名
   @mixin title {
-    padding: 8px 16px;
-    background-color: whitesmoke;
+    align-items: baseline;
+    background-color: $background-grey;
+    display: flex;
     font-size: 1.5rem;
     margin-bottom: 10px;
-    display: flex;
-    align-items: baseline;
+    padding: 8px 16px;
 
     @media screen and (max-width: 769px) {
       flex-direction: column;
@@ -22,13 +22,13 @@
   }
 
   &__detail { // .item__detail
-    padding-bottom: 30px;
     box-sizing: border-box;
+    padding-bottom: 30px;
 
     .main {
       .item-image {
-        box-sizing: border-box;
         border: solid 12px lighten($base-brown, 20%);
+        box-sizing: border-box;
         width: 100%;
       }
 
@@ -41,28 +41,28 @@
         border: 1px solid;
 
         .farmally-price {
-          color: red;
+          color: #f00;
           padding: 32px;
           text-align: center;
 
           strong {
+            color: #f00;
             font-size: 1.2rem;
-            color: red;
           }
 
           span {
-            font-size: 0.8em;
+            font-size: .8em;
           }
         }
 
         .maker-price {
-          background-color: black;
-          color: white;
+          background-color: #000;
+          color: #fff;
           padding: 4px;
           text-align: center;
 
           span {
-            font-size: 0.8em;
+            font-size: .8em;
           }
         }
       }
@@ -76,13 +76,13 @@
         }
 
         .form-button {
-          width: 100%;
-          margin: 0;
-          font-weight: bold;
-          font-size: 1.1rem;
           box-sizing: border-box;
-          color: white;
+          color: #fff;
+          font-size: 1.1rem;
+          font-weight: bold;
           height: 72px;
+          margin: 0;
+          width: 100%;
 
           &.buy-button {
             background-color: $inquiry-red;
@@ -122,18 +122,19 @@
         width: 100%;
 
         caption {
-          background: linear-gradient(white, #ddd);
+          background: linear-gradient(#fff, #ddd);
           border: 1px solid #ddd;
           padding: 4px;
           text-align: center;
         }
 
-        th, td {
+        th,
+        td {
           border: 1px solid #ddd;
         }
 
         th {
-          background-color: whitesmoke;
+          background-color: $background-grey;
           font-weight: normal;
           text-align: center;
           width: 40%;
@@ -156,22 +157,24 @@
     .review-button {
       border: solid 2px $base-brown;
       border-radius: 5px;
-      width: 90%;
-      height: 64px;
       box-sizing: border-box;
-      font-size: 1.5rem;
       color: $base-brown;
-      font-weight: bold;
-      display: block;
-      text-align: center;
-      line-height: 62px;
       cursor: pointer;
-      text-decoration: none;
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      height: 64px;
+      line-height: 62px;
       margin: 0 auto;
       margin-bottom: 20px;
+      text-align: center;
+      text-decoration: none;
+      width: 90%;
+
       &:hover {
-        opacity: 0.6;
+        opacity: .6;
       }
+
       &:visited {
         color: $base-brown;
         text-decoration: none;
@@ -180,20 +183,21 @@
 
     .review {
       article {
-        padding: 8px;
         border: 1px solid #ddd;
         height: 100%;
+        padding: 8px;
 
         .point-text {
-          font-size: 0.9rem;
+          font-size: .9rem;
         }
+
         .fa-star {
-          color: orange;
+          color: #ffa500;
         }
 
         img {
-          max-height: 80px;
           height: 72px;
+          max-height: 80px;
           max-width: 100%;
         }
       }

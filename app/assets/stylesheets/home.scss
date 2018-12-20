@@ -7,22 +7,22 @@
   // 共通
   //
   section {
+    margin: 0 auto 40px auto;
     width: 80%;
-    margin: 0 auto 40px auto;;
   }
 
   .view-all-button {
+    background-color: #ffa500;
+    border-color: #ffa500;
+    color: #fff;
     display: block;
-    width: 60%;
     font-size: 1.2em;
-    background-color: orange;
-    color: white;
     font-weight: bold;
-    border-color: orange;
     height: 50px;
     line-height: 50px;
-    padding: 0;
     margin: 0 auto;
+    padding: 0;
+    width: 60%;
   }
 
   // アイキャッチセクション
@@ -41,15 +41,15 @@
 
       // アイキャッチのタイトルとテキスト
       .eye-catch-text {
-        text-align: center;
         margin-bottom: 16px;
+        text-align: center;
 
         h1 {
-          color: white;
+          color: #fff;
         }
 
         p {
-          color: white;
+          color: #fff;
           font-weight: bold;
         }
       }
@@ -58,7 +58,7 @@
       .eye-catch-button-columns {
         .button {
           border-radius: 12px;
-          color: white;
+          color: #fff;
           font-weight: bold;
           height: 48px;
           padding-left: 1.5rem;
@@ -90,12 +90,12 @@
 
   // ファーマリーの特徴
   .feature-section {
-    text-align: center;
     margin-top: 10px;
+    text-align: center;
 
     .feature-columns {
-      width: 80%;
       margin: 0 auto;
+      width: 80%;
 
       @media screen and (max-width: 769px) {
         width: 100%;
@@ -116,13 +116,13 @@
 
     .content-title {
       font-size: 1.8em;
-      text-align: center;
       margin-top: 20px;
+      text-align: center;
 
       .content-title-buy {
         border-bottom: 2px solid $buy-color;
-        padding-bottom: 4px;
         margin-right: 8px;
+        padding-bottom: 4px;
       }
 
       .content-title-sell {
@@ -144,9 +144,9 @@
   // 検索フォーム
   .search-section {
     .search-box {
-      background-color: whitesmoke;
-      padding: 16px;
+      background-color: $background-grey;
       margin: 0 auto 16px auto;
+      padding: 16px;
 
       .select {
         width: 100%;
@@ -158,7 +158,7 @@
 
       .button {
         background-color: #363636;
-        color: white;
+        color: #fff;
         display: block;
         margin: 0 auto;
         width: 80%;
@@ -187,23 +187,24 @@
       font-size: 1.5em;
       text-align: center;
       span {
-        position: relative;
         display: inline-block;
         margin: 0 2.5em;
         padding: 0 1em;
+        position: relative;
         text-align: left;
         @media screen and (max-width: 769px) {
-          padding: 0 0.5em;
           margin: 0;
+          padding: 0 .5em;
         }
 
-        &::before, &::after {
+        &::before,
+&::after {
           background-color: $base-color;
           box-sizing: border-box;
+          content: "";
+          height: 4px;
           position: absolute;
           top: 50%;
-          content: '';
-          height: 4px;
           width: 200px; // TODO: mobileの時のサイズ変える
 
           @media screen and (max-width: 769px) {
@@ -222,19 +223,19 @@
     }
 
     .content-columns {
-      background-color: whitesmoke;
+      background-color: $background-grey;
 
       .description-title {
         background-color: $base-color;
-        text-align: left;
-        padding: 8px;
+        color: #fff;
         font-size: 1em;
-        color: white;
         margin-bottom: 8px;
+        padding: 8px;
+        text-align: left;
       }
 
       .description {
-        font-size: 0.8em;
+        font-size: .8em;
         li {
           padding-bottom: 4px;
         }
@@ -253,36 +254,36 @@
   .sale-item-section {
 
     .title {
-      position: relative;
-      background: linear-gradient(white, #ddd);
+      background: linear-gradient(#fff, #ddd);
       border: 1px solid #ababab;
+      font-size: 1.2em;
       padding: 8px;
       padding-left: 42px;
+      position: relative;
       text-align: left;
-      font-size: 1.2em;
       img {
         height: 25px;
-        position: absolute;
         left: 5px;
+        position: absolute;
       }
     }
 
     .sale-item-columns {
       .sale-item-column {
-        color: black;
+        color: #000;
 
         .sale-item {
-          background-color: whitesmoke;
-          border: 1px solid gray;
-          font-size: 0.8em;
+          background-color: $background-grey;
+          border: 1px solid #808080;
+          font-size: .8em;
           padding: 8px;
 
           .sale-item-model-name {
-            font-weight: bold;
-            padding-bottom: 4px;
+            align-items: center;
             display: flex;
             flex-direction: row;
-            align-items: center;
+            font-weight: bold;
+            padding-bottom: 4px;
             img {
               display: block;
               width: 36px;
@@ -299,17 +300,17 @@
             width: 100%;
 
             .price-td {
-              background-color: black;
-              color: white;
+              background-color: #000;
+              color: #fff;
               text-align: center;
               span {
-                font-size: 0.8em;
+                font-size: .8em;
                 padding-right: 4px;
               }
             }
 
             td {
-              border: 1px solid gray;
+              border: 1px solid #808080;
             }
           }
         }
@@ -333,19 +334,19 @@
     width: 100%;
 
     .new-article-section-container {
-      background-color: rgba(0,0,0,0.3);
+      background-color: rgba(0,0,0,.3);
       min-height: 500px;
 
       .new-article-section-contents {
-        width: 80%;
         margin: 0 auto;
         padding-top: 16px;
+        width: 80%;
 
         .title {
-          color: white;
           border-bottom: 3px solid;
-          padding-bottom: 4px;
+          color: #fff;
           font-size: 1.2em;
+          padding-bottom: 4px;
           padding-left: 8px;
         }
       }
@@ -354,35 +355,35 @@
     #app {
       .column {
         .article-column-content {
-          background-color: white;
+          background-color: #fff;
           border-radius: 8px;
-          font-size: 0.8em;
+          font-size: .8em;
           height: inherit;
           padding: 16px;
 
           .thumbnail {
-            background-color: lightgray;
-            background-repeat: no-repeat;
+            background-color: #d3d3d3;
             background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
-            width: 100%;
             height: 200px;
             margin-bottom: 16px;
+            width: 100%;
             @media screen and (min-width: 769px) {
-              width: 100%;
               height: 144px;
+              width: 100%;
             }
           }
 
           .title {
             border-bottom: 0;
             color: $base-brown;
-            padding: 0;
             margin: 0 0 8px 0;
+            padding: 0;
           }
 
           .description {
-            color: black;
+            color: #000;
           }
         }
       }

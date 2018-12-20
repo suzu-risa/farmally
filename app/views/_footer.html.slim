@@ -14,13 +14,13 @@ footer.footer
 - if show_fixed_form
   div[style="height: 60px;"]
   section.hero.is-white.fixed-footer
-    .columns.inquiry-buttons
+    .columns.fixed-footer-inquiry-buttons
       .column.is-6-mobile.is-6-tablet.is-6-desktop
         a.button.phone-number-button href="tel:#{contact_phone_number}"
           span.staff-message
             | 専門スタッフが丁寧にお応えします
-          br
-          = image_tag "phone-icon.png", alt: "電話"
+            br
+          = image_tag "phone-icon.png", alt: "電話", class: "phone-icon"
           span.phone-number
             = Settings.phone.contact
       .column.is-6-mobile.is-6-tablet.is-6-desktop
@@ -28,8 +28,10 @@ footer.footer
             href="#"
             onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': '固定フッター' });"
             data-target="js-contact-form-modal")
-
-          | お問い合わせフォーム
+          i.far.fa-envelope
+          | お問い合わせ
+          span.except-mobile
+            | フォーム
 
 // お問い合わせモーダル
 // 固定フッター以外にもTOPから呼ばれるため、show_fixed_formの分岐に入っていない

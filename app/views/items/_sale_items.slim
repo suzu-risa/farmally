@@ -1,5 +1,4 @@
-// TODO: 出品商品一覧画面と共通化したさはあります。
-article.columns.is-multiline.item-columns
+.columns.is-multiline.item-columns
   - sale_items.each do |sale_item|
     .column.item-column.is-6-tablet.is-3-desktop
       .item
@@ -12,28 +11,28 @@ article.columns.is-multiline.item-columns
         table.table
           tr
             td
-              | 年式
+              = sale_item.class.human_attribute_name(:year)
             td
               = sale_item.year_text
           tr
             td
-              | 地域
+              = sale_item.class.human_attribute_name(:prefecture)
             td
               = sale_item.prefecture_name
           tr
             td
-              | 馬力
+              = sale_item.class.human_attribute_name(:horse_power)
             td
               = sale_item.horse_power_with_unit
           tr
             td
-              | アワー
+              = sale_item.class.human_attribute_name(:used_hours)
             td
               = sale_item.used_hours_with_unit
           tr
             td.price-td colspan="2"
               span
-                | 価格
+                = sale_item.class.human_attribute_name(:price)
               = number_to_currency(sale_item.price)
 
         = link_to sale_item.show_path, class: "detail-link"
