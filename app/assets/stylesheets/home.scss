@@ -144,7 +144,7 @@
   // 検索フォーム
   .search-section {
     .search-box {
-      background-color: whitesmoke;
+      background-color: $background-grey;
       padding: 16px;
       margin: 0 auto 16px auto;
 
@@ -222,7 +222,7 @@
     }
 
     .content-columns {
-      background-color: whitesmoke;
+      background-color: $background-grey;
 
       .description-title {
         background-color: $base-color;
@@ -272,7 +272,7 @@
         color: black;
 
         .sale-item {
-          background-color: whitesmoke;
+          background-color: $background-grey;
           border: 1px solid gray;
           font-size: 0.8em;
           padding: 8px;

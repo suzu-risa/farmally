@@ -31,7 +31,7 @@
     }
 
     .phone-number-button {
-      background-color: #ef0000;
+      background-color: $inquiry-red;
       color: white;
 
       @include until($tablet) {
@@ -69,7 +69,7 @@
     }
 
     .inquiry-button {
-      background-color: #02669a;
+      background-color: $inquiry-blue;
       color: white;
       padding: 18px;
 

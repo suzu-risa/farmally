@@ -2,7 +2,7 @@
   // モデル名
   @mixin title {
     padding: 8px 16px;
-    background-color: whitesmoke;
+    background-color: $background-grey;
     font-size: 1.5rem;
     margin-bottom: 10px;
     display: flex;
@@ -133,7 +133,7 @@
         }
 
         th {
-          background-color: whitesmoke;
+          background-color: $background-grey;
           font-weight: normal;
           text-align: center;
           width: 40%;
