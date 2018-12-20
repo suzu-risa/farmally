@@ -8,8 +8,7 @@
               = image_tag url_for(review.picture)
           .column.is-6-mobile.is-6-tablet.is-6-desktop
             div
-              // TODO: デコレータ
-              = review.name? ? "#{review.name}様" : '名前なし'
+              = review.display_name
             div
               - if review.star_unselected?
                 p.point-text

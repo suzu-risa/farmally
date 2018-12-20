@@ -101,7 +101,8 @@ section.section.item__sale-items
       .column
         .content
           - if @sale_items.present?
-            = render 'items/sale_items', sale_items: @sale_items
+            article
+              = render 'items/sale_items', sale_items: @sale_items
           - else
             p
               | 出品中の商品はありません
