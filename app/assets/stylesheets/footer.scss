@@ -34,13 +34,30 @@
       background-color: #ef0000;
       color: white;
 
-      .staff-message {
-        font-size: 0.8em;
+      @include until($tablet) {
+        font-size: 0.9rem;
+        padding: 8px;
       }
 
-      img {
+      .staff-message {
+        font-size: 0.8em;
+
+        @include until($tablet) {
+          display: none;
+        }
+      }
+
+      .phone-icon {
         width: 26px;
         vertical-align: sub;
+
+        @include until($tablet) {
+          display: block;
+          margin: 0 auto;
+          height: 32px;
+          width: auto;
+          padding-bottom: 4px;
+        }
       }
 
       .phone-number {
@@ -52,13 +69,34 @@
     }
 
     .inquiry-button {
+      background-color: #02669a;
+      color: white;
+      padding: 18px;
+
       @include from($tablet) {
         font-size: 1.5em;
       }
 
-      background-color: #02669a;
-      color: white;
-      padding: 18px;
+      @include until($tablet) {
+        font-size: 0.8rem;
+        padding: 8px;
+      }
+
+      .except-mobile {
+        @include until($tablet) {
+          display: none;
+        }
+      }
+
+      .fa-envelope {
+        display: block;
+        font-size: 2rem;
+        padding-bottom: 2px;
+
+        @include from($tablet) {
+          display: none;
+        }
+      }
     }
   }
 }
