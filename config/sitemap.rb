@@ -31,7 +31,6 @@ SitemapGenerator::Sitemap.create do
 
   # TODO: ページが完成したら追加する
   # add terms_of_service_path
-  # add privacy_policy_path
   # add specified_commercial_path
   # add company_path
 
