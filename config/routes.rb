@@ -64,14 +64,10 @@ Rails.application.routes.draw do
   resources :contacts, only: :create
 
   get '/search' => 'home#search'
-  # get '/terms-of-service', to: 'home#terms'
-  # get '/privacy-policy', to: 'home#privacy'
-  # get '/specified-commercial', to: 'home#commercial'
-  # get '/company', to: 'home#company'
-  get '/terms-of-service', to: 'home#index'
-  get '/privacy-policy', to: 'home#index'
-  get '/specified-commercial', to: 'home#index'
-  get '/company', to: 'home#index'
+  get '/terms-of-service', to: 'home#terms'
+  get '/privacy-policy', to: 'home#privacy'
+  get '/specified-commercial', to: 'home#commercial'
+  get '/company', to: 'home#company'
   get '/form', to: 'home#form'
   get '/sell-form', to: 'home#sell_form'
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
