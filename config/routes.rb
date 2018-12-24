@@ -65,7 +65,6 @@ Rails.application.routes.draw do
 
   get '/search' => 'home#search'
   get '/terms-of-service', to: 'home#terms'
-  get '/privacy-policy', to: 'home#privacy'
   get '/specified-commercial', to: 'home#commercial'
   get '/company', to: 'home#company'
   get '/form', to: 'home#form'
@@ -178,10 +177,9 @@ end
 #                                forms POST   /forms(.:format)                                                                         forms#create
 #                             contacts POST   /contacts(.:format)                                                                      contacts#create
 #                               search GET    /search(.:format)                                                                        home#search
-#                     terms_of_service GET    /terms-of-service(.:format)                                                              home#index
-#                       privacy_policy GET    /privacy-policy(.:format)                                                                home#index
-#                 specified_commercial GET    /specified-commercial(.:format)                                                          home#index
-#                              company GET    /company(.:format)                                                                       home#index
+#                     terms_of_service GET    /terms-of-service(.:format)                                                              home#terms
+#                 specified_commercial GET    /specified-commercial(.:format)                                                          home#commercial
+#                              company GET    /company(.:format)                                                                       home#company
 #                                 form GET    /form(.:format)                                                                          home#form
 #                            sell_form GET    /sell-form(.:format)                                                                     home#sell_form
 #                              sitemap GET    /sitemap(.:format)                                                                       redirect(301, https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz)
