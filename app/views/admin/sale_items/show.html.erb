@@ -50,6 +50,16 @@ as well as a link to its edit page.
 
   <tr>
     <td>
+      <%= SaleItem.human_attribute_name(:name) %>
+    </td>
+
+    <td>
+      <%= page.resource.name %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
       <%= SaleItem.human_attribute_name(:price) %>
     </td>
 

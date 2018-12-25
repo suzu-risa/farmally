@@ -47,6 +47,15 @@ and renders all form fields for a resource's editable attributes.
 
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
+      <%= f.label :name %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.text_field :name, required: true %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
       <%= f.label :price %>
     </div>
     <div class="field-unit__field">

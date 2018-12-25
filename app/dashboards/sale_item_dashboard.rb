@@ -13,6 +13,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
       class_name: "SaleItemTemplate"
     ),
     id: Field::Number,
+    name: Field::String,
     price: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -25,6 +26,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :item,
+    :name,
     :sale_item_template,
     :id,
     :price,

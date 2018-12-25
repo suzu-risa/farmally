@@ -51,6 +51,7 @@ ja:
         category: 種類
         detail_tables: 詳細テーブル
       sale_item:
+        name: 商品名
         item: 商品
         item_id: 商品
         price: 価格
@@ -295,6 +296,7 @@ ja:
         created_at: 作成日時
         updated_at: 更新日時
       sale_item:
+        name: 商品名
         item: 商品
         sale_item_template: テンプレート
         price: 価格
