@@ -4,9 +4,29 @@
     box-sizing: border-box;
     border-bottom: solid 2px $base-brown;
 
-    .slick-slider {
-       margin-bottom: 30px;
-     }
+    .slick-slide-container {
+      .slick-slider {
+         margin-bottom: 30px;
+         line-height: 1rem;
+       }
+
+      .slick-slide {
+        img {
+          max-height: 400px;
+          width: auto !important; // javascriptで要素にwidthが付与されてしまうため
+        }
+      }
+
+      .slick-track {
+        align-items: center;
+        display: flex;
+        background: whitesmoke;
+      }
+
+      .thumbnail-container {
+        align-items: center;
+      }
+    }
 
     .thumbnail-list {
       width: 300px;

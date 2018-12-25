@@ -7,68 +7,69 @@ section.section.sale-item__detail
         = render partial: '/breadcrumb'
     .columns.is-centered.main
       .column.is-12-mobile.is-6-tablet.is-6-desktop.has-text-centered
-        |  <div id="sale-item-image" data-url="
-        = item_sale_item_images_path(sale_item_id: @sale_item, item_id: @item)
-        | "> 
-    .column.is-12-mobile.is-6-tablet.is-6-desktop
-      h1.title
-        = @sale_item.model
-        br
-        = number_to_currency(@sale_item.price)
-      .columns.buttons
-        .column.is-12-mobile.is-12-tablet.is-12-desktop
-          |  <a href="tel:
-          = contact_phone_number
-          | " class="button form-button phone-button" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_category': '出品商品' });"> 
-          span.icon
-            i.fas.fa-phone
-          span
-            | 電話お問い合わせ
-        .column.is-12-mobile.is-12-tablet.is-12-desktop
-          a.js-open-modal.button.form-button.contact-button(
-            href="#"
-            onclick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"
-            data-target="js-sale-item-inquiry-modal")
-
+        #sale-item-image.slick-slide-container data-url=(item_sale_item_images_path(sale_item_id: @sale_item, item_id: @item))
+      .column.is-12-mobile.is-6-tablet.is-6-desktop
+        h1.title
+          = @sale_item.name
+          - if @sale_item.name
+            br
+          = @sale_item.model
+          br
+          = number_to_currency(@sale_item.price)
+        .columns.buttons
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
+            |  <a href="tel:
+            = contact_phone_number
+            | " class="button form-button phone-button" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_category': '出品商品' });"> 
             span.icon
-              i.fas.fa-envelope
+              i.fas.fa-phone
             span
-              | この商品に関して
-              br.only-sp
-              | 問い合わせる
-      .detail
-        table.table
-          tbody
-            tr
-              th
-                = @sale_item.class.human_attribute_name(:price)
-              td
-                = number_to_currency(@sale_item.price)
-            tr
-              th
-                = @sale_item.class.human_attribute_name(:prefecture_code)
-              td
-                = @sale_item.prefecture_name
-            tr
-              th
-                = @sale_item.class.human_attribute_name(:year)
-              td
-                = @sale_item.year_text
-            tr
-              th
-                = @sale_item.class.human_attribute_name(:horse_power)
-              td
-                = @sale_item.horse_power_with_unit
-            tr
-              th
-                = @sale_item.class.human_attribute_name(:used_hours)
-              td
-                = @sale_item.used_hours_with_unit
-            tr
-              th
-                = @sale_item.class.human_attribute_name(:status)
-              td
-                = @sale_item.status_i18n
+              | 電話お問い合わせ
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
+            a.js-open-modal.button.form-button.contact-button(
+              href="#"
+              onclick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"
+              data-target="js-sale-item-inquiry-modal")
+
+              span.icon
+                i.fas.fa-envelope
+              span
+                | この商品に関して
+                br.only-sp
+                | 問い合わせる
+        .detail
+          table.table
+            tbody
+              tr
+                th
+                  = @sale_item.class.human_attribute_name(:price)
+                td
+                  = number_to_currency(@sale_item.price)
+              tr
+                th
+                  = @sale_item.class.human_attribute_name(:prefecture_code)
+                td
+                  = @sale_item.prefecture_name
+              tr
+                th
+                  = @sale_item.class.human_attribute_name(:year)
+                td
+                  = @sale_item.year_text
+              tr
+                th
+                  = @sale_item.class.human_attribute_name(:horse_power)
+                td
+                  = @sale_item.horse_power_with_unit
+              tr
+                th
+                  = @sale_item.class.human_attribute_name(:used_hours)
+                td
+                  = @sale_item.used_hours_with_unit
+              tr
+                th
+                  = @sale_item.class.human_attribute_name(:status)
+                td
+                  = @sale_item.display_status
 section.section.sale-item__detail
   - @sale_item.detail_with_template.tables.each do |table|
     table.table
@@ -80,7 +81,7 @@ section.section.sale-item__detail
             th
               = property.name
             td
-              = property.value
+              = property.value.presence || "-"
     br
 
 // お問い合わせモーダル

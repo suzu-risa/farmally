@@ -9,6 +9,8 @@ footer.footer
     .contents
       - @categories.each do |category|
         = link_to category.name, category.show_path
+  .copyright
+    | &copy; Farmally, inc.
 
 - if show_fixed_form
   div[style="height: 60px;"]

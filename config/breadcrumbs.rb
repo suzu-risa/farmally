@@ -29,7 +29,7 @@ end
 
 crumb :sale_item do |sale_item|
   parent :item, sale_item.item
-  link "#{sale_item.class.model_name.human}番号:#{sale_item.id}", item_sale_item_path(sale_item)
+  link "#{sale_item.name}", item_sale_item_path(sale_item)
 end
 
 # crumb :projects do

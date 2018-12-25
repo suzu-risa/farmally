@@ -50,7 +50,7 @@ class SaleItemImageSlider extends React.Component {
         <Slider ref={slider => (this.slider = slider)} {...settings}>
           {itemImages}
         </Slider>
-        <div className="columns is-mobile is-multiline">
+        <div className="columns is-mobile is-multiline thumbnail-container">
           {thumbnailItemImageColumns}
         </div>
       </div>

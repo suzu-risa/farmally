@@ -7,7 +7,7 @@ class SaleItemsController < ApplicationController
     @item = find_item(params[:item_id])
     @sale_item = find_sale_item(params[:id])
     @inquiry = @sale_item.inquiries.build
-    @title = @item.model
+    @title = "#{@sale_item.name} #{@sale_item.model}".strip
   end
 
   def images

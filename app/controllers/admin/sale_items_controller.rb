@@ -65,6 +65,7 @@ module Admin
     def resource_params
       params.require(resource_class.model_name.param_key).
         permit(:item_id,
+               :name,
                :price,
                :used_hours,
                :year,
