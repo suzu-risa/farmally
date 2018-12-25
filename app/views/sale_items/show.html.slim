@@ -69,7 +69,7 @@ section.section.sale-item__detail
                 th
                   = @sale_item.class.human_attribute_name(:status)
                 td
-                  = @sale_item.status_i18n
+                  = @sale_item.display_status
 section.section.sale-item__detail
   - @sale_item.detail_with_template.tables.each do |table|
     table.table
@@ -81,7 +81,7 @@ section.section.sale-item__detail
             th
               = property.name
             td
-              = property.value
+              = property.value.presence || "-"
     br
 
 // お問い合わせモーダル
