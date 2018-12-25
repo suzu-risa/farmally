@@ -5,6 +5,7 @@
 #  id                    :bigint(8)        not null, primary key
 #  detail_json           :json
 #  horse_power           :string(255)
+#  name                  :string(255)      not null
 #  prefecture_code       :integer
 #  price                 :integer          default(0), not null
 #  sold_at               :datetime
