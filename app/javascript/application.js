@@ -62,3 +62,42 @@ if(searchItemFormCategory) {
     searchItemFormCategory.addEventListener('change', changeCategoryFieldCallback);
   });
 }
+
+const newItemForm = document.getElementById("new_item");
+
+if(newItemForm) {
+  const categoryField = document.getElementById("item_category_id");
+  document.addEventListener('DOMContentLoaded', () => {
+    const changeCategoryFieldCallback = function() {
+      const categoryId = categoryField.value;
+
+      const subCategoryField = document.getElementById("item_sub_category_id");
+      while (subCategoryField.firstChild) subCategoryField.removeChild(subCategoryField.firstChild);
+      const promptOption = document.createElement("option");
+      promptOption.setAttribute("value", "");
+      promptOption.textContent = categoryId ? "" : "カテゴリーを選択してください";
+      subCategoryField.appendChild(promptOption);
+
+      if(categoryId) {
+        subCategoryField.removeAttribute("disabled");
+
+        axios.get("/sub_categories?category_id=" + categoryId)
+        .then((res) => {
+          res.data.sub_categories.forEach(function(sub_category){
+            var option = document.createElement("option");
+            option.setAttribute("value", sub_category.id);
+            option.textContent = sub_category.name;
+            subCategoryField.appendChild(option);
+          });
+        })
+        .catch(console.error);
+      } else {
+        subCategoryField.setAttribute("disabled", "disabled");
+      }
+    }
+
+    changeCategoryFieldCallback();
+
+    categoryField.addEventListener('change', changeCategoryFieldCallback);
+  });
+}

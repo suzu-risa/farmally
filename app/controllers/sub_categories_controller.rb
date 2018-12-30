@@ -1,7 +1,11 @@
 class SubCategoriesController < ApplicationController
   def index
     sub_categories =
-      SubCategory.joins(:category).where(categories: { code: params[:category_code] })
+      if params[:category_id]
+        SubCategory.where(category_id: params[:category_id])
+      else
+        SubCategory.joins(:category).where(categories: { code: params[:category_code] })
+      end
 
     render json: { sub_categories: sub_categories.select(:id, :code, :name).map(&:attributes) }
   end
