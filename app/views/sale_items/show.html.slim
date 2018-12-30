@@ -35,8 +35,12 @@ section.section.sale-item__detail
                 i.fas.fa-envelope
               span
                 | この商品に関して
-                br.only-sp
                 | 問い合わせる
+              span.item-id-alert
+                br
+                | 「出品番号#{@sale_item.id}について」
+                | とお問い合わせ時にお伝え下さい
+
         .detail
           table.table
             tbody
