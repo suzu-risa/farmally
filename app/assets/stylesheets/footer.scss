@@ -112,6 +112,14 @@
     max-width: 100%;
     width: 100%;
 
+    .columns {
+      text-align: left;
+
+      .fas {
+        color: white;
+      }
+    }
+
     a {
       color: white;
       margin: 0 5px;
