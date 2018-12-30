@@ -45,12 +45,12 @@ section.section.sale-item__detail
                   = @sale_item.class.human_attribute_name(:price)
                 td
                   = number_to_currency(@sale_item.price)
-              tr
+              /tr
                 th
                   = @sale_item.class.human_attribute_name(:prefecture_code)
                 td
                   = @sale_item.prefecture_name
-              tr
+              /tr
                 th
                   = @sale_item.class.human_attribute_name(:year)
                 td
