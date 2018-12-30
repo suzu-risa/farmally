@@ -103,7 +103,7 @@ main.home
 
   // 農機を買いたい方へ
   section.buy-section
-    h2.title
+    h2.title.howto-section-title
       span
         | 農機を買いたい方へ
     .columns.content-columns
@@ -143,12 +143,12 @@ main.home
                 br
                 = sale_item.category_name
             table.table
-              tr
+              /tr
                 td
                   | 年式
                 td
                   = sale_item.year_text
-              tr
+              /tr
                 td
                   | 地域
                 td
@@ -208,7 +208,7 @@ main.home
             | 農機を買いたい方
   // 農機を売りたい方へ
   section.sell-section
-    h2.title
+    h2.title.howto-section-title
       span
         | 農機を売りたい方へ
     .columns.content-columns
@@ -250,12 +250,12 @@ main.home
                 br
                 = sale_item.category_name
             table.table
-              tr
+              /tr
                 td
                   | 年式
                 td
                   = sale_item.year_text
-              tr
+              /tr
                 td
                   | 地域
                 td

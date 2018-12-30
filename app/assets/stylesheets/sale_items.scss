@@ -76,8 +76,13 @@
         &.contact-button {
           color: $base-brown;
           border: solid 1px $base-brown;
-          height: 60px;
+          display: block;
           margin-bottom: 10px;
+          height: auto;
+
+          padding-left: 0.4rem;
+          padding-right: 0.4rem;
+
           span {
             @media screen and (min-width: 400px) {
               > .only-sp {
@@ -90,6 +95,14 @@
           }
           &:hover {
             background-color: darken(white, 10%);
+          }
+
+          .item-id-alert {
+            font-size: 0.9rem;
+
+            @include until($tablet) {
+              font-size: 0.6rem;
+            }
           }
         }
       }

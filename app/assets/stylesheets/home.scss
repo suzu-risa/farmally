@@ -145,7 +145,7 @@
   .search-section {
     .search-box {
       background-color: $background-grey;
-      margin: 0 auto 16px auto;
+      margin: 0 auto 40px auto;
       padding: 16px;
 
       .select {
@@ -169,6 +169,8 @@
 
   // お問い合わせボタン
   .inquiry-buttons {
+    margin-top: 40px;
+
     .inquiry-button {
       &.inquiry-button-buy {
         background-color: $sell-color;
@@ -183,9 +185,12 @@
   @mixin howto-section($base-color) {
     width: 80%;
 
-    .title {
+    .howto-section-title {
       font-size: 1.5em;
       text-align: center;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+
       span {
         display: inline-block;
         margin: 0 2.5em;

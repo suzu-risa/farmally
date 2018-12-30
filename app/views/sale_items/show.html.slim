@@ -35,8 +35,12 @@ section.section.sale-item__detail
                 i.fas.fa-envelope
               span
                 | この商品に関して
-                br.only-sp
                 | 問い合わせる
+              span.item-id-alert
+                br
+                | 「出品番号#{@sale_item.id}について」
+                | とお問い合わせ時にお伝え下さい
+
         .detail
           table.table
             tbody
@@ -45,12 +49,12 @@ section.section.sale-item__detail
                   = @sale_item.class.human_attribute_name(:price)
                 td
                   = number_to_currency(@sale_item.price)
-              tr
+              /tr
                 th
                   = @sale_item.class.human_attribute_name(:prefecture_code)
                 td
                   = @sale_item.prefecture_name
-              tr
+              /tr
                 th
                   = @sale_item.class.human_attribute_name(:year)
                 td

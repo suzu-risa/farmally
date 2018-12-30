@@ -22,6 +22,7 @@ By default, it renders:
     <%= content_for(:title) %> - <%= Rails.application.class.parent_name.titlecase %>
   </title>
   <%= render "stylesheet" %>
+  <%= javascript_bundle_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
