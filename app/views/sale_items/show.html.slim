@@ -85,7 +85,7 @@ section.section.sale-item__detail
             th
               = property.name
             td
-              = property.value.presence || "-"
+              = simple_format(property.value.presence || "-")
     br
 
 // お問い合わせモーダル
