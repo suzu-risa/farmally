@@ -12,7 +12,7 @@
         <tr>
           <td><%= property.property_name %></td>
           <td>
-            <%= text_field_tag "sale_item[detail_json][properties][#{property.property_key}]", 
+            <%= text_area_tag "sale_item[detail_json][properties][#{property.property_key}]",
                                sale_item.detail.properties[property.property_key]
             %>
           </td>

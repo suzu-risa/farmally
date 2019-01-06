@@ -76,7 +76,7 @@ as well as a link to its edit page.
       <% table.properties.each do |property| %>
         <tr>
           <th><%= property.name %></td>
-          <td><%= property.value %></td>
+          <td><%= simple_format(property.value) %></td>
         </tr>
       <% end %>
     </tbody>
