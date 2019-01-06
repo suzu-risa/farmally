@@ -4,6 +4,12 @@
     box-sizing: border-box;
     border-bottom: solid 2px $base-brown;
 
+    .title {
+      .tax-annotation {
+        font-size: 1rem;
+      }
+    }
+
     .slick-slide-container {
       .slick-slider {
          margin-bottom: 30px;

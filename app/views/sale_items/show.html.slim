@@ -11,11 +11,10 @@ section.section.sale-item__detail
       .column.is-12-mobile.is-6-tablet.is-6-desktop
         h1.title
           = @sale_item.name
-          - if @sale_item.name
-            br
-          = @sale_item.model
           br
           = number_to_currency(@sale_item.price)
+          span.tax-annotation
+            | （消費税込み）
         .columns.buttons
           .column.is-12-mobile.is-12-tablet.is-12-desktop
             |  <a href="tel:
