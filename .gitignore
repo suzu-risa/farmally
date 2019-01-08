@@ -39,3 +39,8 @@ build.zip
 public/sitemap.xml.gz
 public/sitemap.xml
 public/dist
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
