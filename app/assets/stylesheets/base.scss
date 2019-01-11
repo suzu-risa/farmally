@@ -11,6 +11,11 @@
   background-color: $background-grey;
   padding: 8px 24px;
 
+  li {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
   .is-active {
     font-weight: bold;
   }
