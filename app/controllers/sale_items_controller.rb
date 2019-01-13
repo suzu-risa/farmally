@@ -14,7 +14,9 @@ class SaleItemsController < ApplicationController
     sale_item = find_sale_item(params[:sale_item_id])
 
     render json: {
-      sale_item_images: sale_item.images.map{ |image| { url: Rails.application.routes.url_helpers.url_for(image) } }
+      sale_item_images: sale_item.images.map{ |image|
+        { url: rails_representation_url(image.variant(resize: '500x500').processed) }
+      }
     }
   end
 
