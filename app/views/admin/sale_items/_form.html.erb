@@ -145,7 +145,7 @@ and renders all form fields for a resource's editable attributes.
     </tr>
     <% @sale_item.images.each do |image| %>
       <tr>
-        <td><%= image_tag(url_for(image)) %></td>
+      <td><%= image_tag(image.variant(resize: '500x500').processed) %></td>
         <td>
           <%= link_to "削除", admin_sale_item_image_path(image, sale_item_id: @sale_item.id), method: :delete %>
         </td>

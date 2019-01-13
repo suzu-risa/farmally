@@ -36,7 +36,8 @@ RUN apk update && \
   mysql-client \
   yaml \
   less \
-  vim
+  vim \
+  imagemagick
 
 RUN mkdir /farmally
 WORKDIR /farmally
