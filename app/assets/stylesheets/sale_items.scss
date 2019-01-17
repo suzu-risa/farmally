@@ -155,3 +155,67 @@
     }
   }
 }
+
+.sale-items {
+  .cover {
+    background: image-url("sale_items/cover.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 260px; // TODO: 仮
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -2rem;
+
+    .title {
+      background-color: #231815;
+      opacity: .9;
+      color: white;
+      padding: 5px 20px 16px 20px;
+      text-align: center;
+
+      .site-name {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .section {
+    .section-title {
+      color: white;
+      background-color: #13202f;
+      text-align: center;
+      margin-bottom: 16px;
+      padding: 8px 0;
+    }
+  }
+
+  .feature-section {
+    .feature-box {
+      border: 3px solid #06adf7;
+      border-radius: 24px;
+      padding: 16px;
+
+      .column {
+        padding: 8px 16px;
+      }
+    }
+
+    .column-title {
+      text-align: center;
+      color: #06adf7;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .column-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+}
