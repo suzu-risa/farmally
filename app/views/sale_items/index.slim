@@ -1,2 +1,35 @@
 - set_meta_tags title: '出品商品一覧'
+.cover
+  h1
+    | ファーマリー
+    br
+    | 中古農機販売
+section.features
+  h2
+    | ファーマリー3つの安心
+  .columns
+    .column
+      h3
+        | 整備・点検済み
+      .content
+        | ファーマリーの中古農機具は全て整備・点検済みなので安心してご購入いただけます。
+    .column
+      h3
+        | アフターサービス対応
+      .content
+        | 購入後に壊れた、調子がおかしいなどの症状が出た場合、ファーマリーまでご連絡ください。納品後のアフターサービスも極力対応いたします。 
+    .column
+      h3
+        | 全国販売可能
+      .content
+        | 全国に販売・輸送対応いたします。
+
+section.flow-of-purchase
+  h2
+    | 購入の流れ
+  .columns
+    .column
+    .column
+    .column
+
 = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
