@@ -190,6 +190,7 @@
     }
   }
 
+  // ファーマリー3つの安心
   .feature-section {
     @media screen and (min-width: 769px) {
       .only-mobile {
@@ -263,6 +264,52 @@
 
       img {
         width: 100px;
+      }
+    }
+  }
+
+  // 購入の流れ
+  .flow-of-purchase-section {
+    .step-title {
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 2px solid;
+      padding-bottom: 0.2rem;
+    }
+
+    .step-content {
+      margin-top: 16px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .step-circle {
+        display: inline-block;
+        color: #fff;
+        background-color: #02669a;
+        border: solid 2px #ebebeb;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        -moz-border-radius: 60px;
+        -webkit-border-radius: 60px;
+        border-radius: 60px;
+        box-shadow: 0 0 0 3px #02669a;
+        -webkit-box-shadow: 0 0 0 3px #02669a;
+        -moz-box-shadow: 0 0 0 3px #02669a;
+
+        .step-circle-text {
+          text-align: center;
+        }
+      }
+
+      .step-text {
+        flex: 1;
+        margin-left: 8px;
       }
     }
   }

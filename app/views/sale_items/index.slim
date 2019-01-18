@@ -83,8 +83,32 @@
     h2.section-title
       | 購入の流れ
     .columns
-      .column
-      .column
-      .column
+      .column.is-4-desktop.is-4-tablet.is-4-mobile
+        h3.step-title
+          | ステップ1
+        .step-content
+          .step-circle
+            .step-circle-text
+              | 購入の申込
+          .step-text
+            | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
+      .column.is-4-desktop.is-4-tablet.is-4-mobile
+        h3.step-title
+          | ステップ2
+        .step-content
+          .step-circle
+            .step-circle-text
+              | 電話相談
+          .step-text
+            | ご希望の金額・仕様・商品状態・納期などについて簡単に確認させていただきます。
+      .column.is-4-desktop.is-4-tablet.is-4-mobile
+        h3.step-title
+          | ステップ3
+        .step-content
+          .step-circle
+            .step-circle-text
+              | 納品・お支払い
+          .step-text
+            | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
 
 = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
