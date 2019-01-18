@@ -11,8 +11,17 @@
     h2.section-title
       | ファーマリー3つの安心
     .columns.is-multiline
-      .column.is-4-desktop
-        .feature-box
+      .column.is-4-desktop.is-4-tablet
+        .feature-box-mobile.only-mobile
+          .feature-mobile-left
+            = image_tag("sale_items/tenken.png")
+          .feature-mobile-right
+            h3.column-title
+              | 整備・点検済み
+            .content
+            | ファーマリーの中古農機具は全て整備・点検済みなので安心してご購入いただけます。
+
+        .feature-box.except-mobile
           .columns.is-multiline
             .column.is-12-desktop.is-12-tablet
               h3.column-title
@@ -23,8 +32,17 @@
             .column.is-12-desktop.is-12-tablet
               .content
               | ファーマリーの中古農機具は全て整備・点検済みなので安心してご購入いただけます。
-      .column.is-4-desktop
-        .feature-box
+      .column.is-4-desktop.is-4-tablet
+        .feature-box-mobile.only-mobile
+          .feature-mobile-left
+            = image_tag("sale_items/after_service.png")
+          .feature-mobile-right
+            h3.column-title
+              | アフターサービス対応
+            .content
+              | 購入後に壊れた、調子がおかしいなどの症状が出た場合、ファーマリーまでご連絡ください。納品後のアフターサービスも極力対応いたします。 
+
+        .feature-box.except-mobile
           .columns.is-multiline
             .column.is-12-desktop.is-12-tablet
               h3.column-title
@@ -37,8 +55,17 @@
             .column.is-12-desktop.is-12-tablet
               .content
                 | 購入後に壊れた、調子がおかしいなどの症状が出た場合、ファーマリーまでご連絡ください。納品後のアフターサービスも極力対応いたします。 
-      .column.is-4-desktop
-        .feature-box
+      .column.is-4-desktop.is-4-tablet
+        .feature-box-mobile.only-mobile
+          .feature-mobile-left
+            = image_tag("sale_items/zenkoku.png")
+          .feature-mobile-right
+            h3.column-title
+              | 全国販売可能
+            .content
+            | 全国に販売・輸送対応いたします。
+
+        .feature-box.except-mobile
           .columns.is-multiline
             .column.is-12-desktop.is-12-tablet
               h3.column-title
