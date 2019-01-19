@@ -289,13 +289,6 @@
     margin-bottom: 60px;
     padding: 0 1.5rem;
 
-    .step-title {
-      text-align: center;
-      font-weight: bold;
-      border-bottom: 2px solid;
-      padding-bottom: 0.2rem;
-    }
-
     .steps {
       display: flex;
 
@@ -303,6 +296,21 @@
         flex: 1;
         padding: 0 1.5rem;
         height: 100%;
+
+        @media screen and (max-width: 768px) {
+          padding: 0 0.5rem;
+        }
+
+        .step-title {
+          text-align: center;
+          font-weight: bold;
+          border-bottom: 2px solid;
+          padding-bottom: 0.2rem;
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.5rem;
+          }
+        }
 
         .step-content {
           display: flex;
@@ -330,7 +338,6 @@
             -webkit-box-shadow: 0 0 0 3px #02669a;
             -moz-box-shadow: 0 0 0 3px #02669a;
 
-
             @media screen and (max-width: 768px) {
               width: 60px;
               height: 60px;
@@ -338,6 +345,10 @@
 
             .step-circle-text {
               text-align: center;
+
+              @media screen and (max-width: 768px) {
+                font-size: 0.5rem;
+              }
             }
           }
 
@@ -387,6 +398,10 @@
           right: -30px;
           top: 50%;
           font-size: 1rem;
+
+          @media screen and (max-width: 768px) {
+            right: -15px;
+          }
         }
       }
     }
