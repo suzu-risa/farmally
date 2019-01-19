@@ -301,51 +301,59 @@
 
       .step {
         flex: 1;
-        padding: 0 1rem;
+        padding: 0 1.5rem;
         height: 100%;
-      }
-    }
 
-    .step-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      padding-top: 24px;
+        .step-content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          padding-top: 24px;
+          position: relative;
 
-      .step-circle {
-        display: inline-block;
-        color: #fff;
-        background-color: #02669a;
-        border: solid 2px #ebebeb;
-        width: 120px;
-        height: 120px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        box-shadow: 0 0 0 3px #02669a;
-        -webkit-box-shadow: 0 0 0 3px #02669a;
-        -moz-box-shadow: 0 0 0 3px #02669a;
+          .step-circle {
+            display: inline-block;
+            color: #fff;
+            background-color: #02669a;
+            border: solid 2px #ebebeb;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #02669a;
+            -webkit-box-shadow: 0 0 0 3px #02669a;
+            -moz-box-shadow: 0 0 0 3px #02669a;
 
 
-        @media screen and (max-width: 768px) {
-          width: 60px;
-          height: 60px;
+            @media screen and (max-width: 768px) {
+              width: 60px;
+              height: 60px;
+            }
+
+            .step-circle-text {
+              text-align: center;
+            }
+          }
+
+          .step-text {
+            flex: 1;
+            margin-left: 16px;
+            font-size: 0.9rem;
+          }
         }
 
-        .step-circle-text {
-          text-align: center;
+        .step-arrow {
+          position: absolute;
+          right: -30px;
+          top: 50%;
+          font-size: 1rem;
         }
-      }
-
-      .step-text {
-        flex: 1;
-        margin-left: 16px;
-        font-size: 0.9rem;
       }
     }
   }
