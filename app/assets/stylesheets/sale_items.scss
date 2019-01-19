@@ -344,7 +344,41 @@
           .step-text {
             flex: 1;
             margin-left: 16px;
+            font-size: 0.8rem;
+          }
+        }
+
+        .step-buttons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 16px;
+
+          .step-phone-button {
+            text-align: center;
+            display: block;
+            flex: 1;
+            height: 100%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #128dcb;
+            background-color: #fff;
+            border: 2px solid #02669a;
+            margin-right: 4px;
+            padding: 4px;
+          }
+
+          .step-buy-button {
+            text-align: center;
+            display: block;
+            flex: 1;
+            height: 100%;
+            color: #fff;
+            background-color: #e0a53b;
+            border: 2px solid #ca9432;
+            padding: 12px 0px;
             font-size: 0.9rem;
+            margin-left: 4px;
           }
         }
 

@@ -92,9 +92,20 @@
               | 購入の申込
           .step-text.except-mobile
             | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
-
           .step-arrow
             |＞
+
+        .step-buttons
+          = link_to "#", class: 'step-phone-button' do
+            span
+              | お電話でお申し込み
+              br
+            span
+              | 090-3942-9192
+
+          = link_to "#", class: 'step-buy-button' do
+            p
+              | 購入の申込み
 
       .step
         h3.step-title
