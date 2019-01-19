@@ -157,6 +157,28 @@
 }
 
 .sale-items {
+  @media screen and (min-width: 769px) {
+    .only-mobile {
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .except-mobile {
+      display: none !important;
+    }
+
+    .column {
+      padding: 0 0.75rem;
+
+      &:last-child {
+        .feature-box-mobile {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
   .cover {
     background: image-url("sale_items/cover.jpg") no-repeat;
     background-size: cover;
@@ -192,16 +214,10 @@
 
   // ファーマリー3つの安心
   .feature-section {
-    @media screen and (min-width: 769px) {
-      .only-mobile {
-        display: none !important;
-      }
-    }
-    @media screen and (max-width: 768px) {
-      .except-mobile {
-        display: none !important;
-      }
+    margin-bottom: 40px;
+    padding: 3rem 0 0 0;
 
+    @media screen and (max-width: 768px) {
       .column {
         padding: 0 0.75rem;
 
@@ -270,6 +286,9 @@
 
   // 購入の流れ
   .flow-of-purchase-section {
+    padding: 0;
+    margin-bottom: 60px;
+
     .step-title {
       text-align: center;
       font-weight: bold;
@@ -277,12 +296,22 @@
       padding-bottom: 0.2rem;
     }
 
-    .step-content {
-      margin-top: 16px;
+    .steps {
+      display: flex;
 
+      .step {
+        flex: 1;
+        padding: 0 1rem;
+        height: 100%;
+      }
+    }
+
+    .step-content {
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100%;
+      padding-top: 24px;
 
       .step-circle {
         display: inline-block;
@@ -295,12 +324,18 @@
         justify-content: center;
         align-items: center;
         font-weight: bold;
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
         box-shadow: 0 0 0 3px #02669a;
         -webkit-box-shadow: 0 0 0 3px #02669a;
         -moz-box-shadow: 0 0 0 3px #02669a;
+
+
+        @media screen and (max-width: 768px) {
+          width: 60px;
+          height: 60px;
+        }
 
         .step-circle-text {
           text-align: center;
@@ -309,8 +344,13 @@
 
       .step-text {
         flex: 1;
-        margin-left: 8px;
+        margin-left: 16px;
+        font-size: 0.9rem;
       }
     }
+  }
+
+  .sale-item-list {
+    padding-top: 0;
   }
 }
