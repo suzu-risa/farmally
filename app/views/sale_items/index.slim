@@ -7,111 +7,110 @@
       br
       | 中古農機販売
 
-  .container
-    section.section.feature-section
-      h2.section-title
-        | ファーマリー3つの安心
-      .columns.is-multiline
-        .column.is-4-desktop.is-4-tablet
-          .feature-box-mobile.only-mobile
-            .feature-mobile-left
-              = image_tag("sale_items/tenken.png")
-            .feature-mobile-right
+  section.section.feature-section
+    h2.section-title
+      | ファーマリー3つの安心
+    .columns.is-multiline
+      .column.is-4-desktop.is-4-tablet
+        .feature-box-mobile.only-mobile
+          .feature-mobile-left
+            = image_tag("sale_items/tenken.png")
+          .feature-mobile-right
+            h3.column-title
+              | 整備・点検済み
+            .content
+            | ファーマリーの中古農機具は全て整備・点検済みなので安心してご購入いただけます。
+
+        .feature-box.except-mobile
+          .columns.is-multiline
+            .column.is-12-desktop.is-12-tablet
               h3.column-title
-                | 整備・点検済み
+                | 1. 整備・点検済み
+            .column.is-12-desktop.is-12-tablet
+              .column-image
+                = image_tag("sale_items/tenken.png")
+            .column.is-12-desktop.is-12-tablet
               .content
               | ファーマリーの中古農機具は全て整備・点検済みなので安心してご購入いただけます。
+      .column.is-4-desktop.is-4-tablet
+        .feature-box-mobile.only-mobile
+          .feature-mobile-left
+            = image_tag("sale_items/after_service.png")
+          .feature-mobile-right
+            h3.column-title
+              | アフターサービス対応
+            .content
+              | 購入後に壊れた、調子がおかしいなどの症状が出た場合、ファーマリーまでご連絡ください。納品後のアフターサービスも極力対応いたします。 
 
-          .feature-box.except-mobile
-            .columns.is-multiline
-              .column.is-12-desktop.is-12-tablet
-                h3.column-title
-                  | 1. 整備・点検済み
-              .column.is-12-desktop.is-12-tablet
-                .column-image
-                  = image_tag("sale_items/tenken.png")
-              .column.is-12-desktop.is-12-tablet
-                .content
-                | ファーマリーの中古農機具は全て整備・点検済みなので安心してご購入いただけます。
-        .column.is-4-desktop.is-4-tablet
-          .feature-box-mobile.only-mobile
-            .feature-mobile-left
-              = image_tag("sale_items/after_service.png")
-            .feature-mobile-right
+        .feature-box.except-mobile
+          .columns.is-multiline
+            .column.is-12-desktop.is-12-tablet
               h3.column-title
-                | アフターサービス対応
+                | 2. アフターサービス対応
+
+            .column.is-12-desktop.is-12-tablet
+              .column-image
+                = image_tag("sale_items/after_service.png")
+
+            .column.is-12-desktop.is-12-tablet
               .content
                 | 購入後に壊れた、調子がおかしいなどの症状が出た場合、ファーマリーまでご連絡ください。納品後のアフターサービスも極力対応いたします。 
+      .column.is-4-desktop.is-4-tablet
+        .feature-box-mobile.only-mobile
+          .feature-mobile-left
+            = image_tag("sale_items/zenkoku.png")
+          .feature-mobile-right
+            h3.column-title
+              | 全国販売可能
+            .content
+            | 全国に販売・輸送対応いたします。
 
-          .feature-box.except-mobile
-            .columns.is-multiline
-              .column.is-12-desktop.is-12-tablet
-                h3.column-title
-                  | 2. アフターサービス対応
-
-              .column.is-12-desktop.is-12-tablet
-                .column-image
-                  = image_tag("sale_items/after_service.png")
-
-              .column.is-12-desktop.is-12-tablet
-                .content
-                  | 購入後に壊れた、調子がおかしいなどの症状が出た場合、ファーマリーまでご連絡ください。納品後のアフターサービスも極力対応いたします。 
-        .column.is-4-desktop.is-4-tablet
-          .feature-box-mobile.only-mobile
-            .feature-mobile-left
-              = image_tag("sale_items/zenkoku.png")
-            .feature-mobile-right
+        .feature-box.except-mobile
+          .columns.is-multiline
+            .column.is-12-desktop.is-12-tablet
               h3.column-title
-                | 全国販売可能
+                | 3. 全国販売可能
+
+            .column.is-12-desktop.is-12-tablet
+              .column-image
+                = image_tag("sale_items/zenkoku.png")
+
+            .column.is-12-desktop.is-12-tablet
               .content
-              | 全国に販売・輸送対応いたします。
+                | 全国に販売・輸送対応いたします。
 
-          .feature-box.except-mobile
-            .columns.is-multiline
-              .column.is-12-desktop.is-12-tablet
-                h3.column-title
-                  | 3. 全国販売可能
-
-              .column.is-12-desktop.is-12-tablet
-                .column-image
-                  = image_tag("sale_items/zenkoku.png")
-
-              .column.is-12-desktop.is-12-tablet
-                .content
-                  | 全国に販売・輸送対応いたします。
-
-    section.section.flow-of-purchase-section
-      h2.section-title
-        | 購入の流れ
-      .steps
-        .step
-          h3.step-title
-            | ステップ1
-          .step-content
-            .step-circle
-              .step-circle-text
-                | 購入の申込
-            .step-text.except-mobile
-              | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
-        .step
-          h3.step-title
-            | ステップ2
-          .step-content
-            .step-circle
-              .step-circle-text
-                | 電話相談
-            .step-text.except-mobile
-              | ご希望の金額・仕様・商品状態・納期などについて簡単に確認させていただきます。
-        .step
-          h3.step-title
-            | ステップ3
-          .step-content
-            .step-circle
-              .step-circle-text
-                | 納品・
-                br
-                | お支払い
-            .step-text.except-mobile
-              | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
+  section.section.flow-of-purchase-section
+    h2.section-title
+      | 購入の流れ
+    .steps
+      .step
+        h3.step-title
+          | ステップ1
+        .step-content
+          .step-circle
+            .step-circle-text
+              | 購入の申込
+          .step-text.except-mobile
+            | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
+      .step
+        h3.step-title
+          | ステップ2
+        .step-content
+          .step-circle
+            .step-circle-text
+              | 電話相談
+          .step-text.except-mobile
+            | ご希望の金額・仕様・商品状態・納期などについて簡単に確認させていただきます。
+      .step
+        h3.step-title
+          | ステップ3
+        .step-content
+          .step-circle
+            .step-circle-text
+              | 納品・
+              br
+              | お支払い
+          .step-text.except-mobile
+            | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
 
   = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
