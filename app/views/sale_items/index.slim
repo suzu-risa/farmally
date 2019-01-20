@@ -87,7 +87,14 @@
         h3.step-title
           | ステップ1
         .step-content
-          .step-circle
+          a.step-circle.only-mobile.only-mobile.js-open-modal(
+            href="#"
+            onclick="gtag('event', '「購入の申込」クリック', { 'event_category': '出品商品一覧画面' });"
+            data-target="js-mobile-inquiry-modal")
+
+            .step-circle-text
+              | 購入の申込
+          .step-circle.except-mobile
             .step-circle-text
               | 購入の申込
           .step-text.except-mobile
@@ -112,7 +119,14 @@
         h3.step-title
           | ステップ2
         .step-content
-          .step-circle
+          a.step-circle.only-mobile.js-open-modal(
+            href="#"
+            onclick="gtag('event', '「電話相談」クリック', { 'event_category': '出品商品一覧画面' });"
+            data-target="js-mobile-tel-modal")
+
+            .step-circle-text
+              | 電話相談
+          .step-circle.except-mobile
             .step-circle-text
               | 電話相談
           .step-text.except-mobile
@@ -125,7 +139,16 @@
         h3.step-title
           | ステップ3
         .step-content
-          .step-circle
+          a.step-circle.only-mobile.js-open-modal(
+            href="#"
+            onclick="gtag('event', '「納品・お支払い」クリック', { 'event_category': '出品商品一覧画面' });"
+            data-target="js-mobile-buy-modal")
+
+            .step-circle-text
+              | 納品・
+              br
+              | お支払い
+          .step-circle.except-mobile
             .step-circle-text
               | 納品・
               br
@@ -134,3 +157,30 @@
             | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
 
   = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
+
+// スマホ版購入の申込モーダル
+.modal#js-mobile-inquiry-modal
+  .modal-background
+  .modal-content[style="background-color: white; padding: 40px;"]
+    div
+      p.title.is-3.is-spaced
+        | 購入の申込
+  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「購入の申込」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+
+// スマホ版電話相談モーダル
+.modal#js-mobile-tel-modal
+  .modal-background
+  .modal-content[style="background-color: white; padding: 40px;"]
+    div
+      p.title.is-3.is-spaced
+        | 電話相談
+  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「電話相談」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+
+// スマホ版納品・お支払いモーダル
+.modal#js-mobile-buy-modal
+  .modal-background
+  .modal-content[style="background-color: white; padding: 40px;"]
+    div
+      p.title.is-3.is-spaced
+        | 納品・お支払い
+  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「納品・お支払い」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
