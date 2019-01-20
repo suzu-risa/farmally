@@ -157,11 +157,17 @@
               | お支払い
           .step-text.except-mobile
             | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
+            br
+            a.js-open-modal(
+              href="#"
+              onclick="gtag('event', '「農機をどう探せばいいかわからない場合」クリック', { 'event_category': '出品商品一覧画面' });"
+              data-target="js-pc-how-search-modal")
+              | >> 農機をどう探せばいいかわからない場合
 
   = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
 
   // スマホ版購入の申込モーダル
-  .modal#js-mobile-inquiry-modal
+  .modal#js-mobile-inquiry-modal.mobile-inquiry-modal
     .modal-background
     .modal-content
       div
@@ -198,10 +204,103 @@
     button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「電話相談」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
 
   // スマホ版納品・お支払いモーダル
-  .modal#js-mobile-buy-modal
+  .modal#js-mobile-buy-modal.mobile-buy-modal
     .modal-background
     .modal-content
       div
         p.title.is-5.is-spaced
           | 納品・お支払い
+        p.modal-main-text
+          | ご希望の日程で商品を納品いたします。
+          br
+          | お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
+          br
+          br
+          | 以下の場合も一度是非お問い合わせください。
+          br
+          | 専門スタッフが対応いたします。
+
+        .buy-container
+          h4.title.is-5.buy-title
+            | どうやって探せばいいかわからない場合
+          .buy-content
+            | 専門のスタッフがご要望に沿った農機具を提案いたします。
+            br
+            | 電話問い合わせよりご連絡ください。
+
+        .buy-container
+          h4.title.is-5.buy-title
+            | お手持ちの農機具を売りたい場合
+          .buy-content
+            | 電話or問い合わせフォームよりご連絡ください。
+        .buy-container
+          h4.title.is-5.buy-title
+            | 欲しい農機具が出品されていない場合
+          .buy-content
+            | ご希望の農機具が出品されていない場合もお気軽にお問い合わせください。
+            br
+            | ご要望に沿った商品を最短日程で入荷いたします。
+
+      .inquiry-buttons
+        = link_to "tel:#{contact_phone_number}", class: 'modal-inquiry-button phone-button' do
+          = image_tag "sale_items/phone-icon.png", class: "phone-button-icon"
+          span.phone-button-text
+            | 電話でお問い合わせ
+        a.js-open-modal.modal-inquiry-button.buy-button(
+          href="#"
+          onclick="gtag('event', '「お問い合わせフォーム」クリック', { 'event_category': '出品商品一覧画面' });"
+          data-target="js-contact-form-modal")
+
+          p
+            | お問い合わせフォーム
+
+
     button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「納品・お支払い」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+
+  // PC版 >>農機をどう探せば〜モーダル
+  .modal#js-pc-how-search-modal.pc-how-search-modal
+    .modal-background
+    .modal-content
+      div.left-title-container
+        h3.title.is-4.is-spaced.left-title
+          | 以下の場合も一度是非お問い合わせください。
+          br
+          | 専門スタッフが対応いたします。
+      .pc-how-search-modal-content
+        .pc-how-search-modal-content-left
+          .how-search-container
+            h4.title.is-5.how-search-title
+              | どうやって探せばいいかわからない場合
+            .how-search-content
+              | 専門のスタッフがご要望に沿った農機具を提案いたします。
+              br
+              | 電話問い合わせよりご連絡ください。
+
+          .how-search-container
+            h4.title.is-5.how-search-title
+              | お手持ちの農機具を売りたい場合
+            .how-search-content
+              | 電話or問い合わせフォームよりご連絡ください。
+        .pc-how-search-modal-content-right
+          .how-search-container
+            h4.title.is-5.how-search-title
+              | 欲しい農機具が出品されていない場合
+            .how-search-content
+              | ご希望の農機具が出品されていない場合もお気軽にお問い合わせください。
+              br
+              | ご要望に沿った商品を最短日程で入荷いたします。
+
+      .inquiry-buttons
+        = link_to "tel:#{contact_phone_number}", class: 'modal-inquiry-button phone-button' do
+          = image_tag "sale_items/phone-icon.png", class: "phone-button-icon"
+          span.phone-button-text
+            | 電話でお問い合わせ
+        a.js-open-modal.modal-inquiry-button.buy-button(
+          href="#"
+          onclick="gtag('event', '「お問い合わせフォーム」クリック', { 'event_category': '出品商品一覧画面' });"
+          data-target="js-contact-form-modal")
+
+          p
+            | お問い合わせフォーム
+
+    button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「農機をどう探せば〜」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]

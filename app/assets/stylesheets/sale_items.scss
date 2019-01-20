@@ -396,6 +396,7 @@
             justify-content: center;
             flex: 1;
             color: #fff;
+            font-weight: bold;
             background-color: #e0a53b;
             border: 2px solid #ca9432;
             font-size: 0.9rem;
@@ -434,44 +435,151 @@
 
       .title {
         text-align: center;
-        margin-bottom: .8rem
+        margin-bottom: .8rem;
+
+      }
+
+      .left-title-container {
+        text-align: center;
+
+        .left-title {
+          text-align: left;
+          display: inline-block;
+        }
       }
 
       .modal-main-text {
         font-size: .8rem;
       }
 
-      .inquiry-buttons {
+    }
+  }
+
+  .mobile-inquiry-modal, .mobile-buy-modal {
+    .inquiry-buttons {
+      display: flex;
+      flex-direction: column;
+      height: 120px;
+      margin-top: 16px;
+
+      .modal-inquiry-button {
+        flex: 1;
         display: flex;
-        flex-direction: column;
-        height: 120px;
-        margin-top: 16px;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .modal-inquiry-button {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+      .phone-button {
+        color: #128dcb;
+        font-weight: bold;
+        background-color: #fff;
+        border: 2px solid #02669a;
+        margin-bottom: 16px;
+
+        .phone-button-icon {
+          height: 20px;
+          width: 20px;
+          margin-right: 4px;
         }
+      }
 
-        .phone-button {
-          color: #128dcb;
-          background-color: #fff;
-          border: 2px solid #02669a;
-          margin-bottom: 16px;
+      .buy-button {
+        color: #fff;
+        font-weight: bold;
+        background-color: #e0a53b;
+        border: 2px solid #ca9432;
+      }
+    }
+  }
 
-          .phone-button-icon {
-            height: 20px;
-            width: 20px;
-            margin-right: 4px;
-          }
+  .mobile-buy-modal {
+    .modal-main-text {
+      margin-bottom: 2rem;
+    }
+
+    .buy-title {
+      font-size: 0.9rem;
+      background-color: #ffd600;
+      color: #252525;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .buy-content {
+      font-size: 0.8rem;
+      margin: 0 1rem 2rem 1rem;
+    }
+  }
+
+  .modal.pc-how-search-modal {
+    .modal-content {
+      @media screen and (min-width: 769px) {
+        width: 80%;
+      }
+    }
+
+    .pc-how-search-modal-content {
+      margin-top: 24px;
+      display: flex;
+
+      .how-search-title {
+        font-size: 1rem;
+        background-color: #ffd600;
+        color: #252525;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .how-search-content {
+        font-size: 0.9rem;
+        margin: 0 1rem 2rem 1rem;
+      }
+
+      .pc-how-search-modal-content-left {
+        flex: 1;
+        margin-right: 8px;
+      }
+      .pc-how-search-modal-content-right {
+        flex: 1;
+        margin-left: 8px;
+      }
+    }
+
+    .inquiry-buttons {
+      display: flex;
+      flex-direction: row;
+      height: 60px;
+      margin: 0 auto 24px auto;
+      width: 80%;
+      font-size: 1.3rem;
+
+      .modal-inquiry-button {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .phone-button {
+        color: #128dcb;
+        font-weight: bold;
+        background-color: #fff;
+        border: 2px solid #02669a;
+        margin-right: 8px;
+
+        .phone-button-icon {
+          height: 20px;
+          width: 20px;
+          margin-right: 4px;
         }
+      }
 
-        .buy-button {
-          color: #fff;
-          background-color: #e0a53b;
-          border: 2px solid #ca9432;
-        }
+      .buy-button {
+        color: #fff;
+        font-weight: bold;
+        background-color: #e0a53b;
+        border: 2px solid #ca9432;
+        margin-left: 8px;
       }
     }
   }
