@@ -98,14 +98,14 @@
             .step-circle-text
               | 購入の申込
           .step-text.except-mobile
-            | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
+            | お電話か問い合わせフォームより、30秒でお申し込みいただけます。
           .step-arrow
             |＞
 
         .step-buttons.except-mobile
           = link_to "tel:#{contact_phone_number}", class: 'step-phone-button' do
             span.step-phone-button-text
-              | お電話でお申し込み
+              | お電話で申し込み
               br
             = image_tag "sale_items/phone-icon.png", class: "step-phone-button-icon"
             span.step-phone-button-number
@@ -115,7 +115,7 @@
             onclick="gtag('event', '「購入の申込み」クリック', { 'event_category': '出品商品一覧画面' });"
             data-target="js-contact-form-modal")
             p
-              | 購入の申込み
+              | 購入の申し込み
 
       .step
         h3.step-title
@@ -156,7 +156,7 @@
               br
               | お支払い
           .step-text.except-mobile
-            | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
+            | ご希望の日程で商品を納品いたします。お支払いは納品時に現金でお支払いいただくか、事前に口座振込でのお支払いが可能です。
             br
             a.js-open-modal(
               href="#"
@@ -174,7 +174,7 @@
         p.title.is-5.is-spaced
           | 購入の申込
         p.modal-main-text
-          | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
+          | お電話か問い合わせフォームより、30秒でお申し込みいただけます。
 
         .inquiry-buttons
           = link_to "tel:#{contact_phone_number}", class: 'modal-inquiry-button phone-button' do
@@ -183,11 +183,11 @@
               | 電話で申込
           a.js-open-modal.modal-inquiry-button.buy-button(
             href="#"
-            onclick="gtag('event', '「購入の申込み」クリック', { 'event_category': '出品商品一覧画面' });"
+            onclick="gtag('event', '「購入の申し込み」クリック', { 'event_category': '出品商品一覧画面' });"
             data-target="js-contact-form-modal")
 
             p
-              | 購入の申込み
+              | 購入の申し込み
 
       button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「購入の申込」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
 
@@ -213,7 +213,7 @@
         p.modal-main-text
           | ご希望の日程で商品を納品いたします。
           br
-          | お支払いは納品時に現金でお支払いいただくか、事前に口座振込でお支払いが可能です。
+          | お支払いは納品時に現金でお支払いいただくか、事前に口座振込でのお支払いが可能です。
           br
           br
           | 以下の場合も一度是非お問い合わせください。
