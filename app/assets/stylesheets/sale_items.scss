@@ -155,3 +155,432 @@
     }
   }
 }
+
+.sale-items {
+  @media screen and (min-width: 769px) {
+    .only-mobile {
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .except-mobile {
+      display: none !important;
+    }
+
+    .column {
+      padding: 0 0.75rem;
+
+      &:last-child {
+        .feature-box-mobile {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .cover {
+    background: image-url("sale_items/cover.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 260px; // TODO: 仮
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -2rem;
+
+    .title {
+      background-color: #231815;
+      opacity: .9;
+      color: white;
+      padding: 5px 20px 16px 20px;
+      text-align: center;
+
+      .site-name {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .section {
+    .section-title {
+      color: white;
+      background-color: #13202f;
+      text-align: center;
+      margin-bottom: 16px;
+      padding: 8px 0;
+    }
+  }
+
+  // ファーマリー3つの安心
+  .feature-section {
+    padding: 3rem 1.5rem 0 1.5rem;
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 768px) {
+      .column {
+        padding: 0 0.75rem;
+
+        &:last-child {
+          .feature-box-mobile {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .feature-box-mobile {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid gray;
+      padding: 0.75rem;
+
+      .feature-mobile-left {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 8px;
+
+        img {
+          width: 70px;
+        }
+      }
+
+      .feature-mobile-right {
+        flex: 7;
+
+        .column-title {
+          text-align: left;
+        }
+      }
+    }
+
+    .feature-box {
+      border: 3px solid #06adf7;
+      border-radius: 24px;
+      padding: 16px;
+
+      .column {
+        padding: 8px 16px;
+      }
+    }
+
+    .column-title {
+      text-align: center;
+      color: #06adf7;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .column-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  // 購入の流れ
+  .flow-of-purchase-section {
+    margin-bottom: 60px;
+    padding: 0 1.5rem;
+
+    .steps {
+      display: flex;
+
+      .step {
+        flex: 1;
+        padding: 0 1.5rem;
+        height: 100%;
+
+        @media screen and (max-width: 768px) {
+          padding: 0 0.5rem;
+        }
+
+        .step-title {
+          text-align: center;
+          font-weight: bold;
+          border-bottom: 2px solid;
+          padding-bottom: 0.2rem;
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.5rem;
+          }
+        }
+
+        .step-content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          padding-top: 24px;
+          position: relative;
+
+          .step-circle {
+            display: inline-block;
+            color: #fff;
+            background-color: #02669a;
+            border: solid 2px #ebebeb;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #02669a;
+            -webkit-box-shadow: 0 0 0 3px #02669a;
+            -moz-box-shadow: 0 0 0 3px #02669a;
+
+            @media screen and (max-width: 768px) {
+              width: 60px;
+              height: 60px;
+            }
+
+            .step-circle-text {
+              text-align: center;
+
+              @media screen and (max-width: 768px) {
+                font-size: 0.5rem;
+              }
+            }
+          }
+
+          .step-text {
+            flex: 1;
+            margin-left: 16px;
+            font-size: 0.8rem;
+          }
+        }
+
+        .step-buttons {
+          display: flex;
+          margin-top: 16px;
+
+          .step-phone-button {
+            text-align: center;
+            display: block;
+            flex: 1;
+            font-weight: bold;
+            color: #128dcb;
+            background-color: #fff;
+            border: 2px solid #02669a;
+            margin-right: 4px;
+            padding: 4px;
+
+            .step-phone-button-text {
+              font-size: 0.8rem;
+            }
+
+            .step-phone-button-icon {
+              width: 1rem;
+              vertical-align: text-bottom;
+            }
+
+            .step-phone-button-number {
+              font-size: 1rem;
+              padding-left: 4px;
+            }
+          }
+
+          .step-buy-button {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: #fff;
+            font-weight: bold;
+            background-color: #e0a53b;
+            border: 2px solid #ca9432;
+            font-size: 0.9rem;
+            margin-left: 4px;
+          }
+        }
+
+        .step-arrow {
+          position: absolute;
+          right: -30px;
+          top: 50%;
+          font-size: 1rem;
+
+          @media screen and (max-width: 768px) {
+            right: -15px;
+          }
+        }
+      }
+    }
+  }
+
+  .sale-item-list {
+    padding: 0;
+
+    .container {
+      margin: 0 1.5rem 1.5rem 1.5rem;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  .modal {
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+
+      .title {
+        text-align: center;
+        margin-bottom: .8rem;
+
+      }
+
+      .left-title-container {
+        text-align: center;
+
+        .left-title {
+          text-align: left;
+          display: inline-block;
+        }
+      }
+
+      .modal-main-text {
+        font-size: .8rem;
+      }
+
+    }
+  }
+
+  .mobile-inquiry-modal, .mobile-buy-modal {
+    .inquiry-buttons {
+      display: flex;
+      flex-direction: column;
+      height: 120px;
+      margin-top: 16px;
+
+      .modal-inquiry-button {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .phone-button {
+        color: #128dcb;
+        font-weight: bold;
+        background-color: #fff;
+        border: 2px solid #02669a;
+        margin-bottom: 16px;
+
+        .phone-button-icon {
+          height: 20px;
+          width: 20px;
+          margin-right: 4px;
+        }
+      }
+
+      .buy-button {
+        color: #fff;
+        font-weight: bold;
+        background-color: #e0a53b;
+        border: 2px solid #ca9432;
+      }
+    }
+  }
+
+  .mobile-buy-modal {
+    .modal-main-text {
+      margin-bottom: 2rem;
+    }
+
+    .buy-title {
+      font-size: 0.9rem;
+      background-color: #ffd600;
+      color: #252525;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .buy-content {
+      font-size: 0.8rem;
+      margin: 0 1rem 2rem 1rem;
+    }
+  }
+
+  .modal.pc-how-search-modal {
+    .modal-content {
+      @media screen and (min-width: 769px) {
+        width: 80%;
+      }
+    }
+
+    .pc-how-search-modal-content {
+      margin-top: 24px;
+      display: flex;
+
+      .how-search-title {
+        font-size: 1rem;
+        background-color: #ffd600;
+        color: #252525;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .how-search-content {
+        font-size: 0.9rem;
+        margin: 0 1rem 2rem 1rem;
+      }
+
+      .pc-how-search-modal-content-left {
+        flex: 1;
+        margin-right: 8px;
+      }
+      .pc-how-search-modal-content-right {
+        flex: 1;
+        margin-left: 8px;
+      }
+    }
+
+    .inquiry-buttons {
+      display: flex;
+      flex-direction: row;
+      height: 60px;
+      margin: 0 auto 24px auto;
+      width: 80%;
+      font-size: 1.3rem;
+
+      .modal-inquiry-button {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .phone-button {
+        color: #128dcb;
+        font-weight: bold;
+        background-color: #fff;
+        border: 2px solid #02669a;
+        margin-right: 8px;
+
+        .phone-button-icon {
+          height: 20px;
+          width: 20px;
+          margin-right: 4px;
+        }
+      }
+
+      .buy-button {
+        color: #fff;
+        font-weight: bold;
+        background-color: #e0a53b;
+        border: 2px solid #ca9432;
+        margin-left: 8px;
+      }
+    }
+  }
+}
