@@ -97,10 +97,11 @@
 
         .step-buttons.except-mobile
           = link_to "#", class: 'step-phone-button' do
-            span
+            span.step-phone-button-text
               | お電話でお申し込み
               br
-            span
+            = image_tag "sale_items/phone-icon.png", class: "step-phone-button-icon"
+            span.step-phone-button-number
               | 090-3942-9192
 
           = link_to "#", class: 'step-buy-button' do
