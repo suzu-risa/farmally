@@ -426,4 +426,53 @@
       width: auto;
     }
   }
+
+  .modal {
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+
+      .title {
+        text-align: center;
+        margin-bottom: .8rem
+      }
+
+      .modal-main-text {
+        font-size: .8rem;
+      }
+
+      .inquiry-buttons {
+        display: flex;
+        flex-direction: column;
+        height: 120px;
+        margin-top: 16px;
+
+        .modal-inquiry-button {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .phone-button {
+          color: #128dcb;
+          background-color: #fff;
+          border: 2px solid #02669a;
+          margin-bottom: 16px;
+
+          .phone-button-icon {
+            height: 20px;
+            width: 20px;
+            margin-right: 4px;
+          }
+        }
+
+        .buy-button {
+          color: #fff;
+          background-color: #e0a53b;
+          border: 2px solid #ca9432;
+        }
+      }
+    }
+  }
 }

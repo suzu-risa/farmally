@@ -103,15 +103,17 @@
             |＞
 
         .step-buttons.except-mobile
-          = link_to "#", class: 'step-phone-button' do
+          = link_to "tel:#{contact_phone_number}", class: 'step-phone-button' do
             span.step-phone-button-text
               | お電話でお申し込み
               br
             = image_tag "sale_items/phone-icon.png", class: "step-phone-button-icon"
             span.step-phone-button-number
               | 090-3942-9192
-
-          = link_to "#", class: 'step-buy-button' do
+          a.js-open-modal.step-buy-button(
+            href="#"
+            onclick="gtag('event', '「購入の申込み」クリック', { 'event_category': '出品商品一覧画面' });"
+            data-target="js-contact-form-modal")
             p
               | 購入の申込み
 
@@ -158,29 +160,45 @@
 
   = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
 
-// スマホ版購入の申込モーダル
-.modal#js-mobile-inquiry-modal
-  .modal-background
-  .modal-content[style="background-color: white; padding: 40px;"]
-    div
-      p.title.is-3.is-spaced
-        | 購入の申込
-  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「購入の申込」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+  // スマホ版購入の申込モーダル
+  .modal#js-mobile-inquiry-modal
+    .modal-background
+    .modal-content
+      div
+        p.title.is-5.is-spaced
+          | 購入の申込
+        p.modal-main-text
+          | お電話かお問い合わせフォームより、30秒でお申し込みいただけます。
 
-// スマホ版電話相談モーダル
-.modal#js-mobile-tel-modal
-  .modal-background
-  .modal-content[style="background-color: white; padding: 40px;"]
-    div
-      p.title.is-3.is-spaced
-        | 電話相談
-  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「電話相談」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+        .inquiry-buttons
+          = link_to "tel:#{contact_phone_number}", class: 'modal-inquiry-button phone-button' do
+            = image_tag "sale_items/phone-icon.png", class: "phone-button-icon"
+            span.phone-button-text
+              | 電話で申込
+          a.js-open-modal.modal-inquiry-button.buy-button(
+            href="#"
+            onclick="gtag('event', '「購入の申込み」クリック', { 'event_category': '出品商品一覧画面' });"
+            data-target="js-contact-form-modal")
 
-// スマホ版納品・お支払いモーダル
-.modal#js-mobile-buy-modal
-  .modal-background
-  .modal-content[style="background-color: white; padding: 40px;"]
-    div
-      p.title.is-3.is-spaced
-        | 納品・お支払い
-  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「納品・お支払い」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+            p
+              | 購入の申込み
+
+      button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「購入の申込」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+
+  // スマホ版電話相談モーダル
+  .modal#js-mobile-tel-modal
+    .modal-background
+    .modal-content
+      div
+        p.title.is-5.is-spaced
+          | 電話相談
+    button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「電話相談」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
+
+  // スマホ版納品・お支払いモーダル
+  .modal#js-mobile-buy-modal
+    .modal-background
+    .modal-content
+      div
+        p.title.is-5.is-spaced
+          | 納品・お支払い
+    button.modal-close.is-large[aria-label="close" onclick="gtag('event', '「納品・お支払い」モーダル閉じるボタンクリック', { 'event_category': '出品商品一覧画面' });"]
