@@ -57,6 +57,14 @@ class SaleItem < ApplicationRecord
     where.not(sold_at: nil)
   }
 
+  def for_sale?
+    sold_at.nil?
+  end
+
+  def sold?
+    sold_at.present?
+  end
+
   def detail_json=(hash_or_json)
     if hash_or_json.is_a?(Hash)
       hash_or_json = hash_or_json.to_json
