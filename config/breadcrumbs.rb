@@ -27,8 +27,25 @@ crumb :item do |item|
   link item.model, item_path(item)
 end
 
+crumb :sale_items do |sale_items|
+  parent :root
+
+  link "出品商品一覧", sale_items_path
+end
+
+crumb :sold_items do |sale_items|
+  parent :root
+
+  link "買取実績一覧", sold_items_path
+end
+
 crumb :sale_item do |sale_item|
-  parent :item, sale_item.item
+  if sale_item.sold?
+    parent :sold_items
+  else
+    parent :sale_items
+  end
+
   link "#{sale_item.name}", item_sale_item_path(sale_item)
 end
 
