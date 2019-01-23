@@ -15,6 +15,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     price: Field::Number,
+    display_price: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -29,7 +30,7 @@ class SaleItemDashboard < Administrate::BaseDashboard
     :name,
     :sale_item_template,
     :id,
-    :price,
+    :display_price,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

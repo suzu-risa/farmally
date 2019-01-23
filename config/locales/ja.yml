@@ -300,6 +300,8 @@ ja:
         item: 商品
         sale_item_template: テンプレート
         price: 価格
+        display_price: 価格
+        price_text: 価格テキスト
       sale_item_template:
         category: 種類
         created_at: 作成日時

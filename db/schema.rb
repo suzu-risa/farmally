@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_25_123933) do
+ActiveRecord::Schema.define(version: 2019_01_23_121926) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_123933) do
 
   create_table "sale_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
-    t.integer "price", default: 0, null: false
+    t.integer "price"
     t.bigint "sale_item_template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_123933) do
     t.integer "prefecture_code"
     t.integer "status"
     t.string "name", null: false
+    t.string "price_text", null: false
     t.index ["item_id"], name: "index_sale_items_on_item_id"
     t.index ["sale_item_template_id"], name: "index_sale_items_on_sale_item_template_id"
   end
