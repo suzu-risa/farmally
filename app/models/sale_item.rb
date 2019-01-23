@@ -7,7 +7,8 @@
 #  horse_power           :string(255)
 #  name                  :string(255)      not null
 #  prefecture_code       :integer
-#  price                 :integer          default(0), not null
+#  price                 :integer
+#  price_text            :string(255)      not null
 #  sold_at               :datetime
 #  status                :integer
 #  used_hours            :integer
@@ -16,16 +17,19 @@
 #  updated_at            :datetime         not null
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
+#  seller_id             :bigint(8)
 #
 # Indexes
 #
 #  index_sale_items_on_item_id                (item_id)
 #  index_sale_items_on_sale_item_template_id  (sale_item_template_id)
+#  index_sale_items_on_seller_id              (seller_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (item_id => items.id)
 #  fk_rails_...  (sale_item_template_id => sale_item_templates.id)
+#  fk_rails_...  (seller_id => sellers.id)
 #
 
 class SaleItem < ApplicationRecord
