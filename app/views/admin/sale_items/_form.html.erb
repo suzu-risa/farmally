@@ -54,12 +54,25 @@ and renders all form fields for a resource's editable attributes.
     </div>
   </div>
 
+  <p>「価格」または「価格テキスト」に入力してください</p>
+  <p>「価格」が1以上の場合には「価格」が、0の場合には「価格テキスト」が表示されます。</p>
+  <p>「価格」が入っていないとエラーになるため、「価格テキスト」を表示したい場合にも0は入れたままにしてください</p>
+
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
       <%= f.label :price %>
     </div>
     <div class="field-unit__field">
-      <%= f.number_field :price, required: true %>
+      <%= f.number_field :price %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :price_text %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.text_field :price_text %>
     </div>
   </div>
 

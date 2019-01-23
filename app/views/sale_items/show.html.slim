@@ -12,9 +12,13 @@ section.section.sale-item__detail
         h1.title
           = @sale_item.name
           br
-          = number_to_currency(@sale_item.price)
-          span.tax-annotation
-            | （消費税込み）
+          - if @sale_item.price.try!(:zero?)
+            span.tax-annotation
+              | 価格 
+          = @sale_item.display_price
+          - if @sale_item.price.try!(:nonzero?)
+            span.tax-annotation
+              | （消費税込み）
         .columns.buttons
           .column.is-12-mobile.is-12-tablet.is-12-desktop
             |  <a href="tel:
@@ -47,7 +51,7 @@ section.section.sale-item__detail
                 th
                   = @sale_item.class.human_attribute_name(:price)
                 td
-                  = number_to_currency(@sale_item.price)
+                  = @sale_item.display_price
               /tr
                 th
                   = @sale_item.class.human_attribute_name(:prefecture_code)

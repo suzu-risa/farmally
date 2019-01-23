@@ -67,6 +67,7 @@ module Admin
         permit(:item_id,
                :name,
                :price,
+               :price_text,
                :used_hours,
                :year,
                :horse_power,

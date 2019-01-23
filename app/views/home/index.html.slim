@@ -167,7 +167,7 @@ main.home
                 td.price-td colspan="2"
                   span
                     | 価格
-                  = number_to_currency(sale_item.price)
+                  = sale_item.display_price
 
     .columns
       = link_to sale_items_path, class: "button view-all-button"  do
@@ -274,7 +274,7 @@ main.home
                 td.price-td colspan="2"
                   span
                     | 価格
-                  = number_to_currency(sale_item.price)
+                  = sale_item.display_price
 
     .columns
       = link_to sold_items_path, class: "button view-all-button"  do

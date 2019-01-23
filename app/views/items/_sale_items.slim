@@ -33,7 +33,7 @@
             td.price-td colspan="2"
               span
                 = sale_item.class.human_attribute_name(:price)
-              = number_to_currency(sale_item.price)
+              = sale_item.display_price
 
         = link_to sale_item.show_path, class: "detail-link"
           | 詳細はこちら
