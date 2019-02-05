@@ -128,6 +128,14 @@ end
 #                                      PATCH  /admin/review_comments/:id(.:format)                                                     admin/review_comments#update
 #                                      PUT    /admin/review_comments/:id(.:format)                                                     admin/review_comments#update
 #                                      DELETE /admin/review_comments/:id(.:format)                                                     admin/review_comments#destroy
+#                         admin_staffs GET    /admin/staffs(.:format)                                                                  admin/staffs#index
+#                                      POST   /admin/staffs(.:format)                                                                  admin/staffs#create
+#                      new_admin_staff GET    /admin/staffs/new(.:format)                                                              admin/staffs#new
+#                     edit_admin_staff GET    /admin/staffs/:id/edit(.:format)                                                         admin/staffs#edit
+#                          admin_staff GET    /admin/staffs/:id(.:format)                                                              admin/staffs#show
+#                                      PATCH  /admin/staffs/:id(.:format)                                                              admin/staffs#update
+#                                      PUT    /admin/staffs/:id(.:format)                                                              admin/staffs#update
+#                                      DELETE /admin/staffs/:id(.:format)                                                              admin/staffs#destroy
 #               admin_sale_item_images POST   /admin/sale_items/:sale_item_id/images(.:format)                                         admin/sale_items/images#create
 #                admin_sale_item_image DELETE /admin/sale_items/:sale_item_id/images/:id(.:format)                                     admin/sale_items/images#destroy
 #            admin_sale_item_inquiries GET    /admin/sale_items/:sale_item_id/sale_item_inquiries(.:format)                            admin/sale_item_inquiries#index

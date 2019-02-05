@@ -82,6 +82,7 @@ module Admin
                  :sold_at,
                  :sale_item_template_id,
                  :status,
+                 :staff_comment,
                  detail_json: { properties: {} },
                  images: [])
       end

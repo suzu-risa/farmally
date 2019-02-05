@@ -140,6 +140,16 @@ and renders all form fields for a resource's editable attributes.
     </div>
   </div>
 
+  <% if false %>
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
+      <%= f.label :staff_comment %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.text_area :staff_comment %>
+    </div>
+  </div>
+  <% end %>
   <fieldset>
     <legend align="center">プロパティ一覧</legend>
     <%= render "sale_item_property_table", sale_item: @sale_item, property_template: @property_template %>

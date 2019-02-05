@@ -10,6 +10,7 @@
 #  price                 :integer
 #  price_text            :string(255)      not null
 #  sold_at               :datetime
+#  staff_comment         :text(65535)
 #  status                :integer
 #  used_hours            :integer
 #  year                  :integer
@@ -55,6 +56,7 @@ class SaleItem < ApplicationRecord
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :maker, prefix: :maker
   delegate :name, to: :prefecture, prefix: :prefecture, allow_nil: true
+  delegate :name, to: :staff, prefix: :staff, allow_nil: true
 
   scope :for_sale, -> {
     where(sold_at: nil)

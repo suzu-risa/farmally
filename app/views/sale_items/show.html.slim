@@ -9,7 +9,7 @@ section.section.sale-item__detail
       .column.is-12-mobile.is-6-tablet.is-6-desktop.has-text-centered
         #sale-item-image.slick-slide-container data-url=(item_sale_item_images_path(sale_item_id: @sale_item, item_id: @item))
       .column.is-12-mobile.is-6-tablet.is-6-desktop
-        h1.title
+        h1.title.is-4
           = @sale_item.name
           br
           - if @sale_item.price.try!(:zero?)
@@ -78,6 +78,8 @@ section.section.sale-item__detail
                 td
                   = @sale_item.display_status
 section.section.sale-item__detail
+  h3.title.is-4
+    | 商品詳細
   - @sale_item.detail_with_template.tables.each do |table|
     table.table
       caption
@@ -90,6 +92,21 @@ section.section.sale-item__detail
             td
               = simple_format(property.value.presence || "-")
     br
+
+- if @sale_item.staff && @sale_item.staff_comment
+  section.section.sale-item__staff
+    h3.title.is-4
+      | 担当者コメント
+    .staff-content
+      .staff-detail
+        .staff-image
+          = image_tag(rails_representation_url(@sale_item.staff.picture.variant(resize: '500x500').processed))
+
+        .staff-name
+          = @sale_item.staff_name
+
+      .staff-description
+        = simple_format(@sale_item.staff.description)
 
 // お問い合わせモーダル
 .modal#js-sale-item-inquiry-modal

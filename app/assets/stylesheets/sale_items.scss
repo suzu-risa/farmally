@@ -154,6 +154,31 @@
       }
     }
   }
+
+  &__staff {
+    .staff-content {
+      .staff-detail {
+        display: flex;
+        margin-bottom: 20px;
+
+        .staff-image {
+          width: 120px;
+          img {
+          }
+        }
+
+        .staff-name {
+          margin-left: 20px;
+          font-weight: bold;
+        }
+      }
+
+      .staff-description {
+        background-color: #eee;
+        padding: 0.75rem;
+      }
+    }
+  }
 }
 
 .sale-items {
