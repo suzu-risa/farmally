@@ -12,4 +12,6 @@
 
 class Staff < ApplicationRecord
   has_many :sale_items
+
+  has_one_attached :picture
 end

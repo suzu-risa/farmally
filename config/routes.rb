@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :makers, param: :code
     resources :reviews
     resources :review_comments
+    resources :staffs
     resources :sale_items do
       scope module: :sale_items do
         resources :images, only: [:create, :destroy]

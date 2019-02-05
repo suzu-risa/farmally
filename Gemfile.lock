@@ -56,6 +56,9 @@ GEM
       momentjs-rails (~> 2.8)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
+    administrate-field-active_storage (0.1.4)
+      administrate (>= 0.2.0.rc1)
+      rails (>= 5.2)
     annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
@@ -930,6 +933,7 @@ PLATFORMS
 DEPENDENCIES
   active_decorator
   administrate
+  administrate-field-active_storage
   annotate
   aws-sdk
   aws-sdk-rails

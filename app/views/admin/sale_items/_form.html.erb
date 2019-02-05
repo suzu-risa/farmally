@@ -124,6 +124,15 @@ and renders all form fields for a resource's editable attributes.
 
   <div class="field-unit field-unit--string">
     <div class="field-unit__label">
+      <%= f.label :staff_id %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.collection_select(:staff_id, @staffs, :id, :name, include_blank: true) %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class="field-unit__label">
       <%= f.label :sold_at %>
     </div>
     <div class="field-unit__field">

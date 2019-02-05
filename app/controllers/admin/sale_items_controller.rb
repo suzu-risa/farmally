@@ -1,5 +1,7 @@
 module Admin
   class SaleItemsController < Admin::ApplicationController
+    before_action :set_staffs, only: [:new, :edit]
+
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
@@ -58,25 +60,30 @@ module Admin
     #
     private
 
-    def find_property_template(id)
-      SaleItemTemplate.find(id)
-    end
+      def set_staffs
+        @staffs = Staff.all
+      end
 
-    def resource_params
-      params.require(resource_class.model_name.param_key).
-        permit(:item_id,
-               :name,
-               :price,
-               :price_text,
-               :used_hours,
-               :year,
-               :horse_power,
-               :prefecture_code,
-               :sold_at,
-               :sale_item_template_id,
-               :status,
-               detail_json: { properties: {} },
-               images: [])
-    end
+      def find_property_template(id)
+        SaleItemTemplate.find(id)
+      end
+
+      def resource_params
+        params.require(resource_class.model_name.param_key).
+          permit(:item_id,
+                 :staff_id,
+                 :name,
+                 :price,
+                 :price_text,
+                 :used_hours,
+                 :year,
+                 :horse_power,
+                 :prefecture_code,
+                 :sold_at,
+                 :sale_item_template_id,
+                 :status,
+                 detail_json: { properties: {} },
+                 images: [])
+      end
   end
 end
