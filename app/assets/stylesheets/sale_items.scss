@@ -56,6 +56,10 @@
     }
 
     .buttons {
+      .column {
+        padding: 0.75rem 0;
+      }
+
       border-bottom: solid 2px $base-brown;
       padding: 10px 0;
 
@@ -70,37 +74,13 @@
           color: white;
           background-color: $base-brown;
           margin-bottom: 10px;
-          height: 60px;
+          height: 70px;
+          display: block;
 
           margin-bottom: -10px;
 
           &:hover {
             background-color: darken($base-brown, 10%);
-          }
-        }
-
-        &.contact-button {
-          color: $base-brown;
-          border: solid 1px $base-brown;
-          display: block;
-          margin-bottom: 10px;
-          height: auto;
-
-          padding-left: 0.4rem;
-          padding-right: 0.4rem;
-
-          span {
-            @media screen and (min-width: 400px) {
-              > .only-sp {
-                display: none;
-              }
-            }
-            @media screen and (max-width: 399px) {
-              font-size: 14px;
-            }
-          }
-          &:hover {
-            background-color: darken(white, 10%);
           }
 
           .item-id-alert {
@@ -110,6 +90,41 @@
               font-size: 0.6rem;
             }
           }
+        }
+
+        &.contact-button {
+          background-color: $base-brown;
+          color: white;
+          border: solid 1px $base-brown;
+          display: block;
+          margin-bottom: 10px;
+          height: auto;
+
+          padding-left: 0.4rem;
+          padding-right: 0.4rem;
+
+          .contact-description {
+            font-size: 0.9rem;
+
+            @include until($tablet) {
+              font-size: 0.6rem;
+            }
+          }
+
+          span {
+            @media screen and (min-width: 400px) {
+              > .only-sp {
+                display: none;
+              }
+            }
+            @media screen and (max-width: 399px) {
+              font-size: 17px;
+            }
+          }
+          &:hover {
+            background-color: darken(white, 10%);
+          }
+
         }
       }
     }
