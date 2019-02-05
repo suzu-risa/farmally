@@ -10,6 +10,7 @@
 #  price                 :integer
 #  price_text            :string(255)      not null
 #  sold_at               :datetime
+#  staff_comment         :text(65535)
 #  status                :integer
 #  used_hours            :integer
 #  year                  :integer
@@ -18,12 +19,14 @@
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
 #  seller_id             :bigint(8)
+#  staff_id              :bigint(8)
 #
 # Indexes
 #
 #  index_sale_items_on_item_id                (item_id)
 #  index_sale_items_on_sale_item_template_id  (sale_item_template_id)
 #  index_sale_items_on_seller_id              (seller_id)
+#  index_sale_items_on_staff_id               (staff_id)
 #
 # Foreign Keys
 #
@@ -40,6 +43,7 @@ class SaleItem < ApplicationRecord
 
   has_many_attached :images
 
+  belongs_to :staff, optional: true
   belongs_to :item
   belongs_to :sale_item_template,
              class_name: "SaleItemTemplate",
@@ -52,6 +56,7 @@ class SaleItem < ApplicationRecord
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :maker, prefix: :maker
   delegate :name, to: :prefecture, prefix: :prefecture, allow_nil: true
+  delegate :name, to: :staff, prefix: :staff, allow_nil: true
 
   scope :for_sale, -> {
     where(sold_at: nil)

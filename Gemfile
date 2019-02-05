@@ -58,6 +58,7 @@ gem 'jp_prefecture'
 gem 'enum_help'
 gem 'active_decorator'
 gem 'slim-rails'
+gem 'administrate-field-active_storage'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
