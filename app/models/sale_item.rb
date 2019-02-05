@@ -18,12 +18,14 @@
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
 #  seller_id             :bigint(8)
+#  staff_id              :bigint(8)
 #
 # Indexes
 #
 #  index_sale_items_on_item_id                (item_id)
 #  index_sale_items_on_sale_item_template_id  (sale_item_template_id)
 #  index_sale_items_on_seller_id              (seller_id)
+#  index_sale_items_on_staff_id               (staff_id)
 #
 # Foreign Keys
 #
@@ -40,6 +42,7 @@ class SaleItem < ApplicationRecord
 
   has_many_attached :images
 
+  belongs_to :staff, optional: true
   belongs_to :item
   belongs_to :sale_item_template,
              class_name: "SaleItemTemplate",
