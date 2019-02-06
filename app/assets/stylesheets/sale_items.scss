@@ -1,9 +1,11 @@
 .sale-item {
-  &__detail {
+  &-section {
     padding-bottom: 40px;
     box-sizing: border-box;
     border-bottom: solid 2px $base-brown;
+  }
 
+  &__detail {
     .title {
       .tax-annotation {
         font-size: 1rem;

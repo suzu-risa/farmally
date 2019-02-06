@@ -1,5 +1,5 @@
 - set_meta_tags title: @title
-section.section.sale-item__detail
+section.section.sale-item-section.sale-item__detail
   .container
     .columns.is-centered
       .column
@@ -78,7 +78,7 @@ section.section.sale-item__detail
                   = @sale_item.class.human_attribute_name(:status)
                 td
                   = @sale_item.display_status
-section.section.sale-item__detail
+section.section.sale-item-section.sale-item__detail
   h3.title.is-4
     | 商品詳細
   - @sale_item.detail_with_template.tables.each do |table|
@@ -95,7 +95,7 @@ section.section.sale-item__detail
     br
 
 - if @sale_item.staff && @sale_item.staff.description
-  section.section.sale-item__staff
+  section.section.sale-item-section.sale-item__staff
     h3.title.is-4
       | 担当者コメント
     .staff-content
@@ -109,6 +109,12 @@ section.section.sale-item__detail
       .staff-description
         = simple_format(@sale_item.staff.description)
 
+- if @related_sale_items.present?
+  section.section.sale-item-section.sale-item__related-items
+    h3.title.is-4
+      | 関連する商品
+    .related-items
+      = render "items/sale_items", sale_items: @related_sale_items
 // お問い合わせモーダル
 .modal#js-sale-item-inquiry-modal
   .modal-background
