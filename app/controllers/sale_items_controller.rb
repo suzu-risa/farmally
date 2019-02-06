@@ -8,6 +8,8 @@ class SaleItemsController < ApplicationController
     @sale_item = find_sale_item(params[:id])
     @inquiry = @sale_item.inquiries.build
     @title = "#{@sale_item.name} #{@sale_item.model}".strip
+
+    @related_sale_items = @sale_item.related_sale_items
   end
 
   def images

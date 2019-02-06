@@ -77,9 +77,10 @@ ja:
         sale_item_id: 出品商品
         name: お名前
         phone_number: 電話番号
+        kind: お問い合わせ内容
         email: メール
         address: 住所
-        contents: お問い合わせ内容
+        contents: 備考欄
         created_at: 問い合わせ日時
       contact:
         name: お名前
@@ -116,7 +117,12 @@ ja:
         buy: 買いたい方
         sell: 売りたい方
         other: その他
-
+    sale_item_inquiry:
+      kind:
+        condition: 状態のお問い合わせ
+        estimate: 商談・見積もり依頼
+        check_reserve: 現社確認の予約
+        other: その他
   date:
     abbr_day_names:
     - 日

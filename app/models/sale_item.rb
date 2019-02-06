@@ -53,7 +53,7 @@ class SaleItem < ApplicationRecord
   validates :price, presence: true
 
   delegate :model, :category, :sub_category, :maker, to: :item
-  delegate :name, to: :category, prefix: :category
+  delegate :name, :id, to: :category, prefix: :category
   delegate :name, to: :maker, prefix: :maker
   delegate :name, to: :prefecture, prefix: :prefecture, allow_nil: true
   delegate :name, to: :staff, prefix: :staff, allow_nil: true
@@ -72,6 +72,12 @@ class SaleItem < ApplicationRecord
 
   def sold?
     sold_at.present?
+  end
+
+  def related_sale_items
+    self.class.joins(:item).
+      where(items: { category_id: category_id }).
+      where.not(sale_items: { id: id })
   end
 
   def detail_json=(hash_or_json)

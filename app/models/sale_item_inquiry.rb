@@ -6,6 +6,7 @@
 #  address      :string(255)
 #  contents     :text(65535)
 #  email        :string(255)
+#  kind         :integer
 #  name         :string(255)      not null
 #  phone_number :string(255)      not null
 #  created_at   :datetime         not null
@@ -24,6 +25,8 @@
 class SaleItemInquiry < ApplicationRecord
   belongs_to :sale_item
 
+  enum kind: { condition: 1, estimate: 2, check_reserve: 3, other: 0 }
+
   delegate :model, :item, :category_name, :price, to: :sale_item
 
   def prettify
@@ -37,7 +40,8 @@ class SaleItemInquiry < ApplicationRecord
       価格: #{price.present? ? price : '未入力'}
       お名前: #{name}
       電話番号: #{phone_number}
-      お問い合わせ内容: #{contents? ? contents : '記入なし'}
+      お問い合わせ内容: #{kind_i18n}
+      備考欄: #{contents? ? contents : '記入なし'}
     TXT
   end
 
