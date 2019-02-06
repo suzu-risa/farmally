@@ -14,6 +14,7 @@ class SaleItemInquiryDashboard < Administrate::BaseDashboard
     phone_number: Field::String,
     address: Field::String,
     email: Field::String,
+    kind: Field::Number,
     contents: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -53,6 +54,7 @@ class SaleItemInquiryDashboard < Administrate::BaseDashboard
     :phone_number,
     :address,
     :email,
+    :kind,
     :contents
   ].freeze
 
