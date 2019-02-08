@@ -19,7 +19,8 @@ section.section.sale-item-section.sale-item__detail
           - if @sale_item.price.try!(:nonzero?)
             span.tax-annotation
               | （消費税込み）
-        .columns.buttons
+
+        .columns.sale-item-inquiry-buttons
           .column.is-12-mobile.is-12-tablet.is-12-desktop
             |  <a href="tel:
             = contact_phone_number
@@ -30,8 +31,7 @@ section.section.sale-item-section.sale-item__detail
               | 電話お問い合わせ
               span.item-id-alert
                 br
-                | 「出品番号#{@sale_item.id}について」
-                | とお問い合わせ時にお伝え下さい
+                | 年中無休 【受付時間】7:00 - 24:00
 
           .column.is-12-mobile.is-12-tablet.is-12-desktop
             a.js-open-modal.button.form-button.contact-button(
@@ -39,11 +39,28 @@ section.section.sale-item-section.sale-item__detail
               onclick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"
               data-target="js-sale-item-inquiry-modal")
 
+              span.icon.icon-arrow
+                i.fas.fa-long-arrow-alt-right
+              span.icon
+                i.fas.fa-phone
               span
-                | こちらからのお電話をご希望の方
+                | 担当者からのお電話をご希望の方
                 br
                 span.contact-description
                   | 電話番号をお伺いして、担当者からお電話させていただきます
+
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
+            a.js-open-modal.button.form-button.mail-button(
+              href="#"
+              onclick="gtag('event', '「メールお問い合わせ」クリック', { 'event_category': '出品商品' });"
+              data-target="js-sale-item-mail-inquiry-modal")
+              span.icon
+                i.fas.fa-envelope
+              span
+                | メールお問い合わせ
+                br
+                span.mail-description
+                  | メールでのご連絡をご希望の方はこちら
 
         .detail
           table.table
@@ -110,7 +127,7 @@ section.section.sale-item-section.sale-item__detail
         = simple_format(@sale_item.staff.description)
 
 section.section.sale-item-section
-  = render 'inquiry_form', inquiry: @inquiry, item: @item, sale_item: @sale_item
+  = render 'inquiry_form', inquiry: @inquiry, item: @item, sale_item: @sale_item, type: :phone
 
 - if @related_sale_items.present?
   section.section.sale-item-section.sale-item__related-items
@@ -122,6 +139,85 @@ section.section.sale-item-section
 .modal#js-sale-item-inquiry-modal
   .modal-background
   .modal-content[style="background-color: white; padding: 40px;"]
-    = render 'inquiry_form', inquiry: @inquiry, item: @item, sale_item: @sale_item
+    = render 'inquiry_form', inquiry: @inquiry, item: @item, sale_item: @sale_item, type: :phone
+
+  button.modal-close.is-large[aria-label="close" onclick="gtag('event', 'お問い合わせモーダル閉じるボタンクリック', { 'event_category': '出品商品' });"]
+
+// 以下の場合もお問い合わせください
+section.section.sale-item-section.other-inquiry
+  h3.title.is-5.is-spaced
+    | 以下の場合も一度是非お問い合わせください。
+    br
+    | 専門スタッフが対応いたします。
+
+  .other-inquiry-container
+    h4.title.is-5.other-inquiry-title
+      | どうやって探せばいいかわからない場合
+    .other-inquiry-content
+      | 専門のスタッフがご要望に沿った農機具を提案いたします。
+      br
+      | 電話問い合わせよりご連絡ください。
+
+  .other-inquiry-container
+    h4.title.is-5.other-inquiry-title
+      | お手持ちの農機具を売りたい場合
+    .other-inquiry-content
+      | 電話or問い合わせフォームよりご連絡ください。
+  .other-inquiry-container
+    h4.title.is-5.other-inquiry-title
+      | 欲しい農機具が出品されていない場合
+    .other-inquiry-content
+      | ご希望の農機具が出品されていない場合もお気軽にお問い合わせください。
+      br
+      | ご要望に沿った商品を最短日程で入荷いたします。
+
+  .columns.sale-item-inquiry-buttons
+    .column.is-12-mobile.is-12-tablet.is-12-desktop
+      |  <a href="tel:
+      = contact_phone_number
+      | " class="button form-button phone-button" onClick="gtag('event', 'ページ下部「電話お問い合わせ」クリック', { 'event_category': '出品商品' });"> 
+      span.icon
+        i.fas.fa-phone
+      span
+        | 電話お問い合わせ
+        span.item-id-alert
+          br
+          | 年中無休 【受付時間】7:00 - 24:00
+
+    .column.is-12-mobile.is-12-tablet.is-12-desktop
+      a.js-open-modal.button.form-button.contact-button(
+        href="#"
+        onclick="gtag('event', 'ページ下部「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"
+        data-target="js-sale-item-inquiry-modal")
+
+        span.icon.icon-arrow
+          i.fas.fa-long-arrow-alt-right
+        span.icon
+          i.fas.fa-phone
+        span
+          | 担当者からのお電話をご希望の方
+          br
+          span.contact-description
+            | 電話番号をお伺いして、担当者からお電話させていただきます
+
+    .column.is-12-mobile.is-12-tablet.is-12-desktop
+      a.js-open-modal.button.form-button.mail-button(
+        href="#"
+        onclick="gtag('event', 'ページ下部「メールお問い合わせ」クリック', { 'event_category': '出品商品' });"
+        data-target="js-sale-item-mail-inquiry-modal")
+        span.icon
+          i.fas.fa-envelope
+        span
+          | メールお問い合わせ
+          br
+          span.mail-description
+            | メールでのご連絡をご希望の方はこちら
+
+
+// メールお問い合わせモーダル
+.modal#js-sale-item-mail-inquiry-modal
+  .modal-background
+  .modal-content[style="background-color: white; padding: 40px;"]
+    = render 'inquiry_form', inquiry: @inquiry, item: @item, sale_item: @sale_item, type: :email
 
   button.modal-close.is-large[aria-label="close" onclick="gtag('event', 'お問い合わせモーダル閉じるボタンクリック', { 'event_category': '出品商品' });"]

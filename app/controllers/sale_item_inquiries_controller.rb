@@ -18,7 +18,7 @@ class SaleItemInquiriesController < ApplicationController
 
     def sale_item_inquiry_params
       params.require(:sale_item_inquiry)
-        .permit(:name, :phone_number, :kind, :contents)
+        .permit(:name, :phone_number, :kind, :contents, :email)
     end
 
     def find_item(item_id)
