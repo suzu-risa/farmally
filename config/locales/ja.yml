@@ -78,7 +78,7 @@ ja:
         name: お名前
         phone_number: 電話番号
         kind: お問い合わせ内容
-        email: メール
+        email: メールアドレス
         address: 住所
         contents: 備考欄
         created_at: 問い合わせ日時

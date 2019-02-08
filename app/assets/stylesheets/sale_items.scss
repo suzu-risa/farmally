@@ -94,7 +94,7 @@
           }
         }
 
-        &.contact-button {
+        &.mail-button {
           background-color: $base-brown;
           color: white;
           border: solid 1px $base-brown;
@@ -104,6 +104,34 @@
 
           padding-left: 0.4rem;
           padding-right: 0.4rem;
+
+          .mail-description {
+            font-size: 0.9rem;
+
+            @include until($tablet) {
+              font-size: 0.6rem;
+            }
+          }
+
+          &:hover {
+            background-color: darken($base-brown, 10%);
+          }
+        }
+
+        &.contact-button {
+          background-color: $base-brown;
+          color: white;
+          border: solid 1px $base-brown;
+          display: block;
+          margin-bottom: -10px;
+          height: auto;
+
+          padding-left: 0.4rem;
+          padding-right: 0.4rem;
+
+          .icon-arrow {
+            margin-right: -8px;
+          }
 
           .contact-description {
             font-size: 0.9rem;
@@ -124,9 +152,8 @@
             }
           }
           &:hover {
-            background-color: darken(white, 10%);
+            background-color: darken($base-brown, 10%);
           }
-
         }
       }
     }
