@@ -3,11 +3,13 @@
     .column.item-column.is-6-tablet.is-3-desktop
       .item
         .item-model-name
-          = image_tag "tractor-icon.png", alt: "車両アイコン"
           span
             = sale_item.model
             br
             = sale_item.category_name
+        .image
+          - if image = sale_item.images.first
+            = image_tag(rails_representation_url(image.variant(resize: '500x500').processed))
         table.table
           /tr
             td
