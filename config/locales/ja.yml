@@ -122,6 +122,7 @@ ja:
         condition: 状態のお問い合わせ
         estimate: 商談・見積もり依頼
         check_reserve: 現社確認の予約
+        change_price_alert: 価格変更通知
         other: その他
   date:
     abbr_day_names:

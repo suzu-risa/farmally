@@ -25,7 +25,7 @@
 class SaleItemInquiry < ApplicationRecord
   belongs_to :sale_item
 
-  enum kind: { condition: 1, estimate: 2, check_reserve: 3, other: 0 }
+  enum kind: { condition: 1, estimate: 2, check_reserve: 3, change_price_alert: 4, other: 0 }
 
   delegate :model, :item, :category_name, :price, to: :sale_item
 

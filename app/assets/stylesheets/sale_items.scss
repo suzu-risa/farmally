@@ -585,7 +585,7 @@
 
     &.phone-button {
       color: white;
-      background-color: $base-brown;
+      background-color: #01818a;
       margin-bottom: 10px;
       height: 70px;
       display: block;
@@ -593,7 +593,7 @@
       margin-bottom: -10px;
 
       &:hover {
-        background-color: darken($base-brown, 10%);
+        background-color: darken(#01818a, 10%);
       }
 
       .item-id-alert {
