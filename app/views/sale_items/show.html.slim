@@ -34,6 +34,19 @@ section.section.sale-item-section.sale-item__detail
                 | 年中無休 【受付時間】7:00 - 24:00
 
           .column.is-12-mobile.is-12-tablet.is-12-desktop
+            a(
+              href="tel:#{contact_phone_number}"
+              class="button form-button phone-button"
+              onClick="gtag('event', '「お値段の確認はこちら」クリック', { 'event_category': '出品商品' });")
+              span.icon
+                i.fas.fa-yen
+              span
+                | お値段の確認はこちら
+                span.item-id-alert
+                  br
+                  | 年中無休 【受付時間】7:00 - 24:00
+
+          .column.is-12-mobile.is-12-tablet.is-12-desktop
             a.js-open-modal.button.form-button.contact-button(
               href="#"
               onclick="gtag('event', '「この商品に関して問い合わせる」クリック', { 'event_category': '出品商品' });"
@@ -193,6 +206,19 @@ section.section.sale-item-section.other-inquiry
         span.item-id-alert
           br
           | 年中無休 【受付時間】7:00 - 24:00
+
+    .column.is-12-mobile.is-12-tablet.is-12-desktop
+      a(
+        href="tel:#{contact_phone_number}"
+        class="button form-button phone-button"
+        onClick="gtag('event', 'ページ下部「お値段の確認はこちら」クリック', { 'event_category': '出品商品' });")
+        span.icon
+          i.fas.fa-yen
+        span
+          | お値段の確認はこちら
+          span.item-id-alert
+            br
+            | 年中無休 【受付時間】7:00 - 24:00
 
     .column.is-12-mobile.is-12-tablet.is-12-desktop
       a.js-open-modal.button.form-button.contact-button(
