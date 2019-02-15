@@ -4,12 +4,14 @@ services:
     image: nginx
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - wp-data:/var/www/html
+      - wp-data:/var/www/html/blog
+      - company-wp-data:/var/www/html/company
     ports:
       - "80:80"
     links:
       - farmally
       - wordpress
+      - company
   farmally:
     build:
       context: .
@@ -57,7 +59,22 @@ services:
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: ''
     volumes:
-      - wp-data:/var/www/html
+      - wp-data:/var/www/html/blog
+
+  company:
+    build:
+      context: ./company_wordpress
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_SUBDIRECTORY: company
+      WORDPRESS_DB_HOST: "db:3306"
+      WORDPRESS_DB_NAME: company_wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: ''
+    volumes:
+      - company-wp-data:/var/www/html/company
 volumes:
   mysql-data:
     driver: local
@@ -66,4 +83,6 @@ volumes:
   node_modules:
     driver: local
   wp-data:
+    driver: local
+  company-wp-data:
     driver: local

@@ -92,7 +92,7 @@ cat > Dockerrun.aws.json <<EOS | jq
         },
         {
           "sourceVolume": "wp-data",
-          "containerPath": "/var/www/html",
+          "containerPath": "/var/www/html/blog",
           "readOnly": true
         }
       ]
@@ -127,7 +127,7 @@ cat > Dockerrun.aws.json <<EOS | jq
       "mountPoints": [
         {
           "sourceVolume": "wp-data",
-          "containerPath": "/var/www/html"
+          "containerPath": "/var/www/html/blog"
         }
       ]
     }
