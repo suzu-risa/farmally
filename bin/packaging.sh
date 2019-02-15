@@ -100,6 +100,11 @@ cat > Dockerrun.aws.json <<EOS | jq
           "sourceVolume": "wp-data",
           "containerPath": "/var/www/html/blog",
           "readOnly": true
+        },
+        {
+          "sourceVolume": "company-wp-data",
+          "containerPath": "/var/www/html/company",
+          "readOnly": true
         }
       ]
     },
