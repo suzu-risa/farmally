@@ -40,7 +40,13 @@ cat > Dockerrun.aws.json <<EOS | jq
     {
       "name": "wp-data",
       "host": {
-        "sourcePath": "/efs"
+        "sourcePath": "/efs/blog"
+      }
+    },
+    {
+      "name": "company-wp-data",
+      "host": {
+        "sourcePath": "/efs/company"
       }
     }
   ],
@@ -128,6 +134,40 @@ cat > Dockerrun.aws.json <<EOS | jq
         {
           "sourceVolume": "wp-data",
           "containerPath": "/var/www/html/blog"
+        }
+      ]
+    },
+    {
+      "name": "company",
+      "image": "${WP_REPO}",
+      "essential": true,
+      "memory": ${WP_MEMORY},
+      "environment": [
+        {
+          "name": "WORDPRESS_SUBDIRECTORY",
+          "value": "company"
+        },
+        {
+          "name": "WORDPRESS_DB_HOST",
+          "value": "farmally.csnop7esfbay.ap-northeast-1.rds.amazonaws.com:3306"
+        },
+        {
+          "name": "WORDPRESS_DB_NAME",
+          "value": "company_wordpress_${PROFILE}"
+        },
+        {
+          "name": "WORDPRESS_DB_USER",
+          "value": "${MYSQL_USERNAME}"
+        },
+        {
+          "name": "WORDPRESS_DB_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "company-wp-data",
+          "containerPath": "/var/www/html/company"
         }
       ]
     }
