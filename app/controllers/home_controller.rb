@@ -27,6 +27,8 @@ class HomeController < ApplicationController
 
   def commercial; end
 
+  def company; end
+
   def form
     @form = Form.new
     render layout: 'form'
