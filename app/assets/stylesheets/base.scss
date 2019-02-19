@@ -49,6 +49,10 @@
     padding: 8px;
     height: 100%;
 
+    &.sold-out {
+      filter: brightness(55%);
+    }
+
     .item-model-name {
       font-weight: bold;
       padding-bottom: 4px;

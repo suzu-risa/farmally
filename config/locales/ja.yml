@@ -112,6 +112,7 @@ ja:
         try_display: お試し出品
         under_maintenance: 整備中
         maintenanced: 整備済
+        sold_out: 売約済み
     contact:
       category:
         buy: 買いたい方

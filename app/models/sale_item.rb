@@ -36,7 +36,7 @@ class SaleItem < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
-  enum status: { try_display: 0, under_maintenance: 1, maintenanced: 2 }
+  enum status: { try_display: 0, under_maintenance: 1, maintenanced: 2, sold_out: 3 }
 
   has_many_attached :images
 
@@ -56,11 +56,11 @@ class SaleItem < ApplicationRecord
   delegate :name, to: :staff, prefix: :staff, allow_nil: true
 
   scope :for_sale, -> {
-    where(sold_at: nil)
+    where.not(status: 3)
   }
 
   scope :sold, -> {
-    where.not(sold_at: nil)
+    where(status: 3)
   }
 
   def for_sale?
@@ -68,7 +68,7 @@ class SaleItem < ApplicationRecord
   end
 
   def sold?
-    sold_at.present?
+    sold_at.present? || sold_out?
   end
 
   def related_sale_items

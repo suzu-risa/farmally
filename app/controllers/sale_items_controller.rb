@@ -1,6 +1,6 @@
 class SaleItemsController < ApplicationController
   def index
-    @sale_items = SaleItem.for_sale.page(params[:page])
+    @sale_items = SaleItem.page(params[:page])
   end
 
   def show

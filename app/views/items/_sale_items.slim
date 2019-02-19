@@ -1,7 +1,7 @@
 .columns.is-multiline.item-columns
   - sale_items.each do |sale_item|
     .column.item-column.is-6-tablet.is-3-desktop
-      .item
+      div class="item#{sale_item.sold? ? " sold-out" : ""}"
         .item-model-name
           span
             = sale_item.model
