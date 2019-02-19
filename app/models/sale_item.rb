@@ -56,11 +56,11 @@ class SaleItem < ApplicationRecord
   delegate :name, to: :staff, prefix: :staff, allow_nil: true
 
   scope :for_sale, -> {
-    where(sold_at: nil)
+    where.not(status: 3)
   }
 
   scope :sold, -> {
-    where.not(sold_at: nil)
+    where(status: 3)
   }
 
   def for_sale?
