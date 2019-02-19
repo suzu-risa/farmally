@@ -1,2 +1,4 @@
 - set_meta_tags noindex: @items.blank?
+- set_meta_tags title: "#{@title} 中古販売・買取"
+
 = render '/item_list_page', maker: @maker, items: @items, title: @title
