@@ -283,6 +283,10 @@
           font-size: .8em;
           padding: 8px;
 
+          &.sold-out {
+            filter: brightness(55%);
+          }
+
           .sale-item-model-name {
             align-items: center;
             display: flex;

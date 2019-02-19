@@ -135,7 +135,8 @@ main.home
     .columns.sale-item-columns
       - @sale_items.each do |sale_item|
         = link_to sale_item.show_path, class: "column sale-item-column is-3-tablet is-3-desktop"
-          .sale-item
+
+          div class="sale-item#{sale_item.sold? ? " sold-out" : ""}"
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
