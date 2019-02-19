@@ -63,18 +63,19 @@ section.section.sale-item-section.sale-item__detail
                 span.contact-description
                   | 電話番号をお伺いして、担当者からお電話させていただきます
 
-          .column.is-12-mobile.is-12-tablet.is-12-desktop
-            a.js-open-modal.button.form-button.mail-button(
-              href="#"
-              onclick="gtag('event', '「価格変更お知らせ」クリック', { 'event_category': '出品商品' });"
-              data-target="js-sale-item-change-price-alert-modal")
-              span.icon
-                i.fas.fa-yen
-              span
-                | 価格変更お知らせ
-                br
-                span.mail-description
-                  | 価格変更があった際にご連絡をご希望の方はこちら
+          - unless @sale_item.sold?
+            .column.is-12-mobile.is-12-tablet.is-12-desktop
+              a.js-open-modal.button.form-button.mail-button(
+                href="#"
+                onclick="gtag('event', '「価格変更お知らせ」クリック', { 'event_category': '出品商品' });"
+                data-target="js-sale-item-change-price-alert-modal")
+                span.icon
+                  i.fas.fa-yen
+                span
+                  | 価格変更お知らせ
+                  br
+                  span.mail-description
+                    | 価格変更があった際にご連絡をご希望の方はこちら
 
           /.column.is-12-mobile.is-12-tablet.is-12-desktop
             a.js-open-modal.button.form-button.mail-button(
