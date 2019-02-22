@@ -56,6 +56,8 @@ RUN set -ex; \
 # https configuration
 RUN sed -i "2i\$_SERVER['HTTPS'] = 'on';\n\$_ENV['HTTPS'] = 'on';\n" /usr/src/wordpress/wp-config-sample.php
 
+COPY php.ini-production /usr/local/etc/php/php.ini
+
 COPY docker-entrypoint.sh /usr/local/bin/
 
 # install plugins
