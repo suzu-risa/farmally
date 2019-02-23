@@ -18,7 +18,7 @@ RSpec.describe 'Home', type: :request do
 
     context '検索条件がカテゴリーのみの場合' do
       it '正しい検索結果を得られること' do
-        get search_path, params: { category: @category.code }
+        get search_path, params: { search_item_form: { category: @category.code } }
         expect(response).to have_http_status(:ok)
         expect(response.body).to include 'item1'
         expect(response.body).to include 'item2'
@@ -29,7 +29,7 @@ RSpec.describe 'Home', type: :request do
 
     context '検索条件がメーカーのみの場合' do
       it '正しい検索結果を得られること' do
-        get search_path, params: { maker: @maker.code }
+        get search_path, params: { search_item_form: { maker: @maker.code } }
         expect(response).to have_http_status(:ok)
         expect(response.body).to include 'item1'
         expect(response.body).not_to include 'item2'
@@ -40,7 +40,7 @@ RSpec.describe 'Home', type: :request do
 
     context '検索条件がカテゴリーとサブカテゴリーの場合' do
       it '正しい検索結果を得られること' do
-        get search_path, params: { category: @category.code, sub_category: @sub_category.code }
+        get search_path, params: { search_item_form: { category: @category.code, sub_category: @sub_category.code } }
         expect(response).to have_http_status(:ok)
         expect(response.body).to include 'item1'
         expect(response.body).not_to include 'item2'
@@ -51,7 +51,7 @@ RSpec.describe 'Home', type: :request do
 
     context '検索条件がカテゴリーとメーカーの場合' do
       it '正しい検索結果を得られること' do
-        get search_path, params: { category: @category.code, maker: @maker.code }
+        get search_path, params: { search_item_form: { category: @category.code, maker: @maker.code } }
         expect(response).to have_http_status(:ok)
         expect(response.body).to include 'item1'
         expect(response.body).not_to include 'item2'
@@ -62,7 +62,7 @@ RSpec.describe 'Home', type: :request do
 
     context '検索条件が全て指定されている場合' do
       it '正しい検索結果を得られること' do
-        get search_path, params: { category: @category.code, sub_category: @sub_category.code, maker: @maker.code }
+        get search_path, params: { search_item_form: { category: @category.code, sub_category: @sub_category.code, maker: @maker.code } }
         expect(response).to have_http_status(:ok)
         expect(response.body).to include 'item1'
         expect(response.body).not_to include 'item2'
