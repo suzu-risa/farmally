@@ -104,15 +104,24 @@
         display: flex;
         margin-bottom: 20px;
 
+        @media screen and (max-width: 399px) {
+          flex-direction: column;
+        }
+
         .staff-image {
-          width: 120px;
-          img {
+          width: 220px;
+
+          @media screen and (max-width: 399px) {
+            width: 100%;
           }
         }
 
         .staff-name {
-          margin-left: 20px;
           font-weight: bold;
+          margin-left: 20px;
+          @media screen and (max-width: 399px) {
+            margin-left: 0;
+          }
         }
       }
 
