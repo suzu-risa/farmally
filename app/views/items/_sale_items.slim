@@ -4,9 +4,7 @@
       div class="item#{sale_item.sold? ? " sold-out" : ""}"
         .item-model-name
           span
-            = sale_item.model
-            br
-            = sale_item.category_name
+            = sale_item.name
         .image
           - if image = sale_item.images.first
             = image_tag(rails_representation_url(image.variant(resize: '500x500').processed))
@@ -21,6 +19,11 @@
               = sale_item.class.human_attribute_name(:prefecture)
             td
               = sale_item.prefecture_name
+          tr
+            td
+              | カテゴリー
+            td
+              = sale_item.category_name
           tr
             td
               = sale_item.class.human_attribute_name(:horse_power)

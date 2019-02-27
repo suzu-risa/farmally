@@ -142,9 +142,7 @@ main.home
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
-                = sale_item.model
-                br
-                = sale_item.category_name
+                = sale_item.name
             table.table
               /tr
                 td
@@ -156,6 +154,11 @@ main.home
                   | 地域
                 td
                   = sale_item.prefecture_name
+              tr
+                td
+                  | カテゴリー
+                td
+                  = sale_item.category_name
               tr
                 td
                   | 馬力
@@ -251,9 +254,7 @@ main.home
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
-                = sale_item.model
-                br
-                = sale_item.category_name
+                = sale_item.name
             table.table
               /tr
                 td
@@ -265,6 +266,11 @@ main.home
                   | 地域
                 td
                   = sale_item.prefecture_name
+              tr
+                td
+                  | カテゴリー
+                td
+                  = sale_item.category_name
               tr
                 td
                   | 馬力
