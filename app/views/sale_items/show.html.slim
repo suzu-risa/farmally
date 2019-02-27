@@ -10,15 +10,15 @@ section.section.sale-item-section.sale-item__detail
         #sale-item-image.slick-slide-container data-url=(item_sale_item_images_path(sale_item_id: @sale_item, item_id: @item))
       .column.is-12-mobile.is-6-tablet.is-6-desktop
         h1.title.is-4
-          = @sale_item.name
-          br
-          - if @sale_item.price.try!(:zero?)
+          .title-name
+            = @sale_item.name
+          .title-price
             span.tax-annotation
               | 価格 
-          = @sale_item.display_price
-          - if @sale_item.price.try!(:nonzero?)
-            span.tax-annotation
-              | （消費税込み）
+            = @sale_item.display_price
+            - if @sale_item.price.try!(:nonzero?)
+              span.tax-annotation
+                | （消費税込み）
 
         .columns.buttons.sale-item-inquiry-buttons
           .column.is-12-mobile.is-12-tablet.is-12-desktop
