@@ -4,9 +4,7 @@
       div class="item#{sale_item.sold? ? " sold-out" : ""}"
         .item-model-name
           span
-            = sale_item.model
-            br
-            = sale_item.category_name
+            = sale_item.name
         .image
           - if image = sale_item.images.first
             = image_tag(rails_representation_url(image.variant(resize: '500x500').processed))
@@ -23,6 +21,11 @@
               = sale_item.prefecture_name
           tr
             td
+              | カテゴリー
+            td
+              = sale_item.category_name
+          tr
+            td
               = sale_item.class.human_attribute_name(:horse_power)
             td
               = sale_item.horse_power_with_unit
@@ -37,5 +40,7 @@
                 = sale_item.class.human_attribute_name(:price)
               = sale_item.display_price
 
-        = link_to sale_item.show_path, class: "detail-link"
+        = link_to sale_item.show_path,
+          class: "detail-link",
+          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '#{request.path}' });"
           | 詳細はこちら

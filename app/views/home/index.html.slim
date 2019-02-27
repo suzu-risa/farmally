@@ -134,15 +134,15 @@ main.home
       | ファーマリー最新農機車両
     .columns.sale-item-columns
       - @sale_items.each do |sale_item|
-        = link_to sale_item.show_path, class: "column sale-item-column is-3-tablet is-3-desktop"
+        = link_to sale_item.show_path,
+          class: "column sale-item-column is-3-tablet is-3-desktop",
+          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '/' });"
 
           div class="sale-item#{sale_item.sold? ? " sold-out" : ""}"
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
-                = sale_item.model
-                br
-                = sale_item.category_name
+                = sale_item.name
             table.table
               /tr
                 td
@@ -154,6 +154,11 @@ main.home
                   | 地域
                 td
                   = sale_item.prefecture_name
+              tr
+                td
+                  | カテゴリー
+                td
+                  = sale_item.category_name
               tr
                 td
                   | 馬力
@@ -242,14 +247,14 @@ main.home
       | ファーマリー買い取り実績
     .columns.sale-item-columns
       - @sold_items.each do |sale_item|
-        = link_to sale_item.show_path, class: "column sale-item-column is-3-tablet is-3-desktop"
+        = link_to sale_item.show_path, class: "column sale-item-column is-3-tablet is-3-desktop",
+          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '/' });"
+
           .sale-item
             .sale-item-model-name
               = image_tag "tractor-icon.png", alt: "車両アイコン"
               span
-                = sale_item.model
-                br
-                = sale_item.category_name
+                = sale_item.name
             table.table
               /tr
                 td
@@ -261,6 +266,11 @@ main.home
                   | 地域
                 td
                   = sale_item.prefecture_name
+              tr
+                td
+                  | カテゴリー
+                td
+                  = sale_item.category_name
               tr
                 td
                   | 馬力
