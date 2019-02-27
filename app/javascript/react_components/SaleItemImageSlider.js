@@ -24,7 +24,12 @@ class SaleItemImageSlider extends React.Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      afterChange: ()=> {
+        if(typeof gtag == "function"){
+          gtag('event', '商品画像切り替え', { 'event_category': '出品商品' });
+        }
+      }
     };
 
     const itemImages = this.state.itemImages.map((image, i)=>{
