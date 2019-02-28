@@ -171,24 +171,31 @@ and renders all form fields for a resource's editable attributes.
     <%= submit_tag "画像を登録する" %>
   <% end %>
 
-  <table>
-    <tr>
-      <td></td>
-      <td>削除</td>
-    </tr>
-    <% @sale_item.sale_item_images.each do |sale_item_image| %>
+  <%= form_tag(bulk_update_admin_sale_item_images_path(sale_item_id: @sale_item), class: "form", multipart: true , method: :patch) do %>
+    <p>
+      数字が小さい方から順に表示されます。並び順を変えたい場合は数字を変更して更新してください
+    </p>
+    <table>
       <tr>
-      <td><%= image_tag(sale_item_image.image.variant(resize: '500x500').processed) %></td>
-      <td><%= hidden_field_tag "sale_item_image[][id]", sale_item_image.id %></td>
-      <td><%= number_field_tag "sale_item_image[][position]", sale_item_image.position %></td>
-      <td>
-        <%=
-          link_to "削除",
-          admin_sale_item_image_path(sale_item_image.id, sale_item_id: @sale_item.id),
-          method: :delete
-        %>
-      </td>
+        <td></td>
+        <td>削除</td>
       </tr>
-    <% end %>
-  </table>
+      <% @sale_item.sale_item_images.each do |sale_item_image| %>
+        <tr>
+        <td><%= image_tag(sale_item_image.image.variant(resize: '500x500').processed) %></td>
+        <td><%= hidden_field_tag "sale_item_images[][id]", sale_item_image.id %></td>
+        <td><%= number_field_tag "sale_item_images[][position]", sale_item_image.position %></td>
+        <td>
+          <%=
+            link_to "削除",
+            admin_sale_item_image_path(sale_item_image.id, sale_item_id: @sale_item.id),
+            method: :delete
+          %>
+        </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= submit_tag "画像の並び順を更新する" %>
+  <% end %>
 <% end %>

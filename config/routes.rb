@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :staffs
     resources :sale_items do
       scope module: :sale_items do
-        resources :images, only: [:create, :destroy]
+        resources :images, only: [:create, :destroy] do
+          collection do
+            patch :bulk_update
+          end
+        end
       end
 
       resources :sale_item_inquiries, as: :inquiries

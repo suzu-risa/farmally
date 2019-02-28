@@ -89,7 +89,7 @@ class SaleItem < ApplicationRecord
             content_type: original_image.blob.content_type
           })
 
-          sale_item_image.image.update(
+          sale_item_image.image.update!(
             name: 'image',
             record_type: 'SaleItemImage',
             record_id: sale_item_image.id,

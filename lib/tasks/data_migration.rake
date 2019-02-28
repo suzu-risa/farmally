@@ -7,6 +7,7 @@ namespace :data_migration do
     # NOTE 本当はファイルとかクラス分けたほうが良さそう
     DataMigration.exec_migration_v2
     DataMigration.exec_migration_v3
+    DataMigration.exec_migration_v4
 
     Rails.logger.info 'Finish data migration task successfully'
   end

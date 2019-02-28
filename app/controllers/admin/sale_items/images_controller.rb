@@ -29,6 +29,18 @@ module Admin
         redirect_to edit_admin_sale_item_path(sale_item)
       end
 
+      def bulk_update
+        sale_item = find_sale_item(params[:sale_item_id])
+
+        params["sale_item_images"].each do |image_params|
+          sale_item.sale_item_images.find(image_params[:id]).update(position: image_params[:position])
+        end
+
+        flash[:notice] = "画像の並び順を更新しました"
+
+        redirect_to edit_admin_sale_item_path(sale_item)
+      end
+
       def destroy
         sale_item = find_sale_item(params[:sale_item_id])
 
@@ -43,9 +55,9 @@ module Admin
 
       private
 
-      def find_sale_item(sale_item_id)
-        SaleItem.find(sale_item_id)
-      end
+        def find_sale_item(sale_item_id)
+          SaleItem.find(sale_item_id)
+        end
     end
   end
 end
