@@ -164,12 +164,11 @@ and renders all form fields for a resource's editable attributes.
 
 <% if @sale_item.persisted? %>
   <h2>画像アップロード</h2>
-  <%= form_for(@sale_item, url: admin_sale_item_images_path(sale_item_id: @sale_item),
-               html: { class: "form", multipart: true }, method: :post) do |f| %>
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true, required: true %>
+  <%= form_tag(admin_sale_item_images_path(sale_item_id: @sale_item), class: "form", multipart: true , method: :post) do %>
+    <%= label_tag :images %>
+    <%= file_field_tag "images[]", multiple: true, required: true %>
 
-    <%= f.submit "画像を登録する" %>
+    <%= submit_tag "画像を登録する" %>
   <% end %>
 
   <table>
@@ -177,12 +176,18 @@ and renders all form fields for a resource's editable attributes.
       <td></td>
       <td>削除</td>
     </tr>
-    <% @sale_item.images.each do |image| %>
+    <% @sale_item.sale_item_images.each do |sale_item_image| %>
       <tr>
-      <td><%= image_tag(image.variant(resize: '500x500').processed) %></td>
-        <td>
-          <%= link_to "削除", admin_sale_item_image_path(image, sale_item_id: @sale_item.id), method: :delete %>
-        </td>
+      <td><%= image_tag(sale_item_image.image.variant(resize: '500x500').processed) %></td>
+      <td><%= hidden_field_tag "sale_item_image[][id]", sale_item_image.id %></td>
+      <td><%= number_field_tag "sale_item_image[][position]", sale_item_image.position %></td>
+      <td>
+        <%=
+          link_to "削除",
+          admin_sale_item_image_path(sale_item_image.id, sale_item_id: @sale_item.id),
+          method: :delete
+        %>
+      </td>
       </tr>
     <% end %>
   </table>
