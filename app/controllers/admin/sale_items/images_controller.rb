@@ -6,8 +6,16 @@ module Admin
 
         ActiveRecord::Base.transaction do
           params[:images].each do |image|
+            position =
+              if last_position = sale_item.sale_item_images.last.try(:position)
+                last_position + 1
+              else
+                0
+              end
+
             sale_item.sale_item_images.create!(
-              image: image
+              image: image,
+              position: position
             )
           end
         end
