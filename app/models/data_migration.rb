@@ -52,6 +52,12 @@ class DataMigration < ApplicationRecord
       end
     end
 
+    def exec_migration_v4
+      migrate(4) do
+        SaleItem.all.each(&:migrate_images_to_sale_item_images)
+      end
+    end
+
     private
       def migrate(exec_version, &block)
         if DataMigration.exists?(version: exec_version)

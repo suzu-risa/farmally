@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_122231) do
+ActiveRecord::Schema.define(version: 2019_02_28_104725) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -118,6 +118,14 @@ ActiveRecord::Schema.define(version: 2019_02_08_122231) do
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
+  create_table "sale_item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.bigint "sale_item_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sale_item_id"], name: "index_sale_item_images_on_sale_item_id"
+  end
+
   create_table "sale_item_inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "sale_item_id"
     t.string "name", null: false
@@ -181,6 +189,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_122231) do
   add_foreign_key "items", "sub_categories"
   add_foreign_key "review_comments", "reviews"
   add_foreign_key "reviews", "items"
+  add_foreign_key "sale_item_images", "sale_items"
   add_foreign_key "sale_item_inquiries", "sale_items"
   add_foreign_key "sale_item_templates", "categories"
   add_foreign_key "sale_items", "items"

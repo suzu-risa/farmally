@@ -39,6 +39,9 @@ class SaleItem < ApplicationRecord
   enum status: { try_display: 0, under_maintenance: 1, maintenanced: 2, sold_out: 3 }
 
   has_many_attached :images
+  has_many :sale_item_images,
+           ->{ order("position asc") },
+           class_name: "SaleItemImage"
 
   belongs_to :staff, optional: true
   belongs_to :item
@@ -62,6 +65,39 @@ class SaleItem < ApplicationRecord
   scope :sold, -> {
     where(status: 3)
   }
+
+  # TODO: ファイルのマイグレーションが終わったらリファクタする
+  def new_images
+    sale_item_images.map(&:image)
+  end
+
+  alias_method :old_images, :images
+
+  alias_method :images, :new_images
+
+  def migrate_images_to_sale_item_images
+    return false if sale_item_images.present?
+
+    ActiveRecord::Base.transaction do
+      old_images.each_with_index do |original_image, i|
+        sale_item_image = sale_item_images.create!(position: i)
+
+        ActiveStorage::Downloader.new(original_image).download_blob_to_tempfile do |tempfile|
+          sale_item_image.image.attach({
+            io: tempfile,
+            filename: original_image.blob.filename,
+            content_type: original_image.blob.content_type
+          })
+
+          sale_item_image.image.update!(
+            name: 'image',
+            record_type: 'SaleItemImage',
+            record_id: sale_item_image.id,
+          )
+        end
+      end
+    end
+  end
 
   def for_sale?
     sold_at.nil?
