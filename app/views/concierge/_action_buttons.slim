@@ -1,0 +1,32 @@
+- is_centered = !(is_centered == false)
+- button_size = button_size || ''
+- is_mail_invisible = is_mail_invisible
+- is_phone_invisible = is_phone_invisible
+
+div.buttons class=(is_centered ? 'is-centered' : '')
+  - if !is_phone_invisible
+    a.button class=(button_size) href="tel:#{contact_phone_number}"
+      span.icon
+        i.fas.fa-phone
+      span
+        | 電話で相談する
+  - if !is_mail_invisible
+    a.button.is-link.js-open-modal(
+      href="#"
+      data-target="js-concierge-form-modal"
+      class=(button_size))
+      span.icon
+        i.fas.fa-envelope
+      p
+        | メールで相談する
+
+/ a.button.is-link.js-open-modal(
+/   href="#"
+/   onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': '固定フッター' });"
+/   data-target="js-concierge-form-modal"
+/   class=(button_size))
+/   span.icon
+/     i.fas.fa-envelope
+/   p
+/     | メールで相談する
+

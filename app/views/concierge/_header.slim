@@ -1,0 +1,23 @@
+section.hero.is-small.sticky-header
+  header.hero-head
+    .container
+      nav#navbar.navbar
+        .navbar-brand style="flex: 1;"
+          a.navbar-item href="/concierge"
+            = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
+        nav#navMenu.navbar-menu
+          div.navbar-end
+            a.navbar-item.is-hidden-touch href="#cg-feature"
+              | サービスの特徴
+            a.navbar-item.is-hidden-touch href="#cg-how-to-use"
+              | 農機選び相談の方法
+            a.navbar-item.is-hidden-touch href="#cg-whom-its-for"
+              | こんな方におすすめ
+            div.navbar-item.is-hidden-touch
+              = render :partial => '/concierge/action_buttons', locals: {button_size: "is-small"}
+  - if flash.present?
+    div.notification class="is-#{flash.first[0]}"
+      button.delete
+      p
+        =flash.first[1]
+

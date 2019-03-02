@@ -1,0 +1,36 @@
+.modal#js-concierge-form-modal
+  .modal-background
+  .modal-content[style="background-color: white; padding: 40px;"]
+    div
+      p.title.is-5.is-spaced
+        | 農機選び相談
+    = form_for @form, url: concierge_index_path do |f|
+      .field
+        = f.label '農機の種類(必須)', class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :category, category_options
+      .field
+        = f.label 'ご予算', class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :price, price_options
+      .field
+        = f.label 'お名前', class: 'label'
+        .control
+          = f.text_field :name, placeholder: 'ファーマリー　太郎', class: 'input', required: true
+      .field
+        = f.label 'メールアドレス', class: 'label'
+        .control
+          = f.telephone_field :tel, placeholder: 'メールアドレス', class: 'input', required: true
+      .field
+        = f.label '電話番号(任意)', class: 'label'
+        .control
+          = f.telephone_field :tel, placeholder: '080-1111-2222', class: 'input'
+      = f.hidden_field :inquiry_type, value: '農機具選びの無料相談依頼'
+      div.has-text-centered
+        = f.submit '以下の規約へ同意した上で、無料相談する', class: 'submit button is-info'
+      br
+      p.terms
+        = link_to '利用規約', terms_of_service_path, class: '', target: '_blank'
+  button.modal-close.is-large[aria-label="close" onclick="gtag('event', '農機具選びの無料相談依頼モーダル閉じるボタンクリック', { 'event_category': '農機具選びの無料相談依頼' });"]

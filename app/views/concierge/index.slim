@@ -1,0 +1,175 @@
+- set_meta_tags title: 'Farmally 農機選び相談'
+- category_name = category_name || '中古農機'
+
+section.hero.eyecatch
+  .hero-body
+    .container
+      .columns
+        .column.is-offset-1-desktop.is-6-desktop
+          h1.title
+            | #{category_name}選びでお困りですか？
+          p.is-size-6
+            | ファーマリーにご相談いただければ、
+            strong.concierge あなたのご予算、栽培したい作物、作付面積などに合わせた中古農機
+            | をご提案いたします。
+          p.is-size-6
+            | もう農機選びに一人で悩む必要はありません。
+          br
+          br
+          br
+          = render :partial => '/concierge/action_buttons', locals: { is_centered: false }
+          p.help.has-text-grey
+            | 電話・メール相談は完全無料です。知らないうちに料金がかかることはありません。
+        / .column.is-hidden-mobile
+        /   = image_tag('concierge/tractor.png', class: 'logo-img', alt: 'トラクター画像', width: "70%" )
+
+
+div.section-headline.has-text-white
+  .container
+    h2#cg-feature.title.is-size-5.has-text-centered.has-text-white
+      | ファーマリー「農機選び相談」の特徴
+section.section
+  .hero-body
+    .container.content
+      .columns
+        .column.is-4
+          h3 相談だけでもOK！
+          p.is-size-6.has-text-weight-bold 購入を決めていなくても大丈夫です
+          div.has-text-centered
+            = image_tag('concierge/question.png', class: 'logo-img', alt: '相談したい',  height: '190', width: '120')
+          br
+          div
+            p.is-size-7
+              | まだ就農が決まっていない方や、購入することを決めていない方でも大丈夫です。
+              | ファーマリーでは、「もし農機を購入されるなら」ということで、あなたにあった農機選びをサポートさせていただきます。
+        .column.is-4
+          h3 表に出ない農機も提案
+          p.is-size-6.has-text-weight-bold 掘り出しものが見つかるかも？
+          div.has-text-centered
+            = image_tag('concierge/tractor.png', class: 'logo-img', alt: '掘り出し物農機', width: "70%")
+          br
+          div
+            p.is-size-7
+              | ファーマリーでは、専門の農機買取担当を設けており、日々、各地の農家さん農機店さんなどに足繁く通い、中古農機を探しております。
+              | また、地場の大きなディーラーさんとの提携もありますので、Yahooオークションや他のインターネットサイトに掲載されていない農機も含めてご提案できます。
+        .column.is-4
+          h3 農機探し依頼が可能
+          p.is-size-6.has-text-weight-bold 在庫がなくても探せます
+          div.has-text-centered
+            = image_tag('concierge/mechanic.png', class: 'logo-img', alt: '専門家が探す', height: '190', width: '195')
+          br
+          div
+            p.is-size-7
+              | 弊社スタッフは全国各地で中古農機の買取、販売業務を行なっている、中古農機のプロでございます。
+              | 今すぐに農機が必要でない方や自分で探すの面倒な方は、スタッフに依頼いただくことで、あなたのご希望にそった農機を弊社スタッフが農機探しを代わりに行います。
+  div.has-text-centered
+    = render partial: '/concierge/action_buttons'
+    p.help.has-text-grey
+      | 電話・メール相談は完全無料です。知らないうちに料金がかかることはありません。
+
+div.section-headline
+  .container
+    h2#cg-how-to-use.title.is-size-5.has-text-centered.has-text-white
+      | 農機選び相談の方法
+section.section
+  .container
+    div.columns
+      div.column
+        h3.title.is-size-5.has-text-centered-desktop
+          | お電話で相談したい方
+        div.contact
+          p
+            | 今すぐお電話で相談したい方にも対応いたしております。
+            | 下記の電話番号にご連絡いたただき、
+            strong 「農機相談をしたい」とお伝えいただく
+            | とスムーズです。
+          br
+          p.is-size-4.has-text-centered.has-text-weight-bold
+            | 090-3942-9192
+          br
+          = render :partial => '/concierge/action_buttons', locals: { is_centered: true, is_mail_invisible: true }
+      div.column
+        h3.title.is-size-5.has-text-centered-desktop
+          | メールで相談したい方
+        div.contact
+          p
+            | メールでのご相談を希望の方は、
+            strong 下記のボタンよりフォームを立ち上げていただき、必要事項をご記入の上、送信
+            | してください。内容を弊社専門スタッフが確認させていただいたのち、ご連絡さしあげます。
+          br
+          br
+          = render :partial => '/concierge/action_buttons', locals: { is_centered: true, is_phone_invisible: true }
+    p.help.has-text-grey
+      | 相談は完全無料です。知らないうちに料金がかかることはありません。
+    br
+    br
+
+div.section-headline
+  .container
+    h2#cg-whom-its-for.title.is-size-5.has-text-centered.has-text-white
+      | こんな方におすすめ
+section.section
+  .container
+    div.columns
+      div.column.is-8-desktop.is-offset-2-desktop
+        div.box
+          ul
+            li.whom-its-for
+              h3.is-size-5.has-text-weight-bold
+                span.icon.has-text-primary
+                  i.fas.fa-check-circle
+                span
+                  | なかなかぴったりの農機が見つからない
+              p.is-size-7
+                | 中古農機は数も少ないし、なかなか自分の条件にあったものが見つからないですよね。
+                br
+                | ファーマリーでは、全国の農機店から、ぴったりの農機を探す、「農機探し」を依頼できるので、ぴったりの農機探しに役立てていただけます。
+            li.whom-its-for
+              h3.is-size-5.has-text-weight-bold
+                span.icon.has-text-primary
+                  i.fas.fa-check-circle
+                span
+                  | 中古相場がわからず決められない
+              p.is-size-7
+                | 中古農機の相場感がいまいちつかめず、欲しいものが見つかっても割高なのかどうかわからないですよね。
+                br
+                | ファーマリーでは、中古農機相場を把握したプロに相談しながら、農機選びができるので、割高なものをつかまされることもありません。
+            li.whom-its-for
+              h3.is-size-5.has-text-weight-bold
+                span.icon.has-text-primary
+                  i.fas.fa-check-circle
+                span
+                  | 新規就農で選び方がわからない
+              p.is-size-7
+                | 新規収納の場合は、何から何かではじめてのことだらけで、農機選びも難しいですよね。
+                br
+                | ファーマリーでは、お客様の就農計画に合わせて農機提案をいたしますので、農機選びで迷うことはありません。
+            li.whom-its-for
+              h3.is-size-5.has-text-weight-bold
+                span.icon.has-text-primary
+                  i.fas.fa-check-circle
+                span
+                  | 買い替えか修理を迷っている
+              p.is-size-7
+                | 現在ご利用されている農機が調子悪くなってきて、買い替えか修理かを迷われている場合でもご相談いただけます。
+                br
+                | ファーマリーにぴったりの農機探しを依頼しながら、買い替えか修理をじっくり検討いただけます。
+
+
+  br
+  br
+  div.has-text-centered
+    = render partial: '/concierge/action_buttons'
+    p.help.has-text-grey
+      | 電話・メール相談は完全無料です。知らないうちに料金がかかることはありません。
+
+= render partial: '/concierge/modal_form'
+
+/ div.section-headline
+/   .container
+/     h2#cg-who-is-farmally.title.is-size-5.has-text-centered.has-text-white
+/       | ファーマリーってどんな会社なの？
+/ section.section
+/   .container
+
+
