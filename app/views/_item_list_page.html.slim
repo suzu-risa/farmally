@@ -25,26 +25,57 @@ section.section
 
           hr
       - if local_assigns.has_key? :sub_categories
-        h3.title.is-4.item-list-more-title
+        h3.is-6.subcategory-narrow-down-title
           span.category-name
-            | #{category.name}
-          | からもっと絞る >>
+            | 「#{category.name}」
+          | からさらに絞り込む
 
-        .columns.category-button-columns.is-multiline
+        div.tags
           - sub_categories.each do |sub_category|
-            .column.is-3-tablet.is-3-desktop
-              = link_to sub_category.show_path, class: "button category-button" do
+            span.tag
+              = link_to sub_category.show_path do
                 = sub_category.name
 
-      h1.item-list-title.title.is-4
-        span.counter
-          |  
-          = items.current_page
-          | ページ目 / 全
-          = items.total_count
-          | 件
-        span.title
-          = title
+      hr
+      - if !@statistics.nil?
+        h2.category-list-title.title.is-4
+          | #{title}のメーカー希望小売価格の情報
+        .columns
+          .column.is-6
+            .box.price-indicator
+              h3.title.has-text-left.is-size-5.price-header 平均価格は
+              p.has-text-centered.is-size-1.price-content
+                - if !@statistics[:avg].nil?
+                  span.is-size-7 おおよそ &nbsp;&nbsp;
+                  span.has-text-weight-bold #{(@statistics[:avg]/10).round(1)} 万円
+                - else
+                  span.is-size-7 データ不足で表示できません
+              P.has-text-right.price-footer です
+          .column.is-6
+            .box.sub-price-indicator
+              h3.has-text-left.is-size-7.has-text-weight-bold 最大価格は
+              p.has-text-centered.is-size-4
+                - if !@statistics[:max].nil?
+                  span.is-size-7 おおよそ &nbsp;&nbsp;
+                  span.has-text-weight-bold #{(@statistics[:max]/10).round(1)} 万円
+                - else
+                  span.is-size-7 データ不足で表示できません
+              P.has-text-right です
+            .box.sub-price-indicator
+              h3.has-text-left.is-size-7.has-text-weight-bold 最安価格は
+              p.has-text-centered.is-size-4
+                - if !@statistics[:min].nil?
+                  span.is-size-7 おおよそ &nbsp;&nbsp;
+                  span.has-text-weight-bold #{(@statistics[:min] / 10).round(1)} 万円
+                - else
+                  span.is-size-7 データ不足で表示できません
+              P.has-text-right です
+
+        .column
+      h1.category-list-title.title.is-3
+        | #{title}の一覧
+        span.title.is-7
+          | &nbsp;&nbsp;(#{items.current_page} ページ目 / 全#{items.total_count}件)
       .columns.is-mobile.is-multiline
         - items.each do |i|
           = render partial: '/item_cassette', locals: { item: i }

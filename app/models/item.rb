@@ -138,6 +138,19 @@ class Item < ApplicationRecord
     price
   end
 
+  def self.statistics(category)
+    # consider less than 1 yen or more than 5000万円 is invalid value.
+    # TODO: Improve efficiency of fetch operations and consider using cache for further performance improvement.
+    max = self.where(category: category).where('maker_price > ?', 1).where('maker_price < ?', 40000).maximum(:maker_price)
+    min = self.where(category: category).where('maker_price > ?', 1).where('maker_price < ?', 40000).minimum(:maker_price)
+    avg = self.where(category: category).where('maker_price > ?', 1).where('maker_price < ?', 40000).average(:maker_price)
+    {
+        max: max,
+        min: min,
+        avg: avg,
+    }
+  end
+
   private
 
   def sub_category_should_be_category_child

@@ -179,3 +179,32 @@
   }
 }
 
+.subcategory-narrow-down-title {
+  margin-bottom:  12px;
+}
+
+.category-list-title {
+  padding: 8px 0px;
+}
+
+.price-indicator {
+  width: 100%;
+  border-radius: 0;
+  height: 240px;
+
+  .price-header {
+    height: 40px;
+  }
+  .price-content {
+    height: 100px;
+  }
+
+  .price-footer {
+    height: 40px;
+  }
+}
+.sub-price-indicator {
+  border-radius: 0;
+  height: 108px;
+}
+
