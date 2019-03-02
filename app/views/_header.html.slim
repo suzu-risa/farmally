@@ -24,9 +24,8 @@ header#navbar.navbar
         br
         span.phone-number
           = Settings.phone.contact
-  #search
-section.hero.is-white.is-small
-  - if flash.present?
+- if flash.present?
+  section.hero.is-white.is-small
     div class="notification is-#{flash.first[0]}"
       button.delete
       p

@@ -106,8 +106,8 @@
   padding: 0;
 
   .container {
-    text-align: center;
     background-color: #616161;
+    text-align: center;
     padding: 20px;
     max-width: 100%;
     width: 100%;
@@ -175,4 +175,8 @@
     width: 90%;
     color: #616161;
   }
+}
+
+.form__footer {
+  background-color: #616161;
 }
