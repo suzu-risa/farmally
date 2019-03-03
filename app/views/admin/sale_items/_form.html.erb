@@ -186,6 +186,9 @@ and renders all form fields for a resource's editable attributes.
         <td><%= hidden_field_tag "sale_item_images[][id]", sale_item_image.id %></td>
         <td><%= number_field_tag "sale_item_images[][position]", sale_item_image.position %></td>
         <td>
+          <%= link_to "ダウンロード", url_for(sale_item_image.image), download: sale_item_image.image.name  %>
+        </td>
+        <td>
           <%=
             link_to "削除",
             admin_sale_item_image_path(sale_item_image.id, sale_item_id: @sale_item.id),
