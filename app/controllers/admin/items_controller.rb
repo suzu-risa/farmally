@@ -1,5 +1,7 @@
 module Admin
   class ItemsController < Admin::ApplicationController
+    include AdministrateExportable::Exporter
+
     before_action :default_params
 
     # To customize the behavior of this controller,
