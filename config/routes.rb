@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories, param: :code
     resources :sub_categories
-    resources :items do
-      collection do
-        get :export
-      end
-    end
+    resources :items
     resources :makers, param: :code
     resources :reviews
     resources :review_comments
