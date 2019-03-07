@@ -2,22 +2,23 @@
 #
 # Table name: items
 #
-#  id              :bigint(8)        not null, primary key
-#  horse_power     :string(255)
-#  machine_type    :string(255)
-#  maker_price     :integer
-#  model           :string(255)
-#  other           :text(65535)
-#  size            :string(255)
-#  sub_maker_price :integer
-#  used_price      :integer
-#  weight          :string(255)
-#  work_efficiency :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  category_id     :integer          not null
-#  maker_id        :integer          not null
-#  sub_category_id :bigint(8)
+#  id                   :bigint(8)        not null, primary key
+#  horse_power          :string(255)
+#  machine_type         :string(255)
+#  maker_price          :integer
+#  model                :string(255)
+#  original_horse_power :string(255)
+#  other                :text(65535)
+#  size                 :string(255)
+#  sub_maker_price      :integer
+#  used_price           :integer
+#  weight               :string(255)
+#  work_efficiency      :string(255)
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  category_id          :integer          not null
+#  maker_id             :integer          not null
+#  sub_category_id      :bigint(8)
 #
 # Indexes
 #
@@ -149,6 +150,12 @@ class Item < ApplicationRecord
         min: min,
         avg: avg,
     }
+  end
+
+  def creansing_horse_power
+    if horse_power.present?
+
+    end
   end
 
   private

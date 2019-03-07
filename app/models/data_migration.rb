@@ -58,6 +58,13 @@ class DataMigration < ApplicationRecord
       end
     end
 
+    def exec_migration_v5
+      Item.all.where(original_horse_power: nil).each do |item|
+        item.update!(original_horse_power: item.horse_power)
+        item.creansing_horse_power!
+      end
+    end
+
     private
       def migrate(exec_version, &block)
         if DataMigration.exists?(version: exec_version)
