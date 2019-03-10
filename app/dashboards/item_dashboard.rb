@@ -22,8 +22,8 @@ class ItemDashboard < Administrate::BaseDashboard
     machine_type: Field::String,
     work_efficiency: Field::String,
     other: Field::Text,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    created_at: Field::DateTime.with_options(export: false),
+    updated_at: Field::DateTime.with_options(export: false)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
