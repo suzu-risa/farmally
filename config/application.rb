@@ -27,6 +27,8 @@ module Farmally
 
     config.autoload_paths += %W(#{config.root}/app/forms)
 
+    config.assets.precompile += %w(ckeditor/application.js)
+
     config.to_prepare do
       Administrate::ApplicationController.helper Farmally::Application.helpers
     end
