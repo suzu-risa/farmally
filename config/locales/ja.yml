@@ -28,6 +28,7 @@ ja:
         used_price: ファーマリー中古価格
         model: 型式
         horse_power: 馬力
+        original_horse_power: 馬力(加工前)
         size: 大きさ
         weight: 重量
         category: 種類
@@ -288,6 +289,7 @@ ja:
         maker_price: メーカー希望小売価格
         used_price: ファーマリー中古価格
         horse_power: 馬力
+        original_horse_power: 馬力(加工前)
         size: 大きさ
         weight: 重量
         machine_type: 機械の種類等
