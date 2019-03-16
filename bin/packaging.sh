@@ -23,7 +23,7 @@ MYSQL_PASSWORD=`./bin/rails r "print Rails.application.credentials['${PROFILE}'.
 
 [ $PROFILE = 'production' ] && RAILS_MEMORY=1024 || RAILS_MEMORY=512
 [ $PROFILE = 'production' ] && NGINX_MEMORY=256 || NGINX_MEMORY=128
-[ $PROFILE = 'production' ] && WP_MEMORY=512 || WP_MEMORY=256
+[ $PROFILE = 'production' ] && WP_MEMORY=1024 || WP_MEMORY=512
 
 [ -e Dockerrun.aws.json ] && rm Dockerrun.aws.json
 
