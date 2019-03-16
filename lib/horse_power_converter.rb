@@ -53,6 +53,8 @@ class HorsePowerConverter
       $1
     when /\W+(?<kw>(\d|\.)+)k(w|W)/ # 出力174kW , 熱出力116kWなど
       "#{($1.to_f * 1.3596).round(1)}PS"
+    else
+      horse_power # 変換しないパターン
     end
   end
 

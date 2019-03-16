@@ -152,9 +152,9 @@ class Item < ApplicationRecord
     }
   end
 
-  def creansing_horse_power
-    if horse_power.present?
-
+  def creansing_horse_power!
+    if original_horse_power.present?
+      update!(horse_power: HorsePowerConverter.new(original_horse_power).convert_to_ps)
     end
   end
 

@@ -59,9 +59,18 @@ class DataMigration < ApplicationRecord
     end
 
     def exec_migration_v5
-      Item.all.where(original_horse_power: nil).each do |item|
-        item.update!(original_horse_power: item.horse_power)
-        item.creansing_horse_power!
+      migrate(5) do
+        Item.all.where(original_horse_power: [nil, ""]).each do |item|
+          item.update!(original_horse_power: item.horse_power)
+        end
+      end
+    end
+
+    def exec_migration_v6
+      migrate(6) do
+        Item.all.where.not(original_horse_power: [nil, ""]).each do |item|
+          item.creansing_horse_power!
+        end
       end
     end
 
