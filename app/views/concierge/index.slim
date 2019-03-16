@@ -85,7 +85,7 @@ section.section
             | とスムーズです。
           br
           p.is-size-4.has-text-centered.has-text-weight-bold
-            | 090-3942-9192
+            = contact_phone_number(separate: true)
           br
           = render :partial => '/concierge/action_buttons', locals: { is_centered: true, is_mail_invisible: true }
       div.column

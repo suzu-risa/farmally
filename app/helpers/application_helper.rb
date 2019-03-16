@@ -113,7 +113,11 @@ module ApplicationHelper
     end
   end
 
-  def contact_phone_number
-    Settings.phone.contact.gsub(/-/, '')
+  def contact_phone_number(separate: false)
+    if separate
+      Settings.phone.contact
+    else
+      Settings.phone.contact.gsub(/-/, '')
+    end
   end
 end

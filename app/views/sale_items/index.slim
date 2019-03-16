@@ -109,7 +109,7 @@
               br
             = image_tag "sale_items/phone-icon.png", class: "step-phone-button-icon"
             span.step-phone-button-number
-              | 090-3942-9192
+              = contact_phone_number(separate: true)
           a.js-open-modal.step-buy-button(
             href="#"
             onclick="gtag('event', '「購入の申込み」クリック', { 'event_category': '出品商品一覧画面' });"
