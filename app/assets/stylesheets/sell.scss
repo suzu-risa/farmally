@@ -1,0 +1,38 @@
+.sell-lp {
+  .cover {
+    background: image-url("eye-catch.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    padding-bottom: 2.5rem;
+
+    .cover-contents {
+      background-color: black;
+      opacity: .9;
+
+      .cover-title {
+        .cover-title-box {
+          border: 1px solid white;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  .button-section {
+    .button-section-title {
+      .button-section-title-caption {
+      }
+    }
+
+    .button-columns {
+      .button-column {
+
+      }
+    }
+  }
+}
