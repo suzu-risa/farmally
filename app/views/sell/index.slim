@@ -1,9 +1,9 @@
 // メイン画像
-.cover
+section.cover.sell-lp-section
   .cover-contents
     .columns
       .column.cover-title
-        h1
+        h1.title
           | 農機具の高価買取は
           br
           | ファーマリーまで
@@ -22,81 +22,124 @@
         p
 
 // 査定ボタン郡
-section.button-section
+section.sell-lp-section.button-section
   .container
-    .button-section-title
-      | ファーマリーで無料査定
-      .button-section-title-caption
-        | ご相談・ご質問もOK！お気軽にお問い合わせください。
+    .columns
+      .column.button-section-title
+        h2.title
+          | ファーマリーで無料査定
+        .button-section-title-caption
+          | ご相談・ご質問もOK！お気軽にお問い合わせください。
+
     .columns.buttons-columns
       .column.button-column.column-tel
         .column-title
           | 電話で査定
         .column-description
+          p
+            | 担当者直通、ご質問にも
+            br
+            | 親身にお答えします
         .column-button
+          .column-highlight
+            p
+              | 受付時間 9:00〜18:00
 
       .column.button-column.column-line
         .column-title
           | LINEで査定
         .column-description
+          p
+            | 写真を送って、すぐに査定!
+            br
+            | QRコードを読み込んで友だち追加
         .column-button
+          .column-highlight
+            p
+              | @dammydammy
 
       .column.button-column.column-mail
         .column-title
           | メールで査定
         .column-description
+          p
+            | 24時間受付!
+            br
+            | カンタン30秒で入力完了
         .column-button
+          .column-highlight
+            p
+              | お問い合わせフォームはこちら->
 
 // 高価買取の理由
-section
-  .title-cover
+section.sell-lp-section
+  .title-cover.title-cover-reason
     .cover-title
       .cover-title-line
-        | まずは高価買取を実現する
+        | まずは、高価買取を実現する
       .cover-title-line
         | 明確な理由を3つご紹介します
     .cover-image
 
   .container
-    .reason
-      .reason-title
-        h2
-          | 1.欲しい人がすぐに見つかる流通ルートが豊富
-      .reason-content
-        p
-          | 全国のリテールや大規模な農家まで、日本国内の販売網を持っています。
-          br
-          | そんな多くの買い手の中から一番高い値段で買い取ってくれる相手に売却するため、ファーマリーがお客様の農機具を買い取る価格もおのずと高く設定できます。
+    .reason.reason-red
+      .reason-left
+        .reason-title
+          h2
+            | 1.欲しい人がすぐに見つかる流通ルートが豊富
+        .reason-content
+          p
+            | 全国のリテールや大規模な農家まで、日本国内の販売網を持っています。
+            br
+            | そんな多くの買い手の中から一番高い値段で買い取ってくれる相手に売却するため、ファーマリーがお客様の農機具を買い取る価格もおのずと高く設定できます。
+      .reason-right
+        .reason-image
+          = image_tag("sell/reason-image-1.png")
 
-    .reason
-      .reason-title
-        h2
-          | 2.種苗店〜農業法人と連携中古ニーズをキャッチアップ
-      .reason-content
-        p
-          | 全国の種苗店や農事組合法人、農業法人との連携もファーマリーの強みです。
-          br
-          | その情報網を活用して最新の中古市場のニーズをキャッチできているため、高価買取を可能としています。
+    .reason.reason-green
+      .reason-left
+        .reason-title
+          h2
+            | 2.種苗店〜農業法人と連携中古ニーズをキャッチアップ
+        .reason-content
+          p
+            | 全国の種苗店や農事組合法人、農業法人との連携もファーマリーの強みです。
+            br
+            | その情報網を活用して最新の中古市場のニーズをキャッチできているため、高価買取を可能としています。
+      .reason-right
+        .reason-image
+          = image_tag("sell/reason-image-2.png")
 
-    .reason
-      .reason-title
-        h2
-          | 3. 海外の代理店と提携世界への輸出にも強い
-      .reason-content
-        p
-          | 日本国内のみならず海外にも販売網を敷いています。
-          br
-          | 日本の中古市場にある農機具は整備も行き届いていることから海外でとても人気です。海外の相場もリサーチできており、どんな農機具でも高額査定が可能です。
+    .reason.reason-yellow
+      .reason-left
+        .reason-title
+          h2
+            | 3. 海外の代理店と提携世界への輸出にも強い
+        .reason-content
+          p
+            | 日本国内のみならず海外にも販売網を敷いています。
+            br
+            | 日本の中古市場にある農機具は整備も行き届いていることから海外でとても人気です。海外の相場もリサーチできており、どんな農機具でも高額査定が可能です。
+      .reason-right
+        .reason-image
+          = image_tag("sell/reason-image-3.png")
 
     .reason-summary
-      p
-        | つまり、独自の販売ルートを持つファーマリーだから
-        br
-        | 「高価買取」が可能なのです！
+      .reason-summary-staff-image
+        = image_tag("sell/reason-summary-staff-image.png")
+
+      .reason-summary-message
+        p
+          | つまり、独自の販売ルートを持つファーマリーだから
+          br
+          | 「高価買取」が可能なのです！
+        .reason-summary-name
+          small
+            | 株式会社ファーマリー 東峰
 
 // 高価買取事例
-section
-  .title-cover
+section.sell-lp-section
+  .title-cover.title-cover-item
     .cover-title
       .cover-title-line
         | 3つの理由で実現した
@@ -104,3 +147,91 @@ section
         | ファーマリーの高価買取例
     .cover-image
 
+// お喜びの声
+section.sell-lp-section.sell-lp-section-users-voice
+  .title-cover.title-cover-users-voice
+    .cover-title
+      .cover-title-line
+        | ファーマリーをご利用いただいた
+      .cover-title-line
+        | お客様から多くのお喜びの声を
+      .cover-title-line
+        | いただいています。
+    .cover-image
+
+  .container
+    .user-voice
+      .user-voice-title
+        | 農地の縮小に伴って、買い替えを実施しました
+      .user-voice-contents
+        .user-voice-left
+          .user-voice-image
+            = image_tag("sell/user-voice-user-image1.png")
+          .user-voice-name
+            | Aさん(70代/男性)
+        .user-voice-right
+          .user-voice-comment
+            | 決めては東峰さんの親身な対応と買取金額でした。
+            br
+            | 過去にどこかのスクラップ工場の若者がうちに来て、アタッチメントとかを売ったことがあるのですが、対応はひどいし二束三文のような金額で買い取られました。そこで今回は、安心して売れるとこを探そうと思って見つけたのがファーマリーでした。一部壊れてたんですが修理して市場に出してくれたので、自分が使ってた機械を誰かが使ってくれてるのが実感できて嬉しいですね。
+          .user-voice-detail
+            | | 福岡 | トラクター、収穫機の買取
+
+    .user-voice
+      .user-voice-title
+        | 農家を辞めるので依頼しました
+      .user-voice-contents
+        .user-voice-left
+          .user-voice-image
+            = image_tag("sell/user-voice-user-image2.png")
+          .user-voice-name
+            | Bさん(70代/男性)
+        .user-voice-right
+          .user-voice-comment
+            | 農業を辞めるため、少しでもお金になるならと買取業者を探しました。
+            br
+            | ファーマリーは最初の問い合わせ時から対応が良く、自分みたいな年寄りにも丁寧に教えてくれました。出張査定も早かったし、機械を引き取りにきてくれたので安心して売れました。
+            br
+            | 隠居後は大好きなゴルフと釣りにいそしむ予定なので、空いた倉庫を道具置き場にします。
+          .user-voice-detail
+            | | 千葉 | 田植え機など一式
+
+    .user-voice
+      .user-voice-title
+        | 作物の種類を変更するので依頼しました
+      .user-voice-contents
+        .user-voice-left
+          .user-voice-image
+            = image_tag("sell/user-voice-user-image3.png")
+          .user-voice-name
+            | Cさん(60代/ご夫婦)
+        .user-voice-right
+          .user-voice-comment
+            | アタッチメントだけだとあまり需要がなくて値段がつかないと思ってましたが、ファーマリーさんの流通網ならほとんどの農機具を買い取ってもらえます。
+            br
+            | LINEで写真を送って査定依頼をしましたが、すぐにおおよその査定額を教えてくれて、そのあとの出張査定も早くてスムーズでした。買取金額は引き上げ時に現金でいただけたので、すぐに新しい農機具を買うことができて助かりました。
+
+          .user-voice-detail
+            | | 宮城 | アタッチメント類の買取
+
+// POINT
+section.sell-lp-section
+  .point-title-cover
+    .point-title-cover-title
+      | まずは無料査定してみるのがいいかもな。
+      br
+      | でも、まだ不安がいっぱいあるんだよ。
+    .point-title-cover-description
+      | 傷だらけでだいぶ年季が入っているし、
+      br
+      | 一部壊れてるものもあるんだけど・・・
+      br
+      | それと、安心できる買取業者に頼みたいな。
+    .point-title-cover-mark
+  .title-cover.title-cover-point
+    .cover-title
+      .cover-title-line
+        | もちろん、業者選びも重要なポイント
+      .cover-title-line
+        | 最後まで誠実対応!
+    .cover-image
