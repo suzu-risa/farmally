@@ -1,3 +1,16 @@
+header#navbar.navbar
+  .navbar-brand
+    a.navbar-item[href="/"]
+      = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
+  .navbar-menu#navMenu
+    .navbar-start
+    .navbar-end
+      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
+        | お電話でのお問い合わせはこちら
+        br
+        span.phone-number
+          = Settings.phone.contact
+
 // メイン画像
 section.cover.sell-lp-section
   .cover-contents
