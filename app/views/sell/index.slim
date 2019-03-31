@@ -376,3 +376,8 @@ section.sell-lp-section.sell-lp-section-area
 
       .column.area-image
         = image_tag("sell/area.png")
+
+// お問い合わせフォーム
+section.sell-lp-section.sell-lp-section-form
+  .container
+    = render 'form', form: @sell_form
