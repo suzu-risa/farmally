@@ -41,6 +41,8 @@ section.sell-lp-section.button-section
             br
             | 親身にお答えします
         .column-button
+          a.phone-number href="tel: #{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_category': '買取LP' });"
+            = contact_phone_number(separate: true)
           .column-highlight
             p
               | 受付時間 9:00〜18:00
@@ -53,10 +55,17 @@ section.sell-lp-section.button-section
             | 写真を送って、すぐに査定!
             br
             | QRコードを読み込んで友だち追加
+
         .column-button
-          .column-highlight
-            p
-              | @dammydammy
+          .line-container
+            .line-image
+              = image_tag("sell/line.png")
+            .line-title
+              p
+                | LINEで検索
+              .column-highlight
+                p
+                  | @zjd7645p
 
       .column.button-column.column-mail
         .column-title
@@ -68,8 +77,9 @@ section.sell-lp-section.button-section
             | カンタン30秒で入力完了
         .column-button
           .column-highlight
-            p
-              | お問い合わせフォームはこちら->
+            a href="#form"
+              | お問い合わせフォームはコチラ
+              i.fas.fa-long-arrow-alt-right
 
 // 高価買取の理由
 section.sell-lp-section
@@ -92,7 +102,7 @@ section.sell-lp-section
             | 全国のリテールや大規模な農家まで、日本国内の販売網を持っています。
             br
             | そんな多くの買い手の中から一番高い値段で買い取ってくれる相手に売却するため、ファーマリーがお客様の農機具を買い取る価格もおのずと高く設定できます。
-      .reason-right
+      .reason-right.except-mobile
         .reason-image
           = image_tag("sell/reason-image-1.png")
 
@@ -106,7 +116,7 @@ section.sell-lp-section
             | 全国の種苗店や農事組合法人、農業法人との連携もファーマリーの強みです。
             br
             | その情報網を活用して最新の中古市場のニーズをキャッチできているため、高価買取を可能としています。
-      .reason-right
+      .reason-right.except-mobile
         .reason-image
           = image_tag("sell/reason-image-2.png")
 
@@ -120,7 +130,7 @@ section.sell-lp-section
             | 日本国内のみならず海外にも販売網を敷いています。
             br
             | 日本の中古市場にある農機具は整備も行き届いていることから海外でとても人気です。海外の相場もリサーチできており、どんな農機具でも高額査定が可能です。
-      .reason-right
+      .reason-right.except-mobile
         .reason-image
           = image_tag("sell/reason-image-3.png")
 
@@ -378,6 +388,6 @@ section.sell-lp-section.sell-lp-section-area
         = image_tag("sell/area.png")
 
 // お問い合わせフォーム
-section.sell-lp-section.sell-lp-section-form
+section.sell-lp-section.sell-lp-section-form#form
   .container
     = render 'form', form: @sell_form
