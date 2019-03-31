@@ -257,27 +257,163 @@
     }
   }
 
-  .point-title-cover {
-    background: image-url("sell/point-title-cover.png") center center / cover no-repeat;
-    height: 501px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
+  .sell-lp-section-point {
+    background-color: #f9f9f9;
     font-weight: bold;
 
-    .point-title-cover-title {
-      color: white;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      line-height: 2rem;
+    .point-title-cover {
+      background: image-url("sell/point-title-cover.png") center center / cover no-repeat;
+      height: 501px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      font-weight: bold;
+
+      .point-title-cover-title {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        line-height: 2rem;
+      }
+
+      .point-title-cover-description {
+        color: white;
+        font-size: 1rem;
+        line-height: 2rem;
+      }
     }
 
-    .point-title-cover-description {
-      color: white;
-      font-size: 1rem;
+    .sell-lp-section-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .point {
+      margin-bottom: 2rem;
+
+      .point-title {
+        background-color: #243138;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .point-contents {
+        background-color: white;
+        padding: 1rem;
+        display: flex;
+
+        .point-image {
+          width: 100%;
+          padding: 1rem;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .point-message {
+          width: 100%;
+          padding: 1rem;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          font-weight: bold;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+
+  .sell-lp-section-step {
+    background-color: #f9f9f9;
+
+    .step {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .step-image {
+      margin-bottom: 2rem;
+      height: 40%;
+      img {
+        height: 100%;
+      }
+    }
+
+    .step-contents {
+      font-weight: bold;
       line-height: 2rem;
+      padding: 0 1.5rem;
+      height: 60%;
+
+      .step-title {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .sell-lp-section-genre {
+    .genre-message {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+
+      .genre-message-small {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .genre-message-large {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  .sell-lp-section-area {
+    background-color: #f9f9f9;
+
+    .area {
+      .area-message-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .area-message {
+          font-weight: bold;
+          font-size: 1.25rem;
+          line-height: 2.5rem;
+          padding: 0 1rem;
+
+          .area-message-large {
+            font-size: 1.75rem;
+          }
+
+          .area-message-small {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .area-image {
+        padding: 0 1rem;
+        img {
+          width: 100%;
+        }
+      }
     }
   }
 }

@@ -215,7 +215,7 @@ section.sell-lp-section.sell-lp-section-users-voice
             | | 宮城 | アタッチメント類の買取
 
 // POINT
-section.sell-lp-section
+section.sell-lp-section.sell-lp-section-point
   .point-title-cover
     .point-title-cover-title
       | まずは無料査定してみるのがいいかもな。
@@ -235,3 +235,144 @@ section.sell-lp-section
       .cover-title-line
         | 最後まで誠実対応!
     .cover-image
+
+  .container
+    .sell-lp-section-title
+      | 査定・買取・整備まで大切に使用されてきた
+      br
+      | 農機具を責任買取いたします。
+
+    .point
+      .point-title
+        | 1. ご自宅まで直接引き取りに伺います
+      .point-contents
+        .point-image
+          = image_tag("sell/point-image-1.png")
+        .point-message
+          p
+            | ご成約となった農機具は、お客様と引取日を決定後、後日ファーマリースタッフが直接引き取りに伺います。
+            br
+            | もちろん無料です。
+
+    .point
+      .point-title
+        | 2. 自社で責任を持ってメンテナンスします
+      .point-contents
+        .point-message
+          p
+            | 引き取り後、ファーマリースタッフが綺麗に整備します。
+            br
+            | お客様が大事に使ってきた農機具を次代につなぐために、責任を持って取り組んでおります。
+
+        .point-image
+          = image_tag("sell/point-image-2.png")
+
+    .reason-summary
+      .reason-summary-staff-image
+        = image_tag("sell/reason-summary-staff-image.png")
+
+      .reason-summary-message
+        p
+          | お客様が大切に使い続けた農機具、
+          br
+          | 安心して私たちにお売りください！
+        .reason-summary-name
+          small
+            | 株式会社ファーマリー 東峰
+
+// 買い取りの流れ
+section.sell-lp-section.sell-lp-section-step
+  .title-cover.title-cover-step
+    .cover-title
+      .cover-title-line
+        | 買い取りの流れ
+    .cover-image
+
+
+  .container
+    .columns
+      .step.column
+        .step-image
+          = image_tag("sell/step-image-1.png")
+        .step-contents
+          .step-title
+            | お問い合わせ
+          .step-message
+            | お電話、LINE、メールのいずれかでお問い合わせください。商品情報を伺い・確認し簡易査定をいたします。
+
+      .step.column
+        .step-image
+          = image_tag("sell/step-image-2.png")
+        .step-contents
+          .step-title
+            | 無料出張査定
+          .step-message
+            | 査定員が出張し農機具の状態を査定、買取価格を算出します。金額に納得いただけましたら売買契約が成立となります。
+
+      .step.column
+        .step-image
+          = image_tag("sell/step-image-3.png")
+        .step-contents
+          .step-title
+            | 引き取り
+          .step-message
+            | ご成約となった農機具は引取日を決定後、ファーマリースタッフが引取に伺います。査定日当日の引取も可能です。
+
+      .step.column
+        .step-image
+          = image_tag("sell/step-image-4.png")
+        .step-contents
+          .step-title
+            | お支払い
+          .step-message
+            | お支払いは、即日現金支払いいたします。
+            br
+            | ご希望の場合はお振込も可能です。(お振込の場合は2週間以内に対応します)
+
+// 買い取りジャンルも幅広く対応
+section.sell-lp-section.sell-lp-section-genre
+  .title-cover.title-cover-genre
+    .cover-title
+      .cover-title-line
+        | 買い取りジャンルも幅広く対応
+    .cover-image
+
+  .container
+    .columns.is-multiline.is-mobile
+      - 1.upto(8).each do |i|
+        .column.is-3-tablet.is-3-desktop.is-6-mobile
+          = image_tag("sell/genre-image-#{i}.png")
+
+    .genre-message
+      | 上記に記載のない農機具でも買取可能です。
+      br
+      | 型落ち、故障、長年動かしていなくても、まずはご相談ください。
+      .genre-message-small
+        | (※一部状態によって、お受けできない場合もございます)
+      .genre-message-large
+        | ファーマリーなら査定から買取まで、すべて無料です！
+
+// 買い取り対応エリア
+section.sell-lp-section.sell-lp-section-area
+  .title-cover.title-cover-area
+    .cover-title
+      .cover-title-line
+        | 買い取り対応エリア
+    .cover-image
+
+  .container
+    .columns.area
+      .column.area-message-container
+        .area-message
+          .area-message-large
+            | 全国引き取り訪問・出張いたします！
+          .area-message-small
+            | ※北海道および沖縄・離島は除く
+          | 大型〜小型農機具まで幅広く高価買取いたします。
+          br
+          | 買取方法についてご不明な点がございましたら、
+          br
+          | お気軽にお問い合わせください。
+
+      .column.area-image
+        = image_tag("sell/area.png")
