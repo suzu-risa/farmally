@@ -6,7 +6,8 @@ header#navbar.navbar
     .navbar-start
     .navbar-end
       a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
-        | お電話でのお問い合わせはこちら
+        span.phone-number-caption
+          | お電話でのお問い合わせはこちら
         br
         span.phone-number
           = Settings.phone.contact

@@ -84,12 +84,16 @@
       color: white;
       margin-bottom: 1rem;
       border-radius: 4px;
+      padding: 1.5rem;
 
       .title {
         color: white;
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
       }
 
       .button-section-title-caption {
+        font-weight: bold;
       }
     }
 
@@ -217,6 +221,18 @@
       background: image-url("sell/cover-title-point.png") center center / cover no-repeat;
     }
 
+    &.title-cover-step {
+      background: image-url("sell/cover-title-step.png") center center / cover no-repeat;
+    }
+
+    &.title-cover-genre {
+      background: image-url("sell/cover-title-genre.png") center center / cover no-repeat;
+    }
+
+    &.title-cover-area {
+      background: image-url("sell/cover-title-area.png") center center / cover no-repeat;
+    }
+
     .cover-title {
       display: flex;
       align-items: center;
@@ -229,8 +245,8 @@
         background-color: white;
         color: black;
         margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-        padding: 0.4rem;
+        font-size: 1.3rem;
+        padding: 0.5rem 0.8rem;
         font-weight: bold;
         border-radius: 4px;
       }
@@ -238,6 +254,10 @@
 
     .cover-image {
       width: 100%;
+
+      @include until($tablet) {
+        display: none;
+      }
     }
   }
 
@@ -254,6 +274,10 @@
         h2 {
           font-weight: bold;
           font-size: 1.5rem;
+
+          @include until($tablet) {
+            font-size: 1.2rem;
+          }
         }
       }
     }
@@ -337,9 +361,21 @@
         width: 99%;
         border-radius: 4px;
 
-        .user-voice-left {
-          .user-voice-image {
+        @include until($tablet) {
+          flex-direction: column;
+        }
 
+        .user-voice-left {
+          @include until($tablet) {
+            margin-bottom: 1rem;
+          }
+
+          .user-voice-image {
+            width: 10rem;
+
+            @include until($tablet) {
+              width: auto;
+            }
           }
 
           .user-voice-name {
