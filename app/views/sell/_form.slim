@@ -1,0 +1,55 @@
+h2.sell-form-title
+  | お問い合わせフォーム
+
+.container
+  = form_for form, url: sell_index_path, method: :post do |f|
+    .sell-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :category
+        .required
+          | 必須
+      .column.is-8-desktop.input-container
+        = f.text_field :category, class: 'input', placeholder: "トラクター", required: true
+
+
+    .sell-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :maker
+      .column.is-8-desktop.input-container
+        = f.text_field :maker, class: 'input', placeholder: "クボタ"
+
+    .sell-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :name
+        .required
+          | 必須
+      .column.is-8-desktop.input-container
+        = f.text_field :name, class: 'input', placeholder: "お名前", required: true
+
+    .sell-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :tel
+        .required
+          | 必須
+      .column.is-8-desktop.input-container
+        = f.text_field :tel, class: 'input', placeholder: "000-0000-0000", required: true
+
+    .sell-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :prefecture
+      .column.is-8-desktop.input-container
+        = f.text_field :prefecture, class: 'input', placeholder: "千葉県"
+
+    .sell-form-field.columns.field
+      .column.is-4-desktop.label.message-label
+        .label-name
+          = f.label :message
+      .column.is-8-desktop.input-container
+        = f.text_area :message, class: 'textarea', rows: '8', placeholder: "年式・型番、機械の状態など。わかる範囲で詳細をご記入ください"
+
+    = f.submit "送信する", class: "button is-success", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '買取LP' });"

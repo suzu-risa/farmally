@@ -107,6 +107,13 @@ ja:
         category: カテゴリー
         sub_category: サブカテゴリー
         maker: メーカー
+      sell_form:
+        category: 種類
+        maker: メーカー
+        name: お名前
+        tel: 電話番号
+        prefecture: お住まいの都道府県
+        message: ご要望・お問い合わせ
   enums:
     sale_item:
       status:
