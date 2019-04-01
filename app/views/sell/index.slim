@@ -41,65 +41,7 @@ section.cover.sell-lp-section
       .column.cover-staff-information
         = image_tag("sell/staff-with-message.png")
 
-// 査定ボタン郡
-section.sell-lp-section.button-section
-  .container
-    .columns
-      .column.button-section-title
-        h2.title
-          | ファーマリーで無料査定
-        .button-section-title-caption
-          | ご相談・ご質問もOK！お気軽にお問い合わせください。
-
-    .columns.buttons-columns
-      .column.button-column.column-tel
-        .column-title
-          | 電話で査定
-        .column-description
-          p
-            | 担当者直通、ご質問にも
-            br
-            | 親身にお答えします
-        .column-button
-          a.phone-number href="tel: #{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_category': '買取LP' });"
-            = contact_phone_number(separate: true)
-          .column-highlight
-            p
-              | 受付時間 9:00〜18:00
-
-      .column.button-column.column-line
-        .column-title
-          | LINEで査定
-        .column-description
-          p
-            | 写真を送って、すぐに査定!
-            br
-            | QRコードを読み込んで友だち追加
-
-        .column-button
-          .line-container
-            .line-image
-              = image_tag("sell/line.png")
-            .line-title
-              p
-                | LINEで検索
-              .column-highlight
-                p
-                  | @zjd7645p
-
-      .column.button-column.column-mail
-        .column-title
-          | メールで査定
-        .column-description
-          p
-            | 24時間受付!
-            br
-            | カンタン30秒で入力完了
-        .column-button
-          .column-highlight
-            a href="#form"
-              | お問い合わせフォームはコチラ
-              i.fas.fa-long-arrow-alt-right
+= render 'buttons', position: "画面上部"
 
 // 高価買取の理由
 section.sell-lp-section
@@ -244,6 +186,8 @@ section.sell-lp-section.sell-lp-section-users-voice
 
           .user-voice-detail
             | | 宮城 | アタッチメント類の買取
+
+= render 'buttons', position: "画面中間部"
 
 // POINT
 section.sell-lp-section.sell-lp-section-point
@@ -407,6 +351,10 @@ section.sell-lp-section.sell-lp-section-area
 
       .column.area-image
         = image_tag("sell/area.png")
+
+= render 'buttons', position: "画面下部"
+
+hr
 
 // お問い合わせフォーム
 section.sell-lp-section.sell-lp-section-form#form
