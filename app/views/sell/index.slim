@@ -12,6 +12,12 @@ header#navbar.navbar
         span.phone-number
           = Settings.phone.contact
 
+- if flash.present?
+  section.hero.is-white.is-small
+    div class="notification is-#{flash.first[0]}"
+      button.delete
+      p
+        = flash.first[1]
 // メイン画像
 section.cover.sell-lp-section
   .cover-contents
@@ -162,7 +168,8 @@ section.sell-lp-section
             | 株式会社ファーマリー 東峰
 
 // 高価買取事例
-section.sell-lp-section
+// TODO: 差し替えるため一旦コメントアウト
+//section.sell-lp-section
   .title-cover.title-cover-item
     .cover-title
       .cover-title-line
@@ -405,3 +412,16 @@ section.sell-lp-section.sell-lp-section-area
 section.sell-lp-section.sell-lp-section-form#form
   .container
     = render 'form', form: @sell_form
+
+
+footer.sell-lp-footer
+  .sell-lp-footer-contents
+    .sell-lp-footer-caption
+      | 入力が面倒でしたらお電話をご利用ください。
+    .sell-lp-footer-phone-number
+      a href="tel:#{contact_phone_number}"
+        = contact_phone_number(separate: true)
+    .sell-lp-fotter-office-hour
+      | 受付時間 9:00〜18:00
+  .sell-lp-fotter-right
+    | &copy; farmally,inc. All Rights Reserved.

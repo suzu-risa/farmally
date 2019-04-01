@@ -246,6 +246,10 @@
         color: black;
         margin-bottom: 0.5rem;
         font-size: 1.3rem;
+
+        @include until($tablet) {
+          font-size: 1.2rem;
+        }
         padding: 0.5rem 0.8rem;
         font-weight: bold;
         border-radius: 4px;
@@ -450,6 +454,10 @@
         padding: 1rem;
         display: flex;
 
+        @include until($tablet) {
+          flex-direction: column;
+        }
+
         .point-image {
           width: 100%;
           padding: 1rem;
@@ -607,5 +615,54 @@
     font-size: 1.75rem;
     font-weight: bold;
     display: block;
+
+    @include until($tablet) {
+      width: 80%;
+    }
+  }
+
+  .sell-lp-footer {
+    background: image-url("sell/footer.png")  center center / cover no-repeat;
+    .sell-lp-footer-contents {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-weight: bold;
+      color: white;
+      padding: 2rem 0;
+
+      .sell-lp-footer-caption {
+        @include until($tablet) {
+          font-size: 0.8rem;
+        }
+      }
+
+      .sell-lp-footer-phone-number {
+        font-size: 3rem;
+
+        @include until($tablet) {
+          font-size: 2rem;
+        }
+        a {
+          color: white;
+        }
+      }
+
+      .sell-lp-fotter-office-hour {
+        background-color: #128b8e;
+        padding: 0.5rem 3rem;
+        border-radius: 3rem;
+      }
+    }
+
+    .sell-lp-fotter-right {
+      background-color: #273339;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      color: white;
+    }
   }
 }
