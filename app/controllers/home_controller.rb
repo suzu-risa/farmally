@@ -33,11 +33,6 @@ class HomeController < ApplicationController
     render layout: 'form'
   end
 
-  def sell_form
-    @form = Form.new
-    render layout: 'form'
-  end
-
   private
 
   def search_item_form_params
