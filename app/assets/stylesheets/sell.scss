@@ -207,32 +207,46 @@
     height: 300px;
     margin-bottom: 2rem;
 
+    @include until($tablet) {
+      height: auto;
+      padding: 1rem 0;
+      min-height: 188px;
+    }
+
+    @mixin title-cover($image-url) {
+      background: image-url($image-url) center center / cover no-repeat;
+
+      @include until($tablet) {
+        background: image-url($image-url) left;
+      }
+    }
+
     &.title-cover-reason {
-      background: image-url("sell/cover-title-reason.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-reason.png");
     }
 
     &.title-cover-item {
-      background: image-url("sell/cover-title-item.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-item.png");
     }
 
     &.title-cover-users-voice {
-      background: image-url("sell/cover-title-users-voice.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-users-voice.png");
     }
 
     &.title-cover-point {
-      background: image-url("sell/cover-title-point.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-point.png");
     }
 
     &.title-cover-step {
-      background: image-url("sell/cover-title-step.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-step.png");
     }
 
     &.title-cover-genre {
-      background: image-url("sell/cover-title-genre.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-genre.png");
     }
 
     &.title-cover-area {
-      background: image-url("sell/cover-title-area.png") center center / cover no-repeat;
+      @include title-cover("sell/cover-title-area.png");
     }
 
     .cover-title {
@@ -425,6 +439,12 @@
       flex-direction: column;
       text-align: center;
       font-weight: bold;
+
+
+      @include until($tablet) {
+        height: auto;
+        padding: 1rem 0;
+      }
 
       .point-title-cover-title {
         color: white;
