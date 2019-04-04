@@ -270,6 +270,19 @@
   .reason {
     margin-bottom: 1rem;
     display: flex;
+    border-radius: $base-border-radius;
+
+    &.reason-red {
+      border-left: .5rem solid #fb3c3c;
+    }
+
+    &.reason-green {
+      border-left: .5rem solid #128b8e;
+    }
+
+    &.reason-yellow {
+      border-left: .5rem solid #feba53;
+    }
 
     .reason-left {
       background-color: #f9f9f9;
@@ -277,14 +290,32 @@
       font-weight: bold;
       width: 100%;
       .reason-title {
+        margin-bottom: 1rem;
+
+        @include until($tablet) {
+          background-color: black;
+          border-radius: 1rem;
+          padding: .5rem 1rem;
+        }
+
         h2 {
+          background-color: #243138;
+          border-radius: $base-border-radius;
+          color: white;
+          display: inline;
+          font-size: 1.2rem;
           font-weight: bold;
-          font-size: 1.5rem;
+          padding: .5rem 1.5rem;
 
           @include until($tablet) {
-            font-size: 1.2rem;
+            background-color: inherit;
+            padding: 0;
           }
         }
+      }
+
+      .reason-content {
+        line-height: 2rem;
       }
     }
 
@@ -292,33 +323,10 @@
       .reason-image {
         height: 100%;
         img {
-          height: 100%;
+          height: auto;
+          width: 100%;
         }
       }
-    }
-
-    &.reason-red {
-      border-left: 6px solid #fb3c3c;
-      border-radius: $base-border-radius;
-    }
-
-    &.reason-green {
-      border-left: 6px solid #128b8e;
-      border-radius: $base-border-radius;
-    }
-
-    &.reason-yellow {
-      border-left: 6px solid #feba53;
-      border-radius: $base-border-radius;
-    }
-
-    .reason-title {
-      background-color: #243138;
-      color: white;
-      padding: .5rem;
-      border-radius: $base-border-radius;
-      margin-bottom: 1rem;
-      font-weight: bold;
     }
   }
 
