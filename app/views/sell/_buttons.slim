@@ -12,49 +12,54 @@ section.sell-lp-section.button-section
       .column.button-column.column-tel
         .column-title
           | 電話で査定
-        .column-description
-          p
-            | 担当者直通、ご質問にも
-            br
-            | 親身にお答えします
-        .column-button
-          a.phone-number href="tel: #{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
-            = contact_phone_number(separate: true)
-          .column-highlight
+        .column-content
+          .column-description
             p
-              | 受付時間 9:00〜18:00
+              | 担当者直通、ご質問にも
+              br
+              | 親身にお答えします
+          .column-button
+            a.phone-number href="tel: #{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
+              = contact_phone_number(separate: true)
+            .column-highlight
+              p
+                | 受付時間 9:00〜18:00
 
       .column.button-column.column-line
         .column-title
           | LINEで査定
-        .column-description
-          p
-            | 写真を送って、すぐに査定!
-            br
-            | QRコードを読み込んで友だち追加
 
-        .column-button
-          .line-container
-            .line-image
-              = image_tag("sell/line.png")
-            .line-title
-              p
-                | LINEで検索
-              .column-highlight
+        .column-content
+          .column-description
+            p
+              | 写真を送って、すぐに査定!
+              br
+              | QRコードを読み込んで友だち追加
+
+          .column-button
+            .line-container
+              .line-image
+                = image_tag("sell/line.png")
+              .line-title
                 p
-                  | @zjd7645p
+                  | LINEで検索
+                .column-highlight
+                  p
+                    | @zjd7645p
 
       .column.button-column.column-mail
         .column-title
           | メールで査定
-        .column-description
-          p
-            | 24時間受付!
-            br
-            | カンタン30秒で入力完了
-        .column-button
-          .column-highlight
-            a href="#form" onClick="gtag('event', '「お問い合わせフォームはコチラ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
-              | お問い合わせフォームはコチラ
-              i.fas.fa-long-arrow-alt-right
+
+        .column-content
+          .column-description
+            p
+              | 24時間受付!
+              br
+              | カンタン30秒で入力完了
+          .column-button
+            .column-highlight
+              a href="#form" onClick="gtag('event', '「お問い合わせフォームはコチラ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
+                | お問い合わせフォームはコチラ 
+                i.fas.fa-long-arrow-alt-right
 
