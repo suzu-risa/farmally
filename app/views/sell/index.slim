@@ -18,6 +18,7 @@ header#navbar.navbar
       button.delete
       p
         = flash.first[1]
+
 // メイン画像
 section.cover.sell-lp-section
   .cover-contents
@@ -29,14 +30,20 @@ section.cover.sell-lp-section
           | ファーマリーまで
         .cover-title-box-container
           .cover-title-box
-            p
-              | 査定・引取
-              br
-              | 0円
+            .cover-title-box-content
+              p.price
+                span.price-caption
+                  | 査定・引取
+                br
+                span.price-number
+                  | 0
+                span.price-unit
+                  | 円
 
           .cover-title-box
-            p
-              | 現金・買取
+            .cover-title-box-content
+              p
+                | 現金・買取
 
       .column.cover-staff-information
         = image_tag("sell/staff-with-message.png")
@@ -103,7 +110,7 @@ section.sell-lp-section
       .reason-summary-message
         p
           | つまり、独自の販売ルートを持つファーマリーだから
-          br
+          br.except-mobile
           | 「高価買取」が可能なのです！
         .reason-summary-name
           small
@@ -249,7 +256,7 @@ section.sell-lp-section.sell-lp-section-point
       .reason-summary-message
         p
           | お客様が大切に使い続けた農機具、
-          br
+          br.except-mobile
           | 安心して私たちにお売りください！
         .reason-summary-name
           small
