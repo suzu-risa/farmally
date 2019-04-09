@@ -474,11 +474,16 @@
           }
 
           .user-voice-name {
-
+            border-left: 5px solid;
+            padding-left: 4px;
+            line-height: 1;
+            margin-top: 4px;
           }
         }
 
         .user-voice-right {
+          display: flex;
+          flex-direction: column;
           padding: 0 1rem;
           line-height: 2;
 
@@ -487,6 +492,10 @@
 
           .user-voice-detail {
             text-align: right;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
           }
         }
       }
