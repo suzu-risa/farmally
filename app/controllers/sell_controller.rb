@@ -1,6 +1,8 @@
 class SellController < ApplicationController
   def index
     @sell_form = SellForm.new
+    @prefecture = params[:prefecture]
+    @category = params[:category]
 
     render layout: 'sell'
   end

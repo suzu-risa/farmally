@@ -24,10 +24,16 @@ section.cover.sell-lp-section
   .cover-contents
     .columns
       .column.cover-title
-        h1.title
-          | 農機具の高価買取は
-          br
-          | ファーマリーまで
+        - if @category
+          h1.title
+            | #{@category}の高価買取は
+            br
+            | ファーマリーまで
+        - else
+          h1.title
+            | 農機具の高価買取は
+            br
+            | ファーマリーまで
         .cover-title-box-container
           .cover-title-box
             .cover-title-box-content
@@ -346,10 +352,14 @@ section.sell-lp-section.sell-lp-section-area
     .columns.area
       .column.area-message-container
         .area-message
-          .area-message-large
-            | 全国引き取り訪問・出張いたします！
-          .area-message-small
-            | ※北海道および沖縄・離島は除く
+          - if @prefecture
+            .area-message-large
+              | #{@prefecture}引き取り訪問・出張いたします！
+          - else
+            .area-message-large
+              | 全国引き取り訪問・出張いたします！
+            .area-message-small
+              | ※北海道および沖縄・離島は除く
           | 大型〜小型農機具まで幅広く高価買取いたします。
           br
           | 買取方法についてご不明な点がございましたら、
