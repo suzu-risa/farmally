@@ -4,6 +4,13 @@ class SellController < ApplicationController
     @prefecture = params[:prefecture]
     @category = params[:category]
 
+    @ptn = params[:ptn]
+
+    if @ptn.present? and @ptn == '2'
+      render 'index_price_guarantee'
+      return
+    end
+
     render layout: 'sell'
   end
 

@@ -1,0 +1,77 @@
+header#navbar.navbar
+  .navbar-brand
+    a.navbar-item[href="/"]
+      = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
+  .navbar-menu#navMenu
+    .navbar-start
+    .navbar-end
+      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
+        span.phone-number-caption
+          | お電話でのお問い合わせはこちら
+        br
+        span.phone-number
+          = Settings.phone.contact
+
+- if flash.present?
+  section.hero.is-white.is-small
+    div class="notification is-#{flash.first[0]}"
+      button.delete
+      p
+        = flash.first[1]
+
+// メイン画像
+section.cover.sell-lp-section
+  .cover-contents.container
+    .columns
+      .column.is-5.has-text-left.is-offset-2-desktop(style="margin-right: 0")
+        h1.title.has-text-white
+          | ネットで買取価格保証！
+          br
+          | まずはお値段聞いて見ませんか?
+        p.subtitle.has-text-white.is-size-6
+          | ファーマリーなら、電話口で最低買取価格を保証いたします。
+          br
+          | 実際に買取に来てもらわなくても、本当に買い取ってもらえる、買取価格がわかります。
+
+
+      .column.cover-staff-information.has-text-left.is-marginless
+        p.image
+          = image_tag("sell/staff.png")
+        p.has-text-white.is-size-5
+          | 株式会社ファーマリー　
+          br
+          | 東峰
+
+= render 'buttons_guarantee', position: "画面上部"
+
+= render 'sell/guarantee/reason'
+
+= render 'buttons', position: "画面中間部"
+
+= render 'sell/guarantee/voice'
+
+= render 'sell/guarantee/flow'
+
+= render 'sell/guarantee/faq'
+
+= render 'buttons', position: "画面下部"
+
+hr
+
+// お問い合わせフォーム
+section.sell-lp-section.sell-lp-section-form#form
+  .container
+    = render 'form', form: @sell_form
+
+
+footer.sell-lp-footer
+  .sell-lp-footer-contents
+    .sell-lp-footer-caption
+      | 入力が面倒でしたらお電話をご利用ください。
+    .sell-lp-footer-phone-number
+      a href="tel:#{contact_phone_number}"
+        = contact_phone_number(separate: true)
+    .sell-lp-fotter-office-hour
+      | 受付時間 9:00〜18:00
+  .sell-lp-fotter-right
+    | &copy; farmally,inc. All Rights Reserved.
