@@ -21,4 +21,10 @@
 #
 
 class ItemMarketPrice < ApplicationRecord
+  class << self
+    def import_from_task(csv_file_path)
+      importer = ItemMarketPriceCsvImporter.new(csv_file_path)
+      importer.import!
+    end
+  end
 end
