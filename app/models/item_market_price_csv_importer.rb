@@ -18,11 +18,11 @@ class ItemMarketPriceCsvImporter
     CSV.foreach(csv_file_path, headers: false) do |row|
       case row_index
       when @category_name_row_index
-        @category_name = row[1]
+        @category_name = row[0].gsub(/^\d　*/, '').strip
       when @sub_category_name_row_index
-        @sub_category_name = row[1]
+        @sub_category_name = row[1].gsub(/^\(\d+ *\)/, '')
       when @area_row_index
-        @area = row[1]
+        @area = row[1][1..-1]
       when @header_up_row_index
         @from_year_index = row.index("年式及び初販年")
         @to_year_index = from_year_index + 3
@@ -45,10 +45,37 @@ class ItemMarketPriceCsvImporter
         from_year = row[from_year_index]
         to_year = row[to_year_index]
 
-        max_price = row[max_price_index]
-        average_price = row[average_price_index]
-        min_price = row[min_price_index]
+        from_year =
+          if from_year.to_i > 20
+            "19#{from_year}".to_i
+          else
+            "20#{from_year}".to_i
+          end
 
+       to_year =
+          if to_year.to_i > 20
+            "19#{to_year}".to_i
+          else
+            "20#{to_year}".to_i
+          end
+
+        max_price = row[max_price_index].to_i * 1000
+        average_price = row[average_price_index].to_i * 1000
+        min_price = row[min_price_index].to_i * 1000
+
+        ItemMarketPrice.create!(
+          category_name: category_name,
+          sub_category_name: sub_category_name,
+          area: area,
+          maker_name: maker_name,
+          model: model_name,
+          sold_count: sold_count,
+          from_year: from_year,
+          to_year: to_year,
+          max_price: max_price,
+          average_price: average_price,
+          min_price: min_price
+        )
       end
 
       count_up_row_index
