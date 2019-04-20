@@ -3,7 +3,7 @@ class InquiryNotifier
     @inquiry = inquiry
   end
 
-  def notify
+  def notify referer
     # remove notifier to sales channel after we agreed on new channel.
     notifier =
       Slack::Notifier.new(Rails.application.credentials[:slack_webhook_url])
@@ -15,7 +15,7 @@ class InquiryNotifier
       username: Settings.slack.username
     )
     notifier2.post(
-        text: inquiry.prettify,
+        text: "[#{referer}] \n" + inquiry.prettify,
         icon_emoji: Settings.slack.icon_emoji,
         username: Settings.slack.username
     )
