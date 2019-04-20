@@ -32,4 +32,8 @@ class ItemMarketPrice < ApplicationRecord
       importer.import!
     end
   end
+
+  def detail
+    JSON.parse(detail_json)
+  end
 end

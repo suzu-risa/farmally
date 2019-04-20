@@ -38,6 +38,24 @@ class ItemMarketPriceCsvImporter
         @detail_down = row[detail_index_from..detail_index_to]
       when 3 # 空行
       else
+        detail = {}
+
+        detail_up.each_with_index do |key, i|
+          if key.present?
+            if detail_down[i].present?
+              detail[key] = {
+                detail_down[i] => row[detail_index_from + i]
+              }
+            else
+              detail[key] = row[detail_index_from + i]
+            end
+          else
+            detail[detail.keys.last].merge(
+              detail_down[i] => row[detail_index_from + i]
+            )
+          end
+        end
+
         maker_name = row[maker_name_index]
         model_name = row[model_name_index]
         sold_count = row[sold_count_index]
@@ -74,7 +92,8 @@ class ItemMarketPriceCsvImporter
           to_year: to_year,
           max_price: max_price,
           average_price: average_price,
-          min_price: min_price
+          min_price: min_price,
+          detail_json: detail.to_json
         )
       end
 
