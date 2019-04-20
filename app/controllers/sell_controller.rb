@@ -27,6 +27,16 @@ class SellController < ApplicationController
     render template: 'sell', status: :unprocessable_entity
   end
 
+  def call_click_log
+    ip_address = request.env['REMOTE_ADDR']
+    ua = request.env["HTTP_USER_AGENT"]
+
+    notifier = CallClickNotifier.new
+    notifier.notify "[#{ua}] \n [#{ip_address}] \n"
+
+    head :no_content
+  end
+
   private
     def form_params
       params.require(:sell_form).permit(:category, :maker, :name, :tel, :prefecture, :message)
