@@ -27,6 +27,8 @@ CSV.foreach('db/master/maker.csv') do |row|
   Maker.create(name: row[1], code: row[2])
 end
 
+ItemMarketPrice.import_from_all_file
+
 if ENV['RAILS_ENV'] != 'production'
   sub_category = SubCategory.first # TODO: CSVにサブカテゴリも含める
   CSV.foreach('db/master/sample_item.csv') do |row|

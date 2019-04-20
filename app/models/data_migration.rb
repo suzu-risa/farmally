@@ -74,6 +74,12 @@ class DataMigration < ApplicationRecord
       end
     end
 
+    def exec_migration_v7
+      migrate(7) do
+        ItemMarketPrice.import_from_all_file
+      end
+    end
+
     private
       def migrate(exec_version, &block)
         if DataMigration.exists?(version: exec_version)

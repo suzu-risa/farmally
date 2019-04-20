@@ -10,6 +10,7 @@ namespace :data_migration do
     DataMigration.exec_migration_v4
     DataMigration.exec_migration_v5
     DataMigration.exec_migration_v6
+    DataMigration.exec_migration_v7
 
     Rails.logger.info 'Finish data migration task successfully'
   end

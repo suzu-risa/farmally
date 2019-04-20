@@ -81,7 +81,7 @@ class ItemMarketPriceCsvImporter
         average_price = row[average_price_index].to_i * 1000
         min_price = row[min_price_index].to_i * 1000
 
-        ItemMarketPrice.create!(
+        ItemMarketPrice.create(
           category_name: category_name,
           sub_category_name: sub_category_name,
           area: area,
