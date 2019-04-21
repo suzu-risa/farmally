@@ -5,15 +5,24 @@
 #  id                :bigint(8)        not null, primary key
 #  area              :string(255)      not null
 #  average_price     :integer          not null
+#  cabin             :boolean
 #  category_name     :string(255)      not null
 #  detail_json       :text(65535)
+#  drive_system      :string(255)
+#  fertilizer        :boolean
 #  from_year         :integer          not null
+#  horse_power       :integer
 #  maker_name        :string(255)      not null
 #  max_price         :integer          not null
 #  min_price         :integer          not null
 #  model             :string(255)      not null
+#  number_of_thread  :integer
+#  planting_method   :string(255)
+#  rotary            :boolean
+#  safety_frame      :string(255)
 #  sold_count        :integer          not null
 #  sub_category_name :string(255)      not null
+#  tank              :boolean
 #  to_year           :integer          not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

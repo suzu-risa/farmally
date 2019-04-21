@@ -50,11 +50,45 @@ class ItemMarketPriceCsvImporter
               detail[key] = row[detail_index_from + i]
             end
           else
-            detail[detail.keys.last].merge(
-              detail_down[i] => row[detail_index_from + i]
-            )
+            detail[detail.keys.last] =
+              detail[detail.keys.last].merge(
+                detail_down[i] => row[detail_index_from + i]
+              )
           end
         end
+
+        number_of_thread =
+          detail["条数"] ? detail["条数"].to_i : nil
+
+        tank =
+          detail["タンク"] && detail["タンク"]["有"].present? || false
+
+        planting_method =
+          if detail["植付け方式"]
+            detail["植付け方式"].detect{|k,v| v.present? }[0]
+          end
+
+        cabin =
+          detail["キャビン"] && detail["キャビン"]["有"].present? || false
+
+        fertilizer =
+          detail["施肥機"] && detail["施肥機"]["有"].present? || false
+
+        horse_power =
+          detail["馬力"] ? detail["馬力"].to_i : nil
+
+        drive_system =
+          if detail["駆動方式"]
+            detail["駆動方式"].detect{|k,v| v.present? }[0]
+          end
+
+        safety_frame =
+          if detail["安全フレーム"]
+            detail["安全フレーム"].detect{|k,v| v.present? }[0]
+          end
+
+        rotary =
+          detail["ロータリ"] && detail["ロータリ"]["有"].present? || false
 
         maker_name = row[maker_name_index]
         model_name = row[model_name_index]
@@ -81,7 +115,7 @@ class ItemMarketPriceCsvImporter
         average_price = row[average_price_index].to_i * 1000
         min_price = row[min_price_index].to_i * 1000
 
-        ItemMarketPrice.create(
+        ItemMarketPrice.create!(
           category_name: category_name,
           sub_category_name: sub_category_name,
           area: area,
@@ -93,7 +127,16 @@ class ItemMarketPriceCsvImporter
           max_price: max_price,
           average_price: average_price,
           min_price: min_price,
-          detail_json: detail.to_json
+          detail_json: detail.to_json,
+          number_of_thread: number_of_thread,
+          tank: tank,
+          planting_method: planting_method,
+          cabin: cabin,
+          fertilizer: fertilizer,
+          horse_power: horse_power,
+          drive_system: drive_system,
+          safety_frame: safety_frame,
+          rotary: rotary
         )
       end
 

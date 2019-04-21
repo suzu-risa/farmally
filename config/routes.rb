@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :item_market_prices
+
     post '/import', to: 'home#import'
     put '/sitemap', to: 'home#sitemap'
     root to: 'home#index'

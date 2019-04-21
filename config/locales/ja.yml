@@ -12,6 +12,7 @@ ja:
       sale_item: 出品商品
       sale_item_inquiry: 出品商品お問い合わせ
       staff: 担当者
+      item_market_price: 商品販売価格
     attributes:
       category:
         name: 名前
@@ -93,6 +94,27 @@ ja:
         description: 自己紹介
         phone_number: 電話番号
         picture: 写真
+      item_market_price:
+        category_name: カテゴリー名
+        sub_category_name: サブカテゴリー名
+        area: 地域
+        maker_name: メーカー名
+        model: 型式
+        sold_count: 販売台数
+        detail_json: 詳細情報JSON
+        from_year: 年式及び初版年〜
+        to_year: 〜年式及び初版年
+        max_price: 販売価格(最高)
+        average_price: 販売価格(平均)
+        min_price: 販売価格(最低)
+        tank: タンク
+        planting_method: 植付け方式
+        cabin: キャビン
+        fertilizer: 施肥機
+        horse_power: 馬力
+        drive_system: 駆動方式
+        safety_frame: 安全フレーム
+        rotary: ロータリ
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -331,6 +353,28 @@ ja:
       sale_item_template:
         category: 種類
         created_at: 作成日時
+      item_market_price:
+        category_name: カテゴリー名
+        sub_category_name: サブカテゴリー名
+        area: 地域
+        maker_name: メーカー名
+        model: 型式
+        sold_count: 販売台数
+        detail_json: 詳細情報JSON
+        from_year: 年式及び初版年〜
+        to_year: 〜年式及び初版年
+        max_price: 販売価格(最高)
+        average_price: 販売価格(平均)
+        min_price: 販売価格(最低)
+        number_of_thread: 条数
+        tank: タンク
+        planting_method: 植付け方式
+        cabin: キャビン
+        fertilizer: 施肥機
+        horse_power: 馬力
+        drive_system: 駆動方式
+        safety_frame: 安全フレーム
+        rotary: ロータリ
   number:
     currency:
       format:
