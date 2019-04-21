@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   resources :concierge, only: [:index, :create]
 
   resources :sell, only: [:index, :create]
+  get '/sell-call-click' => 'sell#call_click_log'
 
   get '/search' => 'home#search'
   get '/terms-of-service', to: 'home#terms'

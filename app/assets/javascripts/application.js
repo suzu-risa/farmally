@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= stub sell/sell
 //= require_tree .
 
 document.addEventListener("DOMContentLoaded", function(event) {

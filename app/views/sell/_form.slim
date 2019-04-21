@@ -52,4 +52,5 @@ h2.sell-form-title
       .column.is-8-desktop.input-container
         = f.text_area :message, class: 'textarea', rows: '8', placeholder: "年式・型番、機械の状態など。わかる範囲で詳細をご記入ください"
 
+      =f.hidden_field :lp_pattern, :value => @sell_form.lp_pattern
     = f.submit "送信する", class: "button is-success", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '買取LP' });"
