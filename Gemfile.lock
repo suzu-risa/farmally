@@ -746,6 +746,10 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphql (1.9.4)
+    graphql-client (0.14.0)
+      activesupport (>= 3.0, < 6.0)
+      graphql (~> 1.6)
     gretel (3.0.9)
       rails (>= 3.1.0)
     hashie (3.6.0)
@@ -953,6 +957,7 @@ DEPENDENCIES
   enum_help
   factory_bot_rails
   font-awesome-rails
+  graphql-client
   gretel
   hashie
   html2slim
@@ -986,4 +991,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.6
+   1.17.1

@@ -77,6 +77,12 @@ Rails.application.routes.draw do
   resources :concierge, only: [:index, :create]
 
   resources :sell, only: [:index, :create]
+
+  get '/sell/makers' => 'sell#makers'
+  get '/sell/makers/:maker_slug' => 'sell#show_maker'
+  get '/sell/categories' => 'sell#category'
+  get '/sell/categories/:category_slug' => 'sell#show_category'
+
   get '/sell-call-click' => 'sell#call_click_log'
 
   get '/search' => 'home#search'

@@ -15,6 +15,32 @@ class SellController < ApplicationController
     render layout: 'sell'
   end
 
+  def show_maker
+    @maker_slug = params[:maker_slug]
+
+    result =  CosmicjsClient.fetch_maker(@maker_slug)
+
+    @maker_info =  result.data.object
+    @maker_meta = result.data.object.metadata
+
+    @sell_form = SellForm.new
+
+    render layout: 'sell'
+  end
+
+  def show_category
+    @category_slug = params[:cateogry_slug]
+
+    result =  CosmicjsClient.fetch_maker(@category_slug)
+
+    @category_info =  result.data.object
+    @category_meta = result.data.object.metadata
+
+    @sell_form = SellForm.new
+
+    render layout: 'sell'
+  end
+
   def create
     @form = SellForm.new(form_params)
     referer = request.referer

@@ -25,13 +25,13 @@ section.cover.sell-lp-section
     .columns
       .column.is-5.has-text-left.is-offset-2-desktop(style="margin-right: 0")
         h1.title.has-text-white
-          | ネットで農機具の買取価格を保証！
+          | #{@category_info.title}の買取ならファーマリーまで！
           br
           | まずはお値段聞いて見ませんか?
         p.subtitle.has-text-white.is-size-6
-          | ファーマリーなら、電話口で最低買取価格を保証いたします。
+          | ファーマリーでは、#{@maker_info.title}を積極買取しております。
           br
-          | 実際に買取に来てもらわなくても、本当に買い取ってもらえる、買取価格がわかります。
+          | まずはお電話で、買取査定金額を聞いてみませんか？
 
 
       .column.cover-staff-information.has-text-left.is-marginless
@@ -42,19 +42,17 @@ section.cover.sell-lp-section
           br
           | 東峰
 
-= render 'buttons_guarantee', position: "画面上部"
+= render 'buttons', position: "画面上部"
 
-= render 'sell/guarantee/reason'
+= render 'sell/category/feature'
 
-= render 'buttons', position: "画面中間部"
-
-= render 'sell/guarantee/voice'
+= render 'buttons_compact', position: "画面中間部"
 
 = render 'sell/common/flow'
 
 = render 'sell/common/faq'
 
-= render 'buttons', position: "画面下部"
+= render 'buttons_compact', position: "画面下部"
 
 hr
 
