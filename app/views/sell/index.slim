@@ -52,13 +52,7 @@ section.cover.sell-lp-section
 
 // 高価買取の理由
 section.sell-lp-section
-  .title-cover.title-cover-reason
-    .cover-title
-      .cover-title-line
-        | まずは、高価買取を実現する
-      .cover-title-line
-        | 明確な理由を3つご紹介します
-    .cover-image
+  = render 'sell/section_header', title: "まずは、高価買取を実現する明確な理由を3つご紹介します"
 
   .container
     .reason.reason-red
@@ -129,15 +123,7 @@ section.sell-lp-section
 
 // お喜びの声
 section.sell-lp-section.sell-lp-section-users-voice
-  .title-cover.title-cover-users-voice
-    .cover-title
-      .cover-title-line
-        | ファーマリーをご利用いただいた
-      .cover-title-line
-        | お客様から多くのお喜びの声を
-      .cover-title-line
-        | いただいています。
-    .cover-image
+  = render 'sell/section_header', title: "ファーマリーをご利用いただいたお客様にも、多くのお喜びの声をいただいています。"
 
   .container
     .user-voice
@@ -213,13 +199,7 @@ section.sell-lp-section.sell-lp-section-point
       br
       | それと、安心できる買取業者に頼みたいな。
     .point-title-cover-mark
-  .title-cover.title-cover-point
-    .cover-title
-      .cover-title-line
-        | もちろん、業者選びも重要なポイント
-      .cover-title-line
-        | 最後まで誠実対応!
-    .cover-image
+  = render 'sell/section_header', title: "もちろん、業者選びも重要なポイント。最後まで誠実対応!"
 
   .container
     .sell-lp-section-title
@@ -267,12 +247,7 @@ section.sell-lp-section.sell-lp-section-point
 
 // 買い取りの流れ
 section.sell-lp-section.sell-lp-section-step
-  .title-cover.title-cover-step
-    .cover-title
-      .cover-title-line
-        | 買い取りの流れ
-    .cover-image
-
+  = render 'sell/section_header', title: "買取の流れ"
 
   .container
     .columns
@@ -316,11 +291,7 @@ section.sell-lp-section.sell-lp-section-step
 
 // 買い取りジャンルも幅広く対応
 section.sell-lp-section.sell-lp-section-genre
-  .title-cover.title-cover-genre
-    .cover-title
-      .cover-title-line
-        | 買い取りジャンルも幅広く対応
-    .cover-image
+  = render 'sell/section_header', title: "買い取りジャンルも幅広く対応しております！"
 
   .container
     .columns.is-multiline.is-mobile
@@ -339,11 +310,7 @@ section.sell-lp-section.sell-lp-section-genre
 
 // 買い取り対応エリア
 section.sell-lp-section.sell-lp-section-area
-  .title-cover.title-cover-area
-    .cover-title
-      .cover-title-line
-        | 買い取り対応エリア
-    .cover-image
+  = render 'sell/section_header', title: "買い取り対応エリア"
 
   .container
     .columns.area
