@@ -74,8 +74,6 @@ Rails.application.routes.draw do
 
   resources :contacts, only: :create
 
-  resources :concierge, only: [:index, :create]
-
   resources :sell, only: [:index, :create]
 
   get '/sell/makers' => 'sell#makers'
