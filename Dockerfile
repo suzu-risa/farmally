@@ -50,4 +50,4 @@ COPY . /farmally
 RUN yarn install
 RUN yarn build
 
-RUN rals assets:precompile RAILS_ENV=production
+RUN rails assets:precompile RAILS_ENV=production
