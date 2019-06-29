@@ -3,7 +3,11 @@ class HomeController < ApplicationController
     @categories = Category.all
     @makers = Maker.all
     @sale_items = SaleItem.for_sale.order(created_at: :desc).limit(4)
-    @sold_items = SaleItem.sold.order(created_at: :desc).limit(4)
+
+    @sell_cases =  CosmicjsClient.fetch_latest_sell_cases
+    @sell_cases = @sell_cases.original_hash["data"]["getObjects"]
+
+    p @sale_items
 
     @search_item_form = SearchItemForm.new
   end

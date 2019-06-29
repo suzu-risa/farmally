@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'mysql2'
 gem 'bulma-rails'
+gem 'bulma-extensions-rails'
 gem 'font-awesome-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

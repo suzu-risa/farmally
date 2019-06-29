@@ -23,6 +23,20 @@ module CosmicjsClient
   }
   GRAPHQL
 
+
+  FetchSellCaseQuery = Client.parse <<-'GRAPHQL'
+  {
+    getObjects(bucket_slug: "farmally-inc", input: {
+      type: "sell-cases",
+      limit: 5,
+      read_key: ""
+    }) {
+      title
+      metadata
+    }
+  }
+  GRAPHQL
+
   def self.fetch_maker slug
     result = Client.query(ObjectQuery, variables: { slug: slug })
     result
@@ -30,6 +44,12 @@ module CosmicjsClient
 
   def self.fetch_category slug
     result = Client.query(ObjectQuery, variables: { slug: slug })
+    result
+  end
+
+
+  def self.fetch_latest_sell_cases
+    result = Client.query(FetchSellCaseQuery)
     result
   end
 

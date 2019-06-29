@@ -1,0 +1,19 @@
+.tile.is-6
+  .tile.is-child.box.sell-case.is-paddingless
+    .columns.is-marginless
+      .column.is-4.is-paddingless
+        = image_tag sell_case['metadata']["images"][0]["image"]["url"], alt: "買取農機画像"
+      .column.content
+        div
+          p.title.is-size-5.has-text-left
+            = sell_case['metadata']['category']['title']
+          p.subtitle.is-size-6
+            = sell_case['metadata']['sold_at']
+            | に買取
+        .cta
+          p.has-text-brand.has-text-weight-bold.has-text-right
+            | 買取金額 ¥
+            span.is-size-4
+              = sell_case['metadata']['price'].to_s(:delimited)
+          = link_to "/sell", class: "button is-fullwidth is-rounded is-outlined is-brand"
+            span 買取について詳しく知りたい

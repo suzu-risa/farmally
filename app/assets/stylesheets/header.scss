@@ -3,11 +3,11 @@ header#navbar {
   height: 4rem;
 
   @media screen and (min-width: 1088px) {
-    height: 4.5rem;
+    height: 80px;
   }
 
-  border-bottom: solid 2px $base-brown;
-  background-color: white;
+  border-bottom: solid 1px $lightGrey;
+  //background-color: white;
 
   .navbar-brand {
     .navbar-item {
@@ -38,17 +38,20 @@ header#navbar {
   .navbar-menu {
     padding-bottom: 0; // ハンバーガー展開した時の空白をなくす
     .navbar-item {
-      color: rgba(0, 0, 0, 0.5);
 
       &.navbar-item-phone-number {
-        color: white;
         display: block;
-        text-align: center;
+        text-align: left;
         font-weight: bold;
         line-height: 1;
         padding-top: 17px;
-        background-color: #01818a;
+
         .phone-number {
+          color: $greenDarken;
+          font-size: 1.4em;
+          margin-bottom: 8px;
+        }
+        .lead {
           font-size: 0.8em;
         }
       }

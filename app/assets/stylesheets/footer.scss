@@ -103,35 +103,11 @@
 
 // フッター
 .footer {
-  padding: 0;
 
   .container {
-    background-color: #616161;
-    text-align: center;
-    padding: 20px;
-    max-width: 100%;
-    width: 100%;
-
     .columns {
       text-align: left;
-
-      .fas {
-        color: white;
-      }
     }
-
-    a {
-      color: white;
-      margin: 0 5px;
-
-      &:visited {
-        color: white;
-      }
-      &:hover {
-        color: darken(white, 20%);
-      }
-    }
-
     span {
       color: white;
     }
@@ -148,33 +124,11 @@
     }
   }
 
-  .category-list {
-    width: 90%;
-    margin: 20px auto 10px auto;
-    font-size: 0.8em;
-
-    .title {
-      color: $base-brown;
-      font-size: 1.2em;
-      margin-bottom: 16px;
-    }
-
-    .contents {
-      width: 90%;
-      margin: 0 auto;
-      a {
-        color: $base-brown;
-        padding-right: 20px;
-        line-height: 2;
-      }
-    }
-  }
-
-  .copyright {
-    margin: 0 auto 10px auto;
-    width: 90%;
-    color: #616161;
-  }
+  //.copyright {
+  //  margin: 0 auto 10px auto;
+  //  width: 90%;
+  //  color: #616161;
+  //}
 }
 
 .form__footer {

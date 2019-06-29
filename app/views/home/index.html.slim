@@ -1,320 +1,89 @@
 main.home
   // アイキャッチ
-  section.eye-catch-section
-    .hero-body.eye-catch
-      .container.content
-        .columns.is-right.is-centered
-          .column.is-8
-            .eye-catch-text
-              h1.has-text-weight-bold
-                | 農機具・農業機械の中古販売・買取なら
-                br
-                | ファーマリー
-              p
-                | ファーマリーの特徴は3つ。
-                br
-                |農機が「探せる」「買える」「売れる」
-                br
-                |農機具を探している方が、ほしい農機具の中古を探す依頼ができるサービスです。
-            .columns.eye-catch-button-columns
-              .column
-                = link_to sale_items_path, class: "button eye-catch-button-buy"
-                  | 農機を買いたい方
-              .column
-                = link_to sold_items_path, class: "button eye-catch-button-sell"
-                  | 農機を売りたい方
-              .column
-                = link_to items_path, class: "button eye-catch-button-search"
-                  | 農機を探したい方
+  .eye-catch-overlray
+    section.hero.eye-catch
+      .hero-body
+        .container.has-text-left
+          .columns.is-right.is-centered
+            .column.is-10
+              .eye-catch-text
+                h1.title.has-text-weight-bold
+                  | 中古農機の販売・買取のファーマリー
+                h2.subtitle.has-text-centered.has-text-white.is-size-5
+                  | 全国どこでも農機の買取・販売を行なっています！
+              .spacer
+              .tile.is-ancestor
+                .tile.is-parent
+                  .tile.is-child.box.has-text-left.sell
+                    h2.title
+                      span 農機を売りたい方
+                    h3.subtitle 電話やLINE、メールで無料査定いたします！
+                    p.content
+                      .columns
+                        .column
+                          p
+                            | 全国どこでも買取出張いたします。
+                          p
+                            | また、
+                            strong  LINEやメール、お電話での査定で買取可能金額をお伝えすることも可能
+                            | ですので、気軽にお問い合わせください！
+                        .column.is-hidden-touch
+                          = image_tag("tractor.png")
+                    div
+                      = link_to "/sell", class: "button is-fullwidth is-rounded is-primary"
+                        span.icon
+                          i.fa.fa-search
+                        span 買取について詳しく知りたい
+                .tile.is-parent
+                  .tile.is-child.box.has-text-left.buy
+                    h2.title
+                      span 農機を買いたい方
+                    h3.subtitle あなたの条件にぴったりの農機をお探しします！
+                    p.content
+                      .columns
+                        .column
+                          p
+                            | サイトに掲載されている農機は持ち込んのこと、
+                            strong 載っていなくてもご相談いただければ、ファーマリーの買取ネットワークからお探しいたします！
+                        .column.is-hidden-touch
+                          = image_tag("callcenter.png")
+                    = link_to sale_items_path, class: "button is-fullwidth is-rounded is-primary"
+                      span.icon
+                        i.fas.fa-shopping-cart
+                      span 農機具を探したい
 
-  // ファーマリーの特徴
-  section.feature-section
-    .title-image
-      = image_tag "feature-title.png", alt: 'ファーマリーの特徴'
-    .columns.feature-columns
-      .column.is-3-tablet.is-3-desktop.content-image
-        = image_tag "robot_question.png", alt: "クエスチョン", class: 'question-image'
-      .column.is-9-tablet.is-9-desktop.content-title.has-text-lefted
-        .columns
-          .column.is-6-tablet.is-6-desktop
-            span.content-title-buy
-              | 農機を買いたい？
-          .column.is-6-tablet.is-6-desktop
-            span.content-title-sell
-              | 農機を売りたい？
-        .columns
-          .column
-            span.content-title-search
-              | 農機を探したい？
-    .content-text
-      | 全国の農機店が出品している中古農機を希望の条件に応じて検索できます。
-      br
-      | 探し方がわからない場合は、無料でファーマリーにご相談ください。
-
-  // 検索フォーム
-  section.search-section
-    .search-box
-      = form_for @search_item_form, url: search_path, method: :get do |f|
-        .columns.is-multiline
-          .column.is-6-tablet.is-6-desktop
-            .field
-              = f.label :category, class: 'label'
-              .select
-                = f.collection_select :category, @categories, :code, :name, class: 'input', prompt: "全て"
-
-          .column.is-6-tablet.is-6.desktop
-            .field
-              = f.label :sub_category, class: 'label'
-
-              .select
-                = f.collection_select :sub_category,
-                                      [], :id, :name,
-                                      { prompt: "カテゴリーを選択してください" },
-                                      { disabled: true }
-
-          .column.is-6-tablet.is-6-desktop
-            .field
-              = f.label :maker, class: 'label'
-              .select
-                = f.collection_select :maker, @makers, :code, :name, class: 'input', prompt: "全て"
-        .columns
-          .column
-            = f.submit "検索", class: 'button'
-
-    // お問い合わせ
-    .inquiry-buttons
-      p.inquiry-message
-        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
-      .columns
-        .column.is-6-tablet.is-6-desktop
-          a.button.phone-number-button href="tel:#{contact_phone_number}"
-            span.staff-message
-              | 専門スタッフが丁寧にお応えします
-            br
-            = image_tag "phone-icon.png", alt: "電話"
-            span.phone-number
-              = Settings.phone.contact
-        .column.is-6-tablet.is-6-desktop
-          a.js-open-modal.button.inquiry-button(
-              href="#"
-              onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': 'TOP' });"
-              data-target="js-contact-form-modal")
-            | お問い合わせフォーム
-
-  // 農機を買いたい方へ
-  section.buy-section
-    h2.title.howto-section-title
-      span
-        | 農機を買いたい方へ
-    .columns.content-columns
-      .column
-        h3.title.description-title
-          | 農機購入の流れ
-        ul.description
-          li
-            | 1. ご予算、メーカー、年式、走行距離、各種仕様などのご希望を
-            a.js-open-modal(
-                href="#"
-                onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': 'TOP' });"
-                data-target="js-contact-form-modal")
-              | お問い合わせフォーム
-            | または
-            a href="tel:#{contact_phone_number}"
-              | お電話
-            | にてお伝えください。
-          li
-            | 2. 全国から農機をお探しいたします。
-          li
-            | 3. 車両が見つかりましたらファーマリーにて各種手続きを代行させていただき、お客様にお届けいたします。
 
   // 最新農機車両
   section.sale-item-section
-    h2.title
-      = image_tag "logo-icon.png", alt: 'ロゴアイコン'
-      | ファーマリー最新農機車両
-    .columns.sale-item-columns
-      - @sale_items.each do |sale_item|
-        = link_to sale_item.show_path,
-          class: "column sale-item-column is-3-tablet is-3-desktop",
-          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '/' });"
+    h2.title.has-text-centered.has-text-primary
+     | ファーマリーの新着中古農機
+    h3.subtitle.has-text-centered.has-text-weight-bold
+     | 日々、農機を入荷しております！
+    div.section
+      .tile.is-ancestor.is-marginless
+         - @sale_items.each do |sale_item|
+          = render partial: 'item_box', locals: {sale_item: sale_item}
 
-          div class="sale-item#{sale_item.sold? ? " sold-out" : ""}"
-            .sale-item-model-name
-              = image_tag "tractor-icon.png", alt: "車両アイコン"
-              span
-                = sale_item.name
-            table.table
-              /tr
-                td
-                  | 年式
-                td
-                  = sale_item.year_text
-              /tr
-                td
-                  | 地域
-                td
-                  = sale_item.prefecture_name
-              tr
-                td
-                  | カテゴリー
-                td
-                  = sale_item.category_name
-              tr
-                td
-                  | 馬力
-                td
-                  = sale_item.horse_power_with_unit
-              tr
-                td
-                  | アワー
-                td
-                  = sale_item.used_hours_with_unit
-              tr
-                td.price-td colspan="2"
-                  span
-                    | 価格
-                  = sale_item.display_price
-
-    .columns
-      = link_to sale_items_path, class: "button view-all-button"  do
+    .has-text-centered
+      = link_to sale_items_path, class: "button is-rounded is-medium is-primary is-outlined"  do
         | すべてを表示する
 
-  // 農機をカテゴリーから検索
-  section.category-section
-    h2.title
-      | 農機をカテゴリーから検索
-    .columns.category-button-columns.is-multiline
-      - @categories.each do |category|
-        .column.is-2-tablet.is-2-desktop
-          = link_to category_path(code: category.code), class: "button category-button" do
-            = category.name
-    .columns
-      = link_to items_path, class: "button view-all-button"  do
-        | すべてを表示する
 
-    // 探し方がわからない方〜、電話、フォームへのボタン
-    // お問い合わせ
-    .inquiry-buttons
-      p.inquiry-message
-        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
-      .columns
-        .column.is-6-tablet.is-6-desktop
-          a.button.phone-number-button href="tel:#{contact_phone_number}"
-            span.staff-message
-              | 専門スタッフが丁寧にお応えします
-            br
-            = image_tag "phone-icon.png", alt: "電話"
-            span.phone-number
-              = Settings.phone.contact
-        .column.is-6-tablet.is-6-desktop
-          a.js-open-modal.button.inquiry-button.inquiry-button-buy(
-              href="#"
-              onclick="gtag('event', '「農機を買いたい方」問い合わせボタンクリック', { 'event_category': 'TOP' });"
-              data-target="js-contact-form-modal")
-            | 農機を買いたい方
   // 農機を売りたい方へ
-  section.sell-section
-    h2.title.howto-section-title
-      span
-        | 農機を売りたい方へ
-    .columns.content-columns
-      .column
-        h3.title.description-title
-          | 売却の流れ
-        ul.description
-          li
-            | 1.
-            a href="tel:#{contact_phone_number}"
-              | お電話
-            |/
-            a.js-open-modal(
-                href="#"
-                onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': 'TOP' });"
-                data-target="js-contact-form-modal")
-              | 査定依頼フォーム
-            | にて依頼するボタンよりお問い合わせください
-          li
-            | 2. 査定員が、農機車両の状態を査定させていただきます。査定により買取価格を算出します。
-          li
-            | 3. 買取金額に納得頂けましたら売買契約が成立となります。
-          li
-            | 4. ご成約となった農機車両は、お客様と引取日を決定後、後日ファーマリースタッフが引き取りに伺います。
-          li
-            | 5. お支払いは、2週間以内に振込いたします。
-  section.sale-item-section
-    h2.title
-      = image_tag "logo-icon.png", alt: 'ロゴアイコン'
-      | ファーマリー買い取り実績
-    .columns.sale-item-columns
-      - @sold_items.each do |sale_item|
-        = link_to sale_item.show_path, class: "column sale-item-column is-3-tablet is-3-desktop",
-          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '/' });"
+  section
+    h2.title.has-text-centered.has-text-primary
+      | ファーマリーの買い取り実績
+    h3.subtitle.has-text-centered.has-text-weight-bold
+      | 様々な機種の農機を積極買取中です！
+    div.section
+      .tile.is-ancestor.is-marginless
+        - @sell_cases.each do |sell_case|
+          = render partial: 'sell_case_box', locals: {sell_case: sell_case}
 
-          .sale-item
-            .sale-item-model-name
-              = image_tag "tractor-icon.png", alt: "車両アイコン"
-              span
-                = sale_item.name
-            table.table
-              /tr
-                td
-                  | 年式
-                td
-                  = sale_item.year_text
-              /tr
-                td
-                  | 地域
-                td
-                  = sale_item.prefecture_name
-              tr
-                td
-                  | カテゴリー
-                td
-                  = sale_item.category_name
-              tr
-                td
-                  | 馬力
-                td
-                  = sale_item.horse_power_with_unit
-              tr
-                td
-                  | アワー
-                td
-                  = sale_item.used_hours_with_unit
-              tr
-                td.price-td colspan="2"
-                  span
-                    | 価格
-                  = sale_item.display_price
+    .has-text-centered
+      = link_to "sell", class: "button is-rounded is-medium is-primary is-outlined"  do
+        | 買取について詳しく知りたい
 
-    .columns
-      = link_to sold_items_path, class: "button view-all-button"  do
-        | 買取一覧を表示する
-
-    // 探し方がわからない方〜、電話、フォームへのボタン
-    // お問い合わせ
-    .inquiry-buttons
-      p.inquiry-message
-        | 探し方がわからない方、専門スタッフに相談したい方、急ぎの方は
-      .columns
-        .column.is-6-tablet.is-6-desktop
-          a.button.phone-number-button href="tel:#{contact_phone_number}"
-            span.staff-message
-              | 専門スタッフが丁寧にお応えします
-            br
-            = image_tag "phone-icon.png", alt: "電話"
-            span.phone-number
-              = Settings.phone.contact
-        .column.is-6-tablet.is-6-desktop
-          a.js-open-modal.button.inquiry-button.inquiry-button-sell(
-              href="#"
-              onclick="gtag('event', '「農機を売りたい方」問い合わせボタンクリック', { 'event_category': 'TOP' });"
-              data-target="js-contact-form-modal")
-            | 農機を売りたい方
-
-  // ファーマリー買取実績
-
-  // 探し方がわからない方〜、電話、フォームへのボタン(上と共通)
 
   // 新着ブログ
   section.new-article-section

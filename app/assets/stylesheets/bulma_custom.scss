@@ -1,3 +1,28 @@
-$pagination-focus-border-color: $light-brown;
-$pagination-current-border-color: $light-brown;
-$pagination-current-background-color: $base-brown;
+@import "sass/utilities/initial-variables";
+@import "sass/utilities/functions";
+
+// 4. Setup your Custom Colors
+$linkedin: #0077b5;
+$linkedin-invert: findColorInvert($linkedin);
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$github: #333;
+$github-invert: findColorInvert($github);
+
+$brand: $light-brown;
+$brand-invert: findColorInvert($brand);
+
+$primary: $greenDarken;
+$primary-invert: findColorInvert($greenDarken);
+
+
+
+// 5. Add new color variables to the color map.
+@import "sass/utilities/derived-variables";
+$addColors: (
+        "brand": ($brand, $brand-invert),
+        "twitter":($twitter, $twitter-invert),
+        "linkedin": ($linkedin, $linkedin-invert),
+        "github": ($github, $github-invert)
+);
+$colors: map-merge($colors, $addColors);
