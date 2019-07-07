@@ -1,25 +1,30 @@
-.tile.is-6.is-parent
-  .tile.is-child.box.sell-item.is-paddingless
-    .columns.is-marginless
-      .column.is-4.is-paddingless
-        = image_tag rails_representation_url(sale_item.images[0].variant(resize: '300x300').processed), alt: "買取農機画像"
-      .column.content
-        div
-          p.title.is-size-5.has-text-left
-            = sale_item.name
-        table.table
-          tr
-            th 馬力
-            td
-              = sale_item.horse_power_with_unit
-          tr
-            th アワー
-            td
-              = sale_item.used_hours_with_unit
-        .cta
-          p.has-text-brand.has-text-weight-bold.has-text-right
-            | 販売金額
-            span.is-size-4
-              = sale_item.display_price
-          = link_to  sale_item.show_path, class: "button is-fullwidth is-rounded is-outlined is-brand",  onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '/' });"
-            span この農機について詳しく知りたい
+- if sale_items.empty?
+  p.has-text-centered.is-size-5 新着農機はまだ登録されていません。
+- else
+  - sale_items.each do |sale_item|
+    .columns.is-centered
+      div.box.cassette.is-paddingless.column
+         .columns.is-marginless
+            .column.is-paddingless.is-narrow
+              figure.image
+                 = image_tag rails_representation_url(sale_item.images[0].variant(resize: '300x300').processed), alt: "買取農機画像"
+            .column.content
+              div
+                p.title.is-size-5.has-text-left
+                  = sale_item.name
+              table.table
+                tr
+                  th 馬力
+                  td
+                    = sale_item.horse_power_with_unit
+                tr
+                  th アワー
+                  td
+                    = sale_item.used_hours_with_unit
+              .cta
+                p.has-text-brand.has-text-weight-bold.has-text-right
+                  | 販売金額
+                  span.is-size-4
+                    = sale_item.display_price
+                = link_to sale_item.show_path, class: "button is-size-7-mobile is-fullwidth is-rounded is-outlined is-brand", onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '/' });"
+                  span この農機について詳しく知りたい

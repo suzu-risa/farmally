@@ -16,7 +16,6 @@ $primary: $greenDarken;
 $primary-invert: findColorInvert($greenDarken);
 
 
-
 // 5. Add new color variables to the color map.
 @import "sass/utilities/derived-variables";
 $addColors: (
@@ -25,4 +24,7 @@ $addColors: (
         "linkedin": ($linkedin, $linkedin-invert),
         "github": ($github, $github-invert)
 );
+
 $colors: map-merge($colors, $addColors);
+
+$dimensions: 16 24 32 48 64 96 128 256 300 !default;

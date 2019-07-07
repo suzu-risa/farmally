@@ -1,3 +1,7 @@
+@import "sass/utilities/initial-variables";
+@import "sass/utilities/functions";
+@import 'sass/utilities/mixins';
+
 .home {
   $buy-color: #fb3c3c;
   $sell-color: #128b8e;
@@ -193,17 +197,21 @@
   }
 
 
-  .box.sell-item {
+  .box.cassette {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    width: 300px;
 
-    img {
-      width: 300px;
-      height: 240px;
-      object-fit: cover;
+    @include from(757px) {
+      img {
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+      }
     }
+
+    max-width: 880px;
+    // TODO: replace it with $mobile
 
     .content {
       display: flex;
@@ -216,32 +224,6 @@
       }
     }
   }
-
-
-  .box.sell-case {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    width: 300px;
-
-    img {
-      width: 300px;
-      height: 240px;
-      object-fit: cover;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      .cta {
-        align-self: flex-end;
-        width: 100%;
-      }
-    }
-  }
-
 
   // 新着記事
   .new-article-section {
