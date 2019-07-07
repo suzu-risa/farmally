@@ -1,4 +1,4 @@
 - set_meta_tags title: "#{@title}一覧 中古販売・買取"
 - set_meta_tags noindex: @items.blank?
-= render '/item_list_page', sub_categories: @category.sub_categories,
+= render 'item_list_page', sub_categories: @category.sub_categories,
   category: @category, items: @items, title: @title, category_about: true
