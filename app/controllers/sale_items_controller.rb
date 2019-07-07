@@ -1,4 +1,7 @@
 class SaleItemsController < ApplicationController
+
+  include SetBuySubtitle
+
   def index
     @sale_items = SaleItem.page(params[:page])
   end

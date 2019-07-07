@@ -1,4 +1,7 @@
 class SaleItemInquiriesController < ApplicationController
+
+  include SetBuySubtitle
+
   def create
     sale_item = find_sale_item(params[:sale_item_id])
 

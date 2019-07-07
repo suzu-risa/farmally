@@ -1,4 +1,8 @@
 class SellController < ApplicationController
+
+  include SetSellSubtitle
+
+
   def index
     @sell_form = SellForm.new
     @prefecture = params[:prefecture]
