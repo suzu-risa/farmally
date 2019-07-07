@@ -1,21 +1,3 @@
-header#navbar.navbar
-  .navbar-brand
-    a.navbar-item[href="#{@subtitle ? @subtitle[:path] : '/'}"]
-      = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
-      = '&nbsp;&nbsp;'.html_safe
-      - unless @subtitle.nil?
-        span.tag.is-primary.is-medium.has-text-weight-bold
-          = @subtitle[:title]
-  .navbar-menu#navMenu
-    .navbar-start
-    .navbar-end
-      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
-        span.phone-number-caption
-          | お電話でのお問い合わせはこちら
-        br
-        span.phone-number
-          = Settings.phone.contact
-
 - if flash.present?
   section.hero.is-white.is-small
     div class="notification is-#{flash.first[0]}"
@@ -356,5 +338,3 @@ footer.sell-lp-footer
         = contact_phone_number(separate: true)
     .sell-lp-fotter-office-hour
       | 受付時間 9:00〜18:00
-  .sell-lp-fotter-right
-    | &copy; farmally,inc. All Rights Reserved.
