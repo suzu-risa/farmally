@@ -2,7 +2,7 @@
   .columns.is-multiline.is-mobile.is-centered
     - 0.upto(2).each do |i|
       .column.is-3-tablet.is-3-desktop.is-6-mobile.has-text-centered
-        a.is-inline-block.box
+        = link_to "/sell/makers/#{Maker::SellMakers[i][:slug]}", class: "is-inline-block box"
           figure.image.is-128x128.is-vertical-center
             = image_tag Maker::SellMakers[i][:image], :class => "maker-thumbnail"
           h3.has-text-black.title.is-size-5
