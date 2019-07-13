@@ -1,9 +1,4 @@
-- if flash.present?
-  section.hero.is-white.is-small
-    div class="notification is-#{flash.first[0]}"
-      button.delete
-      p
-        = flash.first[1]
+- breadcrumb(:sell_maker, @maker_breadcrumbs)
 
 // メイン画像
 section.cover.sell-lp-section

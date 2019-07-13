@@ -1,9 +1,4 @@
-- if flash.present?
-  section.hero.is-white.is-small
-    div class="notification is-#{flash.first[0]}"
-      button.delete
-      p
-        = flash.first[1]
+- breadcrumb(:sell_root)
 
 // メイン画像
 section.cover.sell-lp-section
@@ -278,21 +273,7 @@ section.sell-lp-section.sell-lp-section-step
 // 買い取りジャンルも幅広く対応
 section.sell-lp-section.sell-lp-section-genre
   = render 'sell/section_header', title: "買い取りジャンルも幅広く対応しております！"
-
-  .container
-    .columns.is-multiline.is-mobile
-      - 1.upto(8).each do |i|
-        .column.is-3-tablet.is-3-desktop.is-6-mobile
-          = image_tag("sell/genre-image-#{i}.png")
-
-    .genre-message
-      | 上記に記載のない農機具でも買取可能です。
-      br
-      | 型落ち、故障、長年動かしていなくても、まずはご相談ください。
-      .genre-message-small
-        | (※一部状態によって、お受けできない場合もございます)
-      .genre-message-large
-        | ファーマリーなら査定から買取まで、すべて無料です！
+  = render 'sell/categories'
 
 // 買い取り対応エリア
 section.sell-lp-section.sell-lp-section-area

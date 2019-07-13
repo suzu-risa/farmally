@@ -1,9 +1,4 @@
-- if flash.present?
-  section.hero.is-white.is-small
-    div class="notification is-#{flash.first[0]}"
-      button.delete
-      p
-        = flash.first[1]
+- breadcrumb(:sell_category, @category_breadcrumb)
 
 // メイン画像
 section.cover.sell-lp-section
@@ -15,7 +10,7 @@ section.cover.sell-lp-section
           br
           | まずはお値段聞いて見ませんか?
         p.subtitle.has-text-white.is-size-6
-          | ファーマリーでは、#{@maker_info.title}を積極買取しております。
+          | ファーマリーでは、#{@category_info.title}を積極買取しております。
           br
           | まずはお電話で、買取査定金額を聞いてみませんか？
 
@@ -27,8 +22,6 @@ section.cover.sell-lp-section
           | 株式会社ファーマリー　
           br
           | 東峰
-
-= render 'buttons', position: "画面上部"
 
 = render 'sell/category/feature'
 

@@ -19,6 +19,11 @@ class SellController < ApplicationController
     render layout: 'sell'
   end
 
+  def makers
+    @sell_form = SellForm.new
+    render layout: 'sell'
+  end
+
   def show_maker
     @maker_slug = params[:maker_slug]
 
@@ -27,18 +32,30 @@ class SellController < ApplicationController
     @maker_info =  result.data.object
     @maker_meta = result.data.object.metadata
 
+    @maker_breadcrumbs = {title: @maker_info.title, slug: @maker_slug}
+
+    @sell_form = SellForm.new
+
+    render layout: 'sell'
+  end
+
+
+  def categories
+
     @sell_form = SellForm.new
 
     render layout: 'sell'
   end
 
   def show_category
-    @category_slug = params[:cateogry_slug]
+    @category_slug = params[:category_slug]
 
-    result =  CosmicjsClient.fetch_maker(@category_slug)
+    result =  CosmicjsClient.fetch_category(@category_slug)
 
     @category_info =  result.data.object
     @category_meta = result.data.object.metadata
+
+    @category_breadcrumb = {title: @category_info.title, slug: @category_meta}
 
     @sell_form = SellForm.new
 

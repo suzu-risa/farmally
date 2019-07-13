@@ -49,6 +49,34 @@ crumb :sale_item do |sale_item|
   link "#{sale_item.name}", item_sale_item_path(sale_item)
 end
 
+
+# 買取
+crumb :sell_root do
+  link "買取トップ", "/sell"
+end
+
+# user#index
+crumb :sell_categories do
+  link "買取カテゴリ", "/sell/categories"
+  parent :sell_root
+end
+
+crumb :sell_category do |category|
+  link category[:title], "/sell/categories/#{category[:slug]}"
+  parent :sell_categories
+end
+
+crumb :sell_makers do
+  link "買取メーカー", "/sell/makers"
+  parent :sell_root
+end
+
+crumb :sell_maker do |maker|
+  link maker[:title], "/sell/makers/#{maker[:slug]}"
+  parent :sell_makers
+end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

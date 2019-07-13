@@ -23,6 +23,16 @@ class Category < ApplicationRecord
       .where(SaleItemTemplate.table_name => { id: nil })
   }
 
+  SellCategories = [
+      {slug: "tractor", },
+      {slug: "cultivator", },
+      {slug: "combine", },
+      {slug: "rice-planter", },
+      {slug: "yumbo", },
+      {slug: "harvester", },
+      {slug: "threshing-machine", }
+  ]
+
   def to_param
     code
   end

@@ -1,6 +1,25 @@
 .sell-lp {
   $base-border-radius: 10px;
 
+  .breadcrumb {
+    background-color: white;
+    padding: 0px 0px;
+
+    li {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .is-active {
+      font-weight: bold;
+    }
+  }
+
+  .container.breadcrumb-area {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
   .container {
     padding: 1rem;
   }
@@ -783,5 +802,14 @@
       font-size: 0.8rem;
       color: white;
     }
+  }
+
+  .maker-thumbnail {
+    max-width: 128px;
+    max-height: 128px;
+  }
+  .is-vertical-center {
+    display: flex;
+    align-items: center;
   }
 }

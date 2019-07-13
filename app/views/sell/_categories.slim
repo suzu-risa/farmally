@@ -1,0 +1,17 @@
+.container
+  .columns.is-multiline.is-mobile
+    - 0.upto(6).each do |i|
+      .column.is-3-tablet.is-3-desktop.is-6-mobile
+        = link_to "/sell/categories/#{Category::SellCategories[i][:slug]}", class: "is-inline-block"
+          = image_tag("sell/genre-image-#{i + 1}.png")
+    .column.is-3-tablet.is-3-desktop.is-6-mobile
+      = image_tag("sell/genre-image-8.png")
+
+  .genre-message
+    | 上記に記載のない農機具でも買取可能です。
+    br
+    | 型落ち、故障、長年動かしていなくても、まずはご相談ください。
+    .genre-message-small
+      | (※一部状態によって、お受けできない場合もございます)
+    .genre-message-large
+      | ファーマリーなら査定から買取まで、すべて無料です！

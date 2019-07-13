@@ -1,11 +1,6 @@
 section.sell-lp-section
-  .title-cover.title-cover-reason
-    .cover-title
-      .cover-title-line
-        | #{@maker_meta['used_market_feature_title']}
-    .cover-image
-
+  = render 'sell/section_header', title: @category_meta['used_market_feature_title']
   .container
     .h2.title.has-text-centered.is-size-4
-      | #{@maker_meta['used_market_feature_subtitle']}
-    = @maker_meta['used_market_feature'].html_safe
+      | #{@category_meta['used_market_feature_subtitle']}
+    = @category_meta['used_market_feature'].html_safe

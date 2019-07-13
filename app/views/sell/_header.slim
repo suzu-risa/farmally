@@ -8,10 +8,10 @@ header#navbar.navbar
           = @subtitle[:title]
   .navbar-menu#navMenu
     .navbar-start
-      / = link_to "/sell_agri_machine/makers", class: 'navbar-item' do
-      /   |  買取メーカー一覧
-      / = link_to "/sell_agri_machine/categories", class: 'navbar-item' do
-      /   |  買取機種一覧
+      = link_to "/sell/makers", class: 'navbar-item' do
+        |  買取メーカー一覧
+      = link_to "/sell/categories", class: 'navbar-item' do
+        |  買取機種一覧
     .navbar-end
       a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
         span.phone-number-caption

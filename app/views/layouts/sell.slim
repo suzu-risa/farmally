@@ -33,5 +33,12 @@ html[lang="ja"]
         |  })();
   body.sell-lp
     = render :partial => 'sell/header'
+    = render partial: '/sell/breadcrumb'
+    - if flash.present?
+      section.hero.is-white.is-small
+        div class="notification is-#{flash.first[0]}"
+          button.delete
+          p
+            = flash.first[1]
     = yield
     = render :partial => '/footer', locals: { show_fixed_form: false }

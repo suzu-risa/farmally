@@ -37,12 +37,26 @@ module CosmicjsClient
   }
   GRAPHQL
 
+  FetchCategories = Client.parse <<-'GRAPHQL'
+{
+  getObjects(bucket_slug: "farmally-inc", input: {
+    type: "categories",
+    limit: 20,
+    read_key: ""
+  }) {
+    title
+    metadata
+  }
+}
+  GRAPHQL
+
   def self.fetch_maker slug
     result = Client.query(ObjectQuery, variables: { slug: slug })
     result
   end
 
   def self.fetch_category slug
+    p slug
     result = Client.query(ObjectQuery, variables: { slug: slug })
     result
   end

@@ -78,7 +78,7 @@ Rails.application.routes.draw do
 
   get '/sell/makers' => 'sell#makers'
   get '/sell/makers/:maker_slug' => 'sell#show_maker'
-  get '/sell/categories' => 'sell#category'
+  get '/sell/categories' => 'sell#categories'
   get '/sell/categories/:category_slug' => 'sell#show_category'
 
   get '/sell-call-click' => 'sell#call_click_log'
@@ -216,7 +216,7 @@ end
 #                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
 #            update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #                 rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
-# 
+#
 # Routes for Ckeditor::Engine:
 #         pictures GET    /pictures(.:format)             ckeditor/pictures#index
 #                  POST   /pictures(.:format)             ckeditor/pictures#create
@@ -224,6 +224,6 @@ end
 # attachment_files GET    /attachment_files(.:format)     ckeditor/attachment_files#index
 #                  POST   /attachment_files(.:format)     ckeditor/attachment_files#create
 #  attachment_file DELETE /attachment_files/:id(.:format) ckeditor/attachment_files#destroy
-# 
+#
 # Routes for Roboto::Engine:
 #        GET  /           roboto/robots#show
