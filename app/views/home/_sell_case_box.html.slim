@@ -7,7 +7,10 @@
         .columns.is-marginless
           .column.is-paddingless.is-narrow
             p.image
+            - unless sell_case['metadata']["images"][0]["image"]["url"].nil?
               = image_tag sell_case['metadata']["images"][0]["image"]["url"], alt: "買取農機画像"
+            - else
+              = image_tag "256x256.png", alt: "買取農機画像"
           .column.content
             div
               p.title.is-size-5.has-text-left
