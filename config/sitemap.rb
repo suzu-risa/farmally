@@ -26,6 +26,14 @@ SitemapGenerator::Sitemap.create do
     )
   end
 
+  Maker::SellMakers.each do |maker|
+    add "/sell/makers/#{maker[:slug]}"
+  end
+  Category::SellCategories.each do |category|
+    add "/sell/categories/#{category[:slug]}"
+  end
+
+
   # TODO: 追加すべきか検討
   # add search_path
 
