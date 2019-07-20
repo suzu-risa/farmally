@@ -24,13 +24,13 @@ class Category < ApplicationRecord
   }
 
   SellCategories = [
-      {slug: "tractor", },
-      {slug: "cultivator", },
-      {slug: "combine", },
-      {slug: "rice-planter", },
-      {slug: "yumbo", },
-      {slug: "harvester", },
-      {slug: "threshing-machine", }
+      {slug: "tractor", title: "トラクター" },
+      {slug: "cultivator",title: "耕運機" },
+      {slug: "combine",title: "コンバイン" },
+      {slug: "rice-planter", title: "田植え機" },
+      {slug: "yumbo",title: "ユンボ" },
+      {slug: "harvester",title: "収穫期" },
+      {slug: "threshing-machine",title: "脱穀機" },
   ]
 
   def to_param

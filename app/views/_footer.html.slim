@@ -8,6 +8,18 @@ footer.footer
             li = link_to '農機を売りたい人へ', "/sell"
             li = link_to '農機を買いたい人へ', sale_items_path
             li = link_to '利用規約', terms_of_service_path, rel: 'nofollow'
+        hr
+        .menu
+          p.menu-label 買取対応メーカー
+          ul.menu-list
+            - Maker::SellMakers.each do |m|
+              li = link_to m[:title], "/sell/makers/#{m[:slug]}"
+      .column.is-3
+        .menu
+          p.menu-label 買取カテゴリ
+          ul.menu-list
+            - Category::SellCategories.each do |c|
+              li = link_to c[:title], "/sell/categories/#{c[:slug]}"
       .column.is-5
         .menu
           p.menu-label 会社概要

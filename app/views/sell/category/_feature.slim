@@ -1,6 +1,4 @@
 section.sell-lp-section
-  = render 'sell/section_header', title: @category_meta['used_market_feature_title']
+  = render 'sell/section_header', title: @category_meta['used_market_feature_title'], subtitle: @category_meta['used_market_feature_subtitle']
   .container
-    .h2.title.has-text-centered.is-size-4
-      | #{@category_meta['used_market_feature_subtitle']}
     = @category_meta['used_market_feature'].html_safe
