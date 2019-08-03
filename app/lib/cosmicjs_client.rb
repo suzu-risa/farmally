@@ -51,20 +51,35 @@ module CosmicjsClient
   GRAPHQL
 
   def self.fetch_maker slug
-    result = Client.query(ObjectQuery, variables: { slug: slug })
-    result
+    Rails.cache.fetch("#{slug}", expires_in: 12.hours) do
+      result = Client.query(ObjectQuery, variables: { slug: slug })
+
+      Rails.cache.write("#{slug}", result)
+
+      return result
+    end
   end
 
   def self.fetch_category slug
-    p slug
-    result = Client.query(ObjectQuery, variables: { slug: slug })
-    result
+    Rails.cache.fetch("#{slug}", expires_in: 12.hours) do
+
+      result = Client.query(ObjectQuery, variables: { slug: slug })
+
+      Rails.cache.write("#{slug}", result)
+
+      return result
+    end
   end
 
 
   def self.fetch_latest_sell_cases
-    result = Client.query(FetchSellCaseQuery)
-    result
+    Rails.cache.fetch("fetch_latest_sell_cases", expires_in: 12.hours) do
+      result = Client.query(FetchSellCaseQuery)
+
+      Rails.cache.write("fetch_latest_sell_cases", result.original_hash["data"]["getObjects"])
+
+      return result.original_hash["data"]["getObjects"]
+    end
   end
 
 end

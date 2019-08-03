@@ -5,7 +5,6 @@ class HomeController < ApplicationController
     @sale_items = SaleItem.for_sale.order(created_at: :desc).limit(2)
 
     @sell_cases =  CosmicjsClient.fetch_latest_sell_cases
-    @sell_cases = @sell_cases.original_hash["data"]["getObjects"]
 
     @search_item_form = SearchItemForm.new
   end
