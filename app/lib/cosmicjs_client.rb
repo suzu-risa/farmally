@@ -54,7 +54,7 @@ module CosmicjsClient
     Rails.cache.fetch("#{slug}", expires_in: 12.hours) do
       result = Client.query(ObjectQuery, variables: { slug: slug })
 
-      Rails.cache.write("#{slug}", result)
+      Rails.cache.write("#{slug}", result.original_hash["data"])
 
       return result
     end
@@ -65,7 +65,7 @@ module CosmicjsClient
 
       result = Client.query(ObjectQuery, variables: { slug: slug })
 
-      Rails.cache.write("#{slug}", result)
+      Rails.cache.write("#{slug}", result.original_hash["data"])
 
       return result
     end
