@@ -56,7 +56,7 @@ module CosmicjsClient
 
       Rails.cache.write("#{slug}", result.original_hash["data"])
 
-      return result
+      return result.original_hash["data"]
     end
   end
 
@@ -67,7 +67,7 @@ module CosmicjsClient
 
       Rails.cache.write("#{slug}", result.original_hash["data"])
 
-      return result
+      return result.original_hash["data"]
     end
   end
 

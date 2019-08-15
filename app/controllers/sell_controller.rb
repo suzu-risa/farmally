@@ -29,10 +29,10 @@ class SellController < ApplicationController
 
     result =  CosmicjsClient.fetch_maker(@maker_slug)
 
-    @maker_info =  result.data.object
-    @maker_meta = result.data.object.metadata
+    @maker_info = result["object"]
+    @maker_meta = result["object"]["metadata"]
 
-    @maker_breadcrumbs = {title: @maker_info.title, slug: @maker_slug}
+    @maker_breadcrumbs = {title: @maker_info["title"], slug: @maker_slug}
 
     @sell_form = SellForm.new
 
@@ -52,10 +52,10 @@ class SellController < ApplicationController
 
     result =  CosmicjsClient.fetch_category(@category_slug)
 
-    @category_info =  result.data.object
-    @category_meta = result.data.object.metadata
+    @category_info = result["object"]
+    @category_meta = result["object"]["metadata"]
 
-    @category_breadcrumb = {title: @category_info.title, slug: @category_meta}
+    @category_breadcrumb = {title: @category_info["title"], slug: @category_meta}
 
     @sell_form = SellForm.new
 
