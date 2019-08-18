@@ -1,5 +1,5 @@
 // 買取実績
-- if @sell_cases
+- if @sell_cases and not @sell_cases.empty?
   section.sell-lp-section
     .container
       = render 'sell/section_header', title: "買取実績紹介"
