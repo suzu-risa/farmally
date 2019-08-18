@@ -1,0 +1,11 @@
+// 買取実績
+- if @sell_cases
+  section.sell-lp-section
+    .container
+      = render 'sell/section_header', title: "買取実績紹介"
+      = render partial: '/sell_case_box', locals: {sell_cases: @sell_cases}
+    p.has-text-centered.is-size-4.has-text-weight-bold
+     | その他、多数買取実績ございます！
+     br
+     | お気軽にお問い合わせくださいませ！
+

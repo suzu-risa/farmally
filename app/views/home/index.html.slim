@@ -74,7 +74,7 @@ main.home
     h3.subtitle.has-text-centered.has-text-weight-bold
       | 様々な機種の農機を積極買取中です！
     div.section
-      = render partial: 'sell_case_box', locals: {sell_cases: @sell_cases}
+      = render partial: '/sell_case_box', locals: {sell_cases: @sell_cases}
 
     .has-text-centered
       = link_to "sell", class: "button is-rounded is-medium is-primary is-outlined"  do

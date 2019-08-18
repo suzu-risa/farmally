@@ -11,10 +11,15 @@ class HomeController < ApplicationController
 
   def search
     if search_item_form_params
+
       @category = Category.find_by(code: search_item_form_params[:category])
+
       @sub_category = SubCategory.find_by(category: @category, code: search_item_form_params[:sub_category])
+
       @maker = Maker.find_by(code: search_item_form_params[:maker])
+
       arguments = { category: @category, sub_category: @sub_category, maker: @maker }
+
       @items = Item.where(search_condition(arguments)).includes(:maker).page(params[:page])
 
       @title = search_title(arguments)

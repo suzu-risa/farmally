@@ -6,6 +6,10 @@ header#navbar.navbar
       - unless @subtitle.nil?
         span.tag.is-primary.is-medium.has-text-weight-bold
           = @subtitle[:title]
+    a#navbarBurger.burger.navbar-burger[role="button" data-target="navMenu" aria-label="menu" aria-expanded="false"]
+      span
+      span
+      span
   .navbar-menu#navMenu
     .navbar-start
       = link_to "/sell/makers", class: 'navbar-item' do
