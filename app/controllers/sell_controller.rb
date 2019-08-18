@@ -10,6 +10,11 @@ class SellController < ApplicationController
 
     @ptn = params[:ptn]
 
+    # invalidate cache when the query param passed.
+    if params[:invalidate_cache]
+      Rails.cache.clear
+    end
+
     if @ptn.present? and @ptn == '2'
       @sell_form.lp_pattern = '2'
       render 'index_price_guarantee'
@@ -34,6 +39,8 @@ class SellController < ApplicationController
 
     @maker_breadcrumbs = {title: @maker_info["title"], slug: @maker_slug}
 
+    @sell_cases =  CosmicjsClient.fetch_latest_sell_cases_by_maker_slug @maker_slug
+
     @sell_form = SellForm.new
 
     render layout: 'sell'
@@ -56,6 +63,8 @@ class SellController < ApplicationController
     @category_meta = result["object"]["metadata"]
 
     @category_breadcrumb = {title: @category_info["title"], slug: @category_meta}
+
+    @sell_cases =  CosmicjsClient.fetch_latest_sell_cases_by_category_slug  @category_slug
 
     @sell_form = SellForm.new
 

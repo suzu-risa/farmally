@@ -1,0 +1,41 @@
+.sell-case-box.cassette {
+
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+
+  .box {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    max-width: 350px;
+
+    img {
+      object-fit: contain;
+    }
+
+    @include from(757px) {
+      img {
+        // FIXME:
+        max-width: 350px;
+        max-height: 350px;
+        object-fit: contain;
+      }
+    }
+
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 16px;
+
+      .cta {
+        align-self: flex-end;
+        width: 100%;
+      }
+    }
+  }
+}

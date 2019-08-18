@@ -39,8 +39,16 @@
   }
 
   .sell-lp-section {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    padding-top: 48px;
+    padding-bottom: 32px;
+
+    &:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
   }
+
+
 
   .phone-number-caption {
     font-size: .6rem;
@@ -453,7 +461,6 @@
   }
 
   .sell-lp-section-users-voice {
-    background-color: #f9f9f9;
     font-weight: bold;
 
     .user-voice {
@@ -531,7 +538,6 @@
   }
 
   .sell-lp-section-point {
-    background-color: #f9f9f9;
     font-weight: bold;
 
     .point-title-cover {
@@ -617,7 +623,6 @@
   }
 
   .sell-lp-section-step {
-    background-color: #f9f9f9;
 
     .step {
       display: flex;
@@ -667,7 +672,6 @@
   }
 
   .sell-lp-section-area {
-    background-color: #f9f9f9;
 
     .area {
       .area-message-container {
