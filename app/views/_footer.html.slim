@@ -31,25 +31,17 @@ footer.footer
 
 - if show_fixed_form
   div[style="height: 60px;"]
-  section.hero.is-white.fixed-footer
+  section.hero.is-white.fixed-footer.is-hidden-tablet
     .columns.fixed-footer-inquiry-buttons
-      .column.is-6-mobile.is-6-tablet.is-6-desktop
+      .column
         a.button.phone-number-button href="tel:#{contact_phone_number}"
-          span.staff-message
-            | 専門スタッフが丁寧にお応えします
+          .staff-message.has-text-black
+            | まずはお気軽にお問い合わせください！
             br
-          = image_tag "phone-icon.png", alt: "電話", class: "phone-icon"
-          span.phone-number
+          .footer-phone-number.has-text-primary
+            = image_tag "phone-icon.png", alt: "電話", class: "phone-icon"
             = Settings.phone.contact
-      .column.is-6-mobile.is-6-tablet.is-6-desktop
-        a.js-open-modal.button.inquiry-button(
-            href="#"
-            onclick="gtag('event', '「問い合わせフォーム」クリック', { 'event_category': '固定フッター' });"
-            data-target="js-contact-form-modal")
-          i.far.fa-envelope
-          | お問い合わせ
-          span.except-mobile
-            | フォーム
+
 
 // お問い合わせモーダル
 // 固定フッター以外にもTOPから呼ばれるため、show_fixed_formの分岐に入っていない

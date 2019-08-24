@@ -31,7 +31,7 @@
     }
 
     .phone-number-button {
-      background-color: $inquiry-red;
+      //background-color: $inquiry-red;
       color: white;
 
       @include until($tablet) {
@@ -41,29 +41,15 @@
 
       .staff-message {
         font-size: 0.8em;
-
-        @include until($tablet) {
-          display: none;
-        }
       }
 
       .phone-icon {
         width: 26px;
         vertical-align: sub;
-
-        @include until($tablet) {
-          display: block;
-          margin: 0 auto;
-          height: 32px;
-          width: auto;
-          padding-bottom: 4px;
-        }
       }
 
-      .phone-number {
-        @include from($tablet) {
-          font-size: 1.8em;
-        }
+      .footer-phone-number {
+        font-size: 1.8em;
         margin-left: 4px;
       }
     }

@@ -774,18 +774,10 @@
       color: white;
       padding: 2rem 0;
 
-      .sell-lp-footer-caption {
-        @include until($tablet) {
-          font-size: 0.8rem;
-        }
-      }
 
       .sell-lp-footer-phone-number {
         font-size: 3rem;
 
-        @include until($tablet) {
-          font-size: 2rem;
-        }
         a {
           color: white;
         }
