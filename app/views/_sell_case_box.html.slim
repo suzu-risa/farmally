@@ -1,18 +1,55 @@
+/ - if sell_cases.empty?
+/   p.has-text-centered.is-size-5 買取実績が登録されていません
+/ - else
+/   .columns.is-multiline
+/     - sell_cases.each do |sell_case|
+/       .column.sell-case-box.cassette.is-narrow
+/         .box.is-paddingless
+/           p.image
+/             - unless sell_case['metadata']["images"][0]["image"]["url"].nil?
+/               = image_tag sell_case['metadata']["images"][0]["image"]["url"], alt: "買取農機画像"
+/             - else
+/               = image_tag "256x256.png", alt: "買取農機画像"
+/           div.content
+/             .columns
+/               .column
+/                 p.title.heading.is-size-5.has-text-left
+/                   = sell_case['metadata']['model']
+/                 p.heading.is-size-6
+/                   = sell_case['metadata']['category']['title']
+/                 p.heading.is-size-6
+/                   = sell_case['metadata']['hour']
+/                   span.is-size-7
+/                     | h
+/               .column.has-text-right
+/                 p.subtitle.is-size-6
+/                   = sell_case['metadata']['sold_at']
+/                   | に買取
+/             .cta
+/               p.has-text-brand.has-text-weight-bold.has-text-right
+/                 | 買取金額 ¥
+/                 span.is-size-4
+/                   = sell_case['metadata']['price'].to_s(:delimited)
+/               = link_to "/sell", class: "button is-fullwidth is-rounded is-outlined is-brand"
+/                 span 買取について詳しく知りたい
+/
+
 - if sell_cases.empty?
   p.has-text-centered.is-size-5 買取実績が登録されていません
 - else
-  .columns.is-multiline.is-centered
-    - sell_cases.each do |sell_case|
-      .column.sell-case-box.cassette.is-centered
-        .box.is-paddingless
-          p.image
-            - unless sell_case['metadata']["images"][0]["image"]["url"].nil?
-              = image_tag sell_case['metadata']["images"][0]["image"]["url"], alt: "買取農機画像"
-            - else
-              = image_tag "256x256.png", alt: "買取農機画像"
-          div.content
+  - sell_cases.each do |sell_case|
+    .columns.is-centered.cassette.item-box
+      div.box.is-paddingless.column
+        .columns.is-marginless
+          .column.is-paddingless.is-narrow
+            figure.image
+              - unless sell_case['metadata']["images"][0]["image"]["url"].nil?
+                = image_tag sell_case['metadata']["images"][0]["image"]["url"], alt: "買取農機画像"
+              - else
+                = image_tag "256x256.png", alt: "買取農機画像"
+          .column.rightpane
             .columns
-              .column
+              .column.is-6-desktop
                 p.title.heading.is-size-5.has-text-left
                   = sell_case['metadata']['model']
                 p.heading.is-size-6
@@ -21,14 +58,15 @@
                   = sell_case['metadata']['hour']
                   span.is-size-7
                     | h
-              .column.has-text-right
+              .column.has-text-right.is-6-desktop.content
                 p.subtitle.is-size-6
                   = sell_case['metadata']['sold_at']
                   | に買取
-            .cta
-              p.has-text-brand.has-text-weight-bold.has-text-right
-                | 買取金額 ¥
-                span.is-size-4
-                  = sell_case['metadata']['price'].to_s(:delimited)
-              = link_to "/sell", class: "button is-fullwidth is-rounded is-outlined is-brand"
-                span 買取について詳しく知りたい
+                .cta
+                  p.has-text-brand.has-text-weight-bold.has-text-right
+                    | 買取金額 ¥
+                    span.is-size-4
+                      = sell_case['metadata']['price'].to_s(:delimited)
+                  = link_to "/sell", class: "button is-fullwidth is-rounded is-outlined is-brand"
+                   span 買取について詳しく知りたい
+

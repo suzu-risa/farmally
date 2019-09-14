@@ -17,10 +17,21 @@
     max-width: 880px;
     // TODO: replace it with $mobile
 
+    .rightpane {
+      padding-bottom: 0;
+      .columns {
+        height: 100%;
+      }
+    }
+
     .content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      .heading {
+        margin-bottom: 0;
+      }
 
       .cta {
         align-self: flex-end;

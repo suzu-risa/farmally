@@ -29,7 +29,7 @@ module CosmicjsClient
   {
     getObjects(bucket_slug: "farmally-inc", input: {
       type: "sell-cases",
-      limit: 5,
+      limit: 3,
       read_key: ""
     }) {
       title
