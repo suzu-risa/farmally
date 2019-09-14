@@ -9,5 +9,6 @@ module SetSellSubtitle extend ActiveSupport::Concern
         path: "/sell",
         title: "農機買取"
     }
+    
   end
 end

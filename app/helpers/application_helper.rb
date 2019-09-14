@@ -114,10 +114,15 @@ module ApplicationHelper
   end
 
   def contact_phone_number(separate: false)
+    default = Settings.phone.contact
+    if @category_slug == Category::Slugs[:tractor]
+      default = Settings.phone.contact_tractor
+    end
+
     if separate
-      Settings.phone.contact
+      default
     else
-      Settings.phone.contact.gsub(/-/, '')
+      default.gsub(/-/, '')
     end
   end
 end

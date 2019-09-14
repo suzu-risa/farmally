@@ -23,8 +23,12 @@ class Category < ApplicationRecord
       .where(SaleItemTemplate.table_name => { id: nil })
   }
 
+  Slugs = {
+      tractor: "tractor",
+  }
+
   SellCategories = [
-      {slug: "tractor", title: "トラクター", id: "5cc531339019733065188446" },
+      {slug: Slugs[:tractor], title: "トラクター", id: "5cc531339019733065188446" },
       {slug: "cultivator",title: "耕運機", id: "5d297ad85ed50670d329e454"  },
       {slug: "combine",title: "コンバイン", id: "5d297b0537992c75fac179bf" },
       {slug: "rice-planter", title: "田植え機", id: "5d297b2b5ed50670d329e45b" },
