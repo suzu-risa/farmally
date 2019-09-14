@@ -31,6 +31,11 @@ html[lang="ja"]
         |  bi.src = '//cs.nakanohito.jp/b3/bi.js';
         |  var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bi, s);
         |  })();
+      script[async src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"]
+      script
+        | window.yjDataLayer = window.yjDataLayer || [];
+        | function ytag() { yjDataLayer.push(arguments); }
+        | ytag({"type":"ycl_cookie"});
   body.sell-lp
     = render :partial => 'sell/header'
     = render partial: '/sell/breadcrumb'
