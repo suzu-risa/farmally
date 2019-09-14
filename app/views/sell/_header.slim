@@ -17,7 +17,7 @@ header#navbar.navbar
       = link_to "/sell/categories", class: 'navbar-item' do
         |  買取機種一覧
     .navbar-end
-      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
+      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'ヘッダー', 'event_category': '買取LP' });"
         span.phone-number-caption
           | お電話でのお問い合わせはこちら
         br

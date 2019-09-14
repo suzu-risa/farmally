@@ -34,7 +34,7 @@ footer.footer
   section.hero.is-white.fixed-footer.is-hidden-tablet
     .columns.fixed-footer-inquiry-buttons
       .column
-        a.button.phone-number-button href="tel:#{contact_phone_number}"
+        a.button.phone-number-button href="tel:#{contact_phone_number}"  onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '固定フッター', 'event_category': '#{page}' });"
           .staff-message.has-text-black
             | まずはお気軽にお問い合わせください！
             br

@@ -12,7 +12,7 @@ html[lang="ja"]
     = render :partial => '/vendor_css'
     = favicon_link_tag('favicon.ico')
     = favicon_link_tag('apple-touch-icon-180x180.png', { rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' })
-    - if Rails.env.production?
+    - unless Rails.env.production?
       script[async src="https://www.googletagmanager.com/gtag/js?id=UA-126381641-1"]
       script
         |  window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-126381641-1');
@@ -36,6 +36,32 @@ html[lang="ja"]
         | window.yjDataLayer = window.yjDataLayer || [];
         | function ytag() { yjDataLayer.push(arguments); }
         | ytag({"type":"ycl_cookie"});
+      script[type="text/javascript"]
+        | /* <![CDATA[ */
+        |yahoo_snippet_vars = function() {
+        |  var w = window;
+        |  w.yahoo_conversion_id = 1001072191;
+        |  w.yahoo_conversion_label = "S3NlCJrOk6sBEJec0uQC";
+        |  w.yahoo_conversion_value = 0;
+        |  w.yahoo_remarketing_only = false;
+        |};
+        |yahoo_report_conversion = function(url) {
+        |  yahoo_snippet_vars();
+        |  window.yahoo_conversion_format = "3";
+        |  window.yahoo_is_call = true;
+        |  var opt = new Object();
+        |  opt.onload_callback = function() {
+        |    if (typeof(url) != 'undefined') {
+        |              window.location = url;
+        |    }
+        |  };
+        |  var conv_handler = window['yahoo_trackConversion'];
+        |  if (typeof(conv_handler) == 'function') {
+        |          conv_handler(opt);
+        |  }
+        |}
+        | /* ]]> */
+      script[type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion_async.js"]
   body.sell-lp
     = render :partial => 'sell/header'
     = render partial: '/sell/breadcrumb'
@@ -46,4 +72,16 @@ html[lang="ja"]
           p
             = flash.first[1]
     = yield
-    = render :partial => '/footer', locals: { show_fixed_form: true,  }
+    = render :partial => '/footer', locals: { show_fixed_form: true, page: "買取LP"  }
+    - if flash.present?
+      / <!-- Yahoo Code for your Conversion Page -->
+      script[type="text/javascript"]
+        |  /* <![CDATA[ */
+        |  var yahoo_conversion_id = 1001072191;
+        |  var yahoo_conversion_label = "38wkCIPYi6sBEJec0uQC";
+        |  var yahoo_conversion_value = 0;
+        | /* ]]> */
+      script[type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion.js"]
+      noscript
+        div[style="display:inline;"]
+          img[height="1" width="1" style="border-style:none;" alt="" src="https://b91.yahoo.co.jp/pagead/conversion/1001072191/?value=0&label=38wkCIPYi6sBEJec0uQC&guid=ON&script=0&disvt=true"]

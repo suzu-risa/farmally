@@ -20,7 +20,7 @@ section.sell-lp-section.button-section
               br
               | お電話口で査定金額をお出しします。
           .column-button
-            a.phone-number href="tel: #{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
+            a.phone-number href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
               = contact_phone_number(separate: true)
             .column-highlight
               p
@@ -61,6 +61,6 @@ section.sell-lp-section.button-section
           .column-button
             .column-highlight
               a href="#form" onClick="gtag('event', '「お問い合わせフォームはコチラ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
-                | お問い合わせフォームはコチラ 
+                | お問い合わせフォームはコチラ
                 i.fas.fa-long-arrow-alt-right
 
