@@ -1,0 +1,56 @@
+- breadcrumb(:buy_maker, @maker_breadcrumbs)
+
+// メイン画像
+section.cover.buy-lp-section
+  .cover-contents.container
+    .columns
+      .column.is-5.has-text-left.is-offset-2-desktop(style="margin-right: 0")
+        h1.title.has-text-white
+          | #{@maker_info["title"]}の買取ならファーマリーまで！
+          br
+          | まずはお値段聞いて見ませんか?
+        p.subtitle.has-text-white.is-size-6
+          | ファーマリーでは、#{@maker_info["title"]}を積極買取しております。
+          br
+          | まずはお電話で、買取査定金額を聞いてみませんか？
+
+
+      .column.cover-staff-information.has-text-left.is-marginless
+        p.image
+          = image_tag("buy/staff.png")
+        p.has-text-white.is-size-5
+          | 株式会社ファーマリー　
+          br
+          | 東峰
+
+= render 'buttons', position: "画面上部"
+
+= render 'buy/maker/feature'
+
+= render 'buy/common/actual_cases'
+
+= render 'buttons_compact', position: "画面中間部"
+
+= render 'buy/common/flow'
+
+= render 'buy/common/faq'
+
+= render 'buttons_compact', position: "画面下部"
+
+// お問い合わせフォーム
+section.buy-lp-section.buy-lp-section-form#form
+  .container
+    = render 'form', form: @buy_form
+
+
+footer.buy-lp-footer
+  .buy-lp-footer-contents
+    .buy-lp-footer-caption
+      | 入力が面倒でしたらお電話をご利用ください。
+    .buy-lp-footer-phone-number
+      a href="tel:#{contact_phone_number}"
+        = contact_phone_number(separate: true)
+    .buy-lp-fotter-office-hour
+      | 受付時間 9:00〜18:00
+  .buy-lp-fotter-right
+    | &copy; farmally,inc. All Rights Reserved.

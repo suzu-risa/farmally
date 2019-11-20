@@ -1,0 +1,811 @@
+.buy-lp {
+  $base-border-radius: 10px;
+
+  .breadcrumb {
+    background-color: white;
+    padding: 0px 0px;
+
+    li {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .is-active {
+      font-weight: bold;
+    }
+  }
+
+  .container.breadcrumb-area {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .except-mobile {
+    @include until($tablet) {
+      display: none;
+    }
+  }
+
+  .only-mobile {
+    display: none;
+
+    @include until($tablet) {
+      display: block;
+    }
+  }
+
+  .buy {
+    margin-bottom: 0;
+    padding-top: 48px;
+    padding-bottom: 32px;
+
+    &:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+  }
+
+
+
+  .phone-number-caption {
+    font-size: .6rem;
+  }
+
+  .phone-number {
+    font-size: 2rem !important;
+  }
+
+  // 農機具の高価買取はファーマリーまで
+  .cover {
+    align-items: center;
+    background: image-url("buy/cover.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding: 2.5rem 0;
+
+    .cover-contents {
+      background-color: rgba(0,0,0,0.8);
+      border-radius: $base-border-radius;
+
+      .column {
+        margin: 2rem;
+
+        @include until($tablet) {
+          margin: 1.5rem;
+        }
+      }
+
+      .cover-title {
+        .title {
+          color: white;
+          text-align: center;
+          letter-spacing: 0.1rem;
+          word-break: keep-all;
+          line-height: 1.8;
+
+          @media screen and (max-width: 350px) {
+            font-size: 1.6rem;
+          }
+        }
+
+        .cover-title-box-container {
+          display: flex;
+          flex-direction: row;
+
+          .cover-title-box {
+            border: 2px solid white;
+            border-radius: $base-border-radius;
+            text-align: center;
+            position: relative;
+            width: 100%;
+
+            &:first-child {
+              margin-right: 1rem;
+            }
+            &:last-child {
+              margin-left: 1rem;
+            }
+
+            &:before {
+              display: block;
+              content: '';
+              padding-top: 100%;
+            }
+
+            .cover-title-box-content {
+              font-size: 1.2rem;
+              font-weight: bold;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 0.8rem;
+              position: absolute;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              box-sizing: border-box;
+
+              .price {
+                .price-caption {
+                  font-size: 1rem;
+                }
+
+                .price-number {
+                  font-size: 2rem;
+                  line-height: 1;
+                }
+
+                .price-unit {
+                  font-size: 1.2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .cover-staff-information {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // ファーマリーで無料査定
+  .button-section {
+    .button-section-title {
+      background-color: #243138;
+      border-radius: $base-border-radius;
+      color: white;
+      letter-spacing: .3rem;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+
+      .title {
+        color: white;
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .button-section-title-caption {
+        font-weight: bold;
+      }
+    }
+
+    .buttons-columns {
+      .button-column {
+        border-radius: $base-border-radius;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        line-height: 2rem;
+        letter-spacing: 0.1rem;
+        padding: 0;
+        margin-bottom: 1rem;
+
+        &.column-tel {
+          background-color: #008a92;
+          margin-right: 1rem;
+
+          @include until($tablet) {
+            margin-right: 0;
+          }
+
+          .column-title, .column-highlight {
+            background-color: #00646e;
+          }
+        }
+
+        &.column-line {
+          background-color: #00bc00;
+          margin-right: 1rem;
+
+          @include until($tablet) {
+            margin-right: 0;
+          }
+
+          .column-title, .column-highlight {
+            background-color: #00b000;
+          }
+        }
+
+        &.column-mail {
+          background-color: #ce4051;
+
+          .column-title, .column-highlight {
+            background-color: #bc3646;
+          }
+
+          .column-highlight {
+            padding: 1rem 0;
+            a {
+              color: white;
+            }
+          }
+        }
+
+        .column-title {
+          border-radius: $base-border-radius;
+          padding: 0.5rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        .column-content {
+          padding: 1rem 0;
+
+          .column-description {
+            letter-spacing: 0.3rem;
+            padding: 0 0 0.5rem 0;
+          }
+
+          .column-button {
+            width: 80%;
+            margin: 0 auto;
+
+            .phone-number {
+              font-size: 2rem;
+              color: white;
+              margin-bottom: 1rem;
+              display: block;
+            }
+
+            .line-container {
+              display: flex;
+              .line-image {
+                width: 30%;
+
+                img {
+                  max-height: 5rem;
+                }
+              }
+
+              .line-title {
+                width: 70%;
+                padding: 0 1rem;
+                &> p {
+                  font-size: 1.5rem;
+                  margin-bottom: 1rem;
+                }
+                display: flex;
+                flex-direction: column;
+              }
+            }
+
+            .column-highlight {
+              border-radius: 10rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 背景画像付きのセクションタイトル
+  .title-cover {
+    display: flex;
+    height: 300px;
+    margin-bottom: 2rem;
+
+    @include until($tablet) {
+      height: auto;
+      padding: 1rem 0;
+      min-height: 188px;
+    }
+
+    @mixin title-cover($image-url) {
+      background: image-url($image-url) center center / cover no-repeat;
+
+      @include until($tablet) {
+        background: image-url($image-url) left;
+      }
+    }
+
+    &.title-cover-reason {
+      @include title-cover("buy/cover-title-reason.jpg");
+    }
+
+    &.title-cover-item {
+      @include title-cover("buy/cover-title-item.png");
+    }
+
+    &.title-cover-users-voice {
+      @include title-cover("buy/cover-title-users-voice.png");
+    }
+
+    &.title-cover-point {
+      @include title-cover("buy/cover-title-point.png");
+    }
+
+    &.title-cover-step {
+      @include title-cover("buy/cover-title-step.png");
+    }
+
+    &.title-cover-genre {
+      @include title-cover("buy/cover-title-genre.png");
+    }
+
+    &.title-cover-area {
+      @include title-cover("buy/cover-title-area.png");
+    }
+
+    .cover-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+
+      .cover-title-line {
+        background-color: white;
+        color: black;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+
+        @include until($tablet) {
+          font-size: 1.2rem;
+        }
+        padding: 0.5rem 0.8rem;
+        font-weight: bold;
+        border-radius: $base-border-radius;
+      }
+    }
+
+    .cover-image {
+      width: 100%;
+
+      @include until($tablet) {
+        display: none;
+      }
+    }
+  }
+
+  .reason {
+    margin-bottom: 1rem;
+    display: flex;
+    border-radius: $base-border-radius;
+
+    &.reason-red {
+      border-left: .5rem solid #fb3c3c;
+    }
+
+    &.reason-green {
+      border-left: .5rem solid #128b8e;
+    }
+
+    &.reason-yellow {
+      border-left: .5rem solid #feba53;
+    }
+
+    .reason-left {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      font-weight: bold;
+      width: 100%;
+      .reason-title {
+        margin-bottom: 1rem;
+
+        @include until($tablet) {
+          background-color: black;
+          border-radius: 1rem;
+          padding: .5rem 1rem;
+        }
+
+        h2 {
+          background-color: #243138;
+          border-radius: $base-border-radius;
+          color: white;
+          display: inline;
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding: .5rem 1.5rem;
+
+          @include until($tablet) {
+            background-color: inherit;
+            padding: 0;
+          }
+        }
+      }
+
+      .reason-content {
+        line-height: 2rem;
+      }
+    }
+
+    .reason-right {
+      .reason-image {
+        height: 100%;
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .reason-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .reason-summary-staff-image {
+      margin-right: 1rem;
+      img {
+        height: 10rem;
+        width: 10rem;
+      }
+    }
+
+    .reason-summary-message {
+      font-size: 1.4rem;
+      font-weight: bold;
+
+      .reason-summary-name {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .buy-users-voice {
+    font-weight: bold;
+
+    .user-voice {
+      margin-bottom: 2rem;
+
+      .user-voice-title {
+        background-color: #243138;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: $base-border-radius;
+      }
+
+      .user-voice-contents {
+        background-color: white;
+        display: flex;
+        padding: 1rem;
+        margin-left: 1%;
+        width: 99%;
+        border-radius: $base-border-radius;
+
+        @include until($tablet) {
+          flex-direction: column;
+        }
+
+        .user-voice-left {
+          @include until($tablet) {
+            margin-bottom: 1rem;
+          }
+
+          .user-voice-image {
+            width: 10rem;
+
+            @include until($tablet) {
+              width: auto;
+            }
+          }
+
+          .user-voice-name {
+            border-left: 5px solid;
+            padding-left: 4px;
+            line-height: 1;
+            margin-top: 4px;
+          }
+        }
+
+        .user-voice-right {
+          display: flex;
+          flex-direction: column;
+          padding: 0 1rem;
+          line-height: 2;
+
+          .user-voice-comment {
+          }
+
+          .user-voice-detail {
+            text-align: right;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  .buy-header {
+    .hero {
+      margin-bottom: 24px;
+    }
+    .hero-body {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .buy-point {
+    font-weight: bold;
+
+    .point-title-cover {
+      background: image-url("buy/point-title-cover.png") center center / cover no-repeat;
+      height: 501px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      font-weight: bold;
+
+
+      @include until($tablet) {
+        height: auto;
+        padding: 1rem 0;
+      }
+
+      .point-title-cover-title {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        line-height: 2rem;
+      }
+
+      .point-title-cover-description {
+        color: white;
+        font-size: 1rem;
+        line-height: 2rem;
+      }
+    }
+
+    .buy-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .point {
+      margin-bottom: 2rem;
+
+      .point-title {
+        background-color: #243138;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: $base-border-radius;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .point-contents {
+        background-color: white;
+        padding: 1rem;
+        display: flex;
+
+        @include until($tablet) {
+          flex-direction: column;
+        }
+
+        .point-image {
+          width: 100%;
+          padding: 1rem;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .point-message {
+          width: 100%;
+          padding: 1rem;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          font-weight: bold;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+
+  .buy-step {
+
+    .step {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .step-image {
+      margin-bottom: 2rem;
+      height: 40%;
+      img {
+        height: 100%;
+      }
+    }
+
+    .step-contents {
+      font-weight: bold;
+      line-height: 2rem;
+      padding: 0 1.5rem;
+      height: 60%;
+
+      .step-title {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .buy-genre {
+    .genre-message {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+
+      .genre-message-small {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .genre-message-large {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  .buy-area {
+
+    .area {
+      .area-message-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .area-message {
+          font-weight: bold;
+          font-size: 1.25rem;
+          line-height: 2.5rem;
+          padding: 0 1rem;
+
+          .area-message-large {
+            font-size: 1.75rem;
+          }
+
+          .area-message-small {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .area-image {
+        padding: 0 1rem;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // お問い合わせフォーム
+  .buy-form {
+    .buy-form-title {
+      font-size: 1.75rem;
+      text-align: center;
+      font-weight: bold;
+      margin: 4rem 0;
+    }
+
+    .buy-form-field {
+      font-weight: bold;
+
+      .label {
+        background-color: #e9e9e9;
+        padding: 2rem;
+        border-radius: $base-border-radius;
+        display: flex;
+        align-items: center;
+
+        &.message-label {
+          align-items: baseline;
+        }
+
+        .required {
+          margin-left: auto;
+          background-color: #bf3d4d;
+          color: white;
+          border-radius: $base-border-radius;
+          padding: 0.4rem;
+
+        }
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+
+    .is-success {
+      background-color: #128b8e;
+      margin: 3rem auto;
+      padding: 1.5rem;
+      width: 50%;
+      height: 100%;
+      font-size: 1.75rem;
+      font-weight: bold;
+      display: block;
+
+      @include until($tablet) {
+        width: 80%;
+      }
+    }
+  }
+
+  // フッター
+  .buy-lp-footer {
+    background: image-url("buy/footer.png")  center center / cover no-repeat;
+    .buy-lp-footer-contents {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-weight: bold;
+      color: white;
+      padding: 2rem 0;
+
+
+      .buy-lp-footer-phone-number {
+        font-size: 3rem;
+
+        a {
+          color: white;
+        }
+      }
+
+      .buy-lp-fotter-office-hour {
+        background-color: #128b8e;
+        padding: 0.5rem 3rem;
+        border-radius: 3rem;
+      }
+    }
+
+    .buy-lp-fotter-right {
+      background-color: #273339;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      color: white;
+    }
+  }
+
+  .maker-thumbnail {
+    max-width: 128px;
+    max-height: 128px;
+  }
+  .is-vertical-center {
+    display: flex;
+    align-items: center;
+  }
+}

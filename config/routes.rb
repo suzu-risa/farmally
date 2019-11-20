@@ -76,6 +76,10 @@ Rails.application.routes.draw do
 
   resources :sell, only: [:index, :create]
 
+  get '/buy/:item_id', to: 'buy#index', as: 'buy'
+  get '/buy/create', to: 'buy#create'
+  post '/buy/:item_id', to: 'buy#create'
+
   get '/sell/makers' => 'sell#makers'
   get '/sell/makers/:maker_slug' => 'sell#show_maker'
   get '/sell/categories' => 'sell#categories'

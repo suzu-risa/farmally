@@ -1,0 +1,60 @@
+- breadcrumb(:buy_root)
+
+// メイン画像
+section.cover.buy-lp-section
+  .cover-contents.container
+    .columns
+      .column.is-6.has-text-left.is-offset-2-desktop(style="margin-right: 0")
+        h1.title.has-text-white
+          | あなたの農機具、本当の買取価格を聞いてみませんか？
+        p.subtitle.has-text-white.is-size-6
+          | ファーマリーなら、出張査定無しでも、電話口で最低買取価格を保証いたします。
+          br
+          | 実際に買取に来てもらわなくても、本当に買い取ってもらえる、買取価格がわかります。
+        br
+        p.subtitle.has-text-white.is-size-7
+          | ＊電話口でお伺いした情報と相違がある場合はその限りではありません。
+          br
+          | ＊その場合、買取成立しなかったとしても、出張費用などのお客様負担費用は一切ございません。
+
+
+      .column.cover-staff-information.has-text-left.is-marginless
+        p.image
+          = image_tag("buy/staff.png")
+        p.has-text-white.is-size-5
+          | 株式会社ファーマリー　
+          br
+          | 東峰
+
+
+= render 'buy/guarantee/reason'
+
+= render 'buttons_guarantee', position: "画面上部"
+
+= render 'buy/guarantee/voice'
+
+= render 'buy/common/flow'
+
+= render 'buy/common/faq'
+
+= render 'buttons', position: "画面下部"
+
+hr
+
+// お問い合わせフォーム
+section.buy-lp-section.buy-lp-section-form#form
+  .container
+    = render 'form', form: @buy_form
+
+
+footer.buy-lp-footer
+  .buy-lp-footer-contents
+    .buy-lp-footer-caption
+      | 入力が面倒でしたらお電話をご利用ください。
+    .buy-lp-footer-phone-number
+      a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '画面下部フッター', 'event_category': '買取LP' });"
+        = contact_phone_number(separate: true)
+    .buy-lp-fotter-office-hour
+      | 受付時間 9:00〜18:00
+  .buy-lp-fotter-right
+    | &copy; farmally,inc. All Rights Reserved.

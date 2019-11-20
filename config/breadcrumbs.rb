@@ -76,6 +76,31 @@ crumb :sell_maker do |maker|
   parent :sell_makers
 end
 
+# 購入
+crumb :buy_root do
+  link "購入トップ", "/buy"
+end
+
+# user#index
+crumb :buy_categories do
+  link "購入カテゴリ", "/buy/categories"
+  parent :buy_root
+end
+
+crumb :buy_category do |category|
+  link category[:title], "/buy/categories/#{category[:slug]}"
+  parent :buy_categories
+end
+
+crumb :buy_makers do
+  link "購入メーカー", "/buy/makers"
+  parent :buy_root
+end
+
+crumb :buy_maker do |maker|
+  link maker[:title], "/buy/makers/#{maker[:slug]}"
+  parent :buy_makers
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

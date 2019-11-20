@@ -1,0 +1,4 @@
+section.buy-lp-section
+  = render 'buy/section_header', title: @category_meta['used_market_feature_title'], subtitle: @category_meta['used_market_feature_subtitle']
+  .container
+    = @category_meta['used_market_feature'].html_safe

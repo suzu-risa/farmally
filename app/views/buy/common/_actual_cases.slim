@@ -1,0 +1,11 @@
+// 購入実績
+- if @buy_cases and not @buy_cases.empty?
+  section.buy-lp-section
+    .container
+      = render 'buy/section_header', title: "購入実績紹介"
+      = render partial: '/buy_case_box', locals: {buy_cases: @buy_cases}
+    p.has-text-centered.is-size-4.has-text-weight-bold
+     | その他、多数購入実績ございます！
+     br
+     | お気軽にお問い合わせくださいませ！
+

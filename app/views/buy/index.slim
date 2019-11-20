@@ -1,0 +1,321 @@
+- breadcrumb(:buy_root)
+
+// メイン画像
+section.cover.buy-lp-section
+  .cover-contents
+    .columns
+      .column.cover-title
+        h1.title
+          | 農機具の高価買取は
+          br
+          | ファーマリーまで
+        .cover-title-box-container
+          .cover-title-box
+            .cover-title-box-content
+              p.price
+                span.price-caption
+                  | 査定・引取
+                br
+                span.price-number
+                  | 0
+                span.price-unit
+                  | 円
+
+          .cover-title-box
+            .cover-title-box-content
+              p
+                | 現金・買取
+
+      .column.cover-staff-information
+        = image_tag("buy/staff-with-message.png")
+
+= render 'buttons', position: "画面上部"
+
+// 高価買取の理由
+section.buy-lp-section
+  = render 'buy/section_header', title: "まずは、高価買取を実現する明確な理由を3つご紹介します"
+
+  .container
+    .reason.reason-red
+      .reason-left
+        .reason-title
+          h2
+            | 1.欲しい人がすぐに見つかる流通ルートが豊富
+        .reason-content
+          p
+            | 全国のリテールや大規模な農家まで、日本国内の販売網を持っています。
+            br
+            | そんな多くの買い手の中から一番高い値段で買い取ってくれる相手に売却するため、ファーマリーがお客様の農機具を買い取る価格もおのずと高く設定できます。
+      .reason-right.except-mobile
+        .reason-image
+          = image_tag("buy/reason-image-1.png")
+
+    .reason.reason-green
+      .reason-left
+        .reason-title
+          h2
+            | 2.種苗店〜農業法人と連携中古ニーズをキャッチアップ
+        .reason-content
+          p
+            | 全国の種苗店や農事組合法人、農業法人との連携もファーマリーの強みです。
+            br
+            | その情報網を活用して最新の中古市場のニーズをキャッチできているため、高価買取を可能としています。
+      .reason-right.except-mobile
+        .reason-image
+          = image_tag("buy/reason-image-2.png")
+
+    .reason.reason-yellow
+      .reason-left
+        .reason-title
+          h2
+            | 3. 海外の代理店と提携世界への輸出にも強い
+        .reason-content
+          p
+            | 日本国内のみならず海外にも販売網を敷いています。
+            br
+            | 日本の中古市場にある農機具は整備も行き届いていることから海外でとても人気です。海外の相場もリサーチできており、どんな農機具でも高額査定が可能です。
+      .reason-right.except-mobile
+        .reason-image
+          = image_tag("buy/reason-image-3.png")
+
+    .reason-summary
+      .reason-summary-staff-image
+        = image_tag("buy/reason-summary-staff-image.png")
+
+      .reason-summary-message
+        p
+          | つまり、独自の販売ルートを持つファーマリーだから
+          br.except-mobile
+          | 「高価買取」が可能なのです！
+        .reason-summary-name
+          small
+            | 株式会社ファーマリー 東峰
+
+// 高価買取事例
+// TODO: 差し替えるため一旦コメントアウト
+//section.buy-lp-section
+  .title-cover.title-cover-item
+    .cover-title
+      .cover-title-line
+        | 3つの理由で実現した
+      .cover-title-line
+        | ファーマリーの高価買取例
+    .cover-image
+
+// お喜びの声
+section.buy-lp-section.buy-lp-section-users-voice
+  = render 'buy/section_header', title: "ファーマリーをご利用いただいたお客様にも、多くのお喜びの声をいただいています。"
+
+  .container
+    .user-voice
+      .user-voice-title
+        | 農地の縮小に伴って、買い替えを実施しました
+      .user-voice-contents
+        .user-voice-left
+          .user-voice-image
+            = image_tag("buy/user-voice-user-image1.png")
+          .user-voice-name
+            | Yさん(70代/男性)
+        .user-voice-right
+          .user-voice-comment
+            | 決めては東峰さんの親身な対応と買取金額でした。
+            br
+            | 過去にどこかのスクラップ工場の若者がうちに来て、アタッチメントとかを売ったことがあるのですが、対応はひどいし二束三文のような金額で買い取られました。そこで今回は、安心して売れるとこを探そうと思って見つけたのがファーマリーでした。一部壊れてたんですが修理して市場に出してくれたので、自分が使ってた機械を誰かが使ってくれてるのが実感できて嬉しいですね。
+          .user-voice-detail
+            p
+              | | 福岡 | トラクター、収穫機の買取
+
+    .user-voice
+      .user-voice-title
+        | 農家を辞めるので依頼しました
+      .user-voice-contents
+        .user-voice-left
+          .user-voice-image
+            = image_tag("buy/user-voice-user-image2.png")
+          .user-voice-name
+            | Nさん(70代/男性)
+        .user-voice-right
+          .user-voice-comment
+            | 農業を辞めるため、少しでもお金になるならと買取業者を探しました。
+            br
+            | ファーマリーは最初の問い合わせ時から対応が良く、自分みたいな年寄りにも丁寧に教えてくれました。出張査定も早かったし、機械を引き取りにきてくれたので安心して売れました。
+            br
+            | 隠居後は大好きなゴルフと釣りにいそしむ予定なので、空いた倉庫を道具置き場にします。
+          .user-voice-detail
+            p
+              | | 千葉 | 田植え機など一式
+
+    .user-voice
+      .user-voice-title
+        | 作物の種類を変更するので依頼しました
+      .user-voice-contents
+        .user-voice-left
+          .user-voice-image
+            = image_tag("buy/user-voice-user-image3.png")
+          .user-voice-name
+            | Oさん(60代/ご夫婦)
+        .user-voice-right
+          .user-voice-comment
+            | アタッチメントだけだとあまり需要がなくて値段がつかないと思ってましたが、ファーマリーさんの流通網ならほとんどの農機具を買い取ってもらえます。
+            br
+            | LINEで写真を送って査定依頼をしましたが、すぐにおおよその査定額を教えてくれて、そのあとの出張査定も早くてスムーズでした。買取金額は引き上げ時に現金でいただけたので、すぐに新しい農機具を買うことができて助かりました。
+
+          .user-voice-detail
+            p
+              | | 宮城 | アタッチメント類の買取
+
+= render 'buttons', position: "画面中間部"
+
+// POINT
+section.buy-lp-section.buy-lp-section-point
+  .point-title-cover
+    .point-title-cover-title
+      | まずは無料査定してみるのがいいかもな。
+      br
+      | でも、まだ不安がいっぱいあるんだよ。
+    .point-title-cover-description
+      | 傷だらけでだいぶ年季が入っているし、
+      br
+      | 一部壊れてるものもあるんだけど・・・
+      br
+      | それと、安心できる買取業者に頼みたいな。
+    .point-title-cover-mark
+  = render 'buy/section_header', title: "もちろん、業者選びも重要なポイント。最後まで誠実対応!"
+
+  .container
+    .buy-lp-section-title
+      | 査定・買取・整備まで大切に使用されてきた
+      br
+      | 農機具を責任買取いたします。
+
+    .point
+      .point-title
+        | 1. ご自宅まで直接引き取りに伺います
+      .point-contents
+        .point-image
+          = image_tag("buy/point-image-1.png")
+        .point-message
+          p
+            | ご成約となった農機具は、お客様と引取日を決定後、後日ファーマリースタッフが直接引き取りに伺います。
+            br
+            | もちろん無料です。
+
+    .point
+      .point-title
+        | 2. 自社で責任を持ってメンテナンスします
+      .point-contents
+        .point-message
+          p
+            | 引き取り後、ファーマリースタッフが綺麗に整備します。
+            br
+            | お客様が大事に使ってきた農機具を次代につなぐために、責任を持って取り組んでおります。
+
+        .point-image
+          = image_tag("buy/point-image-2.jpg")
+
+    .reason-summary
+      .reason-summary-staff-image
+        = image_tag("buy/reason-summary-staff-image.png")
+
+      .reason-summary-message
+        p
+          | お客様が大切に使い続けた農機具、
+          br.except-mobile
+          | 安心して私たちにお売りください！
+        .reason-summary-name
+          small
+            | 株式会社ファーマリー 東峰
+
+// 買い取りの流れ
+section.buy-lp-section.buy-lp-section-step
+  = render 'buy/section_header', title: "買取の流れ"
+
+  .container
+    .columns
+      .step.column
+        .step-image
+          = image_tag("buy/step-image-1.png")
+        .step-contents
+          .step-title
+            | お問い合わせ
+          .step-message
+            | お電話、LINE、メールのいずれかでお問い合わせください。商品情報を伺い・確認し簡易査定をいたします。
+
+      .step.column
+        .step-image
+          = image_tag("buy/step-image-2.png")
+        .step-contents
+          .step-title
+            | 無料出張査定
+          .step-message
+            | 査定員が出張し農機具の状態を査定、買取価格を算出します。金額に納得いただけましたら売買契約が成立となります。
+
+      .step.column
+        .step-image
+          = image_tag("buy/step-image-3.png")
+        .step-contents
+          .step-title
+            | 引き取り
+          .step-message
+            | ご成約となった農機具は引取日を決定後、ファーマリースタッフが引取に伺います。査定日当日の引取も可能です。
+
+      .step.column
+        .step-image
+          = image_tag("buy/step-image-4.png")
+        .step-contents
+          .step-title
+            | お支払い
+          .step-message
+            | お支払いは、即日現金支払いいたします。
+            br
+            | ご希望の場合はお振込も可能です。(お振込の場合は2週間以内に対応します)
+
+// 買い取りジャンルも幅広く対応
+section.buy-lp-section.buy-lp-section-genre
+  = render 'buy/section_header', title: "買い取りジャンルも幅広く対応しております！"
+  = render 'buy/categories'
+
+// 買い取り対応エリア
+section.buy-lp-section.buy-lp-section-area
+  = render 'buy/section_header', title: "買い取り対応エリア"
+
+  .container
+    .columns.area
+      .column.area-message-container
+        .area-message
+          - if @prefecture
+            .area-message-large
+              | #{@prefecture}引き取り訪問・出張いたします！
+          - else
+            .area-message-large
+              | 全国引き取り訪問・出張いたします！
+            .area-message-small
+              | ※北海道および沖縄・離島は除く
+          | 大型〜小型農機具まで幅広く高価買取いたします。
+          br
+          | 買取方法についてご不明な点がございましたら、
+          br
+          | お気軽にお問い合わせください。
+
+      .column.area-image
+        = image_tag("buy/area.png")
+
+= render 'buttons', position: "画面下部"
+
+hr
+
+// お問い合わせフォーム
+section.buy-lp-section.buy-lp-section-form#form
+  .container
+    = render 'form', form: @buy_form
+
+
+footer.buy-lp-footer
+  .buy-lp-footer-contents
+    .buy-lp-footer-caption
+      | 入力が面倒でしたらお電話をご利用ください。
+    .buy-lp-footer-phone-number
+      a href="tel:#{contact_phone_number}"
+        = contact_phone_number(separate: true)
+    .buy-lp-fotter-office-hour
+      | 受付時間 9:00〜18:00
