@@ -1,122 +1,60 @@
+footer.footer {
+  background-color: $background-dark;
+  padding: 0;
+  color: $foreground-light;
 
-// スクロール追従フッター
-.fixed-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  box-sizing: border-box;
-  border-top: solid 1px #cccccc;
-  z-index: 99;
+  .columns {
+    position: relative;
+    width: $pc-max-width;
+    margin: 0 auto;
 
-  // 電話ボタン、問い合わせボタン共通
-  .fixed-footer-inquiry-buttons {
-    padding-bottom: 0.75rem;
-    display: flex;
+    .menu-list {
+      a {
+        color: $foreground-light;
+        padding: 0;
+        border-radius: inherit;
+        display: inherit;
 
-    .column {
-      padding: 0;
+        &:hover {
+          text-decoration: underline;
+          background-color: inherit;
+        }
+      }
+
+      &.main {
+        margin-top: $margin-48;
+        font-weight: bold;
+
+        li {
+          margin-right: $margin-24;
+        }
+      }
+
+      &.sub {
+        margin-top: $margin-24;
+
+        li {
+          margin-right: $margin-24;
+        }
+      }
     }
-    .button {
-      border-radius: 0;
-      display: block;
+    
+    .copyright {
+      position: absolute;
+      bottom: $margin-48;
+    }
+
+    .info {
+      margin-top: $margin-48;
+      padding: $margin-16;
+      border-radius: 10px;
+      border: solid 1px $foreground-light;
+    }
+
+    button.inquiry {
+      margin-top: $margin-16;
+      margin-bottom: $margin-48;
       width: 100%;
-      height: 100%;
-      line-height: 100%;
-      padding: 8px;
-    }
-
-    .inquiry-message {
-      text-align: center;
-      margin-bottom: 8px;
-    }
-
-    .phone-number-button {
-      //background-color: $inquiry-red;
-      color: white;
-
-      @include until($tablet) {
-        font-size: 0.9rem;
-        padding: 8px;
-      }
-
-      .staff-message {
-        font-size: 0.8em;
-      }
-
-      .phone-icon {
-        width: 26px;
-        vertical-align: sub;
-      }
-
-      .footer-phone-number {
-        font-size: 1.8em;
-        margin-left: 4px;
-      }
-    }
-
-    .inquiry-button {
-      background-color: $inquiry-blue;
-      color: white;
-      padding: 18px;
-
-      @include from($tablet) {
-        font-size: 1.5em;
-      }
-
-      @include until($tablet) {
-        font-size: 0.8rem;
-        padding: 8px;
-      }
-
-      .except-mobile {
-        @include until($tablet) {
-          display: none;
-        }
-      }
-
-      .fa-envelope {
-        display: block;
-        font-size: 2rem;
-        padding-bottom: 2px;
-
-        @include from($tablet) {
-          display: none;
-        }
-      }
     }
   }
-}
-
-// フッター
-.footer {
-
-  .container {
-    .columns {
-      text-align: left;
-    }
-    span {
-      color: white;
-    }
-
-    h3 {
-      color: white;
-      font-weight: bold;
-      font-size: 1.8rem;
-      margin-top: 15px;
-    }
-
-    .copy {
-      color: white;
-    }
-  }
-
-  //.copyright {
-  //  margin: 0 auto 10px auto;
-  //  width: 90%;
-  //  color: #616161;
-  //}
-}
-
-.form__footer {
-  background-color: #616161;
 }

@@ -1,125 +1,74 @@
+$navbar-link-height: 2em;
+$logo-width: 200px;
+
 // ヘッダーメニュー
 header#navbar {
-  height: 4rem;
-
-  @media screen and (min-width: 1088px) {
-    height: 80px;
-  }
-
-  border-bottom: solid 1px $lightGrey;
-  //background-color: white;
 
   .navbar-brand {
-    .navbar-item {
-      margin-right: 10px;
-
-      .logo {
-        margin-right: 5px;
-      }
-
-     .logo-img {
-        width: 200px;
-        max-height: none;
-      }
-    }
-
-    #navbarBurger {
-      span {
-        color: $base-brown;
-        height: 2px;
-      }
+    .logo-img {
+      width: $logo-width;
+      max-height: none;
     }
   }
 
-  .navbar-burger {
-    height: inherit;
-  }
+  .navbar-start {
 
-  .navbar-menu {
-    padding-bottom: 0; // ハンバーガー展開した時の空白をなくす
     .navbar-item {
+      padding: 0;
 
-      &.navbar-item-phone-number {
-        display: block;
-        text-align: left;
+      .navbar-item-inner {
+        font-size: $font-size-text-3;
         font-weight: bold;
-        line-height: 1;
-        padding-top: 17px;
+        line-height: $line-height-nav-item;
+        padding: 0 $margin-16;
+        height: $navbar-link-height;
+        display: flex;
+        align-items: center;
 
-        .phone-number {
-          color: $greenDarken;
-          font-size: 1.4em;
-          margin-bottom: 8px;
-        }
-        .lead {
-          font-size: 0.8em;
-        }
-      }
-    }
-  }
+        border-left: solid $border-size-nav-item-separate;
 
-  form.search-box {
-    margin-left: 5px;
-    margin-right: 5px;
-    align-items: center;
-
-    .control {
-      @media screen and (min-width: 769px) {
-        margin-right: 5px;
-      }
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      .select-type {
-        color: gray;
-        font-size: 13px;
       }
 
-      .select {
-        width: 220px;
-        @media screen and (max-width: 768px) {
-          width: 100%;
-        }
-        select {
-          width: 100%;
-        }
+      &:last-child > .navbar-item-inner {
+        border-right: solid $border-size-nav-item-separate;
       }
-    }
-    a {
-      margin-top: 19px;
-      background-color: $base-brown;
-      color: white;
-      font-weight: bold;
-      align-items: center !important;
+
       &:hover {
-        background-color: darken($base-brown, 20%);
+        text-decoration: underline;
+        background-color: inherit;
+        color: inherit;
       }
 
-      img {
-        width: 24px;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .control {
-        margin-bottom: 5px;
-      }
-
-      button {
-        width: 100%;
+      &.is-current {
+        border-bottom: solid $border-size-current-nav $accent-blue-dark;
       }
     }
   }
-}
 
-// フラッシュメッセージ
-.notification {
-  border-radius: 0;
-  &.is-success {
-    background-color: $success;
-  }
-  &.is-danger {
-    background-color: $danger;
+  .navbar-end {
+    .navbar-end-item {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: $font-size-text-1;
+      }
+
+      .reception-time {
+        margin-top: $margin-4;
+      }
+
+      .phone-number {
+        color: $accent-blue-dark;
+        font-size: $font-size-headding-1;
+        font-weight: bold;
+      }
+
+      .inquiry {
+        font-size: $font-size-text-1;
+        color: $accent-blue-dark;
+        background-color: $accent-blue-light;
+      }
+    }
   }
 }
