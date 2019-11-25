@@ -139,11 +139,10 @@ ja:
       buy_form:
         name: お名前
         tel: 電話番号
-        postal_code: 郵便番号
         address: 住所
         email: メールアドレス
         message: お問い合わせ
-        recieve_contact: 入荷・価格変更時に連絡を受け付ける
+        agree_to_terms: 利用規約に同意する
   enums:
     sale_item:
       status:
