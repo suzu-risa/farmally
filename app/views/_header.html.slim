@@ -12,10 +12,10 @@ header#navbar.navbar
       span
   .navbar-menu#navMenu
     .navbar-start
-      = link_to "/", class: "navbar-item #{(current_page?('/') || request.request_uri.start_with?('categories')) ? 'is-current' : ''}" do
+      = link_to '/', class: "navbar-item #{(current_page?('/') || request.request_uri.start_with?('categories')) ? 'is-current' : ''}" do
         p.navbar-item-inner
           | 農機販売
-      = link_to '/guide/', class: "navbar-item #{current_page?('/guide') ? 'is-current': ''}" do
+      = link_to '/guide', class: "navbar-item #{current_page?('/guide') ? 'is-current': ''}" do
         p.navbar-item-inner
           | ご利用ガイド
     .navbar-end
@@ -27,7 +27,7 @@ header#navbar.navbar
         .phone-number
           = contact_phone_number(separate: true)
       .navbar-end-item
-        = link_to '/inquiry/', class: "button inquiry" do
+        = link_to '/inquiry', class: "button inquiry" do
           | 相談・お問い合わせ
 
 - if flash.present?
