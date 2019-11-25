@@ -15,6 +15,7 @@ $accent-red-light: #FDF1EC;
 $background-light: #F9F7F5;
 $background-gray: #F1EBE6;
 $background-dark: #4C443D;
+$background-default: #FFF;
 
 // フォント
 $font-family-default: Verdana, Helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -30,7 +31,10 @@ $font-size-large: 16px;
 $font-size-item-name: 24px;
 $font-size-item-price: 32px;
 
-$font-size-page-heading: 40px;
+$font-size-page-heading-small: 32px;
+$font-size-page-heading-large: 40px;
+
+$font-size-mobile-heading: 20px;
 
 $font-size-item-not-fund-message: 20px;
 $font-size-heading-in-image: 20px;
@@ -54,9 +58,19 @@ $margin-32: 32px;
 
 // margin for constant
 $margin-under-main-section: 96px;
+$margin-under-main-section-add: 8px;
+
+// margin for commercial page
+$margin-commercial-content-title: 8px;
 
 // margin for static page
-$margin-on-static-page-title: 64px;
+$margin-on-page-title-for-static: 64px;
+$margin-under-page-title-for-static: 32px;
+$margin-mobile-on-page-title-for-static: 48px;
+$margin-mobile-under-page-title-for-static: 32px;
+
+// margin for commercial
+$margin-mobile-around-commercial-text: 8px;
 
 // margin for not found
 $margin-under-item-not-found-message: 64px;
@@ -79,7 +93,7 @@ $margin-around-footer-info: 8px;
 $pc-max-width: 1200px;
 
 // media query break point ( under SP landscape )
-$main-width-pc: 896px;
+$sp-max-width: 896px;
 
 // border-size
 $border-size-nav-item-separate: 1px;
