@@ -76,6 +76,10 @@ crumb :sell_maker do |maker|
   parent :sell_makers
 end
 
+# 購入
+crumb :buy_root do
+  link "購入トップ", "/buy"
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

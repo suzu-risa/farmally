@@ -114,6 +114,15 @@
               background-color: darken($inquiry-blue, 10%);
             }
           }
+
+          &.buy-button {
+            background-color: $inquiry-blue;
+
+            &:hover {
+              background-color: darken($inquiry-blue, 10%);
+            }
+          }
+
         }
       }
 

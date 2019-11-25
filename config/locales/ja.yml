@@ -136,6 +136,13 @@ ja:
         tel: 電話番号
         prefecture: お住まいの都道府県
         message: ご要望・お問い合わせ
+      buy_form:
+        name: お名前
+        tel: 電話番号
+        address: 住所
+        email: メールアドレス
+        message: お問い合わせ
+        agree_to_terms: 利用規約に同意する
   enums:
     sale_item:
       status:
