@@ -11,6 +11,13 @@ textarea {
   background-color: $background-light;
 }
 
+header,
+body,
+footer {
+  max-width: $pc-max-width;
+  margin: 0 auto;
+}
+
 button {
   line-height: 1.1;
   border-radius: 10px;
