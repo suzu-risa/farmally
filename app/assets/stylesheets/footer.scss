@@ -20,39 +20,39 @@ footer.footer {
         }
       }
 
-      &.main {
-        margin-top: $margin-48;
-        font-weight: bold;
+      li {
+        margin-right: $margin-between-footer-nav;
 
-        li {
-          margin-right: $margin-24;
+        &:last-of-type {
+          margin-right: 0;
         }
       }
 
-      &.sub {
-        margin-top: $margin-24;
+      &.main {
+        margin-top: $margin-around-footer-content;
+        font-weight: bold;
+      }
 
-        li {
-          margin-right: $margin-24;
-        }
+      &.sub {
+        margin-top: $margin-between-footer-nav;
       }
     }
     
     .copyright {
       position: absolute;
-      bottom: $margin-48;
+      bottom: $margin-around-footer-content;
     }
 
     .info {
-      margin-top: $margin-48;
-      padding: $margin-16;
+      margin-top: $margin-around-footer-content;
+      padding: $margin-around-footer-info;
       border-radius: 10px;
       border: solid 1px $foreground-light;
     }
 
-    button.inquiry {
-      margin-top: $margin-16;
-      margin-bottom: $margin-48;
+    .inquiry {
+      margin-top: $margin-on-footer-inquiry-button;
+      margin-bottom: $margin-around-footer-content;
       width: 100%;
     }
   }

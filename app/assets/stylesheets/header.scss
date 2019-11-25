@@ -15,11 +15,11 @@ header#navbar {
 
     .navbar-item {
       padding: 0;
+      line-height: $line-height-default;
 
       .navbar-item-inner {
-        font-size: $font-size-text-3;
+        font-size: $font-size-nav-item;
         font-weight: bold;
-        line-height: $line-height-nav-item;
         padding: 0 $margin-16;
         height: $navbar-link-height;
         display: flex;
@@ -51,7 +51,7 @@ header#navbar {
       align-items: center;
 
       p {
-        font-size: $font-size-text-1;
+        font-size: $font-size-smaller;
       }
 
       .reception-time {
@@ -60,12 +60,12 @@ header#navbar {
 
       .phone-number {
         color: $accent-blue-dark;
-        font-size: $font-size-headding-1;
+        font-size: $font-size-tel-number-in-nav;
         font-weight: bold;
       }
 
       .inquiry {
-        font-size: $font-size-text-1;
+        font-size: $font-size-smaller;
         color: $accent-blue-dark;
         background-color: $accent-blue-light;
       }

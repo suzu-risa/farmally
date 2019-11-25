@@ -15,19 +15,20 @@ header#navbar.navbar
       = link_to "/", class: "navbar-item #{(current_page?('/') || request.request_uri.start_with?('categories')) ? 'is-current' : ''}" do
         p.navbar-item-inner
           | 農機販売
-      = link_to '/guide', class: "navbar-item #{current_page?('/guide') ? 'is-current': ''}" do
+      = link_to '/guide/', class: "navbar-item #{current_page?('/guide') ? 'is-current': ''}" do
         p.navbar-item-inner
           | ご利用ガイド
     .navbar-end
-      div.navbar-end-item
-        div.lead-inner
+      .navbar-end-item
+        .lead-inner
           p.text 相談・問い合わせはこちら
           p.reception-time &#040;電話受付時間 9:00~18:00&#041;
       a.navbar-end-item.phone-number href="tel:#{contact_phone_number}"
-        div.phone-number
+        .phone-number
           = contact_phone_number(separate: true)
-      div.navbar-end-item
-        button.inquiry 相談・お問い合わせ
+      .navbar-end-item
+        = link_to '/inquiry/', class: "button inquiry" do
+          | 相談・お問い合わせ
 
 - if flash.present?
   section.hero.is-white.is-small
