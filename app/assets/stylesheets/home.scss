@@ -40,7 +40,6 @@ h2.title.heading {
     @media screen and (max-width: $sp-max-width) {
       width: 50%;
       margin-left: 0;
-      word-wrap: break-all;
     }
   }
 
@@ -51,6 +50,7 @@ h2.title.heading {
     @media screen and (max-width: $sp-max-width) {
       width: 50%;
       padding: $margin-mobile-around-commercial-text 0;
+      word-wrap: break-word;
     }
   }
 }
