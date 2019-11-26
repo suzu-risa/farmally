@@ -7,7 +7,7 @@
 
   - sale_items.each do |sale_item|
     .column.is-12-mobile.is-6-tablet.is-6-desktop.has-text-centered
-        #sale-item-image.slick-slide-container data-url=(item_sale_item_images_path(sale_item_id: sale_item, item_id: sale_item.item_id))
+        #sale-item-image.slick-slide-container data-url=(item_sale_item_images_path(sale_item_id: sale_item, item_id: sale_item.item))
     .column.item-column.is-6-tablet.is-3-desktop
       div class="item#{sale_item.sold? ? " sold-out" : ""}"
         .item-model-name
