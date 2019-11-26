@@ -1,24 +1,29 @@
 .columns.is-multiline.item-columns
+  ul.category
+    - @categories.each do |category|
+      li
+        = link_to "/lists/categories/#{category.code}", class: 'category' do
+          | #{category.name}&nbsp;
+
   - sale_items.each do |sale_item|
+    .column.is-12-mobile.is-6-tablet.is-6-desktop.has-text-centered
+        #sale-item-image.slick-slide-container data-url=(item_sale_item_images_path(sale_item_id: sale_item, item_id: sale_item.item_id))
     .column.item-column.is-6-tablet.is-3-desktop
       div class="item#{sale_item.sold? ? " sold-out" : ""}"
         .item-model-name
           span
-            = sale_item.name
+            | #{sale_item.category_name}
+              | #{sale_item.maker.name}
+                | #{sale_item.item.model}
         .image
           - if image = sale_item.images.first
             = image_tag(rails_representation_url(image.variant(resize: '500x500').processed))
         table.table
-          /tr
-            td
-              = sale_item.class.human_attribute_name(:year)
-            td
-              = sale_item.year_text
-          /tr
-            td
-              = sale_item.class.human_attribute_name(:prefecture)
-            td
-              = sale_item.prefecture_name
+          tr
+            td.price-td colspan="2"
+              span
+                = sale_item.class.human_attribute_name(:price)
+              = sale_item.display_price
           tr
             td
               | カテゴリー
@@ -35,12 +40,17 @@
             td
               = sale_item.used_hours_with_unit
           tr
-            td.price-td colspan="2"
-              span
-                = sale_item.class.human_attribute_name(:price)
-              = sale_item.display_price
-
-        = link_to sale_item.show_path,
-          class: "detail-link",
-          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '#{request.path}' });"
-          | 詳細はこちら
+            td
+              = sale_item.class.human_attribute_name(:status)
+            td
+              = sale_item.display_status
+          = link_to buy_path(sale_item), class: "detail-link"
+            | 購入申し込み・相談
+          / - sale_item.detail_with_template.tables.each do |detail_table|
+          /   - detail_table.properties.each do |property|
+          /     tr
+          /       th
+          /         = property.name
+          /       td
+          /         = simple_format(property.value.presence || "-")
+          /         br

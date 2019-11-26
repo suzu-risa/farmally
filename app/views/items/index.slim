@@ -1,2 +1,11 @@
-- set_meta_tags title: '商品一覧'
-= render '/item_list_page', items: @items, title: "商品一覧"
+- set_meta_tags title: '出品商品一覧'
+.sale-items
+  .cover
+    h1.title
+      span.site-name
+        | ファーマリー
+      br
+      | 中古農機販売
+
+  = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
+  

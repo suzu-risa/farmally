@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
   include SetCatalogSubtitle
 
   def index
-    @items = Item.page(params[:page])
+    sale_item_view = SaleItemView.new(params)
+    @categories = sale_item_view.get_sale_category
+    @sale_items = sale_item_view.get_sale_items
   end
 
   def show
