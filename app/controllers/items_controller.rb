@@ -6,10 +6,13 @@ class ItemsController < ApplicationController
     @sale_items = SaleItem.get_sale_items(params)
   end
 
-  def show
-    @item = Item.find(params[:id])
-    @reviews = Review.includes(:review_comments).where(item: @item, approved: true)
-    @sale_items = @item.sale_items
-    @title = @item.model
+  def images
+    sale_item = SaleItem.find(params[:sale_item_id])
+
+    render json: {
+      sale_item_images: sale_item.images.map{ |image|
+        { url: rails_representation_url(image.variant(resize: '500x500').processed) }
+      }
+    }
   end
 end
