@@ -1,26 +1,86 @@
-$light-brown: #B99B80;
-$dark-brown: #8B572A;
-$red: #C60000;
-$red-shadow: #590101;
-$green: #005B04;
-$green-shadow: #002002;
-$success: #4CAF50;
-$danger: #F44336;
-$base-brown: #B99B80;
-$top-button-brown: #E1CFC0;
-$gray: gray;
+// 主に文字色
+$foreground-dark: #4C443D;
+$foreground-light: #C9C7C5;
+$foreground-gray: #807973;
+$foreground-white: #FFF;
 
-$inquiry-red: #ef0000;
-$inquiry-blue: #02669a;
-$background-grey: whitesmoke;
+// アクセント色
+$accent-brown: #A17741;
+$accent-blue-dark: #32978B;
+$accent-blue-light: #EFF7F6;
+$accent-red-dark: #E64A17;
+$accent-red-light: #FDF1EC;
 
+// ベースカラー
+$background-light: #F9F7F5;
+$background-gray: #F1EBE6;
+$background-dark: #4C443D;
 
-// -- v2 colors
-$lightGrey: #E3E3E3;
-$grey: #C6C6C6;
-$baseGreen: #1DAF9E;
-$baseBlue: #1F91BE;
-$baseRed: #E38692;
-$baseYellow: #F6D580;
+// フォント
+$font-family-default: Verdana, Helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
-$greenDarken: #32978B;
+// フォントサイズ
+$font-size-nav-item: 14px;
+
+$font-size-smaller: 12px;
+$font-size-small: 13px;
+$font-size-default: 14px;
+$font-size-large: 16px;
+
+$font-size-item-name: 24px;
+$font-size-item-price: 32px;
+
+$font-size-page-heading: 40px;
+
+$font-size-item-not-fund-message: 20px;
+$font-size-heading-in-image: 20px;
+$font-size-tel-number-in-nav: 20px;
+
+// lineheight
+$line-height-default: 1.1;
+$line-height-note-of-buy-button: 1.3;
+$line-height-note-of-message: 1.5;
+$line-height-note-of-form-result: 1.8;
+
+// margin
+$margin-4: 4px;
+$margin-8: 8px;
+$margin-10: 10px;
+$margin-12: 12px;
+$margin-16: 16px;
+$margin-20: 20px;
+$margin-24: 24px;
+$margin-32: 32px;
+
+// margin for constant
+$margin-under-main-section: 96px;
+
+// margin for static page
+$margin-on-static-page-title: 64px;
+
+// margin for not found
+$margin-under-item-not-found-message: 64px;
+$margin-around-item-not-fount: 96px;
+
+// margin for form
+$margin-under-form-heading-note: 48px;
+$margin-under-form-parts-of-notice: 48px;
+$margin-on-form-title: 72px;
+$margin-under-form-title-only: 72px;
+$margin-under-form-message: 32px;
+
+// margin for footer
+$margin-around-footer-content: 48px;
+$margin-between-footer-nav: 24px;
+$margin-on-footer-inquiry-button: 16px;
+$margin-around-footer-info: 8px;
+
+// contents width
+$pc-max-width: 1200px;
+
+// media query break point ( under SP landscape )
+$main-width-pc: 896px;
+
+// border-size
+$border-size-nav-item-separate: 1px;
+$border-size-current-nav: 3px;
