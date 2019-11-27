@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%= render :partial => '/meta' %>
+    <title>Farmally</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= render :partial => '/vendor_css' %>
+    <%= favicon_link_tag('favicon.ico') %>
+    <%= favicon_link_tag('apple-touch-icon-180x180.png', { rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' }) %>
+    <% if Rails.env.production? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126381641-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-126381641-1');
+      </script>
+    <% end %>
+  </head>
+  <body class="form">
+    <%= render :partial => '/form/header' %>
+    <%= yield %>
+    <%= render :partial => '/form/footer' %>
+  </body>
+</html>
