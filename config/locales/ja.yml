@@ -74,6 +74,7 @@ ja:
         staff: 担当者
         staff_id: 担当者
         staff_comment: 担当者コメント
+        remark: 備考
       sale_item_inquiry:
         sale_item: 出品商品
         sale_item_id: 出品商品

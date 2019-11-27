@@ -9,6 +9,7 @@
 #  prefecture_code       :integer
 #  price                 :integer
 #  price_text            :string(255)      not null
+#  remark                :text(65535)
 #  sold_at               :datetime
 #  staff_comment         :text(65535)
 #  status                :integer
@@ -19,6 +20,7 @@
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
 #  staff_id              :bigint(8)
+#  remark                :text
 #
 # Indexes
 #
@@ -146,5 +148,15 @@ class SaleItem < ApplicationRecord
     end
 
     Hashie::Mash.new(detail_hash)
+  end
+
+  def self.get_sale_items(params)
+    if params[:code].present?
+      item_ids = Item.includes(:category).where(categories: { code: params[:code] }).pluck (:id)
+      raise ActiveRecord::RecordNotFound if item_ids.empty?
+      @sale_items = self.where(item_id: item_ids).page(params[:page])
+    else
+      @sale_items = self.page(params[:page])
+    end
   end
 end

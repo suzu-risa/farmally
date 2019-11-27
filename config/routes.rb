@@ -55,6 +55,7 @@ Rails.application.routes.draw do
       resources :sale_item_inquiries, only: :create, path: :inquiries
     end
   end
+  get '/items/categories/:code', to: 'items#index'
 
   resources :sale_items, only: :index
   resources :sold_items, only: :index
