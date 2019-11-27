@@ -9,15 +9,29 @@ textarea {
   font-family: $font-family-default;
   font-size: $font-size-default;
   color: $foreground-dark;
-  background-color: $background-light;
+  background-color: $background-default;
   line-height: $line-height-default;
 }
 
-header,
-body,
-footer {
+a {
+  color: inherit;
+
+  &.text {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+body {
   max-width: $pc-max-width;
   margin: 0 auto;
+
+  @media screen and (max-width: $sp-max-width) {
+    width: 90vw;
+  }
 }
 
 .column {
@@ -29,4 +43,8 @@ footer {
   font-weight: bold;
   padding: 0.3em 1em;
   height: 3em; 
+}
+
+.columns:last-child {
+  margin-bottom: 0;
 }
