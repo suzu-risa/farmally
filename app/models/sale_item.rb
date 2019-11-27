@@ -152,8 +152,9 @@ class SaleItem < ApplicationRecord
 
   def self.get_sale_items(params)
     if params[:code].present?
-      item = Item.find_by!(category_id: params[:code])
-      @sale_items = self.where(item_id: item.id).page(params[:page])
+      item_ids = Item.includes(:category).where(categories: { code: params[:code] }).pluck (:id)
+      raise ActiveRecord::RecordNotFound if item_ids.empty?
+      @sale_items = self.where(item_id: item_ids).page(params[:page])
     else
       @sale_items = self.page(params[:page])
     end
