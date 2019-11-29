@@ -68,6 +68,8 @@ class SaleItem < ApplicationRecord
     where(status: 3)
   }
 
+  paginates_per 4
+
   # TODO: ファイルのマイグレーションが終わったらリファクタする
   def new_images
     sale_item_images.map(&:image)
