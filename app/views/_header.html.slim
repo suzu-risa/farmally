@@ -12,18 +12,23 @@ header#navbar.navbar
       span
   .navbar-menu#navMenu
     .navbar-start
-      = link_to "/sell", class: 'navbar-item' do
-        |  農機を売りたい方
-      = link_to sale_items_path, class: 'navbar-item' do
-        |  農機を買いたい方
-      = link_to '/blog', class: 'navbar-item' do
-        | ブログ
+      = link_to '/', class: "navbar-item #{(current_page?('/') || request.path.start_with?('categories')) ? 'is-current' : ''}" do
+        p.navbar-item-inner
+          | 農機販売
+      = link_to '/guide', class: "navbar-item #{current_page?('/guide') ? 'is-current': ''}" do
+        p.navbar-item-inner
+          | ご利用ガイド
     .navbar-end
-      a.navbar-item.navbar-item-phone-number href="tel:#{contact_phone_number}"
-        div.phone-number
+      .navbar-end-item
+        .lead-inner
+          p.text 相談・問い合わせはこちら
+          p.reception-time &#040;電話受付時間 9:00~18:00&#041;
+      a.navbar-end-item.phone-number href="tel:#{contact_phone_number}"
+        .phone-number
           = contact_phone_number(separate: true)
-        div.lead 買取も購入もまずは無料相談！
-
+      .navbar-end-item
+        = link_to '/inquiry', class: "button inquiry" do
+          | 相談・お問い合わせ
 
 - if flash.present?
   section.hero.is-white.is-small
