@@ -79,9 +79,9 @@ class SellController < ApplicationController
       notifier.notify referer
 
       if @form.lp_pattern == '2'
-        redirect_to sell_categories_path(ptn: 2), flash: { success: '送信しました。担当者からの連絡をお待ちください' }
+        redirect_to sell_index_path(ptn: 2), flash: { success: '送信しました。担当者からの連絡をお待ちください' }
       else
-        redirect_to sell_categories_path, flash: { success: '送信しました。担当者からの連絡をお待ちください' }
+        redirect_to sell_index_path, flash: { success: '送信しました。担当者からの連絡をお待ちください' }
       end
       return
     end
