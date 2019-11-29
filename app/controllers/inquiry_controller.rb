@@ -3,11 +3,6 @@ class InquiryController < ApplicationController
   def index
     @inquiry_form = InquiryForm.new
 
-    # invalidate cache when the query param passed.
-    if params[:invalidate_cache]
-      Rails.cache.clear
-    end
-
     render layout: 'inquiry'
   end
 
