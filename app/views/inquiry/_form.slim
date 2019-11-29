@@ -1,0 +1,54 @@
+h2.inquiry-form-title
+  | お問い合わせフォーム
+
+.container
+  = form_for form, url: inquiry_index_path, method: :post do |f|
+    .inquiry-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :お名前
+        .required
+          | 必須
+      .column.is-8-desktop.input-container
+        = f.text_field :name, class: 'input', placeholder: "お名前", required: true
+
+    .inquiry-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :電話番号
+        .required
+          | 必須
+      .column.is-8-desktop.input-container
+        = f.text_field :tel, class: 'input', placeholder: "000-0000-0000", required: true
+
+    .inquiry-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :メールアドレス
+        .required
+          | 必須
+      .column.is-8-desktop.input-container
+        = f.text_field :email, class: 'input', placeholder: "farmally@dmm.com", required: true
+
+    .inquiry-form-field.columns.field
+      .column.is-4-desktop.label.message-label
+        .label-name
+          = f.label :問い合わせ内容
+      .column.is-8-desktop.input-container
+        = f.text_area :message, class: 'textarea', rows: '8', placeholder: "問い合わせ内容を詳細にご記入ください"
+
+    .inquiry-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :価格変更連絡・入荷連絡
+      .column.is-8-desktop.input-container
+        = f.check_box :request_notification
+
+    .inquiry-form-field.columns.field
+      .column.is-4-desktop.label
+        .label-name
+          = f.label :利用規約に同意する
+      .column.is-8-desktop.input-container
+        = f.check_box :agree_to_terms
+
+    = f.submit "送信する", class: "button is-success", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': 'お問い合わせ' });"

@@ -81,6 +81,11 @@ crumb :buy_root do
   link "購入トップ", "/buy"
 end
 
+# 問い合わせ
+crumb :inquiry_root do
+  link "問い合わせトップ", "/inquiry"
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
