@@ -6,11 +6,6 @@ class BuyController < ApplicationController
     @item = Item.find(params[:item_id])
     @buy_form = BuyForm.new
 
-    # invalidate cache when the query param passed.
-    if params[:invalidate_cache]
-      Rails.cache.clear
-    end
-
     render layout: 'buy'
   end
 
