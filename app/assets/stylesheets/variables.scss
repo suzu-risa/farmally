@@ -31,13 +31,13 @@ $font-size-large: 16px;
 $font-size-item-name: 24px;
 $font-size-item-price: 32px;
 
-$font-size-page-heading-small: 32px;
-$font-size-page-heading-large: 40px;
+$font-size-page-title-small: 32px;
+$font-size-page-title-large: 40px;
 
 $font-size-mobile-heading: 20px;
 
 $font-size-item-not-fund-message: 20px;
-$font-size-heading-in-image: 20px;
+$font-size-title-in-image: 20px;
 $font-size-tel-number-in-nav: 20px;
 
 // lineheight
@@ -46,15 +46,9 @@ $line-height-note-of-buy-button: 1.3;
 $line-height-note-of-message: 1.5;
 $line-height-note-of-form-result: 1.8;
 
-// margin
-$margin-4: 4px;
-$margin-8: 8px;
-$margin-10: 10px;
-$margin-12: 12px;
-$margin-16: 16px;
-$margin-20: 20px;
-$margin-24: 24px;
-$margin-32: 32px;
+// margin for nav
+$margin-around-navbar-item-inner: 16px;
+$margin-on-nav-receprtion-time: 4px;
 
 // margin for constant
 $margin-under-main-section: 96px;
@@ -62,6 +56,8 @@ $margin-under-main-section-add: 8px;
 
 // margin for commercial page
 $margin-commercial-content-title: 8px;
+$margin-mobile-around-commercial-text: 8px;
+
 
 // margin for static page
 $margin-on-page-title-for-static: 64px;
@@ -69,19 +65,23 @@ $margin-under-page-title-for-static: 32px;
 $margin-mobile-on-page-title-for-static: 48px;
 $margin-mobile-under-page-title-for-static: 32px;
 
-// margin for commercial
-$margin-mobile-around-commercial-text: 8px;
-
-// margin for not found
+// margin for list
 $margin-under-item-not-found-message: 64px;
 $margin-around-item-not-fount: 96px;
 
 // margin for form
-$margin-under-form-heading-note: 48px;
-$margin-under-form-parts-of-notice: 48px;
 $margin-on-form-title: 72px;
+$margin-under-form-title: 48px;
+$margin-on-form-title-note: 8px;
+$margin-under-form-parts-of-notice: 48px;
 $margin-under-form-title-only: 72px;
 $margin-under-form-message: 32px;
+$margin-on-form-parts-title: 24px;
+$margin-under-form-parts-title: 8px;
+$margin-on-form-parts-note: 8px;
+$margin-under-form-parts-note: 16px;
+$margin-left-inline-label: 8px;
+$margin-around-agree-to-terms: 16px;
 
 // margin for footer
 $margin-around-footer-content: 48px;
@@ -98,3 +98,14 @@ $sp-max-width: 896px;
 // border-size
 $border-size-nav-item-separate: 1px;
 $border-size-current-nav: 3px;
+
+// button
+$box-shadow-position-for-large-button: 0 2px 1px 0;
+$box-shadow-red-button-for-large-button: $box-shadow-position-for-large-button #AFACAB;
+$box-shadow-gray-button-for-large-button: $box-shadow-position-for-large-button #D3DAD9;
+
+$border-color-around-gray-button: #F2F2F1;
+$border-color-bottom-of-gray-button: #E0E9E7;
+$border-for-gray-button: $border-color-around-gray-button $border-color-around-gray-button $border-color-bottom-of-gray-button $border-color-around-gray-button;
+$background-for-gray-button: linear-gradient(#F5FAF9, #E5F1F0);
+$background-for-gray-button-hover: linear-gradient(#FFF, #E5F1F0);

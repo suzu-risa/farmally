@@ -1,7 +1,7 @@
 h2.title.heading {
   margin-top: $margin-on-page-title-for-static;
   margin-bottom: $margin-under-page-title-for-static + $margin-under-main-section-add;
-  font-size: $font-size-page-heading-small;
+  font-size: $font-size-page-title-small;
 
   @media screen and (max-width: $sp-max-width) {
     font-size: $font-size-mobile-heading;

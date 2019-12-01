@@ -1,0 +1,32 @@
+.inquiry-form {
+  width: 40%;
+  margin: $margin-on-form-title auto $margin-under-main-section auto;
+
+  .title {
+    font-size: $font-size-page-title-large;
+    margin-bottom: $margin-under-form-title;
+    text-align: center;
+
+    .subtitle {
+      margin-top: $margin-on-form-title-note;
+    }
+  }
+
+  .form-parts.request_notification {
+    margin-bottom: $margin-under-form-parts-of-notice;
+  }
+
+  .button-send {
+    @extend .button-large;
+
+    background: $background-for-gray-button;
+    border-color: $border-for-gray-button;
+    box-shadow: $box-shadow-gray-button-for-large-button;
+
+    &:hover {
+      background: $background-for-gray-button-hover;
+      border-color: $border-for-gray-button;
+    }
+
+  }
+}

@@ -17,7 +17,8 @@ a {
   color: inherit;
 
   &.text {
-    text-decoration: underline;
+    -webkit-text-decoration: underline $foreground-gray;
+    text-decoration: underline $foreground-gray;
   }
 
   &:hover {
@@ -39,12 +40,135 @@ body {
 }
 
 .button {
-  border-radius: 10px;
   font-weight: bold;
-  padding: 0.3em 1em;
-  height: 3em; 
+  line-height: $line-height-default;
+}
+
+.button-small {
+  @extend .button;
+
+  border-radius: 7px;
+  text-align: center;
+  height: 28px; 
+  width: 130px; 
+}
+
+.button-large {
+  @extend .button;
+
+  border-radius: 12px;
+  text-align: center;
+  height: 48px; 
+  width: 270px; 
+  display: block;
+  margin: 0 auto;
+  font-size: $font-size-large;
+
+  border: 1px solid;
 }
 
 .columns:last-child {
   margin-bottom: 0;
+}
+
+form {
+  .form-parts {
+    margin-top: $margin-on-form-parts-title;
+
+    &.agree-to-terms {
+      padding-top: $margin-around-agree-to-terms;
+      padding-bottom: $margin-around-agree-to-terms;
+    }
+
+    &__title {
+      margin-bottom: $margin-under-form-parts-title;
+
+      &__label {
+        color: $foreground-dark;
+        font-size: font-size-default;
+        font-weight: bold;
+      }
+
+      &__note {
+        margin-top: $margin-on-form-parts-note;
+        margin-bottom: $margin-under-form-parts-note;
+      }
+
+      .required {
+        margin-left: $margin-left-inline-label;
+        color: $accent-brown;
+        font-size: $font-size-smaller;
+      }
+    }
+
+    input.input {
+      &::placeholder {
+        color: $foreground-light;
+      }
+
+      &:-ms-input-placeholder {
+        color: $foreground-light;
+      }
+      &::-ms-input-placeholder {
+        color: $foreground-light;
+      }
+    }
+
+    textarea.input {
+      &::placeholder {
+        color: $foreground-light;
+      }
+
+      &:-ms-input-placeholder {
+        color: $foreground-light;
+      }
+      &::-ms-input-placeholder {
+        color: $foreground-light;
+      }
+    }
+
+    .checkbox {
+      input[type="checkbox"] {
+        display: none;
+      }
+      label {
+        position: relative;
+        padding: 0 0 0 2em;
+      }
+      label:hover:after {
+        border: 1px solid #F0F0F0;
+        box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+      }
+      label:after, label:before{
+        position: absolute;
+        content: "";
+        display: block;
+        top: 50%;
+      }
+      label:after {
+        margin-top: -0.3em;
+        width: 1em;
+        height: 1em;
+        border: 1px solid #F0F0F0;
+        box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+      }
+      label:before {
+        left: 0.4em;
+        margin-top: -0.15em;
+        width: 0.3em;
+        height: 0.6em;
+        border-right: 0.15em solid #FFF;
+        border-bottom: 0.15em solid #FFF;
+        transform: rotate(45deg);
+        opacity: 0;
+        z-index: 999;
+        }
+      input[type=checkbox]:checked + label:before {
+        opacity: 1;
+      }
+      input[type=checkbox]:checked + label:after {
+        background-color: $accent-blue-dark;
+      }
+    }
+  }
 }

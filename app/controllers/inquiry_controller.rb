@@ -3,7 +3,6 @@ class InquiryController < ApplicationController
   def index
     @inquiry_form = InquiryForm.new
 
-    render layout: 'inquiry'
   end
 
   def create
