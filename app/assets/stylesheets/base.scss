@@ -1,5 +1,6 @@
 @import "header";
 @import "footer";
+@import "button";
 
 body,
 button,
@@ -31,40 +32,19 @@ body {
   margin: 0 auto;
 
   @media screen and (max-width: $sp-max-width) {
-    width: 90vw;
+    max-width: inherit;
+  }
+}
+
+.main {
+  @media screen and (max-width: $sp-max-width) {
+    width: $sp-content-width;
+    margin: 0 auto;
   }
 }
 
 .column {
   padding: 0;
-}
-
-.button {
-  font-weight: bold;
-  line-height: $line-height-default;
-}
-
-.button-small {
-  @extend .button;
-
-  border-radius: 7px;
-  text-align: center;
-  height: 28px; 
-  width: 130px; 
-}
-
-.button-large {
-  @extend .button;
-
-  border-radius: 12px;
-  text-align: center;
-  height: 48px; 
-  width: 270px; 
-  display: block;
-  margin: 0 auto;
-  font-size: $font-size-large;
-
-  border: 1px solid;
 }
 
 .columns:last-child {
@@ -102,6 +82,8 @@ form {
     }
 
     input.input {
+      border-radius: 0;
+
       &::placeholder {
         color: $foreground-light;
       }
@@ -115,6 +97,8 @@ form {
     }
 
     textarea.input {
+      border-radius: 0;
+
       &::placeholder {
         color: $foreground-light;
       }

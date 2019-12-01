@@ -1,26 +1,34 @@
-// 主に文字色
+/* constant */
+// contents width
+$pc-max-width: 1200px;
+$sp-content-width: 90vw;
+
+// media query break point ( under SP landscape )
+$sp-max-width: 896px;
+
+// foreground color
 $foreground-dark: #4C443D;
 $foreground-light: #C9C7C5;
 $foreground-gray: #807973;
 $foreground-white: #FFF;
 
-// アクセント色
+// accent color
 $accent-brown: #A17741;
 $accent-blue-dark: #32978B;
 $accent-blue-light: #EFF7F6;
 $accent-red-dark: #E64A17;
 $accent-red-light: #FDF1EC;
 
-// ベースカラー
+// base color
 $background-light: #F9F7F5;
 $background-gray: #F1EBE6;
 $background-dark: #4C443D;
 $background-default: #FFF;
 
-// フォント
+// font family
 $font-family-default: Verdana, Helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
-// フォントサイズ
+// font size
 $font-size-nav-item: 14px;
 
 $font-size-smaller: 12px;
@@ -28,60 +36,84 @@ $font-size-small: 13px;
 $font-size-default: 14px;
 $font-size-large: 16px;
 
-$font-size-item-name: 24px;
-$font-size-item-price: 32px;
-
-$font-size-page-title-small: 32px;
+$font-size-page-title-small-pc: 32px;
+$font-size-page-title-small-sp: 24px;
 $font-size-page-title-large: 40px;
+$font-size-mobile-title: 20px;
 
-$font-size-mobile-heading: 20px;
-
-$font-size-item-not-fund-message: 20px;
-$font-size-title-in-image: 20px;
-$font-size-tel-number-in-nav: 20px;
-
-// lineheight
+// line height
 $line-height-default: 1.1;
-$line-height-note-of-buy-button: 1.3;
-$line-height-note-of-message: 1.5;
-$line-height-note-of-form-result: 1.8;
 
-// margin for nav
-$margin-around-navbar-item-inner: 16px;
-$margin-on-nav-receprtion-time: 4px;
-
-// margin for constant
+// margin
 $margin-under-main-section: 96px;
 $margin-under-main-section-add: 8px;
 
-// margin for commercial page
-$margin-commercial-content-title: 8px;
-$margin-mobile-around-commercial-text: 8px;
-
-
-// margin for static page
+/* for static page */
+// margin
 $margin-on-page-title-for-static: 64px;
 $margin-under-page-title-for-static: 32px;
 $margin-mobile-on-page-title-for-static: 48px;
 $margin-mobile-under-page-title-for-static: 32px;
 
-// margin for list
+/* for list page */
+// font size
+$font-size-item-name: 24px;
+$font-size-item-price: 32px;
+
+$font-size-item-not-fund-message: 20px;
+$font-size-title-in-image: 20px;
+
+// line height
+$line-height-note-of-buy-button: 1.3;
+$line-height-note-of-message: 1.5;
+$line-height-note-of-form-result: 1.8;
+
+// margin
 $margin-under-item-not-found-message: 64px;
 $margin-around-item-not-fount: 96px;
 
-// margin for form
-$margin-on-form-title: 72px;
+/* navigation */
+// border-size
+$border-size-nav-item-separate: 1px;
+$border-size-current-nav: 3px;
+
+// font size
+$font-size-tel-number-in-nav: 20px;
+
+$margin-around-navbar-item-inner: 16px;
+$margin-on-nav-receprtion-time: 4px;
+
+/* 特定商取引および古物営業法に基づく表記 */
+// margin
+$margin-commercial-content-title: 8px;
+$margin-mobile-around-commercial-text: 8px;
+
+/* for form page */
+// margin
+$margin-on-form-title-pc: 72px;
 $margin-under-form-title: 48px;
+
 $margin-on-form-title-note: 8px;
-$margin-under-form-parts-of-notice: 48px;
+
 $margin-under-form-title-only: 72px;
+
 $margin-under-form-message: 32px;
+
+// フォーム部品のタイトル用
 $margin-on-form-parts-title: 24px;
 $margin-under-form-parts-title: 8px;
+
+// ラベルが部品と並ぶ時用
+$margin-left-inline-label: 8px;
+
+// 注意書きあり用
 $margin-on-form-parts-note: 8px;
 $margin-under-form-parts-note: 16px;
-$margin-left-inline-label: 8px;
-$margin-around-agree-to-terms: 16px;
+
+$margin-under-form-parts-of-notice: 48px; // 価格変更連絡・入荷連絡の下専用
+$margin-around-agree-to-terms: 16px; // 規約同意専用
+
+$margin-on-form-title-sp: 48px;
 
 // margin for footer
 $margin-around-footer-content: 48px;
@@ -89,20 +121,22 @@ $margin-between-footer-nav: 24px;
 $margin-on-footer-inquiry-button: 16px;
 $margin-around-footer-info: 8px;
 
-// contents width
-$pc-max-width: 1200px;
+/* button */
+// size
+$height-for-small-button: 28px;
+$width-for-small-button: 130px;
 
-// media query break point ( under SP landscape )
-$sp-max-width: 896px;
+$height-for-large-button: 48px;
+$width-for-large-button: 270px;
 
-// border-size
-$border-size-nav-item-separate: 1px;
-$border-size-current-nav: 3px;
-
-// button
+// box shadow
 $box-shadow-position-for-large-button: 0 2px 1px 0;
 $box-shadow-red-button-for-large-button: $box-shadow-position-for-large-button #AFACAB;
 $box-shadow-gray-button-for-large-button: $box-shadow-position-for-large-button #D3DAD9;
+
+// border
+$border-radius-for-small-button: 7px;
+$border-radius-for-large-button: 12px;
 
 $border-color-around-gray-button: #F2F2F1;
 $border-color-bottom-of-gray-button: #E0E9E7;
