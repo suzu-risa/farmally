@@ -74,11 +74,12 @@ form {
         margin-bottom: $margin-under-form-parts-note;
       }
 
-      .required {
-        margin-left: $margin-left-inline-label;
-        color: $accent-brown;
-        font-size: $font-size-smaller;
-      }
+    }
+
+    .required {
+      margin-left: $margin-left-inline-label;
+      color: $accent-brown;
+      font-size: $font-size-smaller;
     }
 
     input.input {

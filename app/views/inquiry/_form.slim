@@ -47,5 +47,7 @@
           = f.label :agree_to_terms, class: 'inline-label'
             a.term-link.text href="/terms-of-service" target="_blank" 利用規約
             | に同意する
+        span.required
+          | (必須)
 
       = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': 'お問い合わせ' });"
