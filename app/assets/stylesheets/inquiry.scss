@@ -35,6 +35,7 @@
   .button-send {
     @extend .button-large;
 
+    color: $accent-blue-dark;
     background: $background-for-gray-button;
     border-color: $border-for-gray-button;
     box-shadow: $box-shadow-gray-button-for-large-button;
