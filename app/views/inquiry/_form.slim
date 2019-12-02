@@ -7,6 +7,11 @@
   - if @inquiry_form.errors.any?
     .notice.error
       | 入力内容に誤りがあります。
+  - if flash[:success]
+    .notice.success
+      | 送信が完了しました。<br>
+      | 担当者よりご連絡差し上げます。<br>
+      | 今しばらくお待ちください。
 
   = form_for form, url: inquiry_index_path, method: :post do |f|
       .form-parts

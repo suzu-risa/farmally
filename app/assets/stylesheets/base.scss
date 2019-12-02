@@ -56,6 +56,7 @@ body {
   background-color: $accent-red-light;
   margin-bottom: $margin-under-notice-of-form;
   font-weight: bold;
+  line-height: $line-height-note-of-form-result;
 
   &.error {
     color: $accent-red-dark;
