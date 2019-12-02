@@ -51,6 +51,17 @@ body {
   margin-bottom: 0;
 }
 
+.notice {
+  padding: $padding-in-notice-of-form;
+  background-color: $accent-red-light;
+  margin-bottom: $margin-under-notice-of-form;
+  font-weight: bold;
+
+  &.error {
+    color: $accent-red-dark;
+  }
+}
+
 form {
   .form-parts {
     margin-top: $margin-on-form-parts-title;
@@ -65,7 +76,7 @@ form {
 
       &__label {
         color: $foreground-dark;
-        font-size: font-size-default;
+        font-size: $font-size-default;
         font-weight: bold;
       }
 
@@ -116,20 +127,24 @@ form {
       input[type="checkbox"] {
         display: none;
       }
+
       label {
         position: relative;
         padding: 0 0 0 2em;
       }
+
       label:hover:after {
         border: 1px solid #F0F0F0;
         box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
       }
+
       label:after, label:before{
         position: absolute;
         content: "";
         display: block;
         top: 50%;
       }
+
       label:after {
         margin-top: -0.3em;
         width: 1em;
@@ -137,6 +152,7 @@ form {
         border: 1px solid #F0F0F0;
         box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
       }
+
       label:before {
         left: 0.4em;
         margin-top: -0.15em;
@@ -147,13 +163,21 @@ form {
         transform: rotate(45deg);
         opacity: 0;
         z-index: 999;
-        }
+      }
+
       input[type=checkbox]:checked + label:before {
         opacity: 1;
       }
+
       input[type=checkbox]:checked + label:after {
         background-color: $accent-blue-dark;
       }
+    }
+
+    .error_message {
+      color: $accent-red-dark;
+      margin-top: 8px;
+      margin-bottom: 32px;
     }
   }
 }

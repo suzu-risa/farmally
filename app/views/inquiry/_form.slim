@@ -4,27 +4,40 @@
     p.subtitle
       | 価格変更連絡・入荷連絡の申込み  
 
+  - if @inquiry_form.errors.any?
+    .notice.error
+      | 入力内容に誤りがあります。
+
   = form_for form, url: inquiry_index_path, method: :post do |f|
       .form-parts
         .form-parts__title
           = f.label :name, '名前', class: 'form-parts__title__label'
           span.required
             | (必須)
-        = f.text_field :name, class: 'input', placeholder: "名前を入力してください。", required: true
+        = f.text_field :name, class: 'input', placeholder: "名前を入力してください。"
+        - if @inquiry_form.errors.include?(:name)
+          .error_message
+            | 名前を入力してください。
 
       .form-parts
         .form-parts__title
           = f.label :tel, '電話番号', class: 'form-parts__title__label'
           span.required
             | (必須)
-        = f.text_field :tel, class: 'input', placeholder: "電話番号を入力してください。", required: true
+        = f.text_field :tel, class: 'input', placeholder: "電話番号を入力してください。"
+        - if @inquiry_form.errors.include?(:tel)
+          .error_message
+            | 電話番号を入力してください。
 
       .form-parts
         .form-parts__title
           = f.label :email, 'メールアドレス', class: 'form-parts__title__label'
           span.required
             | (必須)
-        = f.text_field :email, class: 'input', placeholder: "メールアドレスを入力してください。", required: true
+        = f.text_field :email, class: 'input', placeholder: "メールアドレスを入力してください。"
+        - if @inquiry_form.errors.include?(:email)
+          .error_message
+            | メールアドレスを入力してください。
 
       .form-parts
         .form-parts__title
@@ -49,5 +62,8 @@
             | に同意する
         span.required
           | (必須)
+        - if @inquiry_form.errors.include?(:email)
+          .error_message
+            | 利用規約に同意してください。
 
       = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': 'お問い合わせ' });"
