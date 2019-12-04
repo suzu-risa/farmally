@@ -31,17 +31,26 @@ $sale-item-font-color-h: #C9C7C5;
   }
 }
 
+.main {
+  @media screen and (max-width: $sp-max-width) {
+    widows: 100%;
+    margin: 0 0;
+  }
+}
+
 .agricultural {
-  max-width: 1152px;
   width: 100%;
   height: 100%;
-  margin: 32px 24px 96px;
+  margin-bottom: 96px;
   line-height: $line-height-default;
   font-weight: $sale-item-font-weight-bold;
-  // background-color: #32978B;
 
   .category-list {
-    margin: $sale-item-margin-pc auto 16px;
+    margin: $sale-item-margin-pc 24px 16px;
+
+    @media screen and (max-width: $sp-max-width) {
+      margin: $sale-item-margin-pc 0 16px;
+    }
 
     ul {
       display: -webkit-flex;
@@ -72,6 +81,7 @@ $sale-item-font-color-h: #C9C7C5;
   }
 
   .pagination-nav {
+    margin: 0 24px;
     padding: 10px 10px 10px 12px;
     display: -webkit-flex;
     display: flex;
@@ -79,8 +89,14 @@ $sale-item-font-color-h: #C9C7C5;
     align-items: center;
     justify-content: space-between;
 
+    white-space: nowrap;
     font-size: $sale-item-font-size-14;
     background-color: #F9F7F5;
+
+    @media screen and (max-width: $sp-max-width) {
+      margin: 0 0;
+      padding-right: 0 12px;
+    }
 
     .number-items {
       font-size: 24px;
@@ -102,6 +118,10 @@ $sale-item-font-color-h: #C9C7C5;
       .paginate-link {
         display: block;
         padding: 0 16px 0 0;
+
+        @media screen and (max-width: $sp-max-width) {
+          visibility:hidden;
+        }
       }
 
       .paginate-last {
@@ -154,7 +174,11 @@ $sale-item-font-color-h: #C9C7C5;
   }
 
   .sale-items {
-    margin-bottom: 48px;
+    margin: 0 24px 48px;
+
+    @media screen and (max-width: $sp-max-width) {
+      margin: 12px 12px;
+    }
   }
 
   .sale-item {
@@ -163,10 +187,18 @@ $sale-item-font-color-h: #C9C7C5;
     border-bottom: solid $border-size-nav-item-separate;
     border-color: #C9C7C5;
 
+    @media screen and (max-width: $sp-max-width) {
+      display: block;
+    }
+
     .image-area {
       width: 60%;
       margin: 24px 0;
       background: whitesmoke;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+      }
 
       .main-image {
         margin: 0 12px 24px;
@@ -213,29 +245,17 @@ $sale-item-font-color-h: #C9C7C5;
           }
         }
       }
-
-      // .thumbnail-item {
-      //   margin-bottom: 10px;
-      //   box-sizing: border-box;
-      //   &:after{
-      //     background-color: rgba(0,0,0,0.5);
-      //     opacity: 1;
-      //   }
-      //   &.thumbnail-current:after{
-      //     opacity: 0;
-      //   }
-
-      //   img{
-      //     width: 100%;
-      //     margin: 0 auto;
-      //   }
-      // }
     }
     
     .context {
       padding: 0 0 0 24px;
       width: 40%;
       font-size: $sale-item-font-size-13;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+        padding-left: 0;
+      }
 
       .item-id {
         display: block;
@@ -333,6 +353,10 @@ $sale-item-font-color-h: #C9C7C5;
         justify-content: center;
         background-color: #FDF1EC;
         padding: 16px 0;
+
+        @media screen and (max-width: $sp-max-width) {
+          display: block;
+        }
         
         .buy-button {
           @extend .button-large;
@@ -342,23 +366,35 @@ $sale-item-font-color-h: #C9C7C5;
           border-color: $border-for-gray-button;
           box-shadow: $box-shadow-gray-button-for-large-button;
           margin: 0 16px 0 0;
-          width: 60%;
+          width: 70%;
+
+          @media screen and (max-width: $sp-max-width) {
+            margin: 0 auto;
+          }
         }
 
         .inquiry {
           width: 30%;
           font-size: $sale-item-font-size-14;
           line-height: 1.3;
-          font-weight: $sale-item-font-weight-bold
+          font-weight: $sale-item-font-weight-bold;
+
+          @media screen and (max-width: $sp-max-width) {
+            margin: 0 auto;
+          }
         }
       }
 
       .remark {
-        margin: 24px 0 0;
+        margin: 24px 0;
         color: $sale-item-font-color-b;
         font-size: $sale-item-font-size-14;
         line-height: 1.8;
         font-weight: $sale-item-font-weight-reg;
+
+        @media screen and (max-width: $sp-max-width) {
+          padding: 24px 0 48px;;
+        }
       }
     }
   }

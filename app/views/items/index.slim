@@ -1,30 +1,30 @@
-javascript:
-    $(function () {
-        var $image_height = $(".image-block").outerHeight(true) + $(".slide-image-block").outerHeight(true);
-        var $fix_height = $(".fix").outerHeight(true);
-        var $flow_height = $(".flow").height();
-        var $continue_height = 62;
-        var $limit_height = $image_height - ($fix_height + $continue_height);
-        console.log($image_height);
-        console.log($fix_height);
-        console.log($flow_height);
-        console.log($limit_height);
-        console.log($continue_height);
+/ javascript:
+/     $(function () {
+/         var $image_height = $(".image-block").outerHeight(true) + $(".slide-image-block").outerHeight(true);
+/         var $fix_height = $(".fix").outerHeight(true);
+/         var $flow_height = $(".flow").height();
+/         var $continue_height = 62;
+/         var $limit_height = $image_height - ($fix_height + $continue_height);
+/         console.log($image_height);
+/         console.log($fix_height);
+/         console.log($flow_height);
+/         console.log($limit_height);
+/         console.log($continue_height);
 
-        $('.open').readmore({
-            //オプション
-            speed: 100,
-            collapsedHeight: $limit_height,
-            // collapsedHeight: 105,
-            moreLink: '<div class="continued"><a class="btn" href="#"><span>続きを読む</span></a></div>',
-            lessLink: '<div class="continued"><a class="btn_close" href="#"><span>閉じる</span></a></div>'
-        });
-    });
+/         $('.open').readmore({
+/             //オプション
+/             speed: 100,
+/             collapsedHeight: $limit_height,
+/             // collapsedHeight: 105,
+/             moreLink: '<div class="continued"><a class="btn" href="#"><span>続きを読む</span></a></div>',
+/             lessLink: '<div class="continued"><a class="btn_close" href="#"><span>閉じる</span></a></div>'
+/         });
+/     });
 
-section.main
-  .title-area
-    h2.title
+.title-area
+    h1.title
       | 農機販売
+section.main
   .agricultural
     = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧', sale_item_count: @sale_item_count
   
