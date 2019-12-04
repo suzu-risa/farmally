@@ -154,8 +154,7 @@ class SaleItem < ApplicationRecord
 
   def self.get_sale_items(params)
     if params[:code].present?
-      item_ids = Item.includes(:category).where(categories: { code: params[:code] }).pluck (:id)
-      raise ActiveRecord::RecordNotFound if item_ids.empty?
+      item_ids = Item.get_item_ids_by_code!(params[:code])
       @sale_items = self.where(item_id: item_ids).page(params[:page])
     else
       @sale_items = self.page(params[:page])
@@ -164,8 +163,7 @@ class SaleItem < ApplicationRecord
 
   def self.get_sale_item_count(params)
     if params[:code].present?
-      item_ids = Item.includes(:category).where(categories: { code: params[:code] }).pluck (:id)
-      raise ActiveRecord::RecordNotFound if item_ids.empty?
+      item_ids = Item.get_item_ids_by_code!(params[:code])
       @sale_item_count = self.where(item_id: item_ids).count
     else
       @sale_item_count = self.count

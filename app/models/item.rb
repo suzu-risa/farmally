@@ -54,6 +54,10 @@ class Item < ApplicationRecord
   delegate :sale_item_template, to: :category
   delegate :name, to: :maker, prefix: :maker
 
+  scope :for_categories, -> (code) {
+    includes(:category).where(categories: { code: code })
+  }
+
   paginates_per 30
 
   def self.import(file)
@@ -156,6 +160,12 @@ class Item < ApplicationRecord
     if original_horse_power.present?
       update!(horse_power: HorsePowerConverter.new(original_horse_power).convert_to_ps)
     end
+  end
+
+  def self.get_item_ids_by_code!(code)
+    item_ids = self.for_categories(code).pluck (:id)
+    raise ActiveRecord::RecordNotFound if item_ids.empty?
+    item_ids
   end
 
   private
