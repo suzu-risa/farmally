@@ -16,13 +16,14 @@ if (isAppMountable) {
   }).$mount("#app");
 }
 
-const saleItemImageContainer = document.getElementById("sale-item-image");
+var slick_slide_items = document.querySelectorAll('.' + "slick-slide-container");
 
-if(saleItemImageContainer) {
-  document.addEventListener('DOMContentLoaded', () => {
+slick_slide_items.forEach(function(slick_slide_item, i){
+  var saleItemImageContainer = document.getElementById("sale-item-image" + (i + 1));
+  document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<SaleItemImageSlider url={saleItemImageContainer.getAttribute('data-url')}/>, saleItemImageContainer);
   });
-}
+});
 
 const searchItemFormCategory = document.getElementById("search_item_form_category");
 

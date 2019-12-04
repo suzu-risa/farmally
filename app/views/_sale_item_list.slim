@@ -1,18 +1,46 @@
-section.section.sale-item-list
-  .container
-    - if sale_items.empty?
-      p.title.is-4.has-text-centered
-        | 商品が見つかりませんでした
-    - else
-      h1.item-list-title.title.is-4
-        span.counter
-          |  
-          = sale_items.current_page
-          | ページ目 / 全
-          = sale_items.total_count
-          | 件
-        span.title
-          = title
-      = render "items/sale_items", sale_items: sale_items
+div.category-list
+  ul
+    li
+      a href="/items" class="category#{' is-active' if current_page?("/items")}"
+        | 全て
+        - @categories.each do |category|
+          li
+            a href="/items/categories/#{category.code}" class="category#{' is-active' if current_page?("/items/categories/#{category.code}")}"
+              | #{category.name}&nbsp;
 
-      = paginate sale_items, views_prefix: 'templates'
+.pagination-nav
+  .number-items
+    p
+      | #{sale_item_count}
+      span.suffix
+        | 台
+  = paginate sale_items, views_prefix: 'templates'
+  
+= render "items/sale_items", sale_items: sale_items
+
+.pagination-nav
+  .number-items
+    p
+      | #{sale_item_count}
+      span.suffix
+        | 台
+  = paginate sale_items, views_prefix: 'templates'
+
+/ section.section.sale-item-list
+/   .container
+/     - if sale_items.empty?
+/       p.title.is-4.has-text-centered
+/         | 商品が見つかりませんでした
+/     - else
+/       h1.item-list-title.title.is-4
+/         span.counter
+/           |  
+/           = sale_items.current_page
+/           | ページ目 / 全
+/           = sale_items.total_count
+/           | 件
+/         span.title
+/           = title
+/       = render "items/sale_items", sale_items: sale_items
+
+/       = paginate sale_items, views_prefix: 'templates'

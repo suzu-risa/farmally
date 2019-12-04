@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def index
     @categories = Category.get_displayable_categories
     @sale_items = SaleItem.get_sale_items(params)
+    @sale_item_count = SaleItem.get_sale_item_count(params)
   end
 
   def images

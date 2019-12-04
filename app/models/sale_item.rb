@@ -161,4 +161,14 @@ class SaleItem < ApplicationRecord
       @sale_items = self.page(params[:page])
     end
   end
+
+  def self.get_sale_item_count(params)
+    if params[:code].present?
+      item_ids = Item.includes(:category).where(categories: { code: params[:code] }).pluck (:id)
+      raise ActiveRecord::RecordNotFound if item_ids.empty?
+      @sale_item_count = self.where(item_id: item_ids).count
+    else
+      @sale_item_count = self.count
+    end
+  end
 end

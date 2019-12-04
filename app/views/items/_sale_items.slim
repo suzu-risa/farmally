@@ -1,57 +1,54 @@
-.columns.is-multiline.item-columns
-  ul.category
-    - @categories.each do |category|
-      li
-        = link_to "/lists/categories/#{category.code}", class: 'category' do
-          | #{category.name}&nbsp;
+.sale-items
+  - sale_items.each_with_index do |sale_item, i|
+    article.sale-item
+      .image-area
+          div id="sale-item-image#{i + 1}" class="slick-slide-container main-image" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
 
-  - sale_items.each do |sale_item|
-    .column.is-12-mobile.is-6-tablet.is-6-desktop.has-text-centered
-        #sale-item-image.slick-slide-container data-url=(item_images_path(sale_item_id: sale_item, item_id: sale_item.item))
-
-    .column.item-column.is-6-tablet.is-3-desktop
-      div class="item#{sale_item.sold? ? " sold-out" : ""}"
-        .item-model-name
-          span
-            | #{sale_item.category_name}
-              | #{sale_item.maker.name}
-                | #{sale_item.item.model}
-        .image
-          - if image = sale_item.images.first
-            = image_tag(rails_representation_url(image.variant(resize: '500x500').processed))
-        table.table
-          tr
-            td.price-td colspan="2"
-              span
-                = sale_item.class.human_attribute_name(:price)
-              = sale_item.display_price
-          tr
-            td
-              | カテゴリー
-            td
-              = sale_item.category_name
-          tr
-            td
-              = sale_item.class.human_attribute_name(:horse_power)
-            td
-              = sale_item.horse_power_with_unit
-          tr
-            td
-              = sale_item.class.human_attribute_name(:used_hours)
-            td
-              = sale_item.used_hours_with_unit
-          tr
-            td
-              = sale_item.class.human_attribute_name(:status)
-            td
-              = sale_item.display_status
-          = link_to buy_path(sale_item), class: "detail-link"
-            | 購入申し込み・相談
-          / - sale_item.detail_with_template.tables.each do |detail_table|
-          /   - detail_table.properties.each do |property|
-          /     tr
-          /       th
-          /         = property.name
-          /       td
-          /         = simple_format(property.value.presence || "-")
-          /         br
+      .context
+        .fix
+          .item-id
+            | 商品ID：#{"%07d" % sale_item.id}
+          .item-category-name
+            = link_to "/categories/#{sale_item.category.code}", class: "category-link"
+              | #{sale_item.category_name}
+          .sale-item-maker-name
+            | #{sale_item.maker.name}
+          .sale-model-name
+            | #{sale_item.item.model}
+          .sale-item-price
+            | 販売価格：
+            span.price
+              | #{sale_item.price.to_s(:delimited)}
+              span.currency
+                | 円
+                span.tax
+                  | （税込み）
+          .detail
+            ul
+              li.detail-item
+                | #{sale_item.class.human_attribute_name(:used_hours)}：
+                span.detail-item-value
+                 | #{sale_item.used_hours_with_unit}
+                 span.unit
+                   | 
+              li.detail-item
+                | #{sale_item.class.human_attribute_name(:horse_power)}：
+                span.detail-item-value
+                  | #{sale_item.horse_power_with_unit}
+                  span.unit
+                    | PS
+              li.detail-item
+                | #{sale_item.class.human_attribute_name(:status)}：
+                span.detail-item-value
+                  | #{sale_item.display_status}
+            .consultation
+              .buy-button
+                = link_to buy_path(sale_item), class: "buy-link"
+                  | 購入申し込み・相談
+              .inquiry.link
+                = link_to '/inquiry', class: "inquiry-link"
+                  | 価格変更・入荷連絡の申し込み
+        .flow    
+          .remark.open
+            p
+              | #{sale_item.remark}
