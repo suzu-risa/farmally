@@ -29,10 +29,3 @@ header#navbar.navbar
       .navbar-end-item
         = link_to '/inquiry', class: "button inquiry" do
           | 相談・お問い合わせ
-
-- if flash.present?
-  section.hero.is-white.is-small
-    div class="notification is-#{flash.first[0]}"
-      button.delete
-      p
-        = flash.first[1]

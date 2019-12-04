@@ -41,6 +41,7 @@
     box-shadow: $box-shadow-gray-button-for-large-button;
 
     &:hover {
+      color: $accent-blue-dark;
       background: $background-for-gray-button-hover;
       border-color: $border-for-gray-button;
     }

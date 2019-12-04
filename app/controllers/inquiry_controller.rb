@@ -28,7 +28,7 @@ class InquiryController < ApplicationController
       return
     end
 
-    render template: 'inquiry', status: :unprocessable_entity
+    render 'index', status: :unprocessable_entity
   end
 
   private
