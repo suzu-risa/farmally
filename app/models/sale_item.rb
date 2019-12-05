@@ -155,18 +155,21 @@ class SaleItem < ApplicationRecord
   def self.get_sale_items(params)
     if params[:code].present?
       item_ids = Item.get_item_ids_by_code!(params[:code])
-      @sale_items = self.where(item_id: item_ids).page(params[:page])
+      sale_items = self.where(item_id: item_ids).page(params[:page])
     else
-      @sale_items = self.page(params[:page])
+      sale_items = self.page(params[:page])
     end
+
+    raise ActiveRecord::RecordNotFound if sale_items.empty? && params[:page].present?
+    sale_items
   end
 
   def self.get_sale_item_count(params)
     if params[:code].present?
       item_ids = Item.get_item_ids_by_code!(params[:code])
-      @sale_item_count = self.where(item_id: item_ids).count
+      sale_item_count = self.where(item_id: item_ids).count
     else
-      @sale_item_count = self.count
+      sale_item_count = self.count
     end
   end
 end
