@@ -10,41 +10,21 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings
 SitemapGenerator::Sitemap.create do
   add_to_index '/blog/sitemap.xml.gz'
 
+  add items_path
   Category.all.each do |category|
-    add category_path(category)
-  end
-  Maker.all.each do |maker|
-    add maker_path(maker)
-  end
-  Item.all.each do |item|
-    add item_path(item)
-  end
-  SubCategory.all.eager_load(:category).each do |sub_category|
-    add sub_category_category_path(
-      code: sub_category.category.code,
-      sub_code: sub_category.code
-    )
+    add items_categories_path(category)
   end
 
-  Maker::SellMakers.each do |maker|
-    add "/sell/makers/#{maker[:slug]}"
+  # TODO sell追加
+
+  add inquiry_index_path
+  SaleItem.all.each do | sale_item |
+    add buy_path(sale_item)
   end
-  Category::SellCategories.each do |category|
-    add "/sell/categories/#{category[:slug]}"
-  end
-
-
-  # TODO: 追加すべきか検討
-  # add search_path
-
-  # TODO: ページが完成したら追加する
-  # add terms_of_service_path
-  # add specified_commercial_path
-  # add company_path
-
-  add form_path
-  add sell_form_path
+  
+  add specified_commercial_path
   add root_path
+
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.

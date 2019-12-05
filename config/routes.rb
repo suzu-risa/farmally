@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index] do
     get :images
   end
-  get '/items/categories/:code', to: 'items#index'
+  get '/items/categories/:code', to: 'items#index', as: :items_categories
 
   resources :sell, only: [:index, :create]
   get '/sell/categories' => 'sell#categories'
