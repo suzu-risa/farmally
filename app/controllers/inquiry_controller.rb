@@ -3,6 +3,11 @@ class InquiryController < ApplicationController
   def index
     @inquiry_form = InquiryForm.new
 
+    @meta = {
+      'title' => '相談・お問い合わせ（価格変更連絡・入荷連絡の申込み）',
+      'description' => '中古農機具マーケットプレイス ファーマリー by DMMの相談・お問い合わせフォームです。価格変更連絡・入荷連絡の申込みも出来ます。ファーマリー by DMMは農業生産に必要なあらゆる機械、農機具の仕入れ、販売、メンテナンスを行っています。'
+    }
+
     render layout: 'inquiry'
   end
 

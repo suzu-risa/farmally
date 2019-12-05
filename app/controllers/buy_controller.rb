@@ -6,6 +6,11 @@ class BuyController < ApplicationController
     @item = Item.find(params[:item_id])
     @buy_form = BuyForm.new
 
+    @meta = {
+      'title' => '農機購入の申込み・相談',
+      'description' => '中古農機具マーケットプレイス ファーマリー by DMMの購入申込み・相談フォームです。ファーマリー by DMMは農業生産に必要なあらゆる機械、農機具の仕入れ、販売、メンテナンスを行っています。'
+    }
+
     render layout: 'buy'
   end
 
