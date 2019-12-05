@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   get '/specified-commercial', to: 'home#commercial'
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
 
-  root to: 'home#index'
+  root to: 'items#index'
 end
 
 # == Route Map
@@ -178,7 +178,7 @@ end
 #                                      POST   /buy/:item_id(.:format)                                                                  buy#create
 #                 specified_commercial GET    /specified-commercial(.:format)                                                          home#commercial
 #                              sitemap GET    /sitemap(.:format)                                                                       redirect(301, https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz)
-#                                 root GET    /                                                                                        home#index
+#                                 root GET    /                                                                                        items#index
 #                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
