@@ -38,6 +38,8 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
+  resources :sub_categories, only: :index
+
   resources :items, only: [:index] do
     get :images
   end
