@@ -163,9 +163,8 @@ class Item < ApplicationRecord
   end
 
   def self.get_item_ids_by_code!(code)
+    raise ActiveRecord::RecordNotFound unless Category.exists?(code: code)
     item_ids = self.for_categories(code).pluck (:id)
-    raise ActiveRecord::RecordNotFound if item_ids.empty?
-    item_ids
   end
 
   private
