@@ -24,6 +24,11 @@ $background-light: #F9F7F5;
 $background-gray: #F1EBE6;
 $background-dark: #4C443D;
 $background-default: #FFF;
+$background-body: #ECEBEA;
+
+// border color
+$border-color-gray: #F0F0F0;
+$border-color-white: #FFF;
 
 // font family
 $font-family-default: Verdana, Helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -148,3 +153,9 @@ $border-color-bottom-of-gray-button: #E0E9E7;
 $border-for-gray-button: $border-color-around-gray-button $border-color-around-gray-button $border-color-bottom-of-gray-button $border-color-around-gray-button;
 $background-for-gray-button: linear-gradient(#F5FAF9, #E5F1F0);
 $background-for-gray-button-hover: linear-gradient(#FFF, #E5F1F0);
+
+$border-color-around-red-button: #C9401B;
+$border-color-bottom-of-red-button: #A93F20;
+$border-for-red-button: $border-color-around-red-button $border-color-around-red-button $border-color-bottom-of-red-button $border-color-around-red-button;
+$background-for-red-button: linear-gradient(#E64A17, #BF401D);
+$background-for-red-button-hover: linear-gradient(#D91D00, #B32211);
