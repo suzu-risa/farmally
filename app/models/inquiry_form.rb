@@ -2,6 +2,11 @@ class InquiryForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
+  validates :name, presence: true
+  validates :tel, presence: true
+  validates :email, presence: true
+  validates :agree_to_terms, acceptance: true
+
   attribute :name, :string
   attribute :tel, :string
   attribute :email, :string

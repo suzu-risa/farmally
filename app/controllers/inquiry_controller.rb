@@ -3,7 +3,6 @@ class InquiryController < ApplicationController
   def index
     @inquiry_form = InquiryForm.new
 
-    render layout: 'inquiry'
   end
 
   def create
@@ -29,7 +28,7 @@ class InquiryController < ApplicationController
       return
     end
 
-    render template: 'inquiry', status: :unprocessable_entity
+    render 'index', status: :unprocessable_entity
   end
 
   private

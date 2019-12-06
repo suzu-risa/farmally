@@ -20,7 +20,7 @@ header#navbar {
       .navbar-item-inner {
         font-size: $font-size-nav-item;
         font-weight: bold;
-        padding: 0 $margin-16;
+        padding: 0 $margin-around-navbar-item-inner;
         height: $navbar-link-height;
         display: flex;
         align-items: center;
@@ -55,7 +55,7 @@ header#navbar {
       }
 
       .reception-time {
-        margin-top: $margin-4;
+        margin-top: $margin-on-nav-receprtion-time;
       }
 
       .phone-number {
