@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://farmally.jp/"
+SitemapGenerator::Sitemap.default_host = "https://farmally.jp"
 SitemapGenerator::Sitemap.create_index = true
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings.sitemap.bucket,
   aws_access_key_id: Rails.application.credentials[:aws][:access_key_id],
