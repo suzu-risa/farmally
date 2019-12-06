@@ -28,6 +28,15 @@ a {
 }
 
 body {
+  background-color: $background-body;
+
+  @media screen and (max-width: $sp-max-width) {
+    background-color: $background-default;
+  }
+}
+
+.site-content {
+  background-color: $background-default;
   max-width: $pc-max-width;
   margin: 0 auto;
 

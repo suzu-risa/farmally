@@ -32,11 +32,10 @@
     <%= javascript_bundle_tag 'application' %>
   </head>
   <body>
-    <%= render :partial => '/header' %>
-    <%= yield %>
-    <%= render :partial => '/footer', locals: { show_fixed_form: false } %>
-    <input type="hidden" id="category-master-data" value="<%= @master_categories %>" />
-    <input type="hidden" id="sub-category-master-data" value="<%= @master_sub_categories %>" />
-    <input type="hidden" id="maker-master-data" value="<%= @master_makers %>" />
+    <div class="site-content">
+      <%= render :partial => '/header' %>
+      <%= yield %>
+      <%= render :partial => '/footer', locals: { show_fixed_form: false } %>
+    </div>
   </body>
 </html>
