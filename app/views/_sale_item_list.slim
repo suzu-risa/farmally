@@ -14,9 +14,14 @@ div.category-list
       | #{sale_item_count}
       span.suffix
         | 台
-  = paginate sale_items, views_prefix: 'templates'
-  
-= render "items/sale_items", sale_items: sale_items
+  - if sale_items.present?
+    = paginate sale_items, views_prefix: 'templates'
+
+- if sale_items.present?
+  = render "items/sale_items", sale_items: sale_items
+- else
+  .empty-items
+    | 条件に合った商品は有りませんでした。
 
 .pagination-nav
   .number-items
@@ -24,7 +29,8 @@ div.category-list
       | #{sale_item_count}
       span.suffix
         | 台
-  = paginate sale_items, views_prefix: 'templates'
+  - if sale_items.present?
+    = paginate sale_items, views_prefix: 'templates'
 
 / section.section.sale-item-list
 /   .container
