@@ -38,9 +38,7 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
-  resources :items, only: [:index] do
-    get :images
-  end
+  get '/items/:item_id/images', to: 'items#images', as: :item_images
   get '/items/categories/:code', to: 'items#index', as: :items_categories
 
   resources :sell, only: [:index, :create]
@@ -57,7 +55,7 @@ Rails.application.routes.draw do
   get '/specified-commercial', to: 'home#commercial'
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
 
-  root to: 'home#index'
+  root to: 'items#index'
 end
 
 # == Route Map
