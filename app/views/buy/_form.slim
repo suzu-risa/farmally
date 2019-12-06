@@ -22,19 +22,19 @@
           dl
             dt.title 型式
             dd.content
-              = format('%s %s', @item.maker.name, @item.model)
+              = @item.maker.name.present? ? format('%s %s', @item.maker.name, @item.model) : ""
           dl
             dt.title 販売価格
             dd.content
-              = format("%s円", @sale_item.price.to_s(:delimited))
+              = @sale_item.price.zero? ? @sale_item.price_text : format("%s円", @sale_item.price.to_s(:delimited))
           dl
             dt.title アワー
             dd.content
-              | わわわ
+              = @sale_item.used_hours =~ /¥A[0-9]+¥z/ ? format("%sh", @sale_item.used_hours) : @sale_item.used_hours
           dl
             dt.title 馬力
             dd.content
-              = format("%dPS", @item.horse_power)
+              = @item.horse_power =~ /¥A[0-9]+¥z/ ? format("%sPS", @item.horse_power) : @item.horse_power
         .form-parts
           .form-parts__title
             = f.label :name, '名前', class: 'form-parts__title__label'
@@ -79,7 +79,7 @@
           .form-parts__title
             = f.label :message, '相談内容', class: 'form-parts__title__label'
             .form-parts__title__note
-              | (上記以外の個人情報を記載しないようにしてください。)
+              | (上記以外の個人情報を記載しないようにしてください)
           = f.text_area :message, class: 'textarea', rows: '8', placeholder: "ご自由にご記入ください。"
 
         .form-parts.agree-to-terms
