@@ -1,6 +1,5 @@
 .button {
   font-weight: bold;
-  line-height: $line-height-default;
 }
 
 .button-small {
@@ -10,6 +9,7 @@
   text-align: center;
   height: $height-for-small-button;
   width: $width-for-small-button;
+  line-height: $line-height-default;
 }
 
 .button-large {
@@ -20,9 +20,11 @@
   height: $height-for-large-button;
   width: $width-for-large-button;
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
   font-size: $font-size-large;
+  line-height: $height-for-large-button;
 
   border: 1px solid;
 }
-

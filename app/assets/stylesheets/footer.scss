@@ -1,59 +1,94 @@
-footer.footer {
+.footer {
   background-color: $background-dark;
   padding: 0;
-  color: $foreground-light;
+  color: $foreground-white;
 
-  .columns {
-    position: relative;
+  &__content {
+    width: 85%;
     margin: 0 auto;
+    display: flex;
 
-    .menu-list {
-      a {
-        color: $foreground-light;
-        padding: 0;
-        border-radius: inherit;
-        display: inherit;
+    &__nav {
 
-        &:hover {
-          text-decoration: underline;
-          background-color: inherit;
+      width: 70%;
+
+      &__menu {
+        a {
+          color: $foreground-light;
+          padding: 0;
+          border-radius: inherit;
+          display: inherit;
+
+          &:hover {
+            text-decoration: underline;
+            background-color: inherit;
+          }
+        }
+
+        & > ul > li {
+          display: inline-block;
+          margin-right: $margin-between-footer-nav;
+
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+
+        &__list {
+          &__main {
+            padding-top: $margin-around-footer-content;
+            font-weight: bold;
+          }
+
+          &__sub {
+            margin-top: $margin-between-footer-nav;
+          }
+
         }
       }
 
-      li {
-        margin-right: $margin-between-footer-nav;
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-      }
-
-      &.main {
-        margin-top: $margin-around-footer-content;
-        font-weight: bold;
-      }
-
-      &.sub {
-        margin-top: $margin-between-footer-nav;
+      &__copyright {
+        position: absolute;
+        bottom: $margin-around-footer-content;
       }
     }
-    
-    .copyright {
-      position: absolute;
-      bottom: $margin-around-footer-content;
-    }
-
-    .info {
-      margin-top: $margin-around-footer-content;
-      padding: $margin-around-footer-info;
-      border-radius: 10px;
-      border: solid 1px $foreground-light;
-    }
-
-    .inquiry {
-      margin-top: $margin-on-footer-inquiry-button;
+        
+    &__info {
+      width: 30%;
+      text-align: center;
       margin-bottom: $margin-around-footer-content;
-      width: 100%;
+
+      &__tel {
+        margin-top: $margin-around-footer-content;
+        padding: $margin-around-footer-info;
+        border-radius: 10px;
+        border: solid 1px $foreground-light;
+
+        &__lead {
+          font-size: 13px;
+        }
+
+        &__number {
+          margin-top: $margin-on-footer-info-text;
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        &__reception-time {
+          margin-top: $margin-on-footer-info-text;
+          font-size: 13px;
+        }
+      }
+
+      &__inquiry-button {
+        @extend .button-large;
+
+        background-color: $background-for-footer-inquiry-button;
+        color: $foreground-white;
+
+        margin-top: $margin-on-footer-inquiry-button;
+        width: 100%;
+      }
     }
   }
 }

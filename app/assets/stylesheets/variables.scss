@@ -129,7 +129,8 @@ $padding-in-notice-of-form: 16px;
 $margin-around-footer-content: 48px;
 $margin-between-footer-nav: 24px;
 $margin-on-footer-inquiry-button: 16px;
-$margin-around-footer-info: 8px;
+$margin-around-footer-info: 16px;
+$margin-on-footer-info-text: 8px;
 
 /* button */
 // size
@@ -159,3 +160,5 @@ $border-color-bottom-of-red-button: #A93F20;
 $border-for-red-button: $border-color-around-red-button $border-color-around-red-button $border-color-bottom-of-red-button $border-color-around-red-button;
 $background-for-red-button: linear-gradient(#E64A17, #BF401D);
 $background-for-red-button-hover: linear-gradient(#D91D00, #B32211);
+
+$background-for-footer-inquiry-button: #5E5751;
