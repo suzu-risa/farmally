@@ -7,8 +7,6 @@ class InquiryController < ApplicationController
       'title' => '相談・お問い合わせ（価格変更連絡・入荷連絡の申込み）',
       'description' => '中古農機具マーケットプレイス ファーマリー by DMMの相談・お問い合わせフォームです。価格変更連絡・入荷連絡の申込みも出来ます。ファーマリー by DMMは農業生産に必要なあらゆる機械、農機具の仕入れ、販売、メンテナンスを行っています。'
     }
-
-    render layout: 'inquiry'
   end
 
   def create
@@ -34,7 +32,7 @@ class InquiryController < ApplicationController
       return
     end
 
-    render template: 'inquiry', status: :unprocessable_entity
+    render 'index', status: :unprocessable_entity
   end
 
   private

@@ -1,107 +1,252 @@
-.buy-lp {
-  $base-border-radius: 10px;
+.buy {
+  position: relative;
 
-  .breadcrumb {
-    background-color: white;
-    padding: 0px 0px;
+  .title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+    top: $margin-on-form-title-pc;
 
-    li {
-      white-space: pre-wrap;
-      word-break: break-all;
+    @media screen and (max-width: $sp-max-width) {
+      position: initial;
+      margin-top: $margin-on-form-title-sp;
+      font-size: $font-size-page-title-small-sp;
+      margin-bottom: $margin-under-form-title;
     }
-
-    .is-active {
-      font-weight: bold;
-    }
-  }
-
-  .container.breadcrumb-area {
-    padding-top: 4px;
-    padding-bottom: 4px;
   }
 
   .container {
-    padding: 1rem;
-  }
 
-  .except-mobile {
-    @include until($tablet) {
-      display: none;
-    }
-  }
+    display: flex;
 
-  .only-mobile {
-    display: none;
-
-    @include until($tablet) {
+    @media screen and (max-width: $sp-max-width) {
       display: block;
+      margin-top: $margin-on-form-title-sp;
     }
-  }
 
-  .buy {
-    margin-bottom: 0;
-    padding-top: 48px;
-    padding-bottom: 32px;
+    .title-area {
+      .title {
+        font-size: $font-size-page-title-large;
+        margin-bottom: $margin-under-form-title;
+        text-align: center;
 
-    &:nth-child(odd) {
-      background-color: #f9f9f9;
+        @media screen and (max-width: $sp-max-width) {
+          font-size: $font-size-page-title-small-sp;
+        }
+      }
     }
-  }
 
-  // お問い合わせフォーム
-  .buy-form {
-    .buy-form-title {
-      font-size: 1.75rem;
+    .subtitle {
+      position: relative;
+      font-size: $font-size-large;
+      font-weight: bold;
+      width: 100%;
       text-align: center;
-      font-weight: bold;
-      margin: 4rem 0;
-    }
 
-    .buy-form-field {
-      font-weight: bold;
+      @media screen and (max-width: $sp-max-width) {
+        font-weight: bold;
+        font-size: $font-size-default;
+        padding-top: $margin-on-form-title-sp;
 
-      .label {
-        background-color: #e9e9e9;
-        padding: 2rem;
-        border-radius: $base-border-radius;
-        display: flex;
-        align-items: center;
+      }
 
-        &.message-label {
-          align-items: baseline;
-        }
+      &::before,
+      &::after {
+        content: "";
+        width: 15%;
+        height: 1px;
+        background-color: black;
+        position: absolute;
+        top: 50%;
 
-        .required {
-          margin-left: auto;
-          background-color: #bf3d4d;
-          color: white;
-          border-radius: $base-border-radius;
-          padding: 0.4rem;
-
+        @media screen and (max-width: $sp-max-width) {
+          top: calc(15% + #{$margin-on-form-title-sp});
         }
       }
 
-      .input-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 1rem;
-        padding-bottom: 1rem;
+      &::before {
+        left: 20%;
       }
+      &::after {
+        right: 20%;
+      }
+
     }
 
-    .is-success {
-      background-color: #128b8e;
-      margin: 3rem auto;
-      padding: 1.5rem;
+    .buy-form,
+    .line {
       width: 50%;
-      height: 100%;
-      font-size: 1.75rem;
-      font-weight: bold;
-      display: block;
+      padding-top: $margin-on-form-title-pc + $margin-on-form-title-pc + $font-size-page-title-large;
 
-      @include until($tablet) {
-        width: 80%;
+      @media screen and (max-width: $sp-max-width) {
+        padding-top: 0;
+        width: 100%;
+      }
+
+    }
+
+    .buy-form {
+      margin: 0 auto $margin-under-main-section auto;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+        margin-top: $margin-on-form-title-sp;
+      }
+
+      .subtitle {
+        &::before,
+        &::after {
+          background-color: $border-color-gray;
+        }
+
+        @media screen and (max-width: $sp-max-width) {
+          margin-bottom: 32px;
+        }
+      }
+
+      .item-info {
+
+        @media screen and (max-width: $sp-max-width) {
+          margin-bottom: 32px;
+        }
+
+        .title,
+        .content {
+          display: inline-block;
+          text-align: left;
+          line-height: $line-height-note-of-message;
+          margin: 0;
+        }
+
+        .title {
+          position: initial;
+          font-size: inherit;
+          font-weight: bold;
+          width: 30%;
+
+          &::after {
+            content: "：";
+          }
+        }
+
+        .content {
+          width: 70%;
+          color: $accent-brown;
+        }
+
+      }
+
+      .form-contents {
+        width: 60%;
+        margin: 0 auto;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 90vw;
+      }
+
+        .form-parts.request_notification {
+          margin-bottom: $margin-under-form-parts-of-notice;
+        }
+
+        .form-parts__title__note {
+          font-size: $font-size-smaller;
+        }
+
+        .button-send {
+          @extend .button-large;
+
+          color: $foreground-white;
+          background: $background-for-red-button;
+          border-color: $border-for-red-button;
+          box-shadow: $box-shadow-red-button-for-large-button;
+
+          &:hover {
+            color: $foreground-white;
+            background: $background-for-red-button-hover;
+            border-color: $border-for-red-button;
+          }
+        }
+      }
+    }
+
+    .line {
+      background-color: $background-light;
+
+      .subtitle {
+        &::before,
+        &::after {
+          background-color: $border-color-white;
+        }
+      }
+
+      .line-contents {
+        text-align: center;
+
+        & > div {
+          margin-top: 32px;
+        }
+      }
+
+      .line-logo {
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+      }
+
+      .how-to {
+        line-height: $line-height-note-of-message;
+        font-weight: bold;
+
+        .underline {
+          background: linear-gradient(transparent 50%, #FFFF80 0%);
+        }
+      }
+
+      .add-friends {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 220px + 24px;
+        text-align: center;
+
+        & > div {
+          width: 110px;
+
+          &:last-child {
+            margin-left: 24px;
+          }
+        }
+
+        .title,
+        .content {
+          background-color: #FFF;
+        }
+
+        .title {
+          width: 100%;
+          position: initial;
+          font-size: inherit;
+          font-weight: inherit;
+          margin-bottom: 2px;
+          padding: 8px;
+        }
+
+        .content {
+          height: 110px;
+          line-height: 110px;
+          font-size: $font-size-large;
+          font-weight: bold;
+        }
+      }
+
+      .note {
+        font-size: $font-size-smaller;
+        line-height: $line-height-note-of-message;
+
+        @media screen and (max-width: $sp-max-width) {
+          padding-bottom: 96px;
+        }
       }
     }
   }

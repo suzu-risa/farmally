@@ -1,0 +1,50 @@
+.inquiry-form {
+  width: 40%;
+  margin: $margin-on-form-title-pc auto $margin-under-main-section auto;
+
+  @media screen and (max-width: $sp-max-width) {
+    width: 100%;
+    margin-top: $margin-on-form-title-sp;
+    
+  }
+
+  .title {
+    font-size: $font-size-page-title-large;
+    margin-bottom: $margin-under-form-title;
+    text-align: center;
+
+    @media screen and (max-width: $sp-max-width) {
+      font-size: $font-size-page-title-small-sp;
+    }
+
+    .subtitle {
+      margin-top: $margin-on-form-title-note;
+      font-size: $font-size-large;
+
+      @media screen and (max-width: $sp-max-width) {
+        font-weight: bold;
+        font-size: $font-size-default;
+      }
+    }
+  }
+
+  .form-parts.request_notification {
+    margin-bottom: $margin-under-form-parts-of-notice;
+  }
+
+  .button-send {
+    @extend .button-large;
+
+    color: $accent-blue-dark;
+    background: $background-for-gray-button;
+    border-color: $border-for-gray-button;
+    box-shadow: $box-shadow-gray-button-for-large-button;
+
+    &:hover {
+      color: $accent-blue-dark;
+      background: $background-for-gray-button-hover;
+      border-color: $border-for-gray-button;
+    }
+
+  }
+}

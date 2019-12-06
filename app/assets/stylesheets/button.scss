@@ -1,0 +1,28 @@
+.button {
+  font-weight: bold;
+  line-height: $line-height-default;
+}
+
+.button-small {
+  @extend .button;
+
+  border-radius: $border-radius-for-small-button;
+  text-align: center;
+  height: $height-for-small-button;
+  width: $width-for-small-button;
+}
+
+.button-large {
+  @extend .button;
+
+  border-radius: $border-radius-for-large-button;
+  text-align: center;
+  height: $height-for-large-button;
+  width: $width-for-large-button;
+  display: block;
+  margin: 0 auto;
+  font-size: $font-size-large;
+
+  border: 1px solid;
+}
+
