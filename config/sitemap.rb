@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://farmally.jp"
+SitemapGenerator::Sitemap.default_host = "https://farmally.jp/"
 SitemapGenerator::Sitemap.create_index = true
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings.sitemap.bucket,
   aws_access_key_id: Rails.application.credentials[:aws][:access_key_id],
@@ -10,12 +10,16 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings
 SitemapGenerator::Sitemap.create do
   add_to_index '/blog/sitemap.xml.gz'
 
-  add items_path
   Category.all.each do |category|
     add items_categories_path(category)
   end
 
-  # TODO sell追加
+  add sell_index_path
+  add sell_categories_path
+  Category.all.each do |category|
+    add sell_categories_code_path(category)
+  end
+  add sell_call_click_path
 
   add inquiry_index_path
   SaleItem.all.each do | sale_item |
@@ -23,7 +27,6 @@ SitemapGenerator::Sitemap.create do
   end
   
   add specified_commercial_path
-  add root_path
 
   # Put links creation logic here.
   #
