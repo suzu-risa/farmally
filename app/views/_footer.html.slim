@@ -1,5 +1,17 @@
 footer.footer
   .footer__content
+    .footer__content__info
+      .footer__content__info__tel
+        .footer__content__info__tel__lead
+          | お電話での相談・お問い合わせはこちら
+        .footer__content__info__tel__number
+          =image_tag("footer/tel.png", alt: "お電話受け付けております。")
+          | 0120-401-718
+        .footer__content__info__tel__reception-time
+          | &#040;受付時間 9:00~18:00&#041;
+      = link_to '/inquiry', class: 'footer__content__info__inquiry-button'
+        | 相談・お問い合わせ
+
     .footer__content__nav
       .footer__content__nav__menu
         ul.footer__content__nav__menu__list__main
@@ -12,14 +24,3 @@ footer.footer
           li = link_to 'BLOG', "/blog", rel: 'nofollow'
       .footer__content__copyright
         | &copy; DMM ファーマリー All Rights Reserved.
-    .footer__content__info
-      .footer__content__info__tel
-        .footer__content__info__tel__lead
-          | お電話での相談・お問い合わせはこちら
-        .footer__content__info__tel__number
-          =image_tag("footer/tel.png", alt: "お電話受け付けております。")
-          | 0120-401-718
-        .footer__content__info__tel__reception-time
-          | &#040;受付時間 9:00~18:00&#041;
-      = link_to '/inquiry', class: 'footer__content__info__inquiry-button'
-        | 相談・お問い合わせ

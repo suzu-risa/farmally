@@ -16,7 +16,7 @@
     }
   }
 
-  .container {
+  .main {
 
     display: flex;
 
@@ -154,7 +154,7 @@
         }
 
         .button-send {
-          @extend .button-large;
+          @extend %button-large;
 
           color: $foreground-white;
           background: $background-for-red-button;

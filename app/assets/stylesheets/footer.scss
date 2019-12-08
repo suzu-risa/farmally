@@ -2,19 +2,32 @@
   background-color: $background-dark;
   padding: 0;
   color: $foreground-white;
+  position: relative;
 
   &__content {
     width: 85%;
     margin: 0 auto;
     display: flex;
 
+    @media screen and (max-width: $sp-max-width) {
+      display: block;
+      width: 70vw;
+      padding: 36px 0;
+    }
+
+
     &__nav {
 
       width: 70%;
+      order: 1;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+      }
 
       &__menu {
         a {
-          color: $foreground-light;
+          color: $foreground-white;
           padding: 0;
           border-radius: inherit;
           display: inherit;
@@ -28,6 +41,11 @@
         & > ul > li {
           display: inline-block;
           margin-right: $margin-between-footer-nav;
+          margin-bottom: 18px;
+
+          @media screen and (max-width: $sp-max-width) {
+            display: block;
+          }
 
           &:last-of-type {
             margin-right: 0;
@@ -38,31 +56,43 @@
           &__main {
             padding-top: $margin-around-footer-content;
             font-weight: bold;
+
+            @media screen and (max-width: $sp-max-width) {
+              padding-top: 0;
+            }
           }
 
           &__sub {
             margin-top: $margin-between-footer-nav;
-          }
 
+            @media screen and (max-width: $sp-max-width) {
+              margin-top: 0;
+            }
+          }
         }
       }
-
-      &__copyright {
-        position: absolute;
-        bottom: $margin-around-footer-content;
-      }
     }
-        
+
     &__info {
       width: 30%;
       text-align: center;
       margin-bottom: $margin-around-footer-content;
+      order: 2;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+        margin-bottom: 36px;
+      }
 
       &__tel {
         margin-top: $margin-around-footer-content;
         padding: $margin-around-footer-info;
         border-radius: 10px;
         border: solid 1px $foreground-light;
+
+        @media screen and (max-width: $sp-max-width) {
+          margin-top: 0;
+        }
 
         &__lead {
           font-size: 13px;
@@ -81,13 +111,27 @@
       }
 
       &__inquiry-button {
-        @extend .button-large;
+        @extend %button-large-free-width;
 
-        background-color: $background-for-footer-inquiry-button;
         color: $foreground-white;
+        background: $background-for-footer-inquiry-button;
+        border-color: $border-for-footer-inquiry-button;
+        box-shadow: $box-shadow-for-footer-inquiry-button;
 
         margin-top: $margin-on-footer-inquiry-button;
         width: 100%;
+      }
+    }
+
+    &__copyright {
+      position: absolute;
+      bottom: $margin-around-footer-content;
+      order: 3;
+
+      @media screen and (max-width: $sp-max-width) {
+        position: initial;
+        margin-top: 36px;
+        margin-bottom: 0;
       }
     }
   }
