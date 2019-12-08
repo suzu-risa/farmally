@@ -1,29 +1,32 @@
 header.navigation
-  .navigation__logo
-    = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
-  .navigation__burger
-    a#navigationBurger.burger.navigation-burger[role="button" data-target="navMenu" aria-label="menu" aria-expanded="false"]
-      span
-      span
-      span
-  ul.navigation__menu
-    li class="navigation__menu__item #{(current_page?('/') || request.path.start_with?('categories')) ? 'is-current' : ''}"
-      .navigation__menu__item__inner
-        = link_to '/', class: "navigation__menu__item__inner__link" do
-          | 農機販売
-    li class="navigation__menu__item #{current_page?('/guide') ? 'is-current': ''}"
-      .navigation__menu__item__inner
-        = link_to '/guide', class: "navigation__menu__item__inner__link" do
-          | ご利用ガイド
-  .navigation__info
-    .navigation__info__lead
-      p.navigation__info__lead__text
-        | 相談・問い合わせはこちら
-      p.navigation__info__lead__reception-time
-        | &#040;電話受付時間 9:00~18:00&#041;
-    .navigation__info__tel
-      a href="tel:#{contact_phone_number}"
-        = image_tag("header/tel.png", alt: "お電話受け付けております。")
-        = contact_phone_number(separate: true)
-    = link_to '/inquiry', class: "navigation__info__inquiry-button" do
-      | 相談・お問い合わせ
+  .navigation__fix-when-sp
+    .navigation__logo
+      = image_tag("logo.svg", class: 'logo-img', alt: 'ファーマリー')
+    .navigation__burger
+      a#navigationBurger.burger.navigation-burger[role="button" data-target="navMenu" aria-label="menu" aria-expanded="false"]
+        span
+        span
+        span
+  .navigation__mordal-when-sp
+    .mordal-container
+      ul.navigation__menu
+        li class="navigation__menu__item #{(current_page?('/') || request.path.start_with?('categories')) ? 'is-current' : ''}"
+          .navigation__menu__item__inner
+            = link_to '/', class: "navigation__menu__item__inner__link" do
+              | 農機販売
+        li class="navigation__menu__item #{current_page?('/guide') ? 'is-current': ''}"
+          .navigation__menu__item__inner
+            = link_to '/guide', class: "navigation__menu__item__inner__link" do
+              | ご利用ガイド
+      .navigation__info
+        .navigation__info__lead
+          p.navigation__info__lead__text
+            | 相談・問い合わせはこちら
+          p.navigation__info__lead__reception-time
+            | &#040;電話受付時間 9:00~18:00&#041;
+        .navigation__info__tel
+          a href="tel:#{contact_phone_number}"
+            = image_tag("header/tel.png", alt: "お電話受け付けております。")
+            = contact_phone_number(separate: true)
+        = link_to '/inquiry', class: "navigation__info__inquiry-button" do
+          | 相談・お問い合わせ

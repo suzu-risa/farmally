@@ -7,12 +7,11 @@
   padding: 0;
 }
 
-%button-small {
+%button-small-free-width {
   @extend %button;
 
   border-radius: $border-radius-for-small-button;
   height: $height-for-small-button;
-  width: $width-for-small-button;
   line-height: $height-for-small-button;
 }
 

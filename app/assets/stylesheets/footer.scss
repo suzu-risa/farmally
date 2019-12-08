@@ -90,6 +90,7 @@ $margin-on-footer-info-text: 8px;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
+        min-width: 100%;
         margin-bottom: 36px;
       }
 
