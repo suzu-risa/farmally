@@ -1,6 +1,8 @@
 %button {
   font-weight: bold;
   text-align: center;
+  display: block;
+  cursor: pointer;
 
   padding: 0;
 }
@@ -11,15 +13,12 @@
   border-radius: $border-radius-for-small-button;
   height: $height-for-small-button;
   width: $width-for-small-button;
-  line-height: $line-height-default;
+  line-height: $height-for-small-button;
 }
 
 %button-large-free-width {
   @extend %button;
 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   font-size: $font-size-large;
   line-height: $height-for-large-button;
 
@@ -28,6 +27,9 @@
 
   border-width: 1px;
   border-style: solid;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 %button-large {
   @extend %button-large-free-width;

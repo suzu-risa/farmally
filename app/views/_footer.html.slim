@@ -5,8 +5,9 @@ footer.footer
         .footer__content__info__tel__lead
           | お電話での相談・お問い合わせはこちら
         .footer__content__info__tel__number
-          =image_tag("footer/tel.png", alt: "お電話受け付けております。")
-          | 0120-401-718
+          a href="tel:#{contact_phone_number}"
+            = image_tag("footer/tel.png", alt: "お電話受け付けております。")
+            = contact_phone_number(separate: true)
         .footer__content__info__tel__reception-time
           | &#040;受付時間 9:00~18:00&#041;
       = link_to '/inquiry', class: 'footer__content__info__inquiry-button'

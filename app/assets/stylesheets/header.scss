@@ -1,73 +1,101 @@
-$navbar-link-height: 2em;
-$logo-width: 200px;
+.navigation {
+  color: $foreground-dark;
+  border-bottom: 1px solid #F0F0F0;
+  height: 48px;
+  position: relative;
 
-// ヘッダーメニュー
-header#navbar {
+  & > * {
+    display: inline-block;
+  }
 
-  .navbar-brand {
-    .logo-img {
-      width: $logo-width;
-      max-height: none;
+  &__logo {
+    width: 20%;
+
+    & img {
+      height: inherit;
     }
   }
 
-  .navbar-start {
+  &__burger {
+    display: none;
+  }
 
-    .navbar-item {
-      padding: 0;
-      line-height: $line-height-default;
+  &__menu {
+    height: inherit;
+    vertical-align: top;
 
-      .navbar-item-inner {
-        font-size: $font-size-nav-item;
-        font-weight: bold;
-        padding: 0 $margin-around-navbar-item-inner;
-        height: $navbar-link-height;
-        display: flex;
-        align-items: center;
-
-        border-left: solid $border-size-nav-item-separate;
-
-      }
-
-      &:last-child > .navbar-item-inner {
-        border-right: solid $border-size-nav-item-separate;
-      }
-
-      &:hover {
-        text-decoration: underline;
-        background-color: inherit;
-        color: inherit;
-      }
+    &__item {
+      display: inline-block;
+      box-sizing: border-box;
+      height: inherit;
+      padding: 10px 0;
 
       &.is-current {
-        border-bottom: solid $border-size-current-nav $accent-blue-dark;
+        border-bottom: 3px solid $accent-blue-dark;
+      }
+
+      &__inner {
+        padding: 6px 16px;
+        border-left: 1px solid #F0F0F0;
+
+        &__link {
+          font-weight: bold;
+        }
+      }
+
+      &:last-of-type > &__inner {
+        border-right: 1px solid #F0F0F0;
+      }
+
+      & a:hover {
+        text-decoration: underline;
       }
     }
   }
 
-  .navbar-end {
-    .navbar-end-item {
-      display: flex;
-      align-items: center;
+  &__info {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
 
-      p {
-        font-size: $font-size-smaller;
-      }
+    &__lead {
+      font-size: 12px;
 
-      .reception-time {
-        margin-top: $margin-on-nav-receprtion-time;
-      }
-
-      .phone-number {
-        color: $accent-blue-dark;
-        font-size: $font-size-tel-number-in-nav;
+      &__text {
         font-weight: bold;
+        margin-top: 8px;
       }
 
-      .inquiry {
-        font-size: $font-size-smaller;
+      &__reception-time {
+        margin-top: 4px;
+      }
+    }
+
+    &__tel {
+      margin-left: 8px;
+      font-size: 20px;
+      height: 48px;
+      line-height: 48px;
+      font-weight: bold;
+      color: $accent-blue-dark;
+
+    }
+
+    &__inquiry-button {
+      @extend %button-small;
+
+      font-size: 12px;
+      color: $accent-blue-dark;
+      background: $background-for-gray-button;
+      border-color: $border-for-gray-button;
+      box-shadow: $box-shadow-gray-button-for-large-button;
+      margin: 12px 8px 0;
+
+      &:hover {
         color: $accent-blue-dark;
-        background-color: $accent-blue-light;
+        background: $background-for-gray-button-hover;
+        border-color: $border-for-gray-button;
       }
     }
   }

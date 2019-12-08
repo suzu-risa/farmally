@@ -1,3 +1,14 @@
+// margin
+$margin-around-footer-content: 48px;
+
+$margin-between-footer-nav: 16px;
+$margin-on-footer-nav-sub: 16px;
+
+$margin-on-footer-inquiry-button: 16px;
+
+$margin-around-footer-info: 16px;
+$margin-on-footer-info-text: 8px;
+
 .footer {
   background-color: $background-dark;
   padding: 0;
@@ -46,10 +57,6 @@
           @media screen and (max-width: $sp-max-width) {
             display: block;
           }
-
-          &:last-of-type {
-            margin-right: 0;
-          }
         }
 
         &__list {
@@ -63,7 +70,7 @@
           }
 
           &__sub {
-            margin-top: $margin-between-footer-nav;
+            margin-top: $margin-on-footer-nav-sub;
 
             @media screen and (max-width: $sp-max-width) {
               margin-top: 0;
@@ -75,6 +82,8 @@
 
     &__info {
       width: 30%;
+      min-width: 300px;
+
       text-align: center;
       margin-bottom: $margin-around-footer-content;
       order: 2;
