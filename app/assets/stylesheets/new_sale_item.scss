@@ -134,10 +134,8 @@ $sale-item-font-color-h: #C9C7C5;
       }
 
       .button {
-        @extend .button;
+        @extend %button;
 
-        display: block;
-        font-weight: $sale-item-font-weight-bold;
         font-size: 12px;
         background: #F9F7F5;
         width: 64px;
@@ -359,17 +357,17 @@ $sale-item-font-color-h: #C9C7C5;
         }
         
         .buy-button {
-          @extend .button-large;
+          @extend %button-large;
 
-          color: $sale-item-font-color-k;
-          background:  #E64A17;
-          border-color: $border-for-gray-button;
-          box-shadow: $box-shadow-gray-button-for-large-button;
-          margin: 0 16px 0 0;
-          width: 70%;
+          color: $foreground-white;
+          background: $background-for-red-button;
+          border-color: $border-for-red-button;
+          box-shadow: $box-shadow-red-button-for-large-button;
 
-          @media screen and (max-width: $sp-max-width) {
-            margin: 0 auto;
+          &:hover {
+            color: $foreground-white;
+            background: $background-for-red-button-hover;
+            border-color: $border-for-red-button;
           }
         }
 
