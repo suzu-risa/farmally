@@ -1,28 +1,38 @@
-.button {
+%button {
   font-weight: bold;
-  line-height: $line-height-default;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+
+  padding: 0;
 }
 
-.button-small {
-  @extend .button;
+%button-small-free-width {
+  @extend %button;
 
   border-radius: $border-radius-for-small-button;
-  text-align: center;
   height: $height-for-small-button;
-  width: $width-for-small-button;
+  line-height: $height-for-small-button;
 }
 
-.button-large {
-  @extend .button;
+%button-large-free-width {
+  @extend %button;
+
+  font-size: $font-size-large;
+  line-height: $height-for-large-button;
 
   border-radius: $border-radius-for-large-button;
-  text-align: center;
   height: $height-for-large-button;
-  width: $width-for-large-button;
-  display: block;
-  margin: 0 auto;
-  font-size: $font-size-large;
 
-  border: 1px solid;
+  border-width: 1px;
+  border-style: solid;
+
+  margin-left: auto;
+  margin-right: auto;
 }
+%button-large {
+  @extend %button-large-free-width;
 
+  width: $width-for-large-button;
+
+}

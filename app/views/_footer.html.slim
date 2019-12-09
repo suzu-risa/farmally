@@ -1,25 +1,27 @@
 footer.footer
-  .columns
-    .column.is-7.is-offset-1
-      .menu
-        ul.menu-list.main.columns
+  .footer__content
+    .footer__content__info
+      .footer__content__info__tel
+        .footer__content__info__tel__lead
+          | お電話での相談・お問い合わせはこちら
+        .footer__content__info__tel__number
+          a href="tel:#{contact_phone_number}"
+            = image_tag("footer/tel.png", alt: "お電話受け付けております。")
+            = contact_phone_number(separate: true)
+        .footer__content__info__tel__reception-time
+          | &#040;受付時間 9:00~18:00&#041;
+      = link_to '/inquiry', class: 'footer__content__info__inquiry-button'
+        | 相談・お問い合わせ
+
+    .footer__content__nav
+      .footer__content__nav__menu
+        ul.footer__content__nav__menu__list__main
           li = link_to '農機販売', "/items/"
           li = link_to 'ご利用ガイド', "/guide"
-      .menu
-        ul.menu-list.sub.columns
+        ul.footer__content__nav__menu__list__sub
           li = link_to '利用規約', "/terms-of-service", rel: 'nofollow'
           li = link_to '特定商取引法及び古物営業法に基づく表記', "/specified-commercial", rel: 'nofollow'
           li = link_to '運営会社', "/company", rel: 'nofollow'
           li = link_to 'BLOG', "/blog", rel: 'nofollow'
-      .copyright
+      .footer__content__copyright
         | &copy; DMM ファーマリー All Rights Reserved.
-    .column.is-3
-      .info
-        .lead
-          | お電話での相談・お問い合わせはこちら
-        .tel-number
-          | 0120-401-718
-        .reception-time
-          | &#040;受付時間 9:00~18:00&#041;
-      = link_to '/inquiry', class: 'button inquiry'
-        | 相談・お問い合わせ

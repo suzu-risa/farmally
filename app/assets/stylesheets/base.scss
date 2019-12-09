@@ -48,7 +48,7 @@ body {
 .main {
   @media screen and (max-width: $sp-max-width) {
     width: $sp-content-width;
-    margin: 0 auto;
+    margin: 92px auto 0;
   }
 }
 

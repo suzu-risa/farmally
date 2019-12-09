@@ -33,7 +33,7 @@
   }
 
   .button-send {
-    @extend .button-large;
+    @extend %button-large;
 
     color: $accent-blue-dark;
     background: $background-for-gray-button;
@@ -45,6 +45,5 @@
       background: $background-for-gray-button-hover;
       border-color: $border-for-gray-button;
     }
-
   }
 }
