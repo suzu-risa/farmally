@@ -12,7 +12,7 @@ header.navigation
         li class="navigation__menu__item #{(current_page?('/') || request.path.start_with?('categories')) ? 'is-current' : ''}"
           .navigation__menu__item__inner
             = link_to '/', class: "navigation__menu__item__inner__link" do
-              | 農機販売
+              | 中古農機具販売
         li class="navigation__menu__item #{current_page?('/guide') ? 'is-current': ''}"
           .navigation__menu__item__inner
             = link_to '/guide', class: "navigation__menu__item__inner__link" do
