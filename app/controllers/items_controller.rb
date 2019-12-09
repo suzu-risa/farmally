@@ -6,12 +6,12 @@ class ItemsController < ApplicationController
     @sale_items = SaleItem.get_sale_items(params)
     @sale_item_count = SaleItem.get_sale_item_count(params)
 
-    category_name = @sale_items[0].category.name
+    category_name = Category.where(code: params[:code]).first.name;
     title = '%s販売'
     description = '%s販売ならファーマリー by DMM。在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載している、中古農機具マーケットプレイスです。お客様のご要望に応じてファーマリー by DMMが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。'
     @meta = {
       'title' => sprintf(title, category_name),
-      'description' => sprintf(description, @sale_items[0].category.name)
+      'description' => sprintf(description, category_name)
     }
   end
 
