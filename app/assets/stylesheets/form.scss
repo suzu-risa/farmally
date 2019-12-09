@@ -1,14 +1,13 @@
-@mixin form {
-// .form {
-  // header {
-  //   .logo {
-  //     margin-right: 5px;
-  //   }
+.form {
+  header {
+    .logo {
+      margin-right: 5px;
+    }
 
-  //   .logo-img {
-  //     width: 120px;
-  //   }
-  // }
+    .logo-img {
+      width: 120px;
+    }
+  }
 
   .primary-button {
     background-color: $red;
@@ -366,5 +365,4 @@
   .footer {
     padding: 3rem 1.5rem 3rem;
   }
-// }
 }
