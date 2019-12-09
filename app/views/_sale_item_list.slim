@@ -1,7 +1,7 @@
 div.category-list
   ul
     li
-      a href="/items" class="category#{' is-active' if current_page?("/items")}"
+      a href="/" class="category#{' is-active' if current_page?("/")}"
         | 全て
         - @categories.each do |category|
           li
