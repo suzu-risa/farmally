@@ -1,53 +1,56 @@
 .sale-items
   - sale_items.each_with_index do |sale_item, i|
-    article.sale-item
-      .image-area
+    article.sale-items__item
+      .sale-items__item__image-area
           div id="sale-item-image#{i + 1}" class="slick-slide-container main-image" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
 
-      .context
-        .fix
-          .item-id
+      .sale-items__item__context
+        .sale-items__item__context__info
+          .sale-items__item__context__info__id
             | 商品ID：#{"%07d" % sale_item.id}
-          .item-category-name
-            = link_to "/categories/#{sale_item.category.code}", class: "category-link"
+          .sale-items__item__context__info__category
+            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link"
               | #{sale_item.category_name}
-          .sale-item-maker-name
+          .sale-items__item__context__info__maker
             | #{sale_item.maker.name}
-          .sale-model-name
+          .sale-items__item__context__info__model
             | #{sale_item.item.model}
-          .sale-item-price
-            | 販売価格：
-            span.price
+          dl.sale-items__item__context__info__price-info
+            dt.sale-items__item__context__info__price-info__title
+              | 販売価格
+            dd.sale-items__item__context__info__price-info__price
               | #{sale_item.price.to_s(:delimited)}
-              span.currency
+              span.sale-items__item__context__info__price-info__currency
                 | 円
-                span.tax
+                span.sale-items__item__context__info__price-info__tax
                   | （税込み）
-          .detail
-            ul
-              li.detail-item
-                | #{sale_item.class.human_attribute_name(:used_hours)}：
-                span.detail-item-value
-                 | #{sale_item.used_hours_with_unit}
-                 span.unit
-                   | 
-              li.detail-item
-                | #{sale_item.class.human_attribute_name(:horse_power)}：
-                span.detail-item-value
-                  | #{sale_item.horse_power_with_unit}
-                  span.unit
-                    | PS
-              li.detail-item
-                | #{sale_item.class.human_attribute_name(:status)}：
-                span.detail-item-value
-                  | #{sale_item.display_status}
-            .consultation
-              .buy-button
-                = link_to buy_path(sale_item), class: "buy-link"
-                  | 購入申し込み・相談
-              .inquiry.link
-                = link_to '/inquiry', class: "inquiry-link"
-                  | 価格変更・入荷連絡の申し込み
+          .sale-items__item__context__info__detail
+            dl.sale-items__item__context__info__detail__item
+              dt.sale-items__item__context__info__detail__item__title
+                | アワー
+              dd.sale-items__item__context__info__detail__item__value
+                | #{sale_item.pretty_used_hours}
+                span.sale-items__item__context__info__detail__item__value__unit
+                  | h
+            dl.sale-items__item__context__info__detail__item
+              dt.sale-items__item__context__info__detail__item__title
+                | 馬力
+              dd.sale-items__item__context__info__detail__item__value
+                | #{sale_item.pretty_horse_power}
+                span.sale-items__item__context__info__detail__item__value__unit
+                  | PS
+            dl.sale-items__item__context__info__detail__item
+              dt.sale-items__item__context__info__detail__item__title
+                | ステータス
+              dd.sale-items__item__context__info__detail__item__value
+                | #{sale_item.display_status}
+          .sale-items__item__context__info__consultation
+            .sale-items__item__context__info__consultation__button
+              = link_to buy_path(sale_item), class: "buy-link"
+                | 購入申し込み・相談
+            .sale-items__item__context__info__consultation__link
+              = link_to '/inquiry', class: "inquiry-link"
+                | 価格変更・<br>入荷連絡の申し込み
         .flow    
           .remark.open
             p
