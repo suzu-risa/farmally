@@ -40,12 +40,12 @@
       height: 100%;
       top: 50px;
       left: 0;
-      transition: opacity ease 0.8s;
     }
 
     &.is-open {
       @media screen and (max-width: $sp-max-width) {
         opacity: 1;
+        transition: opacity ease 0.5s;
       }
     }
 
@@ -65,8 +65,8 @@
   }
 
   &__logo {
-    width: 100%;
     display: inline-block;
+    margin: 16px 0 0 16px;
 
     @media screen and (max-width: $sp-max-width) {
       width: 20%;
@@ -81,14 +81,16 @@
 
     @media screen and (max-width: $sp-max-width) {
       display: inline-block;
-      width: 50px;
       position: absolute;
       right: 0;
-      padding: 8px;
     }
 
     &__button {
-      border: none;
+
+      @media screen and (max-width: $sp-max-width) {
+        border: none;
+        padding: 16px;
+      }
 
       & img {
         @media screen and (max-width: $sp-max-width) {
