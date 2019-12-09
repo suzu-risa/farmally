@@ -1,9 +1,13 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      title: '農機具・農業機械の中古販売・買取なら',
-      site: 'ファーマリー',
-      reverse: true
+      title: '中古農機具販売',
+      site: '中古農機具マーケットプレイス ファーマリー by DMM',
+      reverse: true,
+      separator: ' - ',
+      description: 'ファーマリー by DMMは、中古農機具のマーケットプレイスです。 在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載いたします。 お客様のご要望に応じてファーマリー by DMMが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。',
+      og: defalut_og,
+      twitter: default_twitter_card
     }
   end
 
@@ -124,5 +128,27 @@ module ApplicationHelper
     else
       default.gsub(/-/, '')
     end
+  end
+
+  private
+
+  def defalut_og
+    {
+      title: :full_title,
+      description: :description,
+      url: request.url,
+      locale: 'ja_JP',
+      site_name: Settings.site.name,
+      image: ''
+    }
+  end
+  
+  def default_twitter_card
+    {
+      card: 'summary_large_image',
+      site: '	@farmally_nouki',
+      creator: '@farmally_nouki',
+      image: 'image'
+    }
   end
 end

@@ -1,4 +1,7 @@
-- set_meta_tags title: '出品商品一覧'
+- unless current_page?('/') || current_page?('/items')
+  - set_meta_tags title: @meta['title']
+  - set_meta_tags description: @meta['description']
+
 .sale-items
   .cover
     h1.title
@@ -7,5 +10,5 @@
       br
       | 中古農機販売
 
-  = render '/sale_item_list', sale_items: @sale_items, title: '出品商品一覧'
+  = render '/sale_item_list', sale_items: @sale_items
   
