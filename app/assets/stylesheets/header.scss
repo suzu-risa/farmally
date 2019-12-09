@@ -1,7 +1,7 @@
 .navigation {
   color: $foreground-dark;
   border-bottom: 1px solid #F0F0F0;
-  height: 48px;
+  height: 50px;
   position: relative;
 
   @media screen and (max-width: $sp-max-width) {
@@ -16,12 +16,51 @@
     }
   }
 
-  &__fix-when-sp {
+  &__drawer-header {
     width: 20%;
 
     @media screen and (max-width: $sp-max-width) {
       position: fixed;
       width: 100%;
+      height: 50px;
+      background-color: white;
+      border-bottom: 1px solid #F0F0F0;
+    }
+  }
+
+  &__drawer {
+    vertical-align: top;
+
+    @media screen and (max-width: $sp-max-width) {
+      opacity: 0;
+      position: fixed;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      top: 50px;
+      left: 0;
+      transition: opacity ease 0.8s;
+    }
+
+    &.is-open {
+      @media screen and (max-width: $sp-max-width) {
+        opacity: 1;
+      }
+    }
+
+    &__container {
+      @media screen and (max-width: $sp-max-width) {
+        background-color: white;
+        padding-bottom: 48px;
+      }
+    }
+
+    &__closer {
+      display: block;
+      color: white;
+      text-align: center;
+      margin-top: 16px;
     }
   }
 
@@ -29,6 +68,9 @@
     width: 100%;
     display: inline-block;
 
+    @media screen and (max-width: $sp-max-width) {
+      width: 20%;
+    }
     & img {
       height: inherit;
     }
@@ -38,22 +80,31 @@
     display: none;
 
     @media screen and (max-width: $sp-max-width) {
-      diaplsy:block;
-      width: 20px;
+      display: inline-block;
+      width: 50px;
+      position: absolute;
+      right: 0;
+      padding: 8px;
+    }
+
+    &__button {
+      border: none;
+
+      & img {
+        @media screen and (max-width: $sp-max-width) {
+          display: none;
+        }
+
+        &.is-visible {
+          @media screen and (max-width: $sp-max-width) {
+            display: block;
+          }
+        }
+      }
     }
   }
 
-  &__mordal-when-sp {
-    vertical-align: top;
-
-    @media screen and (max-width: $sp-max-width) {
-      position: fixed;
-      z-index: 999;
-      background-color: white;
-      width: 100%;
-    }
-  }
-
+  
   &__menu {
     height: inherit;
 
@@ -108,7 +159,7 @@
       position: initial;
       display: block;
       width: 70%;
-      margin: 24px auto 0;
+      margin: 32px auto 0;
       text-align: center;
     }
 
