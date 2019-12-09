@@ -1,9 +1,9 @@
 - set_meta_tags title: @meta['title']
 - set_meta_tags description: @meta['description']
 
-section.buy
+section.buy.main
   h1.title
     | 農機具購入の申込み・相談
-  .container
+  .buy__main
     = render 'form', form: @buy_form
     = render 'line'

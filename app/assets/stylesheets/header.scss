@@ -1,73 +1,219 @@
-$navbar-link-height: 2em;
-$logo-width: 200px;
+.navigation {
+  color: $foreground-dark;
+  border-bottom: 1px solid #F0F0F0;
+  height: 50px;
+  position: relative;
 
-// ヘッダーメニュー
-header#navbar {
+  @media screen and (max-width: $sp-max-width) {
+    height: inherit;
+  }
 
-  .navbar-brand {
-    .logo-img {
-      width: $logo-width;
-      max-height: none;
+  & > * {
+    display: inline-block;
+
+    @media screen and (max-width: $sp-max-width) {
+      display: block;
     }
   }
 
-  .navbar-start {
+  &__drawer-header {
+    width: 20%;
 
-    .navbar-item {
-      padding: 0;
-      line-height: $line-height-default;
+    @media screen and (max-width: $sp-max-width) {
+      position: fixed;
+      width: 100%;
+      height: 50px;
+      background-color: white;
+      border-bottom: 1px solid #F0F0F0;
+    }
+  }
 
-      .navbar-item-inner {
-        font-size: $font-size-nav-item;
-        font-weight: bold;
-        padding: 0 $margin-around-navbar-item-inner;
-        height: $navbar-link-height;
-        display: flex;
-        align-items: center;
+  &__drawer {
+    vertical-align: top;
 
-        border-left: solid $border-size-nav-item-separate;
+    @media screen and (max-width: $sp-max-width) {
+      opacity: 0;
+      position: fixed;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      top: 50px;
+      left: 0;
+    }
 
+    &.is-open {
+      @media screen and (max-width: $sp-max-width) {
+        opacity: 1;
+        transition: opacity ease 0.5s;
+      }
+    }
+
+    &__container {
+      @media screen and (max-width: $sp-max-width) {
+        background-color: white;
+        padding-bottom: 48px;
+      }
+    }
+
+    &__closer {
+      display: block;
+      color: white;
+      text-align: center;
+      margin-top: 16px;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    margin: 16px 0 0 16px;
+
+    @media screen and (max-width: $sp-max-width) {
+      width: 20%;
+    }
+    & img {
+      height: inherit;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @media screen and (max-width: $sp-max-width) {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+
+    &__button {
+
+      @media screen and (max-width: $sp-max-width) {
+        border: none;
+        padding: 16px;
       }
 
-      &:last-child > .navbar-item-inner {
-        border-right: solid $border-size-nav-item-separate;
-      }
+      & img {
+        @media screen and (max-width: $sp-max-width) {
+          display: none;
+        }
 
-      &:hover {
-        text-decoration: underline;
-        background-color: inherit;
-        color: inherit;
+        &.is-visible {
+          @media screen and (max-width: $sp-max-width) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  
+  &__menu {
+    height: inherit;
+
+    @media screen and (max-width: $sp-max-width) {
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    &__item {
+      display: inline-block;
+      box-sizing: border-box;
+      height: inherit;
+      padding: 10px 0;
+
+      @media screen and (max-width: $sp-max-width) {
+        display: block;
       }
 
       &.is-current {
-        border-bottom: solid $border-size-current-nav $accent-blue-dark;
+        border-bottom: 3px solid $accent-blue-dark;
+
+        @media screen and (max-width: $sp-max-width) {
+          border-bottom: none;
+        }
+      }
+
+      &__inner {
+        padding: 6px 16px;
+        border-left: 1px solid #F0F0F0;
+
+        &__link {
+          font-weight: bold;
+        }
+      }
+
+      &:last-of-type > &__inner {
+        border-right: 1px solid #F0F0F0;
+      }
+
+      & a:hover {
+        text-decoration: underline;
       }
     }
   }
 
-  .navbar-end {
-    .navbar-end-item {
-      display: flex;
-      align-items: center;
+  &__info {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
 
-      p {
-        font-size: $font-size-smaller;
-      }
+    @media screen and (max-width: $sp-max-width) {
+      position: initial;
+      display: block;
+      width: 70%;
+      margin: 32px auto 0;
+      text-align: center;
+    }
 
-      .reception-time {
-        margin-top: $margin-on-nav-receprtion-time;
-      }
+    &__lead {
+      font-size: 12px;
 
-      .phone-number {
-        color: $accent-blue-dark;
-        font-size: $font-size-tel-number-in-nav;
+      &__text {
         font-weight: bold;
+        margin-top: 8px;
       }
 
-      .inquiry {
-        font-size: $font-size-smaller;
+      &__reception-time {
+        margin-top: 4px;
+      }
+    }
+
+    &__tel {
+      margin-left: 8px;
+      font-size: 20px;
+      height: 48px;
+      line-height: 48px;
+      font-weight: bold;
+      color: $accent-blue-dark;
+
+      @media screen and (max-width: $sp-max-width) {
+        height: inherit;
+        line-height: inherit;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+    }
+
+    &__inquiry-button {
+      @extend %button-small-free-width;
+
+      font-size: 12px;
+      color: $accent-blue-dark;
+      background: $background-for-gray-button;
+      border-color: $border-for-gray-button;
+      box-shadow: $box-shadow-gray-button-for-large-button;
+      margin: 12px 8px 0;
+      width: $width-for-small-button;
+
+      @media screen and (max-width: $sp-max-width) {
+        margin: 0 auto 24px;
+        width: 100%;
+      }
+
+      &:hover {
         color: $accent-blue-dark;
-        background-color: $accent-blue-light;
+        background: $background-for-gray-button-hover;
+        border-color: $border-for-gray-button;
       }
     }
   }
