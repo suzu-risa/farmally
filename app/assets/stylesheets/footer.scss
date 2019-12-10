@@ -1,59 +1,148 @@
-footer.footer {
+// margin
+$margin-around-footer-content: 48px;
+
+$margin-between-footer-nav: 16px;
+$margin-on-footer-nav-sub: 16px;
+
+$margin-on-footer-inquiry-button: 16px;
+
+$margin-around-footer-info: 16px;
+$margin-on-footer-info-text: 8px;
+
+.footer {
   background-color: $background-dark;
   padding: 0;
-  color: $foreground-light;
+  color: $foreground-white;
+  position: relative;
 
-  .columns {
-    position: relative;
+  &__content {
+    width: 85%;
     margin: 0 auto;
+    display: flex;
 
-    .menu-list {
-      a {
-        color: $foreground-light;
-        padding: 0;
-        border-radius: inherit;
-        display: inherit;
+    @media screen and (max-width: $sp-max-width) {
+      display: block;
+      width: 70vw;
+      padding: 36px 0;
+    }
 
-        &:hover {
-          text-decoration: underline;
-          background-color: inherit;
+
+    &__nav {
+
+      width: 70%;
+      order: 1;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+      }
+
+      &__menu {
+        a {
+          color: $foreground-white;
+          padding: 0;
+          border-radius: inherit;
+          display: inherit;
+
+          &:hover {
+            text-decoration: underline;
+            background-color: inherit;
+          }
         }
-      }
 
-      li {
-        margin-right: $margin-between-footer-nav;
+        & > ul > li {
+          display: inline-block;
+          margin-right: $margin-between-footer-nav;
+          margin-bottom: 18px;
 
-        &:last-of-type {
-          margin-right: 0;
+          @media screen and (max-width: $sp-max-width) {
+            display: block;
+          }
         }
-      }
 
-      &.main {
-        margin-top: $margin-around-footer-content;
-        font-weight: bold;
-      }
+        &__list {
+          &__main {
+            padding-top: $margin-around-footer-content;
+            font-weight: bold;
 
-      &.sub {
-        margin-top: $margin-between-footer-nav;
+            @media screen and (max-width: $sp-max-width) {
+              padding-top: 0;
+            }
+          }
+
+          &__sub {
+            margin-top: $margin-on-footer-nav-sub;
+
+            @media screen and (max-width: $sp-max-width) {
+              margin-top: 0;
+            }
+          }
+        }
       }
     }
-    
-    .copyright {
+
+    &__info {
+      width: 30%;
+      min-width: 300px;
+
+      text-align: center;
+      margin-bottom: $margin-around-footer-content;
+      order: 2;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 36px;
+      }
+
+      &__tel {
+        margin-top: $margin-around-footer-content;
+        padding: $margin-around-footer-info;
+        border-radius: 10px;
+        border: solid 1px $foreground-light;
+
+        @media screen and (max-width: $sp-max-width) {
+          margin-top: 0;
+        }
+
+        &__lead {
+          font-size: 13px;
+        }
+
+        &__number {
+          margin-top: $margin-on-footer-info-text;
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        &__reception-time {
+          margin-top: $margin-on-footer-info-text;
+          font-size: 13px;
+        }
+      }
+
+      &__inquiry-button {
+        @extend %button-large-free-width;
+
+        color: $foreground-white;
+        background: $background-for-footer-inquiry-button;
+        border-color: $border-for-footer-inquiry-button;
+        box-shadow: $box-shadow-for-footer-inquiry-button;
+
+        margin-top: $margin-on-footer-inquiry-button;
+        width: 100%;
+      }
+    }
+
+    &__copyright {
       position: absolute;
       bottom: $margin-around-footer-content;
-    }
+      order: 3;
 
-    .info {
-      margin-top: $margin-around-footer-content;
-      padding: $margin-around-footer-info;
-      border-radius: 10px;
-      border: solid 1px $foreground-light;
-    }
-
-    .inquiry {
-      margin-top: $margin-on-footer-inquiry-button;
-      margin-bottom: $margin-around-footer-content;
-      width: 100%;
+      @media screen and (max-width: $sp-max-width) {
+        position: initial;
+        margin-top: 36px;
+        margin-bottom: 0;
+      }
     }
   }
 }

@@ -16,11 +16,13 @@ if (isAppMountable) {
   }).$mount("#app");
 }
 
-const saleItemImageContainer = document.getElementById("sale-item-image");
-
-if(saleItemImageContainer) {
-  document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(<SaleItemImageSlider url={saleItemImageContainer.getAttribute('data-url')}/>, saleItemImageContainer);
+var slick_slide_items = document.querySelectorAll('.' + "slick-slide-container");
+if (slick_slide_items) {
+  slick_slide_items.forEach(function(slick_slide_item, i){
+    var saleItemImageContainer = document.getElementById("sale-item-image" + (i + 1));
+    document.addEventListener("DOMContentLoaded", () => {
+      ReactDOM.render(<SaleItemImageSlider url={saleItemImageContainer.getAttribute('data-url')}/>, saleItemImageContainer);
+    });
   });
 }
 
