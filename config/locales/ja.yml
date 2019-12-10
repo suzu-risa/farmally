@@ -17,6 +17,7 @@ ja:
       category:
         name: 名前
         code: コード
+        displayable: メニューに表示する
       sub_category:
         name: 名前
         code: コード
