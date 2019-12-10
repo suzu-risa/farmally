@@ -83,6 +83,7 @@ module Admin
                  :sale_item_template_id,
                  :status,
                  :staff_comment,
+                 :remark,
                  detail_json: { properties: {} })
       end
   end

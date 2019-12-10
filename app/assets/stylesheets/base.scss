@@ -1,208 +1,193 @@
-@import "item_list_page";
 @import "header";
 @import "footer";
+@import "button";
 
-.modal {
-  z-index: 100;
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $font-family-default;
+  font-size: $font-size-default;
+  color: $foreground-dark;
+  background-color: $background-default;
+  line-height: $line-height-default;
 }
 
-.breadcrumb {
-  background-color: $background-grey;
-  padding: 8px 24px;
+a {
+  color: inherit;
 
-  li {
-    white-space: pre-wrap;
-    word-break: break-all;
+  &.text {
+    -webkit-text-decoration: underline $foreground-gray;
+    text-decoration: underline $foreground-gray;
   }
 
-  .is-active {
-    font-weight: bold;
+  &:hover {
+    color: inherit;
   }
 }
 
-// カテゴリーボタン
-.category-button-columns {
-  margin-bottom: 24px;
-  .column {
-     padding: 0.3rem;
+body {
+  background-color: $background-body;
 
-    .category-button {
-      background: linear-gradient(white, #ddd);
-      font-size: 0.8em;
-      height: 70px;
-      white-space: normal;
-      width: 100%;
-      word-wrap: break-word;
+  @media screen and (max-width: $sp-max-width) {
+    background-color: $background-default;
+  }
+}
+
+.site-content {
+  background-color: $background-default;
+  max-width: $pc-max-width;
+  margin: 0 auto;
+
+  @media screen and (max-width: $sp-max-width) {
+    max-width: inherit;
+  }
+}
+
+.main {
+  @media screen and (max-width: $sp-max-width) {
+    width: $sp-content-width;
+    margin: 92px auto 0;
+  }
+}
+
+.column {
+  padding: 0;
+}
+
+.columns:last-child {
+  margin-bottom: 0;
+}
+
+.notice {
+  padding: $padding-in-notice-of-form;
+  background-color: $accent-red-light;
+  margin-bottom: $margin-under-notice-of-form;
+  font-weight: bold;
+  line-height: $line-height-note-of-form-result;
+
+  &.error {
+    color: $accent-red-dark;
+  }
+}
+
+form {
+  .form-parts {
+    margin-top: $margin-on-form-parts-title;
+
+    &.agree-to-terms {
+      padding-top: $margin-around-agree-to-terms;
+      padding-bottom: $margin-around-agree-to-terms;
     }
-  }
-}
 
-// 出品商品column
-.item-column {
-  color: black;
+    &__title {
+      margin-bottom: $margin-under-form-parts-title;
 
-  .item {
-    background-color: white;
-    border: 1px solid gray;
-    font-size: 0.8em;
-    padding: 8px;
-    height: 100%;
+      &__label {
+        color: $foreground-dark;
+        font-size: $font-size-default;
+        font-weight: bold;
+      }
 
-    &.sold-out {
-      filter: brightness(55%);
+      &__note {
+        margin-top: $margin-on-form-parts-note;
+        margin-bottom: $margin-under-form-parts-note;
+      }
+
     }
 
-    .item-model-name {
-      font-weight: bold;
-      padding-bottom: 4px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      img {
+    .required {
+      margin-left: $margin-left-inline-label;
+      color: $accent-brown;
+      font-size: $font-size-smaller;
+    }
+
+    input.input {
+      border-radius: 0;
+
+      &::placeholder {
+        color: $foreground-light;
+      }
+
+      &:-ms-input-placeholder {
+        color: $foreground-light;
+      }
+      &::-ms-input-placeholder {
+        color: $foreground-light;
+      }
+    }
+
+    textarea.input {
+      border-radius: 0;
+
+      &::placeholder {
+        color: $foreground-light;
+      }
+
+      &:-ms-input-placeholder {
+        color: $foreground-light;
+      }
+      &::-ms-input-placeholder {
+        color: $foreground-light;
+      }
+    }
+
+    .checkbox {
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      label {
+        position: relative;
+        padding: 0 0 0 2em;
+      }
+
+      label:hover:after {
+        border: 1px solid #F0F0F0;
+        box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+      }
+
+      label:after, label:before{
+        position: absolute;
+        content: "";
         display: block;
-        width: 36px;
+        top: 50%;
       }
 
-      span {
-        display: block;
-        padding-left: 4px;
-      }
-    }
-
-    .image {
-      height: 150px;
-      margin-bottom: 8px;
-
-      img {
-        height: 150px;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .table {
-      background-color: $background-grey;
-      margin-bottom: 4px;
-      width: 100%;
-
-      .price-td {
-        background-color: black;
-        color: white;
-        text-align: center;
-        span {
-          font-size: 0.8em;
-          padding-right: 4px;
-        }
+      label:after {
+        margin-top: -0.3em;
+        width: 1em;
+        height: 1em;
+        border: 1px solid #F0F0F0;
+        box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
       }
 
-      td {
-        border: 1px solid gray;
+      label:before {
+        left: 0.4em;
+        margin-top: -0.15em;
+        width: 0.3em;
+        height: 0.6em;
+        border-right: 0.15em solid #FFF;
+        border-bottom: 0.15em solid #FFF;
+        transform: rotate(45deg);
+        opacity: 0;
+        z-index: 999;
+      }
+
+      input[type=checkbox]:checked + label:before {
+        opacity: 1;
+      }
+
+      input[type=checkbox]:checked + label:after {
+        background-color: $accent-blue-dark;
       }
     }
 
-    .detail-link {
-      background-color: #ff112e;
-      color: white;
-      width: 100%;
-      display: block;
-      text-align: center;
-      height: 32px;
-      line-height: 32px;
+    .error_message {
+      color: $accent-red-dark;
+      margin-top: 8px;
+      margin-bottom: 32px;
     }
   }
 }
-
-// 電話、お問い合わせフォームボタン
-.inquiry-buttons {
-  .button {
-    display: block;
-    width: 100%;
-    height: 100%;
-    line-height: 100%;
-    padding: 8px;
-  }
-
-  .inquiry-message {
-    text-align: center;
-    margin-bottom: 8px;
-  }
-
-  .phone-number-button {
-    border-radius: 16px;
-    background-color: $inquiry-red;
-    color: white;
-
-    .staff-message {
-      font-size: 0.8em;
-    }
-
-    img {
-      width: 26px;
-      vertical-align: sub;
-    }
-
-    .phone-number {
-      margin-left: 4px;
-    }
-  }
-
-  .inquiry-button {
-    border-radius: 16px;
-    background-color: $inquiry-blue;
-    color: white;
-    font-size: 1.5em;
-    padding: 18px;
-  }
-}
-
-// 商品一覧とか出品一覧系のリストの共通タイトル
-.item-list-title {
-  padding-bottom: 5px;
-  display: flex;
-  flex-direction: column;
-
-  .counter {
-    font-weight: normal;
-    background-color: black;
-    color: white;
-    padding: 4px 16px;
-    font-size: 0.8rem;
-  }
-
-  .title {
-    padding: 8px 16px;
-    font-size: 1em;
-    background-color: $background-grey;
-    font-weight: normal;
-  }
-}
-
-.subcategory-narrow-down-title {
-  margin-bottom:  12px;
-}
-
-.category-list-title {
-  padding: 8px 0px;
-}
-
-.price-indicator {
-  width: 100%;
-  border-radius: 0;
-  height: 240px;
-
-  .price-header {
-    height: 40px;
-  }
-  .price-content {
-    height: 100px;
-  }
-
-  .price-footer {
-    height: 40px;
-  }
-}
-.sub-price-indicator {
-  border-radius: 0;
-  height: 108px;
-}
-

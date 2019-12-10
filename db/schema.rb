@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_21_114456) do
+ActiveRecord::Schema.define(version: 2019_11_26_081859) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(version: 2019_04_21_114456) do
     t.string "price_text", null: false
     t.bigint "staff_id"
     t.text "staff_comment"
+    t.text "remark"
     t.index ["item_id"], name: "index_sale_items_on_item_id"
     t.index ["sale_item_template_id"], name: "index_sale_items_on_sale_item_template_id"
     t.index ["staff_id"], name: "index_sale_items_on_staff_id"

@@ -1,2 +1,11 @@
-- set_meta_tags title: '商品一覧'
-= render '/item_list_page', items: @items, title: "商品一覧"
+- unless current_page?('/') || current_page?('/items')
+  - set_meta_tags title: @meta['title']
+  - set_meta_tags description: @meta['description']
+
+section.items.main
+  .items__heading-title
+      h1.items__heading-title__title
+        = @category_name.presence ? @category_name + " " : ""
+        | 中古農機具販売
+  .items__contents
+    = render '/items/sale_item_list', sale_items: @sale_items, title: '出品商品一覧', sale_item_count: @sale_item_count

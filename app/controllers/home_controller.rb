@@ -32,7 +32,12 @@ class HomeController < ApplicationController
 
   def terms; end
 
-  def commercial; end
+  def commercial
+    @meta = {
+      'title' => '特定商取引法及び古物営業法に基づく表記',
+      'description' => '中古農機具マーケットプレイス ファーマリー by DMMの特定商取引法及び古物営業法に基づく表記について。ファーマリー by DMMは農業生産に必要なあらゆる機械、農機具の仕入れ、販売、メンテナンスを行っています。'
+    }
+  end
 
   def form
     @form = Form.new

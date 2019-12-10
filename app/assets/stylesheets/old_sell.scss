@@ -1,0 +1,17 @@
+@import "item_box";
+@import "sell";
+
+@mixin title-cover($image-url) {
+  background: image-url($image-url) center center / cover no-repeat;
+  @include until($tablet) {
+    background: image-url($image-url) left;
+  }
+}
+
+.item-box.cassette {
+  @include item-box;
+}
+
+.sell-lp {
+  @include sell-lp;
+}

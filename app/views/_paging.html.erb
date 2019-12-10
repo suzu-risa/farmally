@@ -1,7 +1,7 @@
 <nav class="pagination is-rounded is-centered" role="navigation" aria-label="pagination">
   <ul class="pagination-list">
     <% if page[:min] < page[:current] - 1 %>
-      <li><a class="pagination-link" aria-label="Goto page <%= page[:min] %>"><%= page[:min] %></a></li>
+      <li><a class="pagination-link-test" aria-label="Goto page <%= page[:min] %>"><%= page[:min] %></a></li>
       <li><span class="pagination-ellipsis">&hellip;</span></li>
     <% end %>
     <% if page[:min] < page[:current] %>

@@ -1,0 +1,74 @@
+.inquiry-form
+  h2.title
+    | 相談・お問い合わせ
+    p.subtitle
+      | 価格変更連絡・入荷連絡の申込み  
+
+  - if @inquiry_form.errors.any?
+    .notice.error
+      | 入力内容に誤りがあります。
+  - if flash[:success]
+    .notice.success
+      | 送信が完了しました。<br>
+      | 担当者よりご連絡差し上げます。<br>
+      | 今しばらくお待ちください。
+
+  = form_for form, url: inquiry_index_path, method: :post do |f|
+      .form-parts
+        .form-parts__title
+          = f.label :name, '名前', class: 'form-parts__title__label'
+          span.required
+            | (必須)
+        = f.text_field :name, class: 'input', placeholder: "名前を入力してください。"
+        - if @inquiry_form.errors.include?(:name)
+          .error_message
+            | 名前を入力してください。
+
+      .form-parts
+        .form-parts__title
+          = f.label :tel, '電話番号', class: 'form-parts__title__label'
+          span.required
+            | (必須)
+        = f.text_field :tel, class: 'input', placeholder: "電話番号を入力してください。"
+        - if @inquiry_form.errors.include?(:tel)
+          .error_message
+            | 電話番号を入力してください。
+
+      .form-parts
+        .form-parts__title
+          = f.label :email, 'メールアドレス', class: 'form-parts__title__label'
+          span.required
+            | (必須)
+        = f.text_field :email, class: 'input', placeholder: "メールアドレスを入力してください。"
+        - if @inquiry_form.errors.include?(:email)
+          .error_message
+            | メールアドレスを入力してください。
+
+      .form-parts
+        .form-parts__title
+          = f.label :message, 'お問い合わせ内容', class: 'form-parts__title__label'
+          .form-parts__title__note
+            | (上記以外の個人情報を記載しないようにしてください。)
+        = f.text_area :message, class: 'textarea', rows: '8', placeholder: "お問い合わせ内容を入力してください。"
+
+      .form-parts.request_notification
+        .form-parts__title
+          .form-parts__title__label
+            | 価格変更連絡・入荷連絡
+        .checkbox
+          = f.check_box :request_notification
+          = f.label :request_notification, '希望する', class: 'inline-label'
+
+      .form-parts.agree-to-terms
+        .checkbox
+          = f.check_box :agree_to_terms
+          = f.label :agree_to_terms, class: 'inline-label'
+            a.term-link.text href="/terms-of-service" target="_blank" 利用規約
+            | に同意する
+        span.required
+          | (必須)
+        - if @inquiry_form.errors.include?(:email)
+          .error_message
+            | 利用規約に同意してください。
+
+      = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': 'お問い合わせ' });"

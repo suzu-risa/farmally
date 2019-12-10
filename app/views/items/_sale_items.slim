@@ -1,46 +1,57 @@
-.columns.is-multiline.item-columns
-  - sale_items.each do |sale_item|
-    .column.item-column.is-6-tablet.is-3-desktop
-      div class="item#{sale_item.sold? ? " sold-out" : ""}"
-        .item-model-name
-          span
-            = sale_item.name
-        .image
-          - if image = sale_item.images.first
-            = image_tag(rails_representation_url(image.variant(resize: '500x500').processed))
-        table.table
-          /tr
-            td
-              = sale_item.class.human_attribute_name(:year)
-            td
-              = sale_item.year_text
-          /tr
-            td
-              = sale_item.class.human_attribute_name(:prefecture)
-            td
-              = sale_item.prefecture_name
-          tr
-            td
-              | カテゴリー
-            td
-              = sale_item.category_name
-          tr
-            td
-              = sale_item.class.human_attribute_name(:horse_power)
-            td
-              = sale_item.horse_power_with_unit
-          tr
-            td
-              = sale_item.class.human_attribute_name(:used_hours)
-            td
-              = sale_item.used_hours_with_unit
-          tr
-            td.price-td colspan="2"
-              span
-                = sale_item.class.human_attribute_name(:price)
-              = sale_item.display_price
+.sale-items
+  - sale_items.each_with_index do |sale_item, i|
+    article.sale-items__item
+      .sale-items__item__image-area
+          div id="sale-item-image#{i + 1}" class="slick-slide-container main-image" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
 
-        = link_to sale_item.show_path,
-          class: "detail-link",
-          onClick: "gtag('event', '「詳細はこちら」クリック', { 'event_category': '出品商品導線', 'event_label': '#{request.path}' });"
-          | 詳細はこちら
+      .sale-items__item__context
+        .sale-items__item__context__info
+          .sale-items__item__context__info__id
+            | 商品ID：#{"%07d" % sale_item.id}
+          .sale-items__item__context__info__category
+            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link"
+              | #{sale_item.category_name}
+          .sale-items__item__context__info__maker
+            | #{sale_item.maker.name}
+          .sale-items__item__context__info__model
+            | #{sale_item.item.model}
+          dl.sale-items__item__context__info__price-info
+            dt.sale-items__item__context__info__price-info__title
+              | 販売価格
+            dd.sale-items__item__context__info__price-info__price
+              | #{sale_item.price.to_s(:delimited)}
+              span.sale-items__item__context__info__price-info__currency
+                | 円
+                span.sale-items__item__context__info__price-info__tax
+                  | （税込み）
+          .sale-items__item__context__info__detail
+            dl.sale-items__item__context__info__detail__item
+              dt.sale-items__item__context__info__detail__item__title
+                | アワー
+              dd.sale-items__item__context__info__detail__item__value
+                | #{sale_item.pretty_used_hours}
+                span.sale-items__item__context__info__detail__item__value__unit
+                  | h
+            dl.sale-items__item__context__info__detail__item
+              dt.sale-items__item__context__info__detail__item__title
+                | 馬力
+              dd.sale-items__item__context__info__detail__item__value
+                | #{sale_item.pretty_horse_power}
+                span.sale-items__item__context__info__detail__item__value__unit
+                  | PS
+            dl.sale-items__item__context__info__detail__item
+              dt.sale-items__item__context__info__detail__item__title
+                | ステータス
+              dd.sale-items__item__context__info__detail__item__value
+                | #{sale_item.display_status}
+          .sale-items__item__context__info__consultation
+            .sale-items__item__context__info__consultation__button
+              = link_to buy_path(sale_item), class: "buy-link"
+                | 購入申し込み・相談
+            .sale-items__item__context__info__consultation__link
+              = link_to '/inquiry', class: "inquiry-link"
+                | 価格変更・<br>入荷連絡の申し込み
+        .flow    
+          .remark.open
+            p
+              | #{sale_item.remark}

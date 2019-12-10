@@ -1,76 +1,76 @@
-section.hero
-  .hero-body
-    .container.content
-      h2.title.has-text-centered
-        | 特定商取引法及び古物営業法に基づく表記
-      .columns
-        .column.is-12-mobile.is-8-tablet.is-offset-2-tablet
-          table.table
-            tbody
-              tr
-                th
-                  | 販売業者
-                td
-                  | 株式会社ファーマリー
-              tr
-                th
-                  | 所在地
-                td
-                  | 〒287-0222 千葉県成田市前林112-13
-              tr
-                th
-                  | ホームページ
-                td
-                  a[href="https://farmally.jp"]
-                    | https://farmally.jp
-              tr
-                th
-                  | メールアドレス
-                td
-                  | teson.seki@farmally.jp
-              tr
-                th
-                  | 電話番号
-                td
-                  = contact_phone_number(separate: true)
-              tr
-                th
-                  | 古物商許可番号
-                td
-                  | 千葉県公安委員会　第441110001635号
-              tr
-                th
-                  | 運営責任者
-                td
-                  | 石泰成
-              tr
-                th
-                  | 販売価格
-                td
-                  | 各商品に表記された価格に準じます
-              tr
-                th
-                  | 商品代金以外の必要料金
-                td
-                  | 支払い方法により所定の手数料
-              tr
-                th
-                  | 送料
-                td
-                  | 購入者負担となります
-              tr
-                th
-                  | 発送期間
-                td
-                  | 1〜7日程度での発送
-              tr
-                th
-                  | 支払い方法
-                td
-                  | 銀行振込、代金引換
-              tr
-                th
-                  | 代金の支払時期
-                td
-                  | 銀行振込の場合、3日以内
+- set_meta_tags title: @meta['title']
+- set_meta_tags description: @meta['description']
 
+section.main
+  .commercial
+    .columns.is-multiline.is-mobile.is-vcentered
+      .column.is-8-tablet.is-offset-2-tablet.is-12-mobile
+        h2.title.heading
+          | 特定商取引法及び古物営業法に基づく表記
+        .contents
+          dl
+            dt
+              | 販売業者
+            dd
+              | 株式会社ファーマリー
+          dl
+            dt
+              | 所在地
+            dd
+              | 〒287-0222 千葉県成田市前林112-13
+          dl
+            dt
+              | ホームページ
+            dd
+              a[href="https://farmally.jp" class="text"]
+                | https://farmally.jp
+          dl
+            dt
+              | メールアドレス
+            dd
+              | teson.seki@farmally.jp
+          dl
+            dt
+              | 電話番号
+            dd
+              = contact_phone_number(separate: true)
+          dl
+            dt
+              | 古物商許可番号
+            dd
+              | 千葉県公安委員会　第441110001635号
+          dl
+            dt
+              | 運営責任者
+            dd
+              | 石泰成
+          dl
+            dt
+              | 販売価格
+            dd
+              | 各商品に表記された価格に準じます
+          dl
+            dt
+              | 商品代金以外の必要料金
+            dd
+              | 支払い方法により所定の手数料
+          dl
+            dt
+              | 送料
+            dd
+              | 購入者負担となります
+          dl
+            dt
+              | 発送期間
+            dd
+              | 1〜7日程度での発送
+          dl
+            dt
+              | 支払い方法
+            dd
+              | 銀行振込、代金引換
+          dl
+            dt
+              | 代金の支払時期
+            dd
+              | 銀行振込の場合、3日以内

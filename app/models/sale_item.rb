@@ -9,6 +9,7 @@
 #  prefecture_code       :integer
 #  price                 :integer
 #  price_text            :string(255)      not null
+#  remark                :text(65535)
 #  sold_at               :datetime
 #  staff_comment         :text(65535)
 #  status                :integer
@@ -19,6 +20,7 @@
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
 #  staff_id              :bigint(8)
+#  remark                :text
 #
 # Indexes
 #
@@ -65,6 +67,8 @@ class SaleItem < ApplicationRecord
   scope :sold, -> {
     where(status: 3)
   }
+
+  paginates_per 4
 
   # TODO: ファイルのマイグレーションが終わったらリファクタする
   def new_images
@@ -146,5 +150,26 @@ class SaleItem < ApplicationRecord
     end
 
     Hashie::Mash.new(detail_hash)
+  end
+
+  def self.get_sale_items(params)
+    if params[:code].present?
+      item_ids = Item.get_item_ids_by_code!(params[:code])
+      sale_items = self.where(item_id: item_ids).page(params[:page])
+    else
+      sale_items = self.page(params[:page])
+    end
+
+    raise ActiveRecord::RecordNotFound if sale_items.empty? && params[:page].present?
+    sale_items
+  end
+
+  def self.get_sale_item_count(params)
+    if params[:code].present?
+      item_ids = Item.get_item_ids_by_code!(params[:code])
+      sale_item_count = self.where(item_id: item_ids).count
+    else
+      sale_item_count = self.count
+    end
   end
 end
