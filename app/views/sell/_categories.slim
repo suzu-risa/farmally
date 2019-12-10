@@ -1,6 +1,6 @@
 .container
   .columns.is-multiline.is-mobile
-    - 0.upto(6).each do |i|
+    - 0.upto(2).each do |i|
       .column.is-3-tablet.is-3-desktop.is-6-mobile
         = link_to "/sell/categories/#{Category::SellCategories[i][:slug]}", class: "is-inline-block"
           = image_tag("sell/genre-image-#{i + 1}.png")
