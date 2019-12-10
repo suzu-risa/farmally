@@ -54,8 +54,10 @@ class Item < ApplicationRecord
   delegate :sale_item_template, to: :category
   delegate :name, to: :maker, prefix: :maker
 
-  scope :for_categories, -> (code) {
-    includes(:category).where(categories: { code: code })
+  scope :displayed_categories, -> (code) {
+    includes(:category)
+      .where(categories: { code: code })
+      .where(categories: { displayable: Category::Displayed })
   }
 
   paginates_per 30
@@ -164,7 +166,7 @@ class Item < ApplicationRecord
 
   def self.get_item_ids_by_code!(code)
     raise ActiveRecord::RecordNotFound unless Category.exists?(code: code)
-    item_ids = self.for_categories(code).pluck (:id)
+    item_ids = self.displayed_categories(code).pluck (:id)
   end
 
   private

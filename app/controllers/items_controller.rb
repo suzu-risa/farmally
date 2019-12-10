@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   include SetCatalogSubtitle
 
   def index
-    @categories = Category.all
+    # @categories = Category.all
+    @categories = Category.displayed
     @sale_items = SaleItem.get_sale_items(params)
     @sale_item_count = SaleItem.get_sale_item_count(params)
 

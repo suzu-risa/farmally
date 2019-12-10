@@ -20,7 +20,6 @@
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
 #  staff_id              :bigint(8)
-#  remark                :text
 #
 # Indexes
 #
@@ -66,6 +65,10 @@ class SaleItem < ApplicationRecord
 
   scope :sold, -> {
     where(status: 3)
+  }
+
+  scope :sellable, -> {
+    eager_load(item: :category).where(categories: { displayable: Category::Displayed })
   }
 
   paginates_per 4
@@ -157,7 +160,7 @@ class SaleItem < ApplicationRecord
       item_ids = Item.get_item_ids_by_code!(params[:code])
       sale_items = self.where(item_id: item_ids).page(params[:page])
     else
-      sale_items = self.page(params[:page])
+      sale_items = self.sellable.page(params[:page])
     end
 
     raise ActiveRecord::RecordNotFound if sale_items.empty? && params[:page].present?
@@ -169,7 +172,7 @@ class SaleItem < ApplicationRecord
       item_ids = Item.get_item_ids_by_code!(params[:code])
       sale_item_count = self.where(item_id: item_ids).count
     else
-      sale_item_count = self.count
+      sale_item_count = self.sellable.count
     end
   end
 end
