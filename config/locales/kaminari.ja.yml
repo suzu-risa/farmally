@@ -1,8 +1,8 @@
 ja:
   views:
     pagination:
-      first: "&laquo; 最初"
-      last: "最後 &raquo;"
+      first: "最初"
+      last: "最後 "
       previous: "&lsaquo; 前へ"
       next: "次へ &rsaquo;"
       truncate: "&hellip;"

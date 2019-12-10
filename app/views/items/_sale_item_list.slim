@@ -1,0 +1,39 @@
+ul.category-list
+  li.category-list__item
+    - if current_page?('/') then
+      .category-list__item__link.is-current
+        | 全て
+    - else
+      a href="/" class="category-list__item__link"
+        | 全て
+  - @categories.each do |category|
+    li.category-list__item
+      - if current_page?("/items/categories/#{category.code}")
+        .category-list__item__link.is-current
+          | #{category.name}
+      - else
+        a href="/items/categories/#{category.code}" class="category-list__item__link"
+          | #{category.name}
+
+.pagination-nav
+  .pagination-nav__item-total-counts
+    p
+      | #{sale_item_count}
+      span.pagination-nav__item-total-counts__suffix
+        | 台
+  - if sale_items.present?
+    = paginate sale_items, views_prefix: 'templates', window: 2
+
+- if sale_items.present?
+  = render "items/sale_items", sale_items: sale_items
+- else
+  = render "items/empty_items"
+
+.pagination-nav
+  .pagination-nav__item-total-counts
+    p
+      | #{sale_item_count}
+      span.pagination-nav__item-total-counts__suffix
+        | 台
+  - if sale_items.present?
+    = paginate sale_items, views_prefix: 'templates'

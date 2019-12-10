@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
+  # 管理画面のフォームに使用してるため残す
+  resources :sub_categories, only: :index
+
   get '/items/:item_id/images', to: 'items#images', as: 'item_images'
   get '/items/categories/:code', to: 'items#index', as: 'items_categories'
 

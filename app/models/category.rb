@@ -37,13 +37,7 @@ class Category < ApplicationRecord
       {slug: "threshing-machine",title: "脱穀機", id: "5d297b935ed50670d329e464" },
   ]
 
-  DisplayableCategories = [2, 7, 10]
-
   def to_param
     code
-  end
-
-  def self.get_displayable_categories
-    @categories = self.find(DisplayableCategories)
   end
 end

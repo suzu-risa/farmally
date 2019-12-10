@@ -8,7 +8,7 @@ class BuyController < ApplicationController
     @buy_form = BuyForm.new
 
     @meta = {
-      'title' => '農機購入の申込み・相談',
+      'title' => '中古農機具購入の申込み・相談 ファーマリー by DMM',
       'description' => '中古農機具マーケットプレイス ファーマリー by DMMの購入申込み・相談フォームです。ファーマリー by DMMは農業生産に必要なあらゆる機械、農機具の仕入れ、販売、メンテナンスを行っています。'
     }
   end
