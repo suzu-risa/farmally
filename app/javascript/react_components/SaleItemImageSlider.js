@@ -34,7 +34,7 @@ class SaleItemImageSlider extends React.Component {
 
     const itemImages = this.state.itemImages.map((image, i)=>{
       return (
-        <img src={image.url} key={i}/>
+        <img src={image.url} key={i} alt={image.alt + ' 商品写真 ' + (i+1)}/>
       )
     });
 
@@ -45,7 +45,7 @@ class SaleItemImageSlider extends React.Component {
 
       return (
         <div className="column is-3-mobile is-2-tablet is-2-desktop" data-image-index={i} onClick={ e => onClick(e)} key={i}>
-          <img src={image.url} data-image-index={i} />
+          <img src={image.url} data-image-index={i} alt={image.alt + ' 商品写真サムネイル ' + (i+1)} />
         </div>
       );
     });
