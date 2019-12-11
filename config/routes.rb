@@ -50,7 +50,6 @@ Rails.application.routes.draw do
   resources :inquiry, only: [:index, :create]
 
   get '/buy/:item_id', to: 'buy#index', as: 'buy'
-  get '/buy/create', to: 'buy#create'
   post '/buy/:item_id', to: 'buy#create'
 
   get '/specified-commercial', to: 'home#commercial'
