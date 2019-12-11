@@ -32,6 +32,13 @@ class HomeController < ApplicationController
 
   def terms; end
 
+  def guide
+    @meta = {
+      'title' => 'ご利用ガイド',
+      'description' => 'ファーマリーのご利用ガイドです。在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載している、中古農機具販売サービスです。お客様のご要望に応じてファーマリーが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。'
+    }
+  end
+
   def commercial
     @meta = {
       'title' => '特定商取引法及び古物営業法に基づく表記',

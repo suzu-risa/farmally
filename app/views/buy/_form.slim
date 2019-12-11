@@ -12,13 +12,13 @@
         | 担当者よりご連絡差し上げます。<br>
         | 今しばらくお待ちください。
 
-    = form_for form, url: buy_path(@item), method: :post do |f|
+    = form_for form, url: buy_path(@sale_item), method: :post do |f|
         .item-info
-          = f.hidden_field :item_id, :value => @item.id
+          = f.hidden_field :item_id, :value => @sale_item.id
           dl
             dt.title 商品ID
             dd.content
-              = format('%07d', @item.id)
+              = format('%07d', @sale_item.id)
           dl
             dt.title 型式
             dd.content
@@ -90,7 +90,7 @@
               | に同意する
           span.required
             | (必須)
-          - if @buy_form.errors.include?(:email)
+          - if @buy_form.errors.include?(:agree_to_terms)
             .error_message
               | 利用規約に同意してください。
 
