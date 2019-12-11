@@ -26,7 +26,7 @@ class BuyController < ApplicationController
       notifier = InquiryNotifier.new(@buy_form)
       notifier.notify referer
       flash[:success] = '送信しました。担当者からの連絡をお待ちください';
-      redirect_to buy_path(@item)
+      redirect_to buy_path(@sale_item)
       return
     end
 
