@@ -1,8 +1,8 @@
 .inquiry-form
-  h2.title
+  h1.title
     | 相談・お問い合わせ
     p.subtitle
-      | 価格変更連絡・入荷連絡の申込み  
+      | 価格変更連絡・入荷連絡の申込み
 
   - if @inquiry_form.errors.any?
     .notice.error
@@ -67,7 +67,7 @@
             | に同意する
         span.required
           | (必須)
-        - if @inquiry_form.errors.include?(:email)
+        - if @inquiry_form.errors.include?(:agree_to_terms)
           .error_message
             | 利用規約に同意してください。
 
