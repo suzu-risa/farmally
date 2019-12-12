@@ -94,4 +94,4 @@
             .error_message
               | 利用規約に同意してください。
 
-        = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': 'お問い合わせ' });"
+        = f.submit '送信', class: "button-send", onClick: "gtag('event', '購入フォーム「送信する」クリック', { 'event_category': '#{request.path}' });"
