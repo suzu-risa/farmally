@@ -166,8 +166,6 @@ $sale-item-font-color-h: #C9C7C5;
 }
 
 .sale-items {
-  margin: 0 24px 48px;
-
   @media screen and (max-width: $sp-max-width) {
     margin: 12px 12px;
   }
@@ -190,48 +188,58 @@ $sale-item-font-color-h: #C9C7C5;
         width: 100%;
       }
 
-      .main-image {
-        margin: 0 12px 24px;
+      &__container {
+        width: 70%;
+        margin: 0 auto;
 
-        .slick-prev {
-          left: 128px;
-          z-index: 100;
-        }
+        &__main-image {
+          &__slider-arrow {
+            width: 50px;
+            height: 50px;
 
-        .slick-next {
-          right: 120px;
-          z-index: 100;
-        }
+            position: absolute;
+            top: 50%;
 
-        .slick-next:before
-        .slick-prev:before {
-          font-size: 36px !important;
-          color: #f2f2f1;
-          border-width: 1px;
-          border-color: #f2f2f1;
-          background: linear-gradient(#ffffff, #f1f0ef);
-          box-shadow: 0 1px 0 0 #d9d9d9;
-        }
+            z-index: 100;
 
-        .slick-slide > div > img {
-          display: block !important;
-          max-height: 400px;
-          width: auto !important; // javascriptで要素にwidthが付与されてしまうため
-          margin: 0 auto;
+            &.next {
+              right: -62px;
+            }
+
+            &.prev {
+              left: -62px;
+            }
+          }
         }
 
         .slick-track {
-          align-items: center;
           display: flex;
-          // background: whitesmoke;
+          justify-content: center;
+          align-items: center;
+          max-height: 500px;
+
+          .slick-slide img {
+            max-width: 500px;
+            max-height: 500px;
+          }
         }
 
-        .thumbnail-container {
-          margin: 24px 0 0;
+        &__thumbnails {
+          margin-top: 16px;
+          display: flex;
+          justify-content: center;
           align-items: center;
 
-          .column {
-            padding: 0 4px 0 0;
+          &__item {
+            margin-right: 4px;
+
+            height: 70px;
+            width: 70px;
+
+            & > img {
+              max-height: 70px;
+              max-width: 70px;
+            }
           }
         }
       }
@@ -248,7 +256,6 @@ $sale-item-font-color-h: #C9C7C5;
       }
 
       &__info {
-
         &__id {
           text-align: right;
           color: $sale-item-font-color-b;

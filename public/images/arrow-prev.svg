@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.1;
+      }
+
+      .cls-2 {
+        fill: url(#gradient_1);
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #4c443d;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+    <linearGradient id="gradient_1" x1="18" x2="18" y2="36" gradientTransform="matrix(-1, 0, 0, 1, 36, 0)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.6" stop-color="#4c443d" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4c443d"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-1">
+    <path class="cls-2" d="M18,0A18.05,18.05,0,0,0,0,18H0A18.05,18.05,0,0,0,18,36h0A18.05,18.05,0,0,0,36,18h0A18.05,18.05,0,0,0,18,0Z"/>
+  </g>
+  <polyline class="cls-3" points="19.76 23 14.24 17.5 19.76 12"/>
+</svg>

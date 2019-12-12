@@ -2,7 +2,7 @@
   - sale_items.each_with_index do |sale_item, i|
     article.sale-items__item
       .sale-items__item__image-area
-          div id="sale-item-image#{i + 1}" class="slick-slide-container main-image" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
+          div id="sale-item-image#{i + 1}" class="slick-slide-container sale-items__item__image-area__container" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
 
       .sale-items__item__context
         .sale-items__item__context__info
