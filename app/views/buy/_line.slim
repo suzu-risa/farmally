@@ -3,24 +3,24 @@
     | LINE で依頼
 
   .line-contents
-    .line-logo
+    .line-contents__line-logo
       =image_tag("buy/line-logo-80.png", alt: "LINE ロゴ")
-    .how-to
+    .line-contents__how-to
       | QRコードを読み込み、<br>
       | または下記IDを検索して、<br>
       span.underline「ファーマリー」を友だちに追加
       | してください。
-    .add-friends
+    .line-contents__add-friends
       .at-qr
-        .title
+        .line-title
           | QRコードから
-        .content
+        .line-content
           =image_tag("buy/line-add-friend-qr-110.png", alt: "LINE ロゴ")
       .at-search-id
-        .title
+        .line-title
           | ID検索から
-        .content
+        .line-content
           | @zjd7645p
-    .note
+    .line-contents__note
       | ファーマリーと会話をするかたちで<br>
       | 購入申込み・相談が出来ます。
