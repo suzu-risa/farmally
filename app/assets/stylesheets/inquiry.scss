@@ -9,11 +9,13 @@
   }
 
   .title {
+    color: $foreground-dark;
     font-size: $font-size-page-title-large;
     margin-bottom: $margin-under-form-title;
     text-align: center;
 
     @media screen and (max-width: $sp-max-width) {
+      margin-bottom: $margin-under-form-title-sp;
       font-size: $font-size-page-title-small-sp;
     }
 
@@ -22,17 +24,23 @@
       font-size: $font-size-large;
 
       @media screen and (max-width: $sp-max-width) {
+        margin-top: $margin-on-form-title-note-sp;
         font-weight: bold;
         font-size: $font-size-default;
       }
     }
   }
 
+  .form-parts-info {
+    padding-bottom: 48px;
+    border-bottom: 1px solid $border-color-gray;
+  }
+
   .form-parts {
     &__input {
       max-width: 100%;
       width: 100%;
-      height: 2.25rem;
+      height: 3rem;
       padding: 5px 9px;
       border: 1px solid transparent;
       border-color: $border-color-form;
@@ -113,7 +121,8 @@
   }
 
   .form-parts.request_notification {
-    margin-bottom: $margin-under-form-parts-of-notice;
+    padding-bottom: $padding-in-notifiy-label-of-form;
+    border-bottom: 1px solid $border-color-gray;
   }
 
   .button-send {
