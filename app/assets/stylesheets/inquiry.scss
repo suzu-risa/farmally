@@ -17,13 +17,97 @@
       font-size: $font-size-page-title-small-sp;
     }
 
-    .subtitle {
+    &__subtitle {
       margin-top: $margin-on-form-title-note;
       font-size: $font-size-large;
 
       @media screen and (max-width: $sp-max-width) {
         font-weight: bold;
         font-size: $font-size-default;
+      }
+    }
+  }
+
+  .form-parts {
+    &__input {
+      max-width: 100%;
+      width: 100%;
+      height: 2.25rem;
+      padding: 5px 9px;
+      border: 1px solid transparent;
+      border-color: $border-color-form;
+      box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+      font-size: 1rem;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    &__input::placeholder,
+    &__input::-ms-input-placeholder {
+      color: $foreground-light;
+    }
+
+    &__textarea {
+      height: initial;
+      padding: 10px 10px;
+      line-height: 1.5;
+    }
+
+    &__checkbox {
+      display: inline-block;
+      position: relative;
+      line-height: $line-height-checkbox-of-form;
+
+      input[type=checkbox] {
+        display: none;
+      }
+  
+      input[type="checkbox"]:checked + label::after {
+        background: $accent-blue-dark;
+      }
+  
+      input[type="checkbox"]:checked + label::before {
+        opacity: 1;
+      }
+  
+      &__inline-label {
+        position: relative;
+        padding-left: $padding-in-inlin-label-of-form;
+      }
+  
+      &__inline-label::before,
+      &__inline-label::after {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 50%;
+      }
+  
+      &__inline-label::after {
+        margin-top: -0.6em;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $border-color-gray;
+        box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+      }
+  
+      &__inline-label::before {
+        color: $background-default;
+        left: 0.4em;
+        margin-top: -0.30em;
+        width: 0.3em;
+        height: 0.6em;
+        border-right: 0.15em solid $border-color-white;
+        border-bottom: 0.15em solid $border-color-white;
+        transform: rotate(45deg);
+        opacity: 0;
+        z-index: 999;
+      }
+  
+      &__*::before,
+      &__*::after {
+        box-sizing: inherit;
       }
     }
   }

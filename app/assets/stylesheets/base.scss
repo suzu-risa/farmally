@@ -61,7 +61,7 @@ body {
 }
 
 .notice {
-  padding: $padding-in-notice-of-form;
+  padding: $padding-top-in-notice-of-form $padding-right-in-notice-of-form;
   background-color: $accent-red-light;
   margin-bottom: $margin-under-notice-of-form;
   font-weight: bold;
@@ -78,6 +78,7 @@ form {
 
     &.agree-to-terms {
       padding-top: $margin-around-agree-to-terms;
+      border-top: 1px solid $border-color-gray;
       padding-bottom: $margin-around-agree-to-terms;
     }
 
