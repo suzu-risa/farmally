@@ -53,22 +53,19 @@
 
       @media screen and (max-width: $sp-max-width) {
         font-weight: bold;
-        // padding-top: $margin-on-form-title-sp;
-
       }
 
       &::before,
       &::after {
         content: "";
         width: 27%;
-        // width: 15%;
         height: 1px;
         background-color: black;
         position: absolute;
         top: 50%;
 
         @media screen and (max-width: $sp-max-width) {
-          top: calc(15% + #{$margin-on-form-title-sp});
+          top: calc(15% + #{$margin-mobile-subtitle-for-static});
         }
       }
 
@@ -98,9 +95,7 @@
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
-        // margin-top: $margin-on-form-title-sp;
-        margin-top: 3px;
-        margin-bottom: 76px;
+        margin-top: $margin-mobile-subtitle-for-static;
       }
 
       .subtitle {
@@ -148,9 +143,7 @@
       }
 
       .form-contents {
-        // width: 60%;
-        // margin: 0 72px;
-        margin: 0 12%;
+        margin: 0 72px;
 
         .form-parts-info {
           padding-bottom: 48px;
@@ -262,7 +255,7 @@
       background-color: $background-light;
 
       @media screen and (max-width: $sp-max-width) {
-        padding-top: 48px;
+        padding-top: 28px;
       }
 
       .subtitle {
