@@ -12,9 +12,12 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= stub sell/sell
 //= require_tree .
 
+/**
+ * ドロワーオープン時の処理です。
+ * メニュー操作のクリックイベントとして使用します。
+ */
 function openDrawer() {
   const drawer = document.querySelector('.navigation__drawer');
   const navigationBurger = document.getElementById('navigationBurger');
@@ -30,6 +33,10 @@ function openDrawer() {
   navigationBurger.addEventListener('click', closeDrawer, false);
 }
 
+/**
+ * ドロワークローズ時の処理です。
+ * メニュー操作のクリックイベントとして使用します。
+ */
 function closeDrawer() {
   const drawer = document.querySelector('.navigation__drawer');
   const navigationBurger = document.getElementById('navigationBurger');
@@ -45,15 +52,40 @@ function closeDrawer() {
   navigationBurger.addEventListener('click', openDrawer, false);
 }  
 
-document.addEventListener("DOMContentLoaded", function(event) {
+/**
+ * 電話番号のアンカータグにイベントを登録します。
+ */
+const addTelEvent = () => {
+  const elements = document.querySelectorAll("a[href^='tel:']");
+  const l = elements.length;
+
+  for (var i = 0; i < l; i++) {
+    const tel = elements[i].getAttribute('href');
+    elements[i].addEventListener('click', function (e) {
+      fetch('/sell-call-click').then(res => {});
+      if (yahoo_report_conversion && typeof yahoo_report_conversion === 'function') {
+        yahoo_report_conversion(tel);
+      }
+    });
+  }
+}
+
+/**
+ * メニュー操作のハンバーガーにクリックイベントを登録します。
+ */
+const addBurgerEvent = () => {
   const navigationBurger = document.getElementById('navigationBurger');
   if (navigationBurger) {
     navigationBurger.addEventListener('click', openDrawer, false);
   }
 
   const navigationDrawerCloser = document.getElementById('navigationDrawerCloser');
-
   if (navigationDrawerCloser) {
     navigationDrawerCloser.addEventListener('click', closeDrawer, false);
   }
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  addTelEvent();
+  addBurgerEvent();
 }, false);

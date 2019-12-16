@@ -22,7 +22,7 @@ section.sell-lp-section.button-section
               br
               | 親身にお答えします
           .column-button
-            a.phone-number href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '#{position}', 'event_category': '買取LP' });"
+            a.phone-number href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '#{position}', 'event_category': '#{request.path}' });"
               = contact_phone_number(separate: true)
             .column-highlight
               p

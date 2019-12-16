@@ -5,7 +5,7 @@ footer.footer
         .footer__content__info__tel__lead
           | お電話での相談・お問い合わせはこちら
         .footer__content__info__tel__number
-          a href="tel:#{contact_phone_number}"
+          a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'フッター', 'event_category': '#{request.path}' });"
             = image_tag("footer/tel.png", alt: "お電話受け付けております。")
             = contact_phone_number(separate: true)
         .footer__content__info__tel__reception-time
