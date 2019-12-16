@@ -28,7 +28,6 @@
 
     @media screen and (max-width: $sp-max-width) {
       display: block;
-      // margin-top: $margin-on-form-title-sp;
     }
 
     .title-area {
@@ -106,7 +105,6 @@
 
         @media screen and (max-width: $sp-max-width) {
           margin-bottom: 26px;
-          // margin-bottom: 32px;
         }
       }
 
@@ -267,14 +265,6 @@
 
       .line-contents {
         text-align: center;
-
-        // & > div {
-        //   margin-top: 32px;
-
-        //   @media screen and (max-width: $sp-max-width) {
-        //     margin-top: 0;
-        //   }
-        // }
 
         &__line-logo {
           margin-top: 32px;
