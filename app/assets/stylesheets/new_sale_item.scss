@@ -425,3 +425,24 @@ $sale-item-font-color-h: #C9C7C5;
     }
   }
 }
+
+.empty-items {
+  margin: 96px auto;
+  text-align: center;
+
+  &__message {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__information {
+    margin-top: 64px;
+    color: $foreground-gray;
+    line-height: 1.5;
+  }
+
+  &__inquiry {
+    margin-top: 24px;
+    font-weight: bold;
+  }
+}
