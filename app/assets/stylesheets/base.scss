@@ -72,6 +72,11 @@ body {
   }
 }
 
+.success {
+  color: $accent-blue-dark;
+  background-color: $accent-blue-light;
+}
+
 form {
   .form-parts {
     margin-top: $margin-on-form-parts-title;
