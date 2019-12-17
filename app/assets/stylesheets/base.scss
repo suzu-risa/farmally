@@ -61,7 +61,7 @@ body {
 }
 
 .notice {
-  padding: $padding-in-notice-of-form;
+  padding: $padding-top-in-notice-of-form $padding-right-in-notice-of-form;
   background-color: $accent-red-light;
   margin-bottom: $margin-under-notice-of-form;
   font-weight: bold;
@@ -72,13 +72,17 @@ body {
   }
 }
 
+.success {
+  color: $accent-blue-dark;
+  background-color: $accent-blue-light;
+}
+
 form {
   .form-parts {
     margin-top: $margin-on-form-parts-title;
 
     &.agree-to-terms {
-      padding-top: $margin-around-agree-to-terms;
-      padding-bottom: $margin-around-agree-to-terms;
+      margin-bottom: $margin-around-agree-to-terms;
     }
 
     &__title {

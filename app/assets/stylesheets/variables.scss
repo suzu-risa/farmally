@@ -1,7 +1,7 @@
 /* constant */
 // contents width
 $pc-max-width: 1200px;
-$sp-content-width: 90vw;
+$sp-content-width: 91.8vw;
 
 // media query break point ( under SP landscape )
 $sp-max-width: 896px;
@@ -29,9 +29,10 @@ $background-body: #ECEBEA;
 // border color
 $border-color-gray: #F0F0F0;
 $border-color-white: #FFF;
+$border-color-form: #f2f2f2;
 
 // font family
-$font-family-default: Verdana, Helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$font-family-default: Helvetica, arial, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
 // font size
 $font-size-nav-item: 14px;
@@ -59,6 +60,7 @@ $margin-on-page-title-for-static: 64px;
 $margin-under-page-title-for-static: 32px;
 $margin-mobile-on-page-title-for-static: 48px;
 $margin-mobile-under-page-title-for-static: 32px;
+$margin-mobile-subtitle-for-static: 3px;
 
 /* for list page */
 // font size
@@ -95,12 +97,19 @@ $margin-mobile-around-commercial-text: 8px;
 /* for form page */
 // line-height
 $line-height-note-of-form-result: 1.8;
+$line-height-checkbox-of-form: 1.25;
+
+$padding-in-inlin-label-of-form: 28px;
+$padding-in-notifiy-label-of-form: 48px;
+
 
 // margin
 $margin-on-form-title-pc: 72px;
 $margin-under-form-title: 48px;
+$margin-under-form-title-sp: 46px;
 
 $margin-on-form-title-note: 8px;
+$margin-on-form-title-note-sp: 3px;
 
 $margin-under-form-title-only: 72px;
 
@@ -118,12 +127,13 @@ $margin-on-form-parts-note: 8px;
 $margin-under-form-parts-note: 16px;
 
 $margin-under-form-parts-of-notice: 48px; // 価格変更連絡・入荷連絡の下専用
-$margin-around-agree-to-terms: 16px; // 規約同意専用
+$margin-around-agree-to-terms: 24px; // 規約同意専用
 
-$margin-on-form-title-sp: 48px;
+$margin-on-form-title-sp: 51px;
 
 $margin-under-notice-of-form: 32px;
-$padding-in-notice-of-form: 16px;
+$padding-top-in-notice-of-form: 11.5px;
+$padding-right-in-notice-of-form: 16px;
 
 /* button */
 // size

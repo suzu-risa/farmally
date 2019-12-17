@@ -24,7 +24,7 @@ header.navigation
           p.navigation__info__lead__reception-time
             | &#040;電話受付時間 9:00~18:00&#041;
         .navigation__info__tel
-          a href="tel:#{contact_phone_number}"
+          a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'ヘッダー', 'event_category': '#{request.path}' });"
             = image_tag("header/tel.png", alt: "お電話受け付けております。")
             = contact_phone_number(separate: true)
         = link_to '/inquiry', class: "navigation__info__inquiry-button" do
