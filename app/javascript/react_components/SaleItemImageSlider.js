@@ -47,7 +47,7 @@ class SaleItemImageSlider extends React.Component {
   }
 
   render() {
-    const settings = {
+    const main_slider_settings = {
       dots: false,
       infinite: true,
       speed: 500,
@@ -55,6 +55,8 @@ class SaleItemImageSlider extends React.Component {
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
+      beforeChange: (oldIndex, newIndex) => {
+      },
       afterChange: ()=> {
         if(typeof gtag == "function"){
           gtag('event', '商品画像切り替え', { 'event_category': '出品商品' });
@@ -74,7 +76,12 @@ class SaleItemImageSlider extends React.Component {
       }
 
       return (
-        <div className="sale-items__item__image-area__container__thumbnails__item" data-image-index={i} onClick={ e => onClick(e)} key={i}>
+        <div 
+          className= 'sale-items__item__image-area__container__thumbnails__item'
+          data-image-index={i}
+          onClick={ e => onClick(e)}
+          key={i}
+        >
           <img src={image.url} data-image-index={i} alt={image.alt + ' 商品写真サムネイル ' + (i+1)} />
         </div>
       );
@@ -82,7 +89,7 @@ class SaleItemImageSlider extends React.Component {
 
     return (
       <div>
-        <Slider ref={slider => (this.slider = slider)} {...settings} className="sale-items__item__image-area__container__main-image">
+        <Slider ref={slider => (this.slider = slider)} {...main_slider_settings} className="sale-items__item__image-area__container__main-image">
           {itemImages}
         </Slider>
         <div className="sale-items__item__image-area__container__thumbnails">
