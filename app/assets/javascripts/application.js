@@ -56,18 +56,16 @@ function closeDrawer() {
  * 電話番号のアンカータグにイベントを登録します。
  */
 const addTelEvent = () => {
-  const elements = document.querySelectorAll("a[href^='tel:']");
-  const l = elements.length;
-
-  for (var i = 0; i < l; i++) {
-    const tel = elements[i].getAttribute('href');
-    elements[i].addEventListener('click', function (e) {
+  const telAnchors = document.querySelectorAll("a[href^='tel:']");
+  telAnchors.forEach(telAnchor => {
+    const tel = telAnchor.getAttribute('href');
+    telAnchor.addEventListener('click', (e) => {
       fetch('/sell-call-click').then(res => {});
       if (yahoo_report_conversion && typeof yahoo_report_conversion === 'function') {
         yahoo_report_conversion(tel);
       }
     });
-  }
+  });
 }
 
 /**
@@ -85,7 +83,55 @@ const addBurgerEvent = () => {
   }
 }
 
+/**
+ * 続きを読むコントローラーを追加します。
+ */
+const addReadMore = () => {
+  const CLASS_NAME_FOR_REMARK_CLOSE = 'is-close';
+  const CLASS_NAME_FOR_BUTTON = 'sale-items__item__context__remark__controller__button';
+
+  const LABEL_TO_OPEN = '続きの文章を開く↓';
+  const LABEL_TO_CLOSE = '閉じる↑';
+
+  const MIN_HEIGHT_FOR_REMARK_CLOSE = 600;
+
+  const saleItems = document.querySelectorAll('.sale-items__item');
+  saleItems.forEach( saleItem => {
+    const contextArea = saleItem.querySelector('.sale-items__item__context');
+    if (contextArea) {
+      if (MIN_HEIGHT_FOR_REMARK_CLOSE < contextArea.offsetHeight) {
+        const remarkArea = saleItem.querySelector('.sale-items__item__context__remark');
+        remarkArea.insertAdjacentHTML('beforeend', 
+          '<div class="sale-items__item__context__remark__controller">'
+        +     '<input type="button" class="' + CLASS_NAME_FOR_BUTTON + '" value="' + LABEL_TO_OPEN + '" />'
+        + '</div>');
+
+        remarkArea.classList.add(CLASS_NAME_FOR_REMARK_CLOSE);
+      }
+    }
+  });
+
+  // ↑で追加した続きの文章を開くボタンにイベントを登録する
+  const readMoreButtons = document.querySelectorAll('.' + CLASS_NAME_FOR_BUTTON);
+  readMoreButtons.forEach( readMoreButton => {
+    readMoreButton.addEventListener('click', (e) => {
+      const button = e.target;
+      const controller = button.parentNode;
+      const remarkContainer = controller.parentNode;
+
+      if (remarkContainer && remarkContainer.classList.contains(CLASS_NAME_FOR_REMARK_CLOSE)) {
+        remarkContainer.classList.remove(CLASS_NAME_FOR_REMARK_CLOSE);
+        button.value = LABEL_TO_CLOSE;
+      } else {
+        remarkContainer.classList.add(CLASS_NAME_FOR_REMARK_CLOSE);
+        button.value = LABEL_TO_OPEN;
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   addTelEvent();
   addBurgerEvent();
+  addReadMore();
 }, false);

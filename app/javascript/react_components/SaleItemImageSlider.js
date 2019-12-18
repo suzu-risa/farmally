@@ -2,6 +2,34 @@ import React from "react";
 import Slider from "react-slick";
 import axios from "axios";
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className="sale-items__item__image-area__container__main-image__slider-arrow next"
+      onClick={onClick}
+    >
+      <img
+        src="/images/arrow-next.svg"
+      />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className="sale-items__item__image-area__container__main-image__slider-arrow prev"
+      onClick={onClick}
+    >
+      <img
+        src="/images/arrow-prev.svg"
+      />
+    </div>
+  );
+}
+
 class SaleItemImageSlider extends React.Component {
   constructor() {
     super();
@@ -19,12 +47,16 @@ class SaleItemImageSlider extends React.Component {
   }
 
   render() {
-    const settings = {
+    const main_slider_settings = {
       dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      beforeChange: (oldIndex, newIndex) => {
+      },
       afterChange: ()=> {
         if(typeof gtag == "function"){
           gtag('event', '商品画像切り替え', { 'event_category': '出品商品' });
@@ -44,7 +76,12 @@ class SaleItemImageSlider extends React.Component {
       }
 
       return (
-        <div className="column is-3-mobile is-2-tablet is-2-desktop" data-image-index={i} onClick={ e => onClick(e)} key={i}>
+        <div 
+          className= 'sale-items__item__image-area__container__thumbnails__item'
+          data-image-index={i}
+          onClick={ e => onClick(e)}
+          key={i}
+        >
           <img src={image.url} data-image-index={i} alt={image.alt + ' 商品写真サムネイル ' + (i+1)} />
         </div>
       );
@@ -52,10 +89,10 @@ class SaleItemImageSlider extends React.Component {
 
     return (
       <div>
-        <Slider ref={slider => (this.slider = slider)} {...settings}>
+        <Slider ref={slider => (this.slider = slider)} {...main_slider_settings} className="sale-items__item__image-area__container__main-image">
           {itemImages}
         </Slider>
-        <div className="columns is-mobile is-multiline thumbnail-container">
+        <div className="sale-items__item__image-area__container__thumbnails">
           {thumbnailItemImageColumns}
         </div>
       </div>

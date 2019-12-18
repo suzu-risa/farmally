@@ -17,14 +17,13 @@
   }
 
   &__drawer-header {
-    width: 20%;
-
     @media screen and (max-width: $sp-max-width) {
       position: fixed;
       width: 100%;
       height: 50px;
       background-color: white;
       border-bottom: 1px solid #F0F0F0;
+      z-index: 999;
     }
   }
 
@@ -79,11 +78,8 @@
 
   &__logo {
     display: inline-block;
-    margin: 16px 0 0 16px;
+    margin: 16px 32px 0 16px;
 
-    @media screen and (max-width: $sp-max-width) {
-      width: 20%;
-    }
     & img {
       height: inherit;
     }
@@ -138,10 +134,25 @@
       }
 
       &.is-current {
-        border-bottom: 3px solid $accent-blue-dark;
+        position: relative;
 
         @media screen and (max-width: $sp-max-width) {
           border-bottom: none;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: calc(100% - 8px);
+          left: 4px;
+          bottom: -4px;
+          border-bottom: 4px solid $accent-blue-dark;
+
+          @media screen and (max-width: $sp-max-width) {
+            display: none;
+            border-bottom: none;
+          }
         }
       }
 
@@ -187,7 +198,9 @@
       }
 
       &__reception-time {
-        margin-top: 4px;
+        font-size: $font-size-smallest;
+        margin-top: 2px;
+        color: $foreground-gray;
       }
     }
 
@@ -212,9 +225,9 @@
 
       font-size: 12px;
       color: $accent-blue-dark;
-      background: $background-for-gray-button;
-      border-color: $border-for-gray-button;
-      box-shadow: $box-shadow-gray-button-for-large-button;
+      background: $background-for-header-inquiry-button;
+      border-color: $border-for-header-inquiry-button;
+      box-shadow: $box-shadow-for-header-inquiry-button;
       margin: 12px 8px 0;
       width: $width-for-small-button;
 
@@ -225,8 +238,8 @@
 
       &:hover {
         color: $accent-blue-dark;
-        background: $background-for-gray-button-hover;
-        border-color: $border-for-gray-button;
+        background: $background-for-header-inquiry-button-hover;
+        box-shadow: $box-shadow-for-header-inquiry-button-hover;
       }
     }
   }

@@ -16,4 +16,8 @@ module ItemHelper
       "#{print_price(item.maker_price * 1000)}〜#{print_price(item.sub_maker_price * 1000)}"
     end
   end
+
+  def prefecture_name(prefecture_code)
+    JpPrefecture::Prefecture.find(prefecture_code).name
+  end
 end

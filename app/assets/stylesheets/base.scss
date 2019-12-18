@@ -29,6 +29,7 @@ a {
 
 body {
   background-color: $background-body;
+  overflow: auto;
 
   @media screen and (max-width: $sp-max-width) {
     background-color: $background-default;
@@ -37,11 +38,11 @@ body {
 
 .site-content {
   background-color: $background-default;
-  max-width: $pc-max-width;
+  width: $pc-max-width;
   margin: 0 auto;
 
   @media screen and (max-width: $sp-max-width) {
-    max-width: inherit;
+    width: inherit;
   }
 }
 

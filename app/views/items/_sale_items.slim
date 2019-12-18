@@ -2,14 +2,14 @@
   - sale_items.each_with_index do |sale_item, i|
     article.sale-items__item
       .sale-items__item__image-area
-          div id="sale-item-image#{i + 1}" class="slick-slide-container main-image" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
+          div id="sale-item-image#{i + 1}" class="slick-slide-container sale-items__item__image-area__container" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
 
       .sale-items__item__context
         .sale-items__item__context__info
           .sale-items__item__context__info__id
             | 商品ID：#{"%07d" % sale_item.id}
           .sale-items__item__context__info__category
-            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link"
+            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link text"
               | #{sale_item.category_name}
           .sale-items__item__context__info__maker
             | #{sale_item.maker.name}
@@ -41,9 +41,9 @@
                   | PS
             dl.sale-items__item__context__info__detail__item
               dt.sale-items__item__context__info__detail__item__title
-                | ステータス
+                | 出品地域
               dd.sale-items__item__context__info__detail__item__value
-                | #{sale_item.display_status}
+                | #{prefecture_name sale_item.prefecture_code}
           .sale-items__item__context__info__consultation
             .sale-items__item__context__info__consultation__button
               = link_to buy_path(sale_item), class: "buy-link"
@@ -51,7 +51,8 @@
             .sale-items__item__context__info__consultation__link
               = link_to '/inquiry', class: "inquiry-link"
                 | 価格変更・<br>入荷連絡の申し込み
-        .flow    
-          .remark.open
-            p
-              | #{sale_item.remark}
+          .sale-items__item__context__info__announce 
+            | ※販売店様でご購入希望の方もこちらからお問い合わせください。
+        .sale-items__item__context__remark
+          p.sale-items__item__context__remark__text
+            | #{sale_item.remark}
