@@ -165,17 +165,17 @@ $border-for-header-inquiry-button: $border-color-around-header-inquiry-button $b
 $border-color-around-gray-button: #F2F2F1;
 $border-color-bottom-of-gray-button: #E0E9E7;
 $border-for-gray-button: $border-color-around-gray-button $border-color-around-gray-button $border-color-bottom-of-gray-button $border-color-around-gray-button;
-$background-for-header-inquiry-button: linear-gradient(#F5FAF9, #E2F0EE);
-$background-for-header-inquiry-button-hover: linear-gradient(#F0F0F0, #EFF7f6);
+$background-for-header-inquiry-button: linear-gradient(#F5FAF9 60%, #E2F0EE);
+$background-for-header-inquiry-button-hover: linear-gradient(#F0F0F0 60%, #EFF7f6);
 
-$background-for-gray-button: linear-gradient(#F5FAF9, #E5F1F0);
-$background-for-gray-button-hover: linear-gradient(#FFF, #E5F1F0);
+$background-for-gray-button: linear-gradient(#F5FAF9 60%, #E5F1F0);
+$background-for-gray-button-hover: linear-gradient(#FFF 60%, #E5F1F0);
 
 $border-color-around-red-button: #C9401B;
 $border-color-bottom-of-red-button: #A93F20;
 $border-for-red-button: $border-color-around-red-button $border-color-around-red-button $border-color-bottom-of-red-button $border-color-around-red-button;
-$background-for-red-button: linear-gradient(#E64A17, #BF401D);
-$background-for-red-button-hover: linear-gradient(#D91D00, #B32211);
+$background-for-red-button: linear-gradient(#E64A17 60%, #BF401D);
+$background-for-red-button-hover: linear-gradient(#D91D00 60%, #B32211);
 
 $background-for-footer-inquiry-button: #5E5751;
 $border-for-footer-inquiry-button: #5E5751;
