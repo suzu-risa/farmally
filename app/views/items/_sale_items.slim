@@ -9,7 +9,7 @@
           .sale-items__item__context__info__id
             | 商品ID：#{"%07d" % sale_item.id}
           .sale-items__item__context__info__category
-            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link"
+            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link text"
               | #{sale_item.category_name}
           .sale-items__item__context__info__maker
             | #{sale_item.maker.name}
@@ -51,8 +51,8 @@
             .sale-items__item__context__info__consultation__link
               = link_to '/inquiry', class: "inquiry-link"
                 | 価格変更・<br>入荷連絡の申し込み
-            .sale-items__item__context__info__consultation__announce
-              | ※販売店様でご購入希望の方もこちらからお問い合わせください。
+          .sale-items__item__context__info__announce 
+            | ※販売店様でご購入希望の方もこちらからお問い合わせください。
         .sale-items__item__context__remark
           p.sale-items__item__context__remark__text
             | #{sale_item.remark}
