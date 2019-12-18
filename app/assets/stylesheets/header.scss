@@ -17,8 +17,6 @@
   }
 
   &__drawer-header {
-    width: 20%;
-
     @media screen and (max-width: $sp-max-width) {
       position: fixed;
       width: 100%;
@@ -80,11 +78,8 @@
 
   &__logo {
     display: inline-block;
-    margin: 16px 0 0 16px;
+    margin: 16px 32px 0 16px;
 
-    @media screen and (max-width: $sp-max-width) {
-      width: 20%;
-    }
     & img {
       height: inherit;
     }
@@ -139,10 +134,25 @@
       }
 
       &.is-current {
-        border-bottom: 3px solid $accent-blue-dark;
+        position: relative;
 
         @media screen and (max-width: $sp-max-width) {
           border-bottom: none;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: calc(100% - 8px);
+          left: 4px;
+          bottom: -4px;
+          border-bottom: 4px solid $accent-blue-dark;
+
+          @media screen and (max-width: $sp-max-width) {
+            display: none;
+            border-bottom: none;
+          }
         }
       }
 
