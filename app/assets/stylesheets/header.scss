@@ -198,7 +198,9 @@
       }
 
       &__reception-time {
-        margin-top: 4px;
+        font-size: $font-size-smallest;
+        margin-top: 2px;
+        color: $foreground-gray;
       }
     }
 
