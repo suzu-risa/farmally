@@ -223,9 +223,9 @@
 
       font-size: 12px;
       color: $accent-blue-dark;
-      background: $background-for-gray-button;
-      border-color: $border-for-gray-button;
-      box-shadow: $box-shadow-gray-button-for-large-button;
+      background: $background-for-header-inquiry-button;
+      border-color: $border-for-header-inquiry-button;
+      box-shadow: $box-shadow-for-header-inquiry-button;
       margin: 12px 8px 0;
       width: $width-for-small-button;
 
@@ -236,8 +236,8 @@
 
       &:hover {
         color: $accent-blue-dark;
-        background: $background-for-gray-button-hover;
-        border-color: $border-for-gray-button;
+        background: $background-for-header-inquiry-button-hover;
+        box-shadow: $box-shadow-for-header-inquiry-button-hover;
       }
     }
   }
