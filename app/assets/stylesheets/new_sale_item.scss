@@ -258,10 +258,6 @@ $sale-item-margin-title: 24px;
 
             background-color: #F1EBE6;
 
-            @media screen and (max-width: $sp-max-width) {
-              background-color: transparent; 
-            }
-
             & > div > img {
               width: auto !important;
 
@@ -286,7 +282,7 @@ $sale-item-margin-title: 24px;
 
           @media screen and (max-width: $sp-max-width) {
             padding-top: 4px;
-            padding-bottom: 12px;
+            padding-bottom: 0;
           }
 
           &__item {
