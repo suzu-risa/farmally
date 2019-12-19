@@ -83,9 +83,9 @@
           = f.text_area :message, class: 'form-parts__input form-parts__textarea', rows: '8', placeholder: "ご自由にご記入ください。"
 
         .form-parts.agree-to-terms
-          .checkbox
+          .form-parts__checkbox
             = f.check_box :agree_to_terms
-            = f.label :agree_to_terms, class: 'inline-label'
+            = f.label :agree_to_terms, class: 'form-parts__checkbox__inline-label'
               a.term-link.text href="/terms-of-service" target="_blank" 利用規約
               | に同意する
           span.required
