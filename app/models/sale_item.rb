@@ -71,7 +71,7 @@ class SaleItem < ApplicationRecord
     eager_load(item: :category).where(categories: { displayable: Category::Displayed })
   }
 
-  paginates_per 1
+  paginates_per 4
 
   # TODO: ファイルのマイグレーションが終わったらリファクタする
   def new_images

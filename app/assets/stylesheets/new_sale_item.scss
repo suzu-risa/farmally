@@ -95,27 +95,42 @@ $sale-item-margin-title: 24px;
   .paginate {
     font-weight: bold;
 
-    .paginate-list {
+    &__list {
       display: -webkit-flex;
       display: flex;
       align-items: center;
-    }
 
-    .paginate-link {
-      display: block;
-      padding: 0 16px 0 0;
+      .page-number-for-sp {
+        display: none;
+      }
 
       @media screen and (max-width: $sp-max-width) {
-        visibility:hidden;
+        .page-number-for-sp {
+          display: block;
+        }
+
+        .first,
+        .last,
+        .page-number{
+          display: none;
+        }
+      }
+
+      &__item {
+        padding: 0 16px 0 0;
+
+        // @media screen and (max-width: $sp-max-width) {
+        //   visibility:hidden;
+        // }
       }
     }
 
-    .paginate-last {
+    .last {
       padding: 10px 20px 10px 0;
     }
 
-    .paginate-first
-    .paginate-last {
+    .first
+    .last {
       color: #C9C7C5;
     }
 
@@ -151,7 +166,12 @@ $sale-item-margin-title: 24px;
       color: #32978B
     }
 
-    .paginate-previous {
+    .next,
+    .prev {
+      padding-right: 0;
+    }
+
+    .prev {
       margin-right: 4px;
     }
   }
@@ -160,7 +180,7 @@ $sale-item-margin-title: 24px;
 .sale-items {
   margin: 0 24px 48px;
   @media screen and (max-width: $sp-max-width) {
-    margin: 12px 12px;
+    margin: 0 12px;
   }
 
   &__item {
@@ -178,6 +198,7 @@ $sale-item-margin-title: 24px;
 
     @media screen and (max-width: $sp-max-width) {
       display: block;
+      padding: 0 0;
     }
 
     &__image-area {
@@ -186,11 +207,16 @@ $sale-item-margin-title: 24px;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
+        margin: 12px 0;
       }
 
       &__container {
         width: 70%;
         margin: 0 auto;
+
+        @media screen and (max-width: $sp-max-width) {
+          width: 100%;
+        }
 
         &__main-image {
           &__slider-arrow {
@@ -204,10 +230,18 @@ $sale-item-margin-title: 24px;
 
             &.next {
               right: -62px;
+
+              @media screen and (max-width: $sp-max-width) {
+                right: -15px;
+              }
             }
 
             &.prev {
               left: -62px;
+
+              @media screen and (max-width: $sp-max-width) {
+                left: -15px;
+              }
             }
           }
         }
@@ -224,6 +258,10 @@ $sale-item-margin-title: 24px;
 
             background-color: #F1EBE6;
 
+            @media screen and (max-width: $sp-max-width) {
+              background-color: transparent; 
+            }
+
             & > div > img {
               width: auto !important;
 
@@ -238,11 +276,18 @@ $sale-item-margin-title: 24px;
         }
 
         &__thumbnails {
-          margin-top: 16px;
-          margin-bottom: 20px;
+          // margin-top: 16px;
+          // margin-bottom: 20px;
+          padding-top: 16px;
+          padding-bottom: 20px;
 
           display: flex;
           flex-wrap: wrap;
+
+          @media screen and (max-width: $sp-max-width) {
+            padding-top: 4px;
+            padding-bottom: 12px;
+          }
 
           &__item {
             background-color: #F1EBE6;
@@ -276,7 +321,8 @@ $sale-item-margin-title: 24px;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
-        padding-left: 0;
+        margin-top: 12px;
+        margin-left: 0;
       }
 
       &__info {
@@ -387,6 +433,10 @@ $sale-item-margin-title: 24px;
             box-shadow: $box-shadow-red-button-for-large-button;
             display: inline-block;
 
+            @media screen and (max-width: $sp-max-width) {
+              display: block;
+            }
+
             &:hover {
               color: $foreground-white;
               background: $background-for-red-button-hover;
@@ -403,8 +453,16 @@ $sale-item-margin-title: 24px;
             text-decoration: underline #807973;
 
             @media screen and (max-width: $sp-max-width) {
+              display:table-cell;
               margin: 0 auto;
             }
+
+            // &.inquiry-link {
+            //   @media screen and (max-width: $sp-max-width) {
+            //     // display: block;
+            //     margin: 0 auto;
+            //   }
+            // }
           }
 
         }
@@ -421,7 +479,8 @@ $sale-item-margin-title: 24px;
         line-height: 1.8;
 
         @media screen and (max-width: $sp-max-width) {
-          padding: 18px 0 48px;;
+          margin: 0 0;
+          padding: 24px 0 48px;
         }
 
         &.is-close > &__text {
@@ -438,6 +497,10 @@ $sale-item-margin-title: 24px;
 
             border: none;
             text-decoration: underline;
+
+            @media screen and (max-width: $sp-max-width) {
+              margin-bottom: 0;
+            }
           }
         }
       }
