@@ -48,18 +48,8 @@ body {
 
 .main {
   @media screen and (max-width: $sp-max-width) {
-    // width: $sp-content-width;
     margin: 48px auto 0;
-    // margin: 92px auto 0;
   }
-
-  // .main-contents {
-  //   padding: 0 24px;
-
-  //   @media screen and (max-width: $sp-max-width) {
-  //     padding: 0 12px;
-  //   }
-  // }
 }
 
 .column {
