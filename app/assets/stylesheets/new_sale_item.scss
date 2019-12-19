@@ -2,6 +2,8 @@
 $sale-item-margin-pc: 28px;
 $sale-item-margin-title: 24px;
 
+$sale-item-font-size-form-link: 14px;
+
 .items {
   &__heading-title {
     width: 100%;
@@ -462,6 +464,11 @@ $sale-item-margin-title: 24px;
             }
           }
 
+          &__sold {
+            font-size: $sale-item-font-size-form-link;
+            font-weight: bold;
+            text-align: center;
+          }
         }
 
         &__announce {

@@ -45,14 +45,19 @@
               dd.sale-items__item__context__info__detail__item__value
                 | #{prefecture_name sale_item.prefecture_code}
           .sale-items__item__context__info__consultation
-            .sale-items__item__context__info__consultation__button
-              = link_to buy_path(sale_item), class: "buy-link"
-                | 購入申し込み・相談
-            .sale-items__item__context__info__consultation__link
-              = link_to '/inquiry', class: "inquiry-link"
-                | 価格変更・<br>入荷連絡の申し込み
-          .sale-items__item__context__info__announce 
-            | ※販売店様でご購入希望の方もこちらからお問い合わせください。
+            - if sale_item.sold? then
+              .sale-items__item__context__info__consultation__sold
+                | この商品は売却されました
+            - else
+              .sale-items__item__context__info__consultation__button
+                = link_to buy_path(sale_item), class: "buy-link"
+                  | 購入申し込み・相談
+              .sale-items__item__context__info__consultation__link
+                = link_to '/inquiry', class: "inquiry-link"
+                  | 価格変更・<br>入荷連絡の申し込み
+          - if !sale_item.sold? then
+            .sale-items__item__context__info__announce 
+              | ※販売店様でご購入希望の方もこちらからお問い合わせください。
         .sale-items__item__context__remark
           p.sale-items__item__context__remark__text
             | #{sale_item.remark}
