@@ -2,8 +2,6 @@
 $sale-item-margin-pc: 28px;
 $sale-item-margin-title: 24px;
 
-$sale-item-font-size-form-link: 14px;
-
 .items {
   &__heading-title {
     width: 100%;
@@ -11,6 +9,9 @@ $sale-item-font-size-form-link: 14px;
     line-height: 84px;
     padding-left: $sale-item-margin-title;
     background-image: url("/item-header.png");
+    @media screen and (max-width: $sp-max-width) {
+      background-image: url("/item-header-896.png");
+    }
 
     &__title {
       font-size: $font-size-larger;
@@ -31,7 +32,6 @@ $sale-item-font-size-form-link: 14px;
 }
 
 .category-list {
-  // margin-left: 12px;
   margin-left: 36px;
   margin-bottom: 16px;
 
@@ -52,11 +52,11 @@ $sale-item-font-size-form-link: 14px;
       font-weight: bold;
 
       &:hover {
-        text-decoration: underline #807973;
+        text-decoration: underline $foreground-gray;
       }
 
       &.is-current {
-        color: #32978B;
+        color: $accent-blue-dark;
         pointer-events: none;
       }
     }
@@ -64,7 +64,7 @@ $sale-item-font-size-form-link: 14px;
 }
 
 .pagination-nav {
-  margin: 0 24px;
+  margin: 0 $sale-item-margin-title;
   padding: 10px 10px 10px 12px;
   display: -webkit-flex;
   display: flex;
@@ -74,22 +74,22 @@ $sale-item-font-size-form-link: 14px;
 
   white-space: nowrap;
   font-size: $font-size-default;
-  background-color: #F9F7F5;
-  border-top: 1px solid #F0F0F0;
+  background-color: $background-light;
+  border-top: 1px solid $border-color-gray;
 
   @media screen and (max-width: $sp-max-width) {
-    margin: 0 0;
+    margin: 0;
     padding-right: 0 12px;
   }
 
   &__item-total-counts {
     font-size: 24px;
     font-weight: bold;
-    color: #32978B;
+    color: $accent-blue-dark;
     
     &__suffix {
       color: $foreground-dark;
-      font-size: 16px;
+      font-size: $font-size-large;
       font-weight: bold;
     }
   }
@@ -111,76 +111,72 @@ $sale-item-font-size-form-link: 14px;
           display: block;
         }
 
-        .first,
-        .last,
-        .page-number{
+        & .first,
+        & .last,
+        & .page-number{
           display: none;
         }
       }
 
       &__item {
         padding: 0 16px 0 0;
-
-        // @media screen and (max-width: $sp-max-width) {
-        //   visibility:hidden;
-        // }
       }
     }
 
-    .last {
+    & .last {
       padding: 10px 20px 10px 0;
     }
 
-    .first
-    .last {
-      color: #C9C7C5;
+    & .first
+    & .last {
+      color: $foreground-light;
     }
 
-    .button {
+    & .button {
       @extend %button;
 
-      font-size: 12px;
-      background: #F9F7F5;
+      font-size: $font-size-smaller;
+      background: $background-light;
       width: 64px;
       height: 28px;
       border-width: 1px;
-      border-color: #f2f2f1;
+      border-color: $border-color-around-gray-button;
       border-bottom-color: #e2e1e0;
       border-radius: 7px;
-      background-color: linear-gradient(#ffffff, #f1f0ef);
+      background-color: linear-gradient($background-default, #f1f0ef);
       box-shadow: 0 1px 0 0 #d9d9d9;
     }
 
-    .paginate-link:hover {
-      color: #32978B;
+    & .paginate-link:hover {
+      color: $accent-blue-dark;
     }
 
-    .button:hover {
-      color: #32978B;
+    & .button:hover {
+      color: $accent-blue-dark;
     }
 
-    .disabled {
+    & .disabled {
       pointer-events: none;
-      color: #C9C7C5;
+      color: $foreground-light;
     }
 
-    .is-current {
-      color: #32978B
+    & .is-current {
+      color: $accent-blue-dark
     }
 
-    .next,
-    .prev {
+    & .next,
+    & .prev {
       padding-right: 0;
     }
 
-    .prev {
+    & .prev {
       margin-right: 4px;
     }
   }
 }
 
 .sale-items {
-  margin: 0 24px 48px;
+  margin: 0 $sale-item-margin-title 48px;
   @media screen and (max-width: $sp-max-width) {
     margin: 0 12px;
   }
@@ -188,15 +184,11 @@ $sale-item-font-size-form-link: 14px;
   &__item {
     display: flex;
 
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: $sale-item-margin-title;
+    padding-bottom: $sale-item-margin-title;
 
     border-bottom: solid $border-size-nav-item-separate;
-    border-color: #F0F0F0;
-
-    // &:last-child {
-    //   margin-bottom: 48px;
-    // }
+    border-color: $border-color-gray;
 
     @media screen and (max-width: $sp-max-width) {
       display: block;
@@ -258,7 +250,7 @@ $sale-item-font-size-form-link: 14px;
             height: inherit;
             position: relative;
 
-            background-color: #F1EBE6;
+            background-color: $background-gray;
 
             & > div > img {
               width: auto !important;
@@ -274,8 +266,6 @@ $sale-item-font-size-form-link: 14px;
         }
 
         &__thumbnails {
-          // margin-top: 16px;
-          // margin-bottom: 20px;
           padding-top: 16px;
           padding-bottom: 20px;
 
@@ -288,7 +278,7 @@ $sale-item-font-size-form-link: 14px;
           }
 
           &__item {
-            background-color: #F1EBE6;
+            background-color: $background-gray;
             margin-right: 4px;
             margin-bottom: 4px;
 
@@ -348,7 +338,7 @@ $sale-item-font-size-form-link: 14px;
 
         &__price-info {
           margin-top: 13px;
-          font-size: 12px;
+          font-size: $font-size-smaller;
 
           &__title {
             &::after {
@@ -358,13 +348,13 @@ $sale-item-font-size-form-link: 14px;
 
           &__price {
             display: block;
-            color: #E64A17;
-            font-size: 32px;
+            color: $accent-red-dark;
+            font-size: $font-size-page-title-small-pc;
             font-weight: bold;
           }
 
           &__currency {
-            font-size: 16px;
+            font-size: $font-size-large;
             font-weight: bold;
           }
 
@@ -382,12 +372,12 @@ $sale-item-font-size-form-link: 14px;
           &__item {
             margin: 0 0 16px;
             padding: 0 12px;
-            font-size: 12px;
+            font-size: $font-size-smaller;
             color: $foreground-gray;
-            border-left: solid $border-size-nav-item-separate #F0F0F0;
+            border-left: solid $border-size-nav-item-separate $border-color-gray;
 
             &:last-child {
-              border-right: solid $border-size-nav-item-separate #F0F0F0;
+              border-right: solid $border-size-nav-item-separate $border-color-gray;
             }
 
             &__title {
@@ -400,9 +390,9 @@ $sale-item-font-size-form-link: 14px;
 
             &__value {
               margin: 8px 0 0;
-              font-size: 16px;
+              font-size: $font-size-large;
               font-weight: bold;
-              color: #807973;
+              color: $foreground-gray;
 
               &__unit {
                 margin-left: 4px;
@@ -415,7 +405,7 @@ $sale-item-font-size-form-link: 14px;
         }
 
         &__consultation {
-          background-color: #FDF1EC;
+          background-color: $accent-red-light;
           padding: 16px 12px;
 
           @media screen and (max-width: $sp-max-width) {
@@ -448,7 +438,7 @@ $sale-item-font-size-form-link: 14px;
             font-weight: bold;
             margin-left: 12px;
             vertical-align: middle;
-            text-decoration: underline #807973;
+            text-decoration: underline $foreground-gray;
 
             @media screen and (max-width: $sp-max-width) {
               display: block;
@@ -465,7 +455,7 @@ $sale-item-font-size-form-link: 14px;
           }
 
           &__sold {
-            font-size: $sale-item-font-size-form-link;
+            font-size: $font-size-default;
             font-weight: bold;
             text-align: center;
           }
@@ -487,7 +477,7 @@ $sale-item-font-size-form-link: 14px;
           padding: 24px 0 48px;
         }
 
-        &.is-close > &__text {
+        & .is-close > &__text {
           height: 200px;
           overflow: hidden;
         }
@@ -496,8 +486,8 @@ $sale-item-font-size-form-link: 14px;
           text-align: center;
 
           &__button {
-            margin-top: 24px;
-            margin-bottom: 24px;
+            margin-top: $sale-item-margin-title;
+            margin-bottom: $sale-item-margin-title;
 
             border: none;
             text-decoration: underline;
@@ -517,7 +507,7 @@ $sale-item-font-size-form-link: 14px;
   text-align: center;
 
   &__message {
-    font-size: 20px;
+    font-size: $font-size-larger;
     font-weight: bold;
   }
 
@@ -528,7 +518,7 @@ $sale-item-font-size-form-link: 14px;
   }
 
   &__inquiry {
-    margin-top: 24px;
+    margin-top: $sale-item-margin-title;
     font-weight: bold;
   }
 }
