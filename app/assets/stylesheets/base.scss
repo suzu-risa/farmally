@@ -52,6 +52,13 @@ body {
   }
 }
 
+.main-form {
+  @media screen and (max-width: $sp-max-width) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+
 .column {
   padding: 0;
 }

@@ -5,7 +5,6 @@
   @media screen and (max-width: $sp-max-width) {
     width: 100%;
     margin-top: $margin-on-form-title-sp;
-    
   }
 
   .title {
@@ -48,6 +47,23 @@
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
+    }
+
+    &__title {
+      margin-bottom: $margin-under-form-parts-title;
+
+      &__label {
+        color: $foreground-dark;
+        font-size: $font-size-default;
+        font-weight: bold;
+      }
+
+      &__note {
+        margin-top: $margin-on-form-parts-note;
+        margin-bottom: $margin-under-form-parts-note;
+        font-size: $font-size-smaller;
+      }
+
     }
 
     &__input::placeholder,
