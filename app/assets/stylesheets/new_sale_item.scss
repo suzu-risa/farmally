@@ -414,7 +414,7 @@ $sale-item-margin-title: 24px;
 
         &__consultation {
           background-color: #FDF1EC;
-          padding: 12px;
+          padding: 16px 12px;
 
           @media screen and (max-width: $sp-max-width) {
             display: block;
@@ -449,16 +449,17 @@ $sale-item-margin-title: 24px;
             text-decoration: underline #807973;
 
             @media screen and (max-width: $sp-max-width) {
-              display:table-cell;
-              margin: 0 auto;
+              display: block;
+              margin-top: 12px;
+              margin-left: 0;
+              text-align: center;
             }
 
-            // &.inquiry-link {
-            //   @media screen and (max-width: $sp-max-width) {
-            //     // display: block;
-            //     margin: 0 auto;
-            //   }
-            // }
+            & .inquiry-link br {
+              @media screen and (max-width: $sp-max-width) {
+                display: none;
+              }
+            }
           }
 
         }
