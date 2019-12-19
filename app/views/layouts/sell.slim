@@ -62,8 +62,8 @@ html[lang="ja"]
         | /* ]]> */
       script[type="text/javascript" src="https://s.yimg.jp/images/listing/tool/cv/conversion_async.js"]
   body.sell-lp
+    = render :partial => '/gtm_in_body'
     = render :partial => '/header'
-    / = render partial: '/sell/breadcrumb'
     - if flash.present?
       section.hero.is-white.is-small
         div class="notification is-#{flash.first[0]}"
