@@ -62,7 +62,7 @@
       line-height: 1.5;
     }
 
-    & .checkbox {
+    &__checkbox {
       display: inline-block;
       position: relative;
       line-height: $line-height-checkbox-of-form;
@@ -79,20 +79,20 @@
         opacity: 1;
       }
   
-      & .inline-label {
+      &__inline-label {
         position: relative;
         padding-left: $padding-in-inlin-label-of-form;
       }
   
-      & .inline-label::before,
-      & .inline-label::after {
+      &__inline-label::before,
+      &__inline-label::after {
         position: absolute;
         content: "";
         display: block;
         top: 50%;
       }
   
-      &.inline-label::after {
+      &__inline-label::after {
         margin-top: -0.6em;
         width: 18px;
         height: 18px;
@@ -100,7 +100,7 @@
         box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
       }
   
-      & .inline-label::before {
+      &__inline-label::before {
         color: $background-default;
         left: 0.4em;
         margin-top: -0.30em;
