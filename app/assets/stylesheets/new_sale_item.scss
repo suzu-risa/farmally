@@ -11,6 +11,9 @@ $sale-item-font-size-form-link: 14px;
     line-height: 84px;
     padding-left: $sale-item-margin-title;
     background-image: url("/item-header.png");
+    @media screen and (max-width: $sp-max-width) {
+      background-image: url("/item-header-896.png");
+    }
 
     &__title {
       font-size: $font-size-larger;
