@@ -11,10 +11,11 @@ $sale-item-margin-title: 24px;
     background-image: url("/item-header.png");
     @media screen and (max-width: $sp-max-width) {
       background-image: url("/item-header-896.png");
+      background-size: cover;
     }
 
     &__title {
-      font-size: $font-size-larger;
+      font-size: $font-size-large;
       color: $foreground-white;
       font-weight: bold;
     }
@@ -245,6 +246,10 @@ $sale-item-margin-title: 24px;
           justify-content: center;
           align-items: center;
           height: 484px;
+
+          @media screen and (max-width: $sp-max-width) {
+            height: calc(100vw - 24px);
+          }
 
           .slick-slide {
             height: inherit;
