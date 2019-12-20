@@ -477,7 +477,7 @@ $sale-item-margin-title: 24px;
           padding: 24px 0 48px;
         }
 
-        & .is-close > &__text {
+        &.is-close > &__text {
           height: 200px;
           overflow: hidden;
         }
