@@ -1,6 +1,10 @@
 .buy {
   position: relative;
 
+  @media screen and (max-width: $sp-max-width) {
+    margin-top: 99px;
+  }
+
   .title {
     color: $foreground-dark;
     font-size: $font-size-page-title-large;
@@ -97,7 +101,7 @@
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
-        margin-top: $margin-mobile-subtitle-for-static;
+        margin-top: $margin-mobile-on-page-title-for-static;
         margin-bottom: $margin-under-main-section-sp;
       }
 
