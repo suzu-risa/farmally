@@ -67,6 +67,66 @@ as well as a link to its edit page.
       <%= page.resource.display_price %>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:prefecture_code) %>
+    </td>
+
+    <td>
+      <%= JpPrefecture::Prefecture.find(page.resource.prefecture_code).name %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:used_hours) %>
+    </td>
+
+    <td>
+      <%= page.resource.used_hours %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:horse_power) %>
+    </td>
+
+    <td>
+      <%= page.resource.horse_power %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:year) %>
+    </td>
+
+    <td>
+      <%= page.resource.year %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:status) %>
+    </td>
+
+    <td>
+      <%= page.resource.status %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= SaleItem.human_attribute_name(:remark) %>
+    </td>
+
+    <td>
+      <%= page.resource.remark %>
+    </td>
+  </tr>
 </table>
 
 <% page.resource.detail_with_template.tables.each do |table| %>
