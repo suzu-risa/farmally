@@ -34,6 +34,7 @@
     <%= javascript_bundle_tag 'application' %>
   </head>
   <body>
+    <%= render :partial => '/gtm_in_body' %>
     <div class="site-content">
       <%= render :partial => '/header' %>
       <%= yield %>
