@@ -9,6 +9,9 @@ $sale-item-margin-title: 24px;
     line-height: 84px;
     padding-left: $sale-item-margin-title;
     background-image: url("/item-header.png");
+    @media screen and (max-width: $sp-max-width) {
+      background-image: url("/item-header-896.png");
+    }
 
     &__title {
       font-size: $font-size-larger;
@@ -21,24 +24,23 @@ $sale-item-margin-title: 24px;
     margin-top: $sale-item-margin-pc;
     margin-bottom: 96px;
     line-height: $line-height-default;
-    padding: 0 24px;
 
     @media screen and (max-width: $sp-max-width) {
       width: 100%;
-      margin: 0 0;
     }
   }
 }
 
 .category-list {
-  margin-left: 12px;
+  margin-left: 36px;
   margin-bottom: 16px;
 
   display: flex;
   list-style: none;
 
   @media screen and (max-width: $sp-max-width) {
-    margin: $sale-item-margin-pc 0 16px;
+    margin-left: 12px;
+    margin-right: 12px;
   }
 
   &__item {
@@ -50,11 +52,11 @@ $sale-item-margin-title: 24px;
       font-weight: bold;
 
       &:hover {
-        text-decoration: underline #807973;
+        text-decoration: underline $foreground-gray;
       }
 
       &.is-current {
-        color: #32978B;
+        color: $accent-blue-dark;
         pointer-events: none;
       }
     }
@@ -62,6 +64,7 @@ $sale-item-margin-title: 24px;
 }
 
 .pagination-nav {
+  margin: 0 $sale-item-margin-title;
   padding: 10px 10px 10px 12px;
   display: -webkit-flex;
   display: flex;
@@ -71,22 +74,22 @@ $sale-item-margin-title: 24px;
 
   white-space: nowrap;
   font-size: $font-size-default;
-  background-color: #F9F7F5;
-  border-top: 1px solid #F0F0F0;
+  background-color: $background-light;
+  border-top: 1px solid $border-color-gray;
 
   @media screen and (max-width: $sp-max-width) {
-    margin: 0 0;
+    margin: 0;
     padding-right: 0 12px;
   }
 
   &__item-total-counts {
     font-size: 24px;
     font-weight: bold;
-    color: #32978B;
+    color: $accent-blue-dark;
     
     &__suffix {
       color: $foreground-dark;
-      font-size: 16px;
+      font-size: $font-size-large;
       font-weight: bold;
     }
   }
@@ -94,88 +97,102 @@ $sale-item-margin-title: 24px;
   .paginate {
     font-weight: bold;
 
-    .paginate-list {
+    &__list {
       display: -webkit-flex;
       display: flex;
       align-items: center;
-    }
 
-    .paginate-link {
-      display: block;
-      padding: 0 16px 0 0;
+      .page-number-for-sp {
+        display: none;
+      }
 
       @media screen and (max-width: $sp-max-width) {
-        visibility:hidden;
+        .page-number-for-sp {
+          display: block;
+        }
+
+        & .first,
+        & .last,
+        & .page-number{
+          display: none;
+        }
+      }
+
+      &__item {
+        padding: 0 16px 0 0;
       }
     }
 
-    .paginate-last {
+    & .last {
       padding: 10px 20px 10px 0;
     }
 
-    .paginate-first
-    .paginate-last {
-      color: #C9C7C5;
+    & .first
+    & .last {
+      color: $foreground-light;
     }
 
-    .button {
+    & .button {
       @extend %button;
 
-      font-size: 12px;
-      background: #F9F7F5;
+      font-size: $font-size-smaller;
+      background: $background-light;
       width: 64px;
       height: 28px;
       border-width: 1px;
-      border-color: #f2f2f1;
+      border-color: $border-color-around-gray-button;
       border-bottom-color: #e2e1e0;
       border-radius: 7px;
-      background-color: linear-gradient(#ffffff, #f1f0ef);
+      background-color: linear-gradient($background-default, #f1f0ef);
       box-shadow: 0 1px 0 0 #d9d9d9;
     }
 
-    .paginate-link:hover {
-      color: #32978B;
+    & .paginate-link:hover {
+      color: $accent-blue-dark;
     }
 
-    .button:hover {
-      color: #32978B;
+    & .button:hover {
+      color: $accent-blue-dark;
     }
 
-    .disabled {
+    & .disabled {
       pointer-events: none;
-      color: #C9C7C5;
+      color: $foreground-light;
     }
 
-    .is-current {
-      color: #32978B
+    & .is-current {
+      color: $accent-blue-dark
     }
 
-    .paginate-previous {
+    & .next,
+    & .prev {
+      padding-right: 0;
+    }
+
+    & .prev {
       margin-right: 4px;
     }
   }
 }
 
 .sale-items {
+  margin: 0 $sale-item-margin-title 48px;
   @media screen and (max-width: $sp-max-width) {
-    margin: 12px 12px;
+    margin: 0 12px;
   }
 
   &__item {
     display: flex;
 
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: $sale-item-margin-title;
+    padding-bottom: $sale-item-margin-title;
 
     border-bottom: solid $border-size-nav-item-separate;
-    border-color: #F0F0F0;
-
-    &:last-child {
-      margin-bottom: 48px;
-    }
+    border-color: $border-color-gray;
 
     @media screen and (max-width: $sp-max-width) {
       display: block;
+      padding: 0 0;
     }
 
     &__image-area {
@@ -184,11 +201,16 @@ $sale-item-margin-title: 24px;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
+        margin: 12px 0;
       }
 
       &__container {
         width: 70%;
         margin: 0 auto;
+
+        @media screen and (max-width: $sp-max-width) {
+          width: 100%;
+        }
 
         &__main-image {
           &__slider-arrow {
@@ -202,10 +224,18 @@ $sale-item-margin-title: 24px;
 
             &.next {
               right: -62px;
+
+              @media screen and (max-width: $sp-max-width) {
+                right: -15px;
+              }
             }
 
             &.prev {
               left: -62px;
+
+              @media screen and (max-width: $sp-max-width) {
+                left: -15px;
+              }
             }
           }
         }
@@ -220,7 +250,7 @@ $sale-item-margin-title: 24px;
             height: inherit;
             position: relative;
 
-            background-color: #F1EBE6;
+            background-color: $background-gray;
 
             & > div > img {
               width: auto !important;
@@ -236,14 +266,19 @@ $sale-item-margin-title: 24px;
         }
 
         &__thumbnails {
-          margin-top: 16px;
-          margin-bottom: 20px;
+          padding-top: 16px;
+          padding-bottom: 20px;
 
           display: flex;
           flex-wrap: wrap;
 
+          @media screen and (max-width: $sp-max-width) {
+            padding-top: 4px;
+            padding-bottom: 0;
+          }
+
           &__item {
-            background-color: #F1EBE6;
+            background-color: $background-gray;
             margin-right: 4px;
             margin-bottom: 4px;
 
@@ -274,7 +309,8 @@ $sale-item-margin-title: 24px;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
-        padding-left: 0;
+        margin-top: 12px;
+        margin-left: 0;
       }
 
       &__info {
@@ -302,7 +338,7 @@ $sale-item-margin-title: 24px;
 
         &__price-info {
           margin-top: 13px;
-          font-size: 12px;
+          font-size: $font-size-smaller;
 
           &__title {
             &::after {
@@ -312,13 +348,13 @@ $sale-item-margin-title: 24px;
 
           &__price {
             display: block;
-            color: #E64A17;
-            font-size: 32px;
+            color: $accent-red-dark;
+            font-size: $font-size-page-title-small-pc;
             font-weight: bold;
           }
 
           &__currency {
-            font-size: 16px;
+            font-size: $font-size-large;
             font-weight: bold;
           }
 
@@ -336,12 +372,12 @@ $sale-item-margin-title: 24px;
           &__item {
             margin: 0 0 16px;
             padding: 0 12px;
-            font-size: 12px;
+            font-size: $font-size-smaller;
             color: $foreground-gray;
-            border-left: solid $border-size-nav-item-separate #F0F0F0;
+            border-left: solid $border-size-nav-item-separate $border-color-gray;
 
             &:last-child {
-              border-right: solid $border-size-nav-item-separate #F0F0F0;
+              border-right: solid $border-size-nav-item-separate $border-color-gray;
             }
 
             &__title {
@@ -354,9 +390,9 @@ $sale-item-margin-title: 24px;
 
             &__value {
               margin: 8px 0 0;
-              font-size: 16px;
+              font-size: $font-size-large;
               font-weight: bold;
-              color: #807973;
+              color: $foreground-gray;
 
               &__unit {
                 margin-left: 4px;
@@ -369,8 +405,8 @@ $sale-item-margin-title: 24px;
         }
 
         &__consultation {
-          background-color: #FDF1EC;
-          padding: 12px;
+          background-color: $accent-red-light;
+          padding: 16px 12px;
 
           @media screen and (max-width: $sp-max-width) {
             display: block;
@@ -385,6 +421,10 @@ $sale-item-margin-title: 24px;
             box-shadow: $box-shadow-red-button-for-large-button;
             display: inline-block;
 
+            @media screen and (max-width: $sp-max-width) {
+              display: block;
+            }
+
             &:hover {
               color: $foreground-white;
               background: $background-for-red-button-hover;
@@ -398,13 +438,27 @@ $sale-item-margin-title: 24px;
             font-weight: bold;
             margin-left: 12px;
             vertical-align: middle;
-            text-decoration: underline #807973;
+            text-decoration: underline $foreground-gray;
 
             @media screen and (max-width: $sp-max-width) {
-              margin: 0 auto;
+              display: block;
+              margin-top: 12px;
+              margin-left: 0;
+              text-align: center;
+            }
+
+            & .inquiry-link br {
+              @media screen and (max-width: $sp-max-width) {
+                display: none;
+              }
             }
           }
 
+          &__sold {
+            font-size: $font-size-default;
+            font-weight: bold;
+            text-align: center;
+          }
         }
 
         &__announce {
@@ -419,10 +473,11 @@ $sale-item-margin-title: 24px;
         line-height: 1.8;
 
         @media screen and (max-width: $sp-max-width) {
-          padding: 18px 0 48px;;
+          margin: 0 0;
+          padding: 24px 0 48px;
         }
 
-        &.is-close > &__text {
+        & .is-close > &__text {
           height: 200px;
           overflow: hidden;
         }
@@ -431,11 +486,15 @@ $sale-item-margin-title: 24px;
           text-align: center;
 
           &__button {
-            margin-top: 24px;
-            margin-bottom: 24px;
+            margin-top: $sale-item-margin-title;
+            margin-bottom: $sale-item-margin-title;
 
             border: none;
             text-decoration: underline;
+
+            @media screen and (max-width: $sp-max-width) {
+              margin-bottom: 0;
+            }
           }
         }
       }
@@ -448,7 +507,7 @@ $sale-item-margin-title: 24px;
   text-align: center;
 
   &__message {
-    font-size: 20px;
+    font-size: $font-size-larger;
     font-weight: bold;
   }
 
@@ -459,7 +518,7 @@ $sale-item-margin-title: 24px;
   }
 
   &__inquiry {
-    margin-top: 24px;
+    margin-top: $sale-item-margin-title;
     font-weight: bold;
   }
 }
