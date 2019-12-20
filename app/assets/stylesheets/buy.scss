@@ -1,10 +1,6 @@
 .buy {
   position: relative;
 
-  @media screen and (max-width: $sp-max-width) {
-    width: 100%;
-  }
-
   .title {
     color: $foreground-dark;
     font-size: $font-size-page-title-large;
@@ -65,14 +61,21 @@
 
         @media screen and (max-width: $sp-max-width) {
           top: calc(15% + #{$margin-mobile-subtitle-for-static});
+          width: calc(100% / 3.2);
         }
       }
 
       &::before {
         left: 12%;
+
+        @media screen and (max-width: $sp-max-width) {
+          left: 1%;
+        }
       }
       &::after {
-        right: 12%;
+        right: 1%;
+
+        @media screen and (max-width: $sp-max-width) {}
       }
 
     }
@@ -95,6 +98,7 @@
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
         margin-top: $margin-mobile-subtitle-for-static;
+        margin-bottom: $margin-under-main-section-sp;
       }
 
       .subtitle {
@@ -143,6 +147,10 @@
       .form-contents {
         margin: 0 72px;
 
+        @media screen and (max-width: $sp-max-width) {
+          margin: 0;
+        }
+
         .form-parts-info {
           padding-bottom: 48px;
           border-bottom: 1px solid $border-color-gray;
@@ -161,6 +169,23 @@
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
+          }
+
+          &__title {
+            margin-bottom: $margin-under-form-parts-title;
+      
+            &__label {
+              color: $foreground-dark;
+              font-size: $font-size-default;
+              font-weight: bold;
+            }
+      
+            &__note {
+              margin-top: $margin-on-form-parts-note;
+              margin-bottom: $margin-under-form-parts-note;
+              font-size: $font-size-smaller;
+            }
+      
           }
       
           &__input::placeholder,
