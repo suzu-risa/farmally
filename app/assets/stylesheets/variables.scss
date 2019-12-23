@@ -29,7 +29,6 @@ $background-body: #ECEBEA;
 // border color
 $border-color-gray: #F0F0F0;
 $border-color-white: #FFF;
-$border-color-form: #f2f2f2;
 
 // font family
 $font-family-default: Helvetica, arial, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -54,6 +53,7 @@ $line-height-default: 1.1;
 
 // margin
 $margin-under-main-section: 96px;
+$margin-under-main-section-sp: 48px;
 $margin-under-main-section-add: 8px;
 
 /* for static page */
@@ -146,7 +146,7 @@ $height-for-large-button: 48px;
 $width-for-large-button: 270px;
 
 // box shadow
-$box-shadow-position-for-large-button: 0 2px 1px 0;
+$box-shadow-position-for-large-button: 0 2px 2px 0;
 $box-shadow-position-for-header-inquiry-button: 0 1px 0 0;
 
 $box-shadow-red-button-for-large-button: $box-shadow-position-for-large-button #AFACAB;
@@ -174,7 +174,7 @@ $background-for-gray-button-hover: linear-gradient(#FFF 60%, #E5F1F0);
 $border-color-around-red-button: #C9401B;
 $border-color-bottom-of-red-button: #A93F20;
 $border-for-red-button: $border-color-around-red-button $border-color-around-red-button $border-color-bottom-of-red-button $border-color-around-red-button;
-$background-for-red-button: linear-gradient(#E64A17 60%, #BF401D);
+$background-for-red-button: linear-gradient(#E64A17, #BF401D 40%);
 $background-for-red-button-hover: linear-gradient(#D91D00 60%, #B32211);
 
 $background-for-footer-inquiry-button: #5E5751;
