@@ -23,16 +23,19 @@ function PrevArrowSvg(props) {
     >
         <defs>
             <style> {`
-                .arrow-for-image-list-prev__guide__circle {
+                .arrow-for-image-list-prev__guide__circle__background {
+                  fill: #FFF;
+                }
+                .arrow-for-image-list-prev__guide__circle__gradient {
                     opacity: 0.1;
                     fill: url(#arrow-for-image-list-prev__gradient);
                 }
                 .arrow-for-image-list-prev__guide__border {
-                    fill: #f2f2f1;
+                    fill: #F2F2F1;
                 }
                 .arrow-for-image-list-prev__guide__polyline {
                     fill: none;
-                    stroke: #4c443d;
+                    stroke: #4C443D;
                     stroke-linecap: round;
                     stroke-linejoin: round;
                     stroke-width: 1.5px;
@@ -62,7 +65,13 @@ function PrevArrowSvg(props) {
         <g id="arrow-for-image-list-prev" data-name="arrow-for-image-list-prev">
             <g id="arrow-for-image-list-prev__guide">
                 <circle
-                  class="arrow-for-image-list-prev__guide__circle"
+                  class="arrow-for-image-list-prev__guide__circle__background"
+                  cx="18"
+                  cy="18"
+                  r="17.5"
+                />
+                <circle
+                  class="arrow-for-image-list-prev__guide__circle__gradient"
                   cx="18"
                   cy="18"
                   r="17.5"
@@ -90,16 +99,19 @@ function NextArrowSvg(props) {
     >
         <defs>
             <style> {`
-                .arrow-for-image-list-next__guide__circle {
+                .arrow-for-image-list-next__guide__circle__background {
+                  fill: #FFF;
+                }
+                .arrow-for-image-list-next__guide__circle__gradient {
                     opacity: 0.1;
                     fill: url(#arrow-for-image-list-next__gradient);
                 }
                 .arrow-for-image-list-next__guide__path {
-                    fill: #f2f2f1;
+                    fill: #F2F2F1;
                 }
                 .arrow-for-image-list-next__guide__polyline {
                     fill: none;
-                    stroke: #4c443d;
+                    stroke: #4C443D;
                     stroke-linecap: round;
                     stroke-linejoin: round;
                     stroke-width: 1.5px;
@@ -129,7 +141,13 @@ function NextArrowSvg(props) {
         <g id="arrow-for-image-list-next" data-name="arrow-for-image-list-next">
             <g id="arrow-for-image-list-next__guide">
                 <circle
-                  class="arrow-for-image-list-next__guide__circle"
+                  class="arrow-for-image-list-next__guide__circle__background"
+                  cx="18"
+                  cy="18"
+                  r="17.5"
+                />
+                <circle
+                  class="arrow-for-image-list-next__guide__circle__gradient"
                   cx="18"
                   cy="18"
                   r="17.5"

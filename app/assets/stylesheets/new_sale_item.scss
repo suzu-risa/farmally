@@ -239,7 +239,7 @@ $sale-item-margin-title: 24px;
             z-index: 100;
 
             & > svg {
-              filter: drop-shadow(0 1px 0 0 #C5CECD);
+              filter: drop-shadow(0 1px 0 #C5CECD);
             }
 
             &.next {
@@ -250,7 +250,7 @@ $sale-item-margin-title: 24px;
               }
 
               @media screen and (max-width: $sp-max-width) {
-                right: -15px;
+                right: -12px;
               }
             }
 
@@ -262,7 +262,7 @@ $sale-item-margin-title: 24px;
               }
 
               @media screen and (max-width: $sp-max-width) {
-                left: -15px;
+                left: -12px;
               }
             }
           }
@@ -275,7 +275,7 @@ $sale-item-margin-title: 24px;
           height: 375px;
 
           @media screen and (max-width: $sp-max-width) {
-            height: calc(100vw - 24px);
+            height: calc((100vw - 24px) / 4 * 3);
           }
 
           .slick-slide {
@@ -296,6 +296,11 @@ $sale-item-margin-title: 24px;
               top: 50%;
 
               transform: translateX(-50%) translateY(-50%);
+
+              @media screen and (max-width: $sp-max-width) {
+                max-width: calc(100vw - 24px);
+                max-height: calc((100vw - 24px) / 4 * 3);
+              }
             }
           }
         }
@@ -310,6 +315,12 @@ $sale-item-margin-title: 24px;
           @media screen and (max-width: $sp-max-width) {
             padding-top: 4px;
             padding-bottom: 0;
+            display: block;
+            height: 52px;
+            width: calc(100vw - 24px);
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
           }
 
           &__item {
@@ -321,6 +332,10 @@ $sale-item-margin-title: 24px;
             width: 59px;
 
             position: relative;
+
+            @media screen and (max-width: $sp-max-width) {
+              display: inline-block;
+            }
 
             & > img {
               max-height: 44px;
