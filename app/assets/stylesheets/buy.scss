@@ -16,7 +16,6 @@
 
     @media screen and (max-width: $sp-max-width) {
       position: initial;
-      margin-top: $margin-on-form-title-sp;
       font-size: $font-size-page-title-small-sp;
       margin-bottom: 0;
     }
@@ -103,6 +102,7 @@
         width: 100%;
         margin-top: $margin-mobile-on-page-title-for-static;
         margin-bottom: $margin-under-main-section-sp;
+        padding: 0 12px;
       }
 
       .subtitle {

@@ -69,16 +69,23 @@
       display: none;
 
       @media screen and (max-width: $sp-max-width) {
-        color: white;
+        color: $foreground-white;
         text-align: center;
         margin-top: 16px;
+
+      }
+
+      a.text {
+        @media screen and (max-width: $sp-max-width) {
+          text-decoration-color: $foreground-white;
+        }
       }
     }
   }
 
   &__logo {
     display: inline-block;
-    margin: 16px 32px 0 16px;
+    margin: 15px 32px 0 16px;
 
     & img {
       height: inherit;
@@ -119,10 +126,6 @@
   &__menu {
     height: inherit;
 
-    @media screen and (max-width: $sp-max-width) {
-      border-bottom: 1px solid #F0F0F0;
-    }
-
     &__item {
       display: inline-block;
       box-sizing: border-box;
@@ -131,14 +134,13 @@
 
       @media screen and (max-width: $sp-max-width) {
         display: block;
+        margin: 0 12px;
+        height: 48px;
+        border-bottom: 1px solid #F0F0F0;
       }
 
       &.is-current {
         position: relative;
-
-        @media screen and (max-width: $sp-max-width) {
-          border-bottom: none;
-        }
 
         &::after {
           content: "";
@@ -157,8 +159,13 @@
       }
 
       &__inner {
-        padding: 6px 16px;
+        padding: 7px 16px 5px;
         border-left: 1px solid #F0F0F0;
+
+        @media screen and (max-width: $sp-max-width) {
+          border-left: none;
+          padding-left: 0;
+        }
 
         &__link {
           font-weight: bold;
@@ -167,6 +174,10 @@
 
       &:last-of-type > &__inner {
         border-right: 1px solid #F0F0F0;
+
+        @media screen and (max-width: $sp-max-width) {
+          border-right: none;
+        }
       }
 
       & a:hover {
@@ -184,23 +195,31 @@
     @media screen and (max-width: $sp-max-width) {
       position: initial;
       display: block;
-      width: 70%;
       margin: 32px auto 0;
       text-align: center;
     }
 
     &__lead {
-      font-size: 12px;
+      font-size: $font-size-smaller;
+
+      @media screen and (max-width: $sp-max-width) {
+        font-size: $font-size-default;
+      }
 
       &__text {
         font-weight: bold;
-        margin-top: 8px;
+        margin-top: 11px;
       }
 
       &__reception-time {
         font-size: $font-size-smallest;
         margin-top: 2px;
         color: $foreground-gray;
+
+        @media screen and (max-width: $sp-max-width) {
+          margin-top: 8px;
+          font-size: $font-size-small;
+        }
       }
     }
 
@@ -217,6 +236,14 @@
         line-height: inherit;
         margin-top: 16px;
         margin-bottom: 16px;
+        font-size: $font-size-page-title-small-pc;
+      }
+
+      & > a > img {
+        @media screen and (max-width: $sp-max-width) {
+          width: 22px;
+          height: 22px;
+        }
       }
     }
 
@@ -230,10 +257,15 @@
       box-shadow: $box-shadow-for-header-inquiry-button;
       margin: 12px 8px 0;
       width: $width-for-small-button;
+      height: $height-for-small-button;
+      line-height: $height-for-small-button;
 
       @media screen and (max-width: $sp-max-width) {
-        margin: 0 auto 24px;
-        width: 100%;
+        margin: 0 auto;
+        width: 240px;
+        height: 3em;
+        line-height: 3em;
+        font-size: 16px;
       }
 
       &:hover {
