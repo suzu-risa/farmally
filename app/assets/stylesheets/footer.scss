@@ -9,6 +9,31 @@ $margin-on-footer-inquiry-button: 16px;
 $margin-around-footer-info: 16px;
 $margin-on-footer-info-text: 8px;
 
+.bnr {
+  display: flex;
+
+  @media screen and (max-width: $sp-max-width) {
+    height: auto;
+    flex-direction: column;
+  }
+
+  &__image {
+    display: block;
+    @media screen and (max-width: $sp-max-width) {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    img {
+      display: block;
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .footer {
   background-color: $background-dark;
   padding: 0;
