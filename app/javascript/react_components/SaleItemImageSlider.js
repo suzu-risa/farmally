@@ -52,12 +52,12 @@ function PrevArrowSvg(props) {
             >
                 <stop
                   offset="0.6"
-                  stop-color="#4c443d"
-                  stop-opacity="0"
+                  stopColor="#4c443d"
+                  stopOpacity="0"
                 />
                 <stop
                   offset="1"
-                  stop-color="#4c443d"
+                  stopColor="#4c443d"
                 />
             </linearGradient>
         </defs>
@@ -65,23 +65,23 @@ function PrevArrowSvg(props) {
         <g id="arrow-for-image-list-prev" data-name="arrow-for-image-list-prev">
             <g id="arrow-for-image-list-prev__guide">
                 <circle
-                  class="arrow-for-image-list-prev__guide__circle__background"
+                  className="arrow-for-image-list-prev__guide__circle__background"
                   cx="18"
                   cy="18"
                   r="17.5"
                 />
                 <circle
-                  class="arrow-for-image-list-prev__guide__circle__gradient"
+                  className="arrow-for-image-list-prev__guide__circle__gradient"
                   cx="18"
                   cy="18"
                   r="17.5"
                 />
                 <path
-                  class="arrow-for-image-list-prev__guide__border"
+                  className="arrow-for-image-list-prev__guide__border"
                   d="M18,1A17,17,0,1,1,1,18,17,17,0,0,1,18,1m0-1A18,18,0,1,0,36,18,18.05,18.05,0,0,0,18,0Z"
                 />
                 <polyline
-                  class="arrow-for-image-list-prev__guide__polyline"
+                  className="arrow-for-image-list-prev__guide__polyline"
                   points="19.76 12 14.24 17.5 19.76 23"
                 />
             </g>
@@ -128,12 +128,12 @@ function NextArrowSvg(props) {
             >
               <stop
                 offset="0.6"
-                stop-color="#4c443d"
-                stop-opacity="0"
+                stopColor="#4c443d"
+                stopOpacity="0"
               />
               <stop
                 offset="1"
-                stop-color="#4c443d"
+                stopColor="#4c443d"
               />
             </linearGradient>
         </defs>
@@ -141,23 +141,23 @@ function NextArrowSvg(props) {
         <g id="arrow-for-image-list-next" data-name="arrow-for-image-list-next">
             <g id="arrow-for-image-list-next__guide">
                 <circle
-                  class="arrow-for-image-list-next__guide__circle__background"
+                  className="arrow-for-image-list-next__guide__circle__background"
                   cx="18"
                   cy="18"
                   r="17.5"
                 />
                 <circle
-                  class="arrow-for-image-list-next__guide__circle__gradient"
+                  className="arrow-for-image-list-next__guide__circle__gradient"
                   cx="18"
                   cy="18"
                   r="17.5"
                 />
                 <path
-                  class="arrow-for-image-list-next__guide__path"
+                  className="arrow-for-image-list-next__guide__path"
                   d="M18,1A17,17,0,1,1,1,18,17,17,0,0,1,18,1m0-1A18,18,0,1,0,36,18,18.05,18.05,0,0,0,18,0Z"
                  />
                 <polyline
-                  class="arrow-for-image-list-next__guide__polyline"
+                  className="arrow-for-image-list-next__guide__polyline"
                   points="16.24 24 21.76 18.5 16.24 13"
                 />
             </g>

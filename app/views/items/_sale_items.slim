@@ -74,8 +74,9 @@
                   | お届け日
                 dd.sale-items__item__context__info__announce__list__content
                   | お申込み後に別途ご連絡
-              = link_to "/guide#page=2", target: "_blank", class: "sale-items__item__context__info__announce__link-to-guide text"
-                | 配送料・お届け日について
+              .sale-items__item__context__info__announce__link-to-guide
+                = link_to "/guide#page=2", target: "_blank", class: "sale-items__item__context__info__announce__link-to-guide__link text"
+                  | 配送料・お届け日について
         .sale-items__item__context__remark
           .sale-items__item__context__remark__text
             | #{simple_format sale_item.remark}

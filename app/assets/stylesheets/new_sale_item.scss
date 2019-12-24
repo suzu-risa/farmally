@@ -9,9 +9,12 @@ $sale-item-margin-title: 24px;
     line-height: 84px;
     padding-left: $sale-item-margin-title;
     background-image: url("/item-header.png");
+
     @media screen and (max-width: $sp-max-width) {
       background-image: url("/item-header-896.png");
       background-size: cover;
+      height: 17vw;
+      line-height: 17vw;
     }
 
     &__title {
@@ -110,6 +113,11 @@ $sale-item-margin-title: 24px;
       @media screen and (max-width: $sp-max-width) {
         .page-number-for-sp {
           display: block;
+          color: $foreground-gray;
+
+          &__current {
+            color: $accent-blue-dark;
+          }
         }
 
         & .first,
@@ -463,6 +471,7 @@ $sale-item-margin-title: 24px;
 
           @media screen and (max-width: $sp-max-width) {
             display: block;
+            text-align: center;
           }
           
           &__button {
@@ -491,11 +500,26 @@ $sale-item-margin-title: 24px;
             font-size: $font-size-smaller;
             font-weight: bold;
 
+            @media screen and (max-width: $sp-max-width) {
+              display: inline-block;
+
+              margin: 0 auto;
+              text-align: left;
+            }
+
             &__item {
               display: block;
 
+              @media screen and (max-width: $sp-max-width) {
+                margin-top: 12px;
+              }
+
               &:nth-child(n+2) {
                 margin-top: 8px;
+
+                @media screen and (max-width: $sp-max-width) {
+                  margin-top: 12px;
+                }
               }
 
               &__business-img,
@@ -530,8 +554,16 @@ $sale-item-margin-title: 24px;
           font-size: $font-size-smaller;
           line-height: 1.5;
 
+          @media screen and (max-width: $sp-max-width) {
+            padding: 16px 12px;
+            margin-bottom: 0;
+          }
           &__list {
             margin-left: 26px;
+
+            @media screen and (max-width: $sp-max-width) {
+              margin-left: 24px;
+            }
 
             &__title {
               position: relative;
@@ -561,16 +593,19 @@ $sale-item-margin-title: 24px;
             position: absolute;
             right: 16px;
             bottom:10px;
+            @media screen and (max-width: $sp-max-width) {
+              margin-top: 16px;
+              position: initial;
+              text-align: right;
+            }
           }
         }
       }
 
       &__remark {
-        margin: 18px 0;
         line-height: 1.8;
 
         @media screen and (max-width: $sp-max-width) {
-          margin: 0 0;
           padding: 24px 0 48px;
         }
 

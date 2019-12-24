@@ -29,7 +29,7 @@ The container tag
         <%= last_page_tag %>
       </li>
       <li class="paginate__list__item page-number-for-sp">
-        <%= current_page %> / <%= total_pages %>
+        <span class="page-number-for-sp__current"><%= current_page %></span> / <span class="page-number-for-sp__total"><%= total_pages %></span>
       </li>
       <li class="paginate__list__item prev">
         <%= prev_page_tag %>
