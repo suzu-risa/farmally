@@ -6,3 +6,10 @@ ja:
       previous: "&lsaquo; 前へ"
       next: "次へ &rsaquo;"
       truncate: "&hellip;"
+  list:
+    pagination:
+      first: "最初"
+      last: "最後 "
+      previous: "前へ"
+      next: "次へ"
+      truncate: "&hellip;"

@@ -12,4 +12,7 @@ Link to the "Previous" page
 =end
 %>
 
-<%= link_to t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote, class: "paginate-previous button#{' disabled' if current_page.first?}" %>
+<%= link_to url, rel: 'prev', remote: remote, class: "paginate-previous button#{' disabled' if current_page.first?}" do %>
+    <%= embedded_svg "arrow-in-paging-button.svg" %>
+    <%= t('list.pagination.previous').html_safe %>
+<% end %>

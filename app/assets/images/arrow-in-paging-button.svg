@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.5 9.19">
+    <defs>
+        <style>
+            .arrow-in-paging-button__line {
+                fill: none;
+                stroke: #4c443d;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.5px;
+            }
+        </style>
+    </defs>
+    <title>arrow-in-paging-button</title>
+    <g id="arrow-in-paging-button" data-name="arrow-in-paging-button">
+        <g id="arrow-in-paging-button__layout">
+            <polyline class="arrow-in-paging-button__line" points="0.75 0.75 4.75 4.59 0.75 8.44"/>
+        </g>
+    </g>
+</svg>

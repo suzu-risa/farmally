@@ -15,7 +15,7 @@ $sale-item-margin-title: 24px;
     }
 
     &__title {
-      font-size: $font-size-large;
+      font-size: $font-size-larger;
       color: $foreground-white;
       font-weight: bold;
     }
@@ -121,6 +121,15 @@ $sale-item-margin-title: 24px;
 
       &__item {
         padding: 0 16px 0 0;
+
+        & .button > svg {
+          height: 9px;
+          width: 9px;
+        }
+
+        & .paginate-previous > svg {
+          transform: rotate(180deg);
+        }
       }
     }
 
@@ -137,14 +146,12 @@ $sale-item-margin-title: 24px;
       @extend %button;
 
       font-size: $font-size-smaller;
-      background: $background-light;
       width: 64px;
       height: 28px;
-      border-width: 1px;
-      border-color: $border-color-around-gray-button;
-      border-bottom-color: #e2e1e0;
+      line-height: 28px;
+      border-color: $border-for-list-paging-button;
       border-radius: 7px;
-      background-color: linear-gradient($background-default, #f1f0ef);
+      background: $background-for-list-paging-button;
       box-shadow: 0 1px 0 0 #d9d9d9;
     }
 
@@ -154,11 +161,19 @@ $sale-item-margin-title: 24px;
 
     & .button:hover {
       color: $accent-blue-dark;
+
+      & > svg .arrow-in-paging-button__line {
+        stroke: $accent-blue-dark;
+      }
     }
 
     & .disabled {
       pointer-events: none;
       color: $foreground-light;
+
+      & > svg .arrow-in-paging-button__line {
+        stroke: $foreground-light;
+      }
     }
 
     & .is-current {
@@ -197,8 +212,8 @@ $sale-item-margin-title: 24px;
     }
 
     &__image-area {
-      width: 60%;
-      background: whitesmoke;
+      width: 57%;
+      background: $border-color-gray;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
@@ -206,7 +221,7 @@ $sale-item-margin-title: 24px;
       }
 
       &__container {
-        width: 70%;
+        width: 500px;
         margin: 0 auto;
 
         @media screen and (max-width: $sp-max-width) {
@@ -215,16 +230,24 @@ $sale-item-margin-title: 24px;
 
         &__main-image {
           &__slider-arrow {
-            width: 50px;
-            height: 50px;
+            width: 36px;
+            height: 36px;
 
             position: absolute;
             top: 50%;
 
             z-index: 100;
 
+            & > svg {
+              filter: drop-shadow(0 1px 0 0 #C5CECD);
+            }
+
             &.next {
               right: -62px;
+              
+              &:hover > svg .arrow-for-image-list-next__guide__polyline {
+                stroke: $accent-blue-dark;
+              }
 
               @media screen and (max-width: $sp-max-width) {
                 right: -15px;
@@ -233,6 +256,10 @@ $sale-item-margin-title: 24px;
 
             &.prev {
               left: -62px;
+
+              &:hover > svg .arrow-for-image-list-prev__guide__polyline {
+                stroke: $accent-blue-dark;
+              }
 
               @media screen and (max-width: $sp-max-width) {
                 left: -15px;
@@ -245,7 +272,7 @@ $sale-item-margin-title: 24px;
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 484px;
+          height: 375px;
 
           @media screen and (max-width: $sp-max-width) {
             height: calc(100vw - 24px);
@@ -255,10 +282,13 @@ $sale-item-margin-title: 24px;
             height: inherit;
             position: relative;
 
-            background-color: $background-gray;
+            background-color: $background-dark;
 
             & > div > img {
               width: auto !important;
+              height: auto !important;
+              max-width: 500px;
+              max-height: 375px;
 
               position: absolute;
 
@@ -283,18 +313,18 @@ $sale-item-margin-title: 24px;
           }
 
           &__item {
-            background-color: $background-gray;
+            background-color: $background-dark;
             margin-right: 4px;
             margin-bottom: 4px;
 
-            height: 56px;
-            width: 56px;
+            height: 44px;
+            width: 59px;
 
             position: relative;
 
             & > img {
-              max-height: 56px;
-              max-width: 56px;
+              max-height: 44px;
+              max-width: 59px;
 
               position: absolute;
               
@@ -307,9 +337,9 @@ $sale-item-margin-title: 24px;
         }
       }
     }
-    
+
     &__context {
-      width: calc(40% - 24px);
+      width: calc(43% - 24px);
       margin-left: 24px;
 
       @media screen and (max-width: $sp-max-width) {
@@ -411,7 +441,10 @@ $sale-item-margin-title: 24px;
 
         &__consultation {
           background-color: $accent-red-light;
-          padding: 16px 12px;
+          padding: 16px 18px  16px 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
           @media screen and (max-width: $sp-max-width) {
             display: block;
@@ -437,24 +470,30 @@ $sale-item-margin-title: 24px;
             }
           }
 
-          &__link {
-            display: inline-block;
-            line-height: 1.3;
-            font-weight: bold;
+          &__links {
             margin-left: 12px;
-            vertical-align: middle;
-            text-decoration: underline $foreground-gray;
+            display: inline-block;
+            font-size: $font-size-smaller;
+            font-weight: bold;
 
-            @media screen and (max-width: $sp-max-width) {
+            &__item {
               display: block;
-              margin-top: 12px;
-              margin-left: 0;
-              text-align: center;
-            }
 
-            & .inquiry-link br {
-              @media screen and (max-width: $sp-max-width) {
-                display: none;
+              &:nth-child(n+2) {
+                margin-top: 8px;
+              }
+
+              &__business-img,
+              &__consumer-img {
+                margin-right: 8px;
+              }
+
+              &__business-link {
+                color: $accent-skyblue;
+
+                &:hover {
+                  color: $accent-skyblue;
+                }
               }
             }
           }
@@ -467,9 +506,47 @@ $sale-item-margin-title: 24px;
         }
 
         &__announce {
-          margin-top: 12px;
-          font-size: $font-size-small;
-          text-align: center;
+          position: relative;
+
+          padding: 10px;
+          margin-bottom: 32px;
+          border: 1px solid #F0F0F0;
+
+          font-size: $font-size-smaller;
+          line-height: 1.5;
+
+          &__list {
+            margin-left: 26px;
+
+            &__title {
+              position: relative;
+              display: inline-block;
+              vertical-align: top;
+
+              &::after {
+                content: "：";
+              }
+
+              &.is-warning::before {
+                content: "";
+                background-image: url("/images/warning.png");
+                position: absolute;
+                top: 2px;
+                left: calc(-1em - 10px);
+                width: 12px;
+                height: 12px;
+              }
+            }
+            &__content {
+              display: inline-block;
+            }
+          }
+
+          &__link-to-guide {
+            position: absolute;
+            right: 16px;
+            bottom:10px;
+          }
         }
       }
 

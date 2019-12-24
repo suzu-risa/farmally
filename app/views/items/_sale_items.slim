@@ -50,14 +50,32 @@
                 | この商品は売却されました
             - else
               .sale-items__item__context__info__consultation__button
-                = link_to buy_path(sale_item), class: "buy-link"
+                = link_to buy_path(sale_item), class: "sale-items__item__context__info__consultation__button__buy-link"
                   | 購入申し込み・相談
-              .sale-items__item__context__info__consultation__link
-                = link_to '/inquiry', class: "inquiry-link"
-                  | 価格変更・<br>入荷連絡の申し込み
+              .sale-items__item__context__info__consultation__links
+                .sale-items__item__context__info__consultation__links__item
+                  = image_tag "items/notification.png", alt: "価格変更・入荷連絡の申し込み", class: "sale-items__item__context__info__consultation__links__item__consumer-img"
+                  = link_to '/inquiry', class: "sale-items__item__context__info__consultation__links__item__consumer-link text"
+                    | 価格変更・入荷連絡の申し込み
+                .sale-items__item__context__info__consultation__links__item
+                  = image_tag "items/business.png", alt: "業販のお問い合わせはこちら", class: "sale-items__item__context__info__consultation__links__item__business-img"
+                  = link_to '/inquiry', class: "sale-items__item__context__info__consultation__links__item__business-link text"
+                    | 業販のお問い合わせはこちら
           - if !sale_item.sold? then
             .sale-items__item__context__info__announce 
-              | ※販売店様でご購入希望の方もこちらからお問い合わせください。
+              dl.sale-items__item__context__info__announce__list
+                dt.sale-items__item__context__info__announce__list__title.is-warning
+                  | 配送料
+                dd.sale-items__item__context__info__announce__list__content
+                  | 配送距離に応じてお客様実費負担<br>
+                  | (直接お取引の場合は配送料無料)
+              dl.sale-items__item__context__info__announce__list
+                dt.sale-items__item__context__info__announce__list__title
+                  | お届け日
+                dd.sale-items__item__context__info__announce__list__content
+                  | お申込み後に別途ご連絡
+              = link_to "/guide#page=2", target: "_blank", class: "sale-items__item__context__info__announce__link-to-guide text"
+                | 配送料・お届け日について
         .sale-items__item__context__remark
           .sale-items__item__context__remark__text
             | #{simple_format sale_item.remark}

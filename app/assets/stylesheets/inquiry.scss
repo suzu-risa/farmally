@@ -141,14 +141,14 @@
     @extend %button-large;
 
     color: $accent-blue-dark;
-    background: $background-for-gray-button;
-    border-color: $border-for-gray-button;
-    box-shadow: $box-shadow-gray-button-for-large-button;
+    background: $background-for-send-button;
+    border-color: $border-for-send-button;
+    box-shadow: $box-shadow-send-button;
 
     &:hover {
       color: $accent-blue-dark;
-      background: $background-for-gray-button-hover;
-      border-color: $border-for-gray-button;
+      background: $background-for-send-button-hover;
+      border-color: $border-for-send-button;
     }
   }
 }
