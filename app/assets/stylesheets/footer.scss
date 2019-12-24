@@ -2,7 +2,7 @@
 $margin-around-footer-content: 48px;
 
 $margin-between-footer-nav: 16px;
-$margin-on-footer-nav-sub: 16px;
+$margin-on-footer-nav-sub: 24px;
 
 $margin-on-footer-inquiry-button: 16px;
 
@@ -52,10 +52,26 @@ $margin-on-footer-info-text: 8px;
         & > ul > li {
           display: inline-block;
           margin-right: $margin-between-footer-nav;
-          margin-bottom: 18px;
 
           @media screen and (max-width: $sp-max-width) {
             display: block;
+            margin-bottom: 18px;
+          }
+
+          & > .open-other-tab {
+            margin-right: 16px;
+            position: relative;
+
+            &::after {
+              content: "";
+              background-image: url("/images/launch.png");
+
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              right: -16px;
+              top: 0;
+            }
           }
         }
 
@@ -98,7 +114,7 @@ $margin-on-footer-info-text: 8px;
         margin-top: $margin-around-footer-content;
         padding: $margin-around-footer-info;
         border-radius: 10px;
-        border: solid 1px $foreground-light;
+        border: solid 1px $border-color-brown;
 
         @media screen and (max-width: $sp-max-width) {
           margin-top: 0;
