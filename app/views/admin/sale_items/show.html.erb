@@ -117,16 +117,6 @@ as well as a link to its edit page.
       <%= page.resource.status %>
     </td>
   </tr>
-
-  <tr>
-    <td>
-      <%= SaleItem.human_attribute_name(:remark) %>
-    </td>
-
-    <td>
-      <%= simple_format page.resource.remark %>
-    </td>
-  </tr>
 </table>
 
 <% page.resource.detail_with_template.tables.each do |table| %>
