@@ -53,8 +53,8 @@ Rails.application.routes.draw do
   post '/buy/:item_id', to: 'buy#create'
 
   get '/specified-commercial', to: 'home#commercial'
-  get '/guide', to: 'home#guide', as: 'guide'
-  get '/terms-of-service', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.terms/terms-of-service.pdf')
+  get '/guide', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_useguide.pdf')
+  get '/privacy-policy', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_privacy_policy.pdf')
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
 
   root to: 'items#index'
