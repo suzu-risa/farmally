@@ -188,6 +188,8 @@
 
   &__info {
     display: flex;
+    height: 50px;
+    align-items: center;
     position: absolute;
     right: 0;
     top: 0;
@@ -195,6 +197,7 @@
     @media screen and (max-width: $sp-max-width) {
       position: initial;
       display: block;
+      height: auto;
       margin: 32px auto 0;
       text-align: center;
     }
@@ -208,7 +211,6 @@
 
       &__text {
         font-weight: bold;
-        margin-top: 11px;
       }
 
       &__reception-time {
@@ -224,10 +226,8 @@
     }
 
     &__tel {
-      margin-left: 8px;
+      margin-left: 12px;
       font-size: 20px;
-      height: 48px;
-      line-height: 48px;
       font-weight: bold;
       color: $accent-blue-dark;
 
@@ -242,6 +242,7 @@
       &__image {
         width: 14px;
         height: 14px;
+        margin-right: 4px;
       }
     }
 
@@ -250,12 +251,12 @@
 
       font-size: 12px;
       color: $accent-blue-dark;
-      background: $background-for-send-button;
-      border-color: $border-for-send-button;
+      background: $background-for-header-inquiry-button;
+      border-color: $border-for-header-inquiry-button;
       border-width: 1px;
       border-style: solid;
-      box-shadow: $box-shadow-send-button;
-      margin: 12px 8px 0;
+      box-shadow: $box-shadow-for-header-inquiry-button;
+      margin: 0 8px;
       width: $width-for-small-button;
       height: $height-for-small-button;
       line-height: $height-for-small-button;
@@ -270,8 +271,8 @@
 
       &:hover {
         color: $accent-blue-dark;
-        background: $background-for-send-button-hover;
-        border-color: $border-for-send-button;
+        background: $background-for-header-inquiry-button-hover;
+        border-color: $border-for-header-inquiry-button;
       }
     }
   }
