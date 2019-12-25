@@ -21,6 +21,20 @@ $sale-item-margin-title: 24px;
       font-size: $font-size-larger;
       color: $foreground-white;
       font-weight: bold;
+
+      @media screen and (max-width: $sp-max-width) {
+        font-size: 5vw;
+      }
+
+      &__category {
+        font-size: $font-size-small;
+        margin-left: 16px;
+
+        @media screen and (max-width: $sp-max-width) {
+          font-size: 3.5vw;
+          margin-left: 10px;
+        }
+      }
     }
   }
 
@@ -221,7 +235,8 @@ $sale-item-margin-title: 24px;
 
     &__image-area {
       width: 57%;
-      background: $border-color-gray;
+      height: fit-content;
+      background: $background-light;
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
@@ -251,7 +266,7 @@ $sale-item-margin-title: 24px;
             }
 
             &.next {
-              right: -62px;
+              right: calc(-36px - 12px);
               
               &:hover > svg .arrow-for-image-list-next__guide__polyline {
                 stroke: $accent-blue-dark;
@@ -263,7 +278,7 @@ $sale-item-margin-title: 24px;
             }
 
             &.prev {
-              left: -62px;
+              left: calc(-36px - 12px);
 
               &:hover > svg .arrow-for-image-list-prev__guide__polyline {
                 stroke: $accent-blue-dark;
@@ -343,6 +358,14 @@ $sale-item-margin-title: 24px;
 
             @media screen and (max-width: $sp-max-width) {
               display: inline-block;
+            }
+
+            &:nth-child(8n) {
+              margin-right: 0;
+
+              @media screen and (max-width: $sp-max-width) {
+                margin-right: 8px;
+              }
             }
 
             & > img {
@@ -508,7 +531,7 @@ $sale-item-margin-title: 24px;
             }
 
             &__item {
-              display: block;
+              display: flex;
 
               @media screen and (max-width: $sp-max-width) {
                 margin-top: 12px;
@@ -527,11 +550,13 @@ $sale-item-margin-title: 24px;
                 margin-right: 8px;
               }
 
-              &__business-link {
+              &__business-link.text {
                 color: $accent-skyblue;
+                text-decoration: underline $accent-skyblue;
 
                 &:hover {
                   color: $accent-skyblue;
+                  text-decoration: underline $accent-skyblue;
                 }
               }
             }

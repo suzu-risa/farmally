@@ -165,15 +165,15 @@ $border-radius-for-large-button: 12px;
 
 // inquiry button in header
 $border-color-around-header-inquiry-button: #F2F2F1;
-$border-color-bottom-header-inquiry-button: #E1E9E7;
+$border-color-bottom-header-inquiry-button: #E0E9E7;
 $border-for-header-inquiry-button: $border-color-around-header-inquiry-button $border-color-around-header-inquiry-button $border-color-bottom-header-inquiry-button $border-color-around-header-inquiry-button;
+$background-for-header-inquiry-button: linear-gradient(#F5FAF9 40%, #E5F1F0);
+$background-for-header-inquiry-button-hover: linear-gradient(#FFF 40%, #E5F1F0);
 
 // send button in inquiry
 $border-color-around-send-button: #F2F2F1;
 $border-color-bottom-of-send-button: #E0E9E7;
 $border-for-send-button: $border-color-around-send-button $border-color-around-send-button $border-color-bottom-of-send-button $border-color-around-send-button;
-$background-for-header-inquiry-button: linear-gradient(#F5FAF9 40%, #E2F0EE);
-$background-for-header-inquiry-button-hover: linear-gradient(#F0F0F0 40%, #EFF7f6);
 $box-shadow-send-button: $box-shadow-position-for-large-button #D3DAD9;
 
 $background-for-send-button: linear-gradient(#F5FAF9 40%, #E5F1F0);
