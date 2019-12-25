@@ -66,12 +66,12 @@
             | 「
             a.term-link.text href="/guide" target="_blank" ご利用ガイド
             | 」、「
-            a.term-link.text href="/privacy-policy" target="_blank" 個人情報の保護に関して
+            a.term-link.text href="/privacy-policy" target="_blank" 個人情報保護に関して
             | 」を確認しました
         span.required
           | (必須)
         - if @inquiry_form.errors.include?(:agree_to_terms)
           .error_message
-            | 「ご利用ガイド」、「個人情報の保護に関して」をご確認ください
+            | 「ご利用ガイド」、「個人情報保護に関して」をご確認ください
 
       = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '#{request.path}' });"
