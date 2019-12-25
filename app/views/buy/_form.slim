@@ -86,12 +86,15 @@
           .form-parts__checkbox
             = f.check_box :agree_to_terms
             = f.label :agree_to_terms, class: 'form-parts__checkbox__inline-label'
-              a.term-link.text href="/terms-of-service" target="_blank" 利用規約
-              | に同意する
+            | 「
+            a.term-link.text href="/guide" target="_blank" ご利用ガイド
+            | 」、「
+            a.term-link.text href="/privacy-policy" target="_blank" 個人情報の保護に関して
+            | 」を確認しました
           span.required
             | (必須)
           - if @buy_form.errors.include?(:agree_to_terms)
             .error_message
-              | 利用規約に同意してください。
+            | 「ご利用ガイド」、「個人情報の保護に関して」をご確認ください
 
         = f.submit '送信', class: "button-send", onClick: "gtag('event', '購入フォーム「送信する」クリック', { 'event_category': '#{request.path}' });"
