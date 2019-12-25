@@ -18,7 +18,6 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :code, presence: true, uniqueness: true
-  validates :displayable, presence: true
 
   scope :not_has_sale_item_templates, -> {
     includes(:sale_item_template)
