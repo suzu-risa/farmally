@@ -20,4 +20,14 @@ module ItemHelper
   def prefecture_name(prefecture_code)
     JpPrefecture::Prefecture.find(prefecture_code).name
   end
+
+  def show_remark_in_template(sale_item)
+    remark = nil;
+    sale_item.detail_with_template.tables.each do |table|
+      table.properties.each do |property|
+        remark = simple_format(property.value) if property.name == "備考"
+      end
+    end
+    remark
+  end
 end
