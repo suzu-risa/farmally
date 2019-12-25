@@ -162,9 +162,9 @@ class SaleItem < ApplicationRecord
   def self.get_sale_items(params)
     if params[:code].present?
       item_ids = Item.get_item_ids_by_code!(params[:code])
-      sale_items = self.sellable_item.where(item_id: item_ids).page(params[:page])
+      sale_items = self.sellable_item.where(item_id: item_ids).order(updated_at: "DESC").page(params[:page])
     else
-      sale_items = self.sellable_item.displayable_category.page(params[:page])
+      sale_items = self.sellable_item.displayable_category.order(updated_at: "DESC").page(params[:page])
     end
 
     raise ActiveRecord::RecordNotFound if sale_items.empty? && params[:page].present?
