@@ -153,6 +153,12 @@ $margin-on-footer-info-text: 8px;
           margin-top: $margin-on-footer-info-text;
           font-size: 24px;
           font-weight: bold;
+
+          &__image {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+          }
         }
 
         &__reception-time {
