@@ -18,7 +18,7 @@
           dl
             dt.item-info__title 商品ID
             dd.item-info__content
-              = format('%07d', @sale_item.id)
+              = @sale_item.pretty_id
           dl
             dt.item-info__title 型式
             dd.item-info__content
@@ -26,7 +26,8 @@
           dl
             dt.item-info__title 販売価格
             dd.item-info__content
-              = @sale_item.price.zero? ? @sale_item.price_text : format("%s円", @sale_item.price.to_s(:delimited))
+              = @sale_item.display_price 
+              = "円" unless @sale_item.price.zero?
           dl
             dt.item-info__title アワー
             dd.item-info__content

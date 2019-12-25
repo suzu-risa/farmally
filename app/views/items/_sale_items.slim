@@ -7,7 +7,7 @@
       .sale-items__item__context
         .sale-items__item__context__info
           .sale-items__item__context__info__id
-            | 商品ID：#{"%07d" % sale_item.id}
+            | 商品ID：#{sale_item.pretty_id}
           .sale-items__item__context__info__category
             = link_to "/items/categories/#{sale_item.category.code}", class: "category-link text"
               | #{sale_item.category_name}
@@ -19,11 +19,12 @@
             dt.sale-items__item__context__info__price-info__title
               | 販売価格
             dd.sale-items__item__context__info__price-info__price
-              | #{sale_item.price.to_s(:delimited)}
-              span.sale-items__item__context__info__price-info__currency
-                | 円
-                span.sale-items__item__context__info__price-info__tax
-                  | （税込み）
+              | #{sale_item.display_price}
+              - unless sale_item.price.zero? then
+                span.sale-items__item__context__info__price-info__currency
+                  | 円
+                  span.sale-items__item__context__info__price-info__tax
+                    | （税込み）
           .sale-items__item__context__info__detail
             dl.sale-items__item__context__info__detail__item
               dt.sale-items__item__context__info__detail__item__title
