@@ -46,7 +46,7 @@
               dd.sale-items__item__context__info__detail__item__value
                 | #{prefecture_name sale_item.prefecture_code}
           .sale-items__item__context__info__consultation
-            - if sale_item.sold? then
+            - if sale_item.sold?
               .sale-items__item__context__info__consultation__sold
                 | この商品は売却されました
             - else
@@ -62,7 +62,7 @@
                   = image_tag "items/business.png", alt: "業販のお問い合わせはこちら", class: "sale-items__item__context__info__consultation__links__item__business-img"
                   = link_to '/inquiry', class: "sale-items__item__context__info__consultation__links__item__business-link text"
                     | 業販のお問い合わせはこちら
-          - if !sale_item.sold? then
+          - unless sale_item.sold?
             .sale-items__item__context__info__announce 
               dl.sale-items__item__context__info__announce__list
                 dt.sale-items__item__context__info__announce__list__title.is-warning
