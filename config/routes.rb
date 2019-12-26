@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get '/guide', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_useguide.pdf')
   get '/privacy-policy', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_privacy_policy.pdf')
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
+  get '/sitemap1.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap1.xml.gz')
 
   root to: 'items#index'
 end
