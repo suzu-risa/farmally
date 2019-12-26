@@ -18,9 +18,6 @@ SitemapGenerator::Sitemap.create do
   add sell_index_path
 
   add inquiry_index_path
-  SaleItem.sellable_item.displayable_category.each do | sale_item |
-    add buy_path(sale_item)
-  end
   
   add specified_commercial_path
   add guide_path
