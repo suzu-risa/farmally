@@ -2,6 +2,7 @@
 User-Agent: *
 Disallow: /admin/
 Disallow: /blog/wp-admin/
+Disallow: /buy/
 Allow: /blog/wp-admin/admin-ajax.php
 Allow: /
-Sitemap: https://farmally.jp/sitemap
+Sitemap: https://farmally.jp/sitemap.xml
