@@ -45,6 +45,12 @@ Rails.application.routes.draw do
   get '/items/categories/:code', to: 'items#index', as: 'items_categories'
 
   resources :sell, only: [:index, :create]
+
+  get '/sell/makers' => 'sell#makers'
+  get '/sell/makers/:maker_slug' => 'sell#show_maker'
+  get '/sell/categories' => 'sell#categories'
+  get '/sell/categories/:category_slug' => 'sell#show_category'
+
   get '/sell-call-click' => 'sell#call_click_log', as: 'sell_call_click'
 
   resources :inquiry, only: [:index, :create]
