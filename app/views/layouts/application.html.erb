@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <link rel="canonical" href="<%= request.url %>">
     <%= render :partial => '/meta' %>
     <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="canonical” href=”<%= request.url %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <%= render :partial => '/vendor_css' %>
-    <%= favicon_link_tag('favicon.ico') %>
+    <%= favicon_link_tag 'https://p.dmm.com/p/common/pinned/general/favicon.ico' %>
     <%= favicon_link_tag('apple-touch-icon-180x180.png', { rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' }) %>
     <% if Rails.env.production? %>
       <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,6 +34,7 @@
     <%= javascript_bundle_tag 'application' %>
   </head>
   <body>
+    <%= render :partial => '/gtm_in_body' %>
     <div class="site-content">
       <%= render :partial => '/header' %>
       <%= yield %>

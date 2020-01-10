@@ -11,8 +11,6 @@
   @extend %button;
 
   border-radius: $border-radius-for-small-button;
-  height: $height-for-small-button;
-  line-height: $height-for-small-button;
 }
 
 %button-large-free-width {

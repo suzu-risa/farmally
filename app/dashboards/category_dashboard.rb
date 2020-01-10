@@ -11,6 +11,7 @@ class CategoryDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     code: Field::String,
+    displayable: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -24,6 +25,7 @@ class CategoryDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :code,
+    :displayable,
     :created_at
   ].freeze
 
@@ -33,6 +35,7 @@ class CategoryDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :code,
+    :displayable,
     :created_at,
     :updated_at
   ].freeze
@@ -42,7 +45,8 @@ class CategoryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :name,
-    :code
+    :code,
+    :displayable
   ].freeze
 
   # Overwrite this method to customize how categories are displayed

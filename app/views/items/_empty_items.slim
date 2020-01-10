@@ -2,7 +2,9 @@
   .empty-items__message
     | 条件に一致する商品は見つかりませんでした。
   .empty-items__information
-    p.empty-items__information__line 農機の入荷連絡を受け取ることもできます。
-    p.empty-items__information__line 是非ご活用ください。
+    p
+      | 農機の入荷連絡を受け取ることもできます。<br>
+      | 是非ご活用ください。
   .empty-items__inquiry
-    =link_to "/inquiry", class: "empty-items__inquiry__link"
+    =link_to "/inquiry", class: "empty-items__inquiry__link text"
+      | 入荷連絡の申し込み

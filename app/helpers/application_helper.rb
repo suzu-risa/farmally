@@ -1,11 +1,11 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      title: '中古農機具販売',
-      site: '中古農機具マーケットプレイス ファーマリー by DMM',
+      title: '',
+      site: Settings.site.name,
       reverse: true,
       separator: ' - ',
-      description: 'ファーマリー by DMMは、中古農機具のマーケットプレイスです。 在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載いたします。 お客様のご要望に応じてファーマリー by DMMが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。',
+      description: '中古農機具販売ならファーマリー。 在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載いたします。 お客様のご要望に応じてファーマリーが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。',
       og: defalut_og,
       twitter: default_twitter_card
     }
@@ -139,7 +139,8 @@ module ApplicationHelper
       url: request.url,
       locale: 'ja_JP',
       site_name: Settings.site.name,
-      image: ''
+      image: request.protocol + request.host_with_port + '/images/og-image.png',
+      type: 'website'
     }
   end
   
@@ -150,5 +151,15 @@ module ApplicationHelper
       creator: '@farmally_nouki',
       image: 'image'
     }
+  end
+
+  def embedded_svg(filename, options={})
+    svgfile = File.read(Rails.root.join('app', 'assets', 'images', filename))
+    svgdocument = Nokogiri::HTML::DocumentFragment.parse svgfile
+    svg = svgdocument.at_css 'svg'
+    if options[:class].present?
+      svg['class'] = options[:class]
+    end
+    svgdocument.to_html.html_safe
   end
 end

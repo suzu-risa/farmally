@@ -45,18 +45,24 @@ Rails.application.routes.draw do
   get '/items/categories/:code', to: 'items#index', as: 'items_categories'
 
   resources :sell, only: [:index, :create]
-  get '/sell/categories' => 'sell#categories', as: 'sell_categories'
-  get '/sell/categories/:category_slug' => 'sell#show_category', as: 'sell_categories_code'
+
+  get '/sell/makers' => 'sell#makers'
+  get '/sell/makers/:maker_slug' => 'sell#show_maker'
+  get '/sell/categories' => 'sell#categories'
+  get '/sell/categories/:category_slug' => 'sell#show_category'
+
   get '/sell-call-click' => 'sell#call_click_log', as: 'sell_call_click'
 
   resources :inquiry, only: [:index, :create]
 
   get '/buy/:item_id', to: 'buy#index', as: 'buy'
-  get '/buy/create', to: 'buy#create'
   post '/buy/:item_id', to: 'buy#create'
 
   get '/specified-commercial', to: 'home#commercial'
+  get '/guide', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_useguide.pdf')
+  get '/privacy-policy', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_privacy_policy.pdf')
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
+  get '/sitemap1.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap1.xml.gz')
 
   root to: 'items#index'
 end
@@ -165,8 +171,6 @@ end
 #                     items_categories GET    /items/categories/:code(.:format)                                                        items#index
 #                           sell_index GET    /sell(.:format)                                                                          sell#index
 #                                      POST   /sell(.:format)                                                                          sell#create
-#                      sell_categories GET    /sell/categories(.:format)                                                               sell#categories
-#                 sell_categories_code GET    /sell/categories/:category_slug(.:format)                                                sell#show_category
 #                      sell_call_click GET    /sell-call-click(.:format)                                                               sell#call_click_log
 #                        inquiry_index GET    /inquiry(.:format)                                                                       inquiry#index
 #                                      POST   /inquiry(.:format)                                                                       inquiry#create
