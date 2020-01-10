@@ -12,7 +12,4 @@ Link showing page number
 
 =end
 %>
-
-<li>
-  <%= link_to page, url, {remote: remote, rel: page.rel, class: "paginate-link#{' is-current' if page.current?}"} %>
-</li>
+<%= link_to page, url, {remote: remote, rel: page.rel, class: "paginate-link#{' is-current' if page.current?}"} %>

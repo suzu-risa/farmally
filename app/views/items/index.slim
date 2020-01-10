@@ -5,7 +5,9 @@
 section.items.main
   .items__heading-title
       h1.items__heading-title__title
-        = @category_name.presence ? @category_name + " " : ""
         | 中古農機具販売
+        - if @category_name.presence
+          span.items__heading-title__title__category
+            = @category_name
   .items__contents
     = render '/items/sale_item_list', sale_items: @sale_items, title: '出品商品一覧', sale_item_count: @sale_item_count

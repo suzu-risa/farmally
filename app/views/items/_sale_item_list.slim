@@ -36,4 +36,4 @@ ul.category-list
       span.pagination-nav__item-total-counts__suffix
         | 台
   - if sale_items.present?
-    = paginate sale_items, views_prefix: 'templates'
+    = paginate sale_items, views_prefix: 'templates', window: 2

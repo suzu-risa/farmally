@@ -20,7 +20,6 @@
 #  item_id               :bigint(8)
 #  sale_item_template_id :bigint(8)
 #  staff_id              :bigint(8)
-#  remark                :text
 #
 # Indexes
 #
@@ -68,6 +67,14 @@ class SaleItem < ApplicationRecord
     where(status: 3)
   }
 
+  scope :displayable_category, -> {
+    eager_load(item: :category).where(categories: { displayable: Category::Displayed })
+  }
+
+  scope :sellable_item, -> {
+    where.not(status: SaleItem.statuses[:sold_out]).or(SaleItem.where(status: nil))
+  }
+
   paginates_per 4
 
   # TODO: ファイルのマイグレーションが終わったらリファクタする
@@ -108,7 +115,7 @@ class SaleItem < ApplicationRecord
   end
 
   def sold?
-    sold_at.present? || sold_out?
+    sold_out?
   end
 
   def related_sale_items
@@ -155,9 +162,9 @@ class SaleItem < ApplicationRecord
   def self.get_sale_items(params)
     if params[:code].present?
       item_ids = Item.get_item_ids_by_code!(params[:code])
-      sale_items = self.where(item_id: item_ids).page(params[:page])
+      sale_items = self.sellable_item.where(item_id: item_ids).order(updated_at: "DESC").page(params[:page])
     else
-      sale_items = self.page(params[:page])
+      sale_items = self.sellable_item.displayable_category.order(updated_at: "DESC").page(params[:page])
     end
 
     raise ActiveRecord::RecordNotFound if sale_items.empty? && params[:page].present?
@@ -167,9 +174,9 @@ class SaleItem < ApplicationRecord
   def self.get_sale_item_count(params)
     if params[:code].present?
       item_ids = Item.get_item_ids_by_code!(params[:code])
-      sale_item_count = self.where(item_id: item_ids).count
+      sale_item_count = self.sellable_item.where(item_id: item_ids).count
     else
-      sale_item_count = self.count
+      sale_item_count = self.sellable_item.displayable_category.count
     end
   end
 end

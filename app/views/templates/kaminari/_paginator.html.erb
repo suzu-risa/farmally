@@ -13,19 +13,30 @@ The container tag
 %>
 
 <%= paginator.render do %>
-  <nav class="paginate is-centered">
-    <ul class="paginate-list">
+  <nav class="paginate">
+    <ul class="paginate__list">
+      <li class="paginate__list__item first">
       <%= first_page_tag %>
+      </li>
       <% each_page do |page| %>
         <% if page.display_tag? %>
-          <%= page_tag page %>
-        <% elsif !page.was_truncated? %>
-          <%= gap_tag %>
+          <li class="paginate__list__item page-number">
+            <%= page_tag page %>
+          </li>
         <% end %>
       <% end %>
-      <%= last_page_tag %>
-      <%= prev_page_tag %>
-      <%= next_page_tag %>
+      <li class="paginate__list__item last">
+        <%= last_page_tag %>
+      </li>
+      <li class="paginate__list__item page-number-for-sp">
+        <span class="page-number-for-sp__current"><%= current_page %></span> / <span class="page-number-for-sp__total"><%= total_pages %></span>
+      </li>
+      <li class="paginate__list__item prev">
+        <%= prev_page_tag %>
+      </li>
+      <li class="paginate__list__item next">
+        <%= next_page_tag %>
+      </li>
     </ul>
   </nav>
 <% end %>

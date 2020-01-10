@@ -1,3 +1,12 @@
+section.bnr
+  - unless request.path.start_with? "/sell" then
+    picture
+      source media="(max-width: 896px)" srcset="/images/bnr-sp_01.png"
+      img src="/images/bnr-pc_01.png" alt="農機買取サービスも今後オープン予定" class="bnr__image"
+    = link_to "/sell", class: "bnr__link"
+      picture
+        source media="(max-width: 896px)" srcset="/images/bnr-sp_02.png"
+        img src="/images/bnr-pc_02.png" alt="今すぐ買取査定したい方はこちら"
 footer.footer
   .footer__content
     .footer__content__info
@@ -5,8 +14,8 @@ footer.footer
         .footer__content__info__tel__lead
           | お電話での相談・お問い合わせはこちら
         .footer__content__info__tel__number
-          a href="tel:#{contact_phone_number}"
-            = image_tag("footer/tel.png", alt: "お電話受け付けております。")
+          a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'フッター', 'event_category': '#{request.path}' });"
+            = image_tag("footer/tel.svg", alt: "お電話受け付けております。", class: "footer__content__info__tel__number__image")
             = contact_phone_number(separate: true)
         .footer__content__info__tel__reception-time
           | &#040;受付時間 9:00~18:00&#041;
@@ -19,9 +28,9 @@ footer.footer
           li = link_to '中古農機具販売', "/"
           li = link_to 'ご利用ガイド', "/guide"
         ul.footer__content__nav__menu__list__sub
-          li = link_to '利用規約', "/terms-of-service", rel: 'nofollow'
+          li = link_to '個人情報保護に関して', "/privacy-policy", rel: 'nofollow', target: :_blank, class: "open-other-tab"
           li = link_to '特定商取引法及び古物営業法に基づく表記', "/specified-commercial", rel: 'nofollow'
-          li = link_to '運営会社', "/company", rel: 'nofollow'
-          li = link_to 'BLOG', "/blog", rel: 'nofollow'
+          li = link_to '運営会社', "/company", rel: 'nofollow', class: "open-other-tab"
+          li = link_to 'BLOG', "/blog", rel: 'nofollow', class: "open-other-tab"
       .footer__content__copyright
-        | &copy; DMM ファーマリー All Rights Reserved.
+        | &copy; ファーマリー by DMM.com All Rights Reserved.

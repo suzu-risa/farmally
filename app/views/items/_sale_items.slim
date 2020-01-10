@@ -2,14 +2,14 @@
   - sale_items.each_with_index do |sale_item, i|
     article.sale-items__item
       .sale-items__item__image-area
-          div id="sale-item-image#{i + 1}" class="slick-slide-container main-image" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
+          div id="sale-item-image#{i + 1}" class="slick-slide-container sale-items__item__image-area__container" data-url="#{item_images_path(sale_item_id: sale_item, item_id: sale_item.item)}"
 
       .sale-items__item__context
         .sale-items__item__context__info
           .sale-items__item__context__info__id
-            | 商品ID：#{"%07d" % sale_item.id}
+            | 商品ID：#{sale_item.pretty_id}
           .sale-items__item__context__info__category
-            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link"
+            = link_to "/items/categories/#{sale_item.category.code}", class: "category-link text"
               | #{sale_item.category_name}
           .sale-items__item__context__info__maker
             | #{sale_item.maker.name}
@@ -19,11 +19,12 @@
             dt.sale-items__item__context__info__price-info__title
               | 販売価格
             dd.sale-items__item__context__info__price-info__price
-              | #{sale_item.price.to_s(:delimited)}
-              span.sale-items__item__context__info__price-info__currency
-                | 円
-                span.sale-items__item__context__info__price-info__tax
-                  | （税込み）
+              | #{sale_item.display_price}
+              - unless sale_item.price.zero? then
+                span.sale-items__item__context__info__price-info__currency
+                  | 円
+                  span.sale-items__item__context__info__price-info__tax
+                    | （税込み）
           .sale-items__item__context__info__detail
             dl.sale-items__item__context__info__detail__item
               dt.sale-items__item__context__info__detail__item__title
@@ -41,17 +42,42 @@
                   | PS
             dl.sale-items__item__context__info__detail__item
               dt.sale-items__item__context__info__detail__item__title
-                | ステータス
+                | 出品地域
               dd.sale-items__item__context__info__detail__item__value
-                | #{sale_item.display_status}
+                | #{prefecture_name sale_item.prefecture_code}
           .sale-items__item__context__info__consultation
-            .sale-items__item__context__info__consultation__button
-              = link_to buy_path(sale_item), class: "buy-link"
-                | 購入申し込み・相談
-            .sale-items__item__context__info__consultation__link
-              = link_to '/inquiry', class: "inquiry-link"
-                | 価格変更・<br>入荷連絡の申し込み
-        .flow    
-          .remark.open
-            p
-              | #{sale_item.remark}
+            - if sale_item.sold?
+              .sale-items__item__context__info__consultation__sold
+                | この商品は売却されました
+            - else
+              .sale-items__item__context__info__consultation__button
+                = link_to buy_path(sale_item), class: "sale-items__item__context__info__consultation__button__buy-link"
+                  | 購入申し込み・相談
+              .sale-items__item__context__info__consultation__links
+                .sale-items__item__context__info__consultation__links__item
+                  = image_tag "items/notification.png", alt: "価格変更・入荷連絡の申し込み", class: "sale-items__item__context__info__consultation__links__item__consumer-img"
+                  = link_to '/inquiry', class: "sale-items__item__context__info__consultation__links__item__consumer-link text"
+                    | 価格変更・入荷連絡の申し込み
+                .sale-items__item__context__info__consultation__links__item
+                  = image_tag "items/business.png", alt: "業販のお問い合わせはこちら", class: "sale-items__item__context__info__consultation__links__item__business-img"
+                  = link_to '/inquiry', class: "sale-items__item__context__info__consultation__links__item__business-link text"
+                    | 業販のお問い合わせはこちら
+          - unless sale_item.sold?
+            .sale-items__item__context__info__announce 
+              dl.sale-items__item__context__info__announce__list
+                dt.sale-items__item__context__info__announce__list__title.is-warning
+                  | 配送料
+                dd.sale-items__item__context__info__announce__list__content
+                  | 配送距離に応じてお客様実費負担<br>
+                  | (直接お取引の場合は配送料無料)
+              dl.sale-items__item__context__info__announce__list
+                dt.sale-items__item__context__info__announce__list__title
+                  | お届け日
+                dd.sale-items__item__context__info__announce__list__content
+                  | お申込み後に別途ご連絡
+              .sale-items__item__context__info__announce__link-to-guide
+                = link_to "/guide#page=2", target: "_blank", class: "sale-items__item__context__info__announce__link-to-guide__link text"
+                  | 配送料・お届け日について
+        .sale-items__item__context__remark
+          .sale-items__item__context__remark__text
+            | #{show_remark_in_template sale_item}

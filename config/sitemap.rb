@@ -1,32 +1,42 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://farmally.jp"
 SitemapGenerator::Sitemap.create_index = true
-SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings.sitemap.bucket,
-  aws_access_key_id: Rails.application.credentials[:aws][:access_key_id],
-  aws_secret_access_key: Rails.application.credentials[:aws][:secret_access_key],
-  aws_region: 'ap-northeast-1'
-)
+
+unless Rails.env.development? then
+  SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings.sitemap.bucket,
+    aws_access_key_id: Rails.application.credentials[:aws][:access_key_id],
+    aws_secret_access_key: Rails.application.credentials[:aws][:secret_access_key],
+    aws_region: 'ap-northeast-1'
+  )
+else
+  SitemapGenerator::Sitemap.compress = false;
+end
 
 SitemapGenerator::Sitemap.create do
-  add_to_index '/blog/sitemap.xml.gz'
+  add_to_index '/blog/sitemap.xml'
+  add_to_index '/company/sitemap.xml'
 
-  Category.all.each do |category|
+  Category.displayed.each do |category|
     add items_categories_path(category)
   end
 
   add sell_index_path
-  add sell_categories_path
-  Category.all.each do |category|
-    add sell_categories_code_path(category)
+
+  add sell_makers_path
+  Maker::SellMakers.each do |sell_maker|
+    add  sell_makers_path + "/" + sell_maker[:slug]
   end
-  add sell_call_click_path
+
+  add sell_categories_path
+  Category::SellCategories.each do |category|
+    add  sell_categories_path + "/" + category[:slug]
+  end
 
   add inquiry_index_path
-  SaleItem.all.each do | sale_item |
-    add buy_path(sale_item)
-  end
   
   add specified_commercial_path
+  add guide_path
+  add privacy_policy_path
 
   # Put links creation logic here.
   #

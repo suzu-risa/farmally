@@ -1,7 +1,7 @@
 /* constant */
 // contents width
 $pc-max-width: 1200px;
-$sp-content-width: 90vw;
+$sp-content-width: 91.8vw;
 
 // media query break point ( under SP landscape )
 $sp-max-width: 896px;
@@ -18,6 +18,7 @@ $accent-blue-dark: #32978B;
 $accent-blue-light: #EFF7F6;
 $accent-red-dark: #E64A17;
 $accent-red-light: #FDF1EC;
+$accent-skyblue: #148ECC;
 
 // base color
 $background-light: #F9F7F5;
@@ -29,17 +30,20 @@ $background-body: #ECEBEA;
 // border color
 $border-color-gray: #F0F0F0;
 $border-color-white: #FFF;
+$border-color-brown: #5E5751;
 
 // font family
-$font-family-default: Verdana, Helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$font-family-default: Helvetica, arial, Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
 // font size
 $font-size-nav-item: 14px;
 
+$font-size-smallest: 11px;
 $font-size-smaller: 12px;
 $font-size-small: 13px;
 $font-size-default: 14px;
 $font-size-large: 16px;
+$font-size-larger: 20px;
 
 $font-size-page-title-small-pc: 32px;
 $font-size-page-title-small-sp: 24px;
@@ -51,6 +55,7 @@ $line-height-default: 1.1;
 
 // margin
 $margin-under-main-section: 96px;
+$margin-under-main-section-sp: 64px;
 $margin-under-main-section-add: 8px;
 
 /* for static page */
@@ -59,6 +64,7 @@ $margin-on-page-title-for-static: 64px;
 $margin-under-page-title-for-static: 32px;
 $margin-mobile-on-page-title-for-static: 48px;
 $margin-mobile-under-page-title-for-static: 32px;
+$margin-mobile-subtitle-for-static: 3px;
 
 /* for list page */
 // font size
@@ -89,18 +95,29 @@ $margin-on-nav-receprtion-time: 4px;
 
 /* 特定商取引および古物営業法に基づく表記 */
 // margin
-$margin-commercial-content-title: 8px;
+$margin-commercial-content-title: 12px;
 $margin-mobile-around-commercial-text: 8px;
+$margin-on-commercial-contents: 32px;
+
+// padding
+$padding-under-commercial-main-section: 12px;
 
 /* for form page */
 // line-height
 $line-height-note-of-form-result: 1.8;
+$line-height-checkbox-of-form: 1.25;
+
+$padding-in-inlin-label-of-form: 28px;
+$padding-in-notifiy-label-of-form: 48px;
+
 
 // margin
 $margin-on-form-title-pc: 72px;
 $margin-under-form-title: 48px;
+$margin-under-form-title-sp: 46px;
 
 $margin-on-form-title-note: 8px;
+$margin-on-form-title-note-sp: 3px;
 
 $margin-under-form-title-only: 72px;
 
@@ -118,12 +135,13 @@ $margin-on-form-parts-note: 8px;
 $margin-under-form-parts-note: 16px;
 
 $margin-under-form-parts-of-notice: 48px; // 価格変更連絡・入荷連絡の下専用
-$margin-around-agree-to-terms: 16px; // 規約同意専用
+$margin-around-agree-to-terms: 24px; // 規約同意専用
 
-$margin-on-form-title-sp: 48px;
+$margin-on-form-title-sp: 98px;
 
 $margin-under-notice-of-form: 32px;
-$padding-in-notice-of-form: 16px;
+$padding-top-in-notice-of-form: 11.5px;
+$padding-right-in-notice-of-form: 16px;
 
 /* button */
 // size
@@ -131,29 +149,52 @@ $height-for-small-button: 28px;
 $width-for-small-button: 130px;
 
 $height-for-large-button: 48px;
-$width-for-large-button: 270px;
+$width-for-large-button: 240px;
 
 // box shadow
-$box-shadow-position-for-large-button: 0 2px 1px 0;
+$box-shadow-position-for-large-button: 0 2px 2px 0;
+$box-shadow-position-for-header-inquiry-button: 0 1px 0 0;
+
 $box-shadow-red-button-for-large-button: $box-shadow-position-for-large-button #AFACAB;
-$box-shadow-gray-button-for-large-button: $box-shadow-position-for-large-button #D3DAD9;
+$box-shadow-for-header-inquiry-button: $box-shadow-position-for-header-inquiry-button #C5CECD;
+$box-shadow-for-header-inquiry-button-hover: $box-shadow-position-for-header-inquiry-button #C6CECD;
 
 // border
 $border-radius-for-small-button: 7px;
 $border-radius-for-large-button: 12px;
 
-$border-color-around-gray-button: #F2F2F1;
-$border-color-bottom-of-gray-button: #E0E9E7;
-$border-for-gray-button: $border-color-around-gray-button $border-color-around-gray-button $border-color-bottom-of-gray-button $border-color-around-gray-button;
-$background-for-gray-button: linear-gradient(#F5FAF9, #E5F1F0);
-$background-for-gray-button-hover: linear-gradient(#FFF, #E5F1F0);
+// inquiry button in header
+$border-color-around-header-inquiry-button: #F2F2F1;
+$border-color-bottom-header-inquiry-button: #E0E9E7;
+$border-for-header-inquiry-button: $border-color-around-header-inquiry-button $border-color-around-header-inquiry-button $border-color-bottom-header-inquiry-button $border-color-around-header-inquiry-button;
+$background-for-header-inquiry-button: linear-gradient(#F5FAF9 40%, #E5F1F0);
+$background-for-header-inquiry-button-hover: linear-gradient(#FFF 40%, #E5F1F0);
 
+// send button in inquiry
+$border-color-around-send-button: #F2F2F1;
+$border-color-bottom-of-send-button: #E0E9E7;
+$border-for-send-button: $border-color-around-send-button $border-color-around-send-button $border-color-bottom-of-send-button $border-color-around-send-button;
+$box-shadow-send-button: $box-shadow-position-for-large-button #D3DAD9;
+
+$background-for-send-button: linear-gradient(#F5FAF9 40%, #E5F1F0);
+$background-for-send-button-hover: linear-gradient(#FFF 40%, #E5F1F0);
+
+// buy button in list
+// buy button in buy form
 $border-color-around-red-button: #C9401B;
 $border-color-bottom-of-red-button: #A93F20;
 $border-for-red-button: $border-color-around-red-button $border-color-around-red-button $border-color-bottom-of-red-button $border-color-around-red-button;
-$background-for-red-button: linear-gradient(#E64A17, #BF401D);
-$background-for-red-button-hover: linear-gradient(#D91D00, #B32211);
+$background-for-red-button: linear-gradient(#E64A17 40%, #BF401D);
+$background-for-red-button-hover: linear-gradient(#D91D00 40%, #B32211);
 
+// inquiry button in footer
 $background-for-footer-inquiry-button: #5E5751;
 $border-for-footer-inquiry-button: #5E5751;
 $box-shadow-for-footer-inquiry-button: none;
+
+// prev next button in list
+$border-color-around-list-pagin-button: #F2F2F1;
+$border-color-bottom-list-pagin-button: #E2E1E0;
+$border-for-list-paging-button: $border-color-around-list-pagin-button $border-color-around-list-pagin-button $border-color-bottom-list-pagin-button $border-color-around-list-pagin-button;
+
+$background-for-list-paging-button: linear-gradient($background-default 40%, #F1F0EF);

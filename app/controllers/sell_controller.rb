@@ -90,7 +90,7 @@ class SellController < ApplicationController
   end
 
   def call_click_log
-    ip_address = request.env['REMOTE_ADDR']
+    ip_address = request.env['HTTP_X_FORWARDED_FOR']
     ua = request.env["HTTP_USER_AGENT"]
     referer = request.referer
 
