@@ -1,4 +1,5 @@
-.sell-lp {
+@mixin sell-lp {
+// .sell-lp {
   $base-border-radius: 10px;
 
   .breadcrumb {
@@ -43,7 +44,11 @@
     padding-top: 48px;
     padding-bottom: 32px;
 
-    &:nth-child(odd) {
+    .column {
+      padding: 0.75rem;
+    }
+
+    &:nth-of-type(odd) {
       background-color: #f9f9f9;
     }
   }
@@ -302,13 +307,13 @@
       min-height: 188px;
     }
 
-    @mixin title-cover($image-url) {
-      background: image-url($image-url) center center / cover no-repeat;
+    // @mixin title-cover($image-url) {
+    //   background: image-url($image-url) center center / cover no-repeat;
 
-      @include until($tablet) {
-        background: image-url($image-url) left;
-      }
-    }
+    //   @include until($tablet) {
+    //     background: image-url($image-url) left;
+    //   }
+    // }
 
     &.title-cover-reason {
       @include title-cover("sell/cover-title-reason.jpg");
@@ -808,4 +813,5 @@
     display: flex;
     align-items: center;
   }
+// }
 }

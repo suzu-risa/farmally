@@ -1,75 +1,36 @@
+section.bnr
+  - unless request.path.start_with? "/sell" then
+    picture
+      source media="(max-width: 896px)" srcset="/images/bnr-sp_01.png"
+      img src="/images/bnr-pc_01.png" alt="農機買取サービスも今後オープン予定" class="bnr__image"
+    = link_to "/sell", class: "bnr__link"
+      picture
+        source media="(max-width: 896px)" srcset="/images/bnr-sp_02.png"
+        img src="/images/bnr-pc_02.png" alt="今すぐ買取査定したい方はこちら"
 footer.footer
-  .container
-    .columns
-      .column.is-3
-        .menu
-          p.menu-label ファーマリーのサイトについて
-          ul.menu-list
-            li = link_to '農機を売りたい人へ', "/sell"
-            li = link_to '農機を買いたい人へ', sale_items_path
-            li = link_to '利用規約', terms_of_service_path, rel: 'nofollow'
-        hr
-        .menu
-          p.menu-label 買取対応メーカー
-          ul.menu-list
-            - Maker::SellMakers.each do |m|
-              li = link_to m[:title], "/sell/makers/#{m[:slug]}"
-      .column.is-3
-        .menu
-          p.menu-label 買取カテゴリ
-          ul.menu-list
-            - Category::SellCategories.each do |c|
-              li = link_to c[:title], "/sell/categories/#{c[:slug]}"
-      .column.is-5
-        .menu
-          p.menu-label 会社概要
-          ul.menu-list
-            li = link_to '特定商取引法及び古物営業法に基づく表記', specified_commercial_path, rel: 'nofollow'
-            li = link_to '会社概要', "/company", rel: 'nofollow'
-    .copyright.has-text-right
-      | &copy; Farmally, inc.
-
-- if show_fixed_form
-  div[style="height: 60px;"]
-  section.hero.is-white.fixed-footer.is-hidden-tablet
-    .columns.fixed-footer-inquiry-buttons
-      .column
-        a.button.phone-number-button href="tel:#{contact_phone_number}"  onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': '固定フッター', 'event_category': '#{page}' });"
-          .staff-message.has-text-black
-            | まずはお気軽にお問い合わせください！
-            br
-          .footer-phone-number.has-text-primary
-            = image_tag "phone-icon.png", alt: "電話", class: "phone-icon"
+  .footer__content
+    .footer__content__info
+      .footer__content__info__tel
+        .footer__content__info__tel__lead
+          | お電話での相談・お問い合わせはこちら
+        .footer__content__info__tel__number
+          a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'フッター', 'event_category': '#{request.path}' });"
+            = image_tag("footer/tel.svg", alt: "お電話受け付けております。", class: "footer__content__info__tel__number__image")
             = contact_phone_number(separate: true)
+        .footer__content__info__tel__reception-time
+          | &#040;受付時間 9:00~18:00&#041;
+      = link_to '/inquiry', class: 'footer__content__info__inquiry-button'
+        | 相談・お問い合わせ
 
-
-// お問い合わせモーダル
-// 固定フッター以外にもTOPから呼ばれるため、show_fixed_formの分岐に入っていない
-// 厳密にやるなら判定して非表示にするべき
-.modal#js-contact-form-modal
-  .modal-background
-  .modal-content[style="background-color: white; padding: 40px;"]
-    div
-      p.title.is-3.is-spaced
-        | お問い合わせ
-    - @contact = Contact.new # TODO: 他の良い方法を考える
-    = form_for @contact do |f|
-      .field
-        = f.label :name, @contact.class.human_attribute_name(:name) + " (必須)", class: "label"
-        = f.text_field :name, class: "input", placeholder: "お名前", required: true
-      .field
-        = f.label :phone_number, @contact.class.human_attribute_name(:phone_number) + " (必須)", class: "label"
-        = f.telephone_field :phone_number, class: "input", placeholder: "電話番号", required: true
-      .field.controll
-        p.label
-          = @contact.class.human_attribute_name(:category) + " (必須)"
-        - @contact.class.categories.each do |key, v|
-          = f.label :category, class: 'radio', for: "contact_category_#{key}" do
-            = @contact.class.categories_i18n[key]
-            = f.radio_button :category, key, checked: v.zero?
-
-      .field
-        = f.label :contents, @contact.class.human_attribute_name(:contents) + " (任意)", class: "label"
-        = f.text_area :contents, class: "textarea", placeholder: "詳しく聞きたい。相談したい。など"
-      = f.submit "送信する", class: "button is-success", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '固定フッター/TOP' });"
-  button.modal-close.is-large[aria-label="close" onclick="gtag('event', 'お問い合わせモーダル閉じるボタンクリック', { 'event_category': '固定フッター/TOP' });"]
+    .footer__content__nav
+      .footer__content__nav__menu
+        ul.footer__content__nav__menu__list__main
+          li = link_to '中古農機具販売', "/"
+          li = link_to 'ご利用ガイド', "/guide"
+        ul.footer__content__nav__menu__list__sub
+          li = link_to '個人情報保護に関して', "/privacy-policy", rel: 'nofollow', target: :_blank, class: "open-other-tab"
+          li = link_to '特定商取引法及び古物営業法に基づく表記', "/specified-commercial", rel: 'nofollow'
+          li = link_to '運営会社', "/company", rel: 'nofollow', class: "open-other-tab"
+          li = link_to 'BLOG', "/blog", rel: 'nofollow', class: "open-other-tab"
+      .footer__content__copyright
+        | &copy; ファーマリー by DMM.com All Rights Reserved.

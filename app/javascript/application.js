@@ -1,26 +1,18 @@
-import Vue from "vue";
-import App from "./components/App";
-
+import "react-app-polyfill/ie11";
 import React from "react";
 import ReactDOM from "react-dom";
 import SaleItemImageSlider from "./react_components/SaleItemImageSlider";
 
 import axios from "axios";
 
-Vue.config.productionTip = false;
-
-const isAppMountable = !!document.getElementById("app");
-if (isAppMountable) {
-  new Vue({
-    render: h => h(App)
-  }).$mount("#app");
-}
-
-const saleItemImageContainer = document.getElementById("sale-item-image");
-
-if(saleItemImageContainer) {
-  document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(<SaleItemImageSlider url={saleItemImageContainer.getAttribute('data-url')}/>, saleItemImageContainer);
+const slick_slide_items = document.querySelectorAll('.' + "slick-slide-container");
+if (slick_slide_items) {
+  let slick_slide_items_list = Array.prototype.slice.call(slick_slide_items, 0);
+  slick_slide_items_list.forEach(function(slick_slide_item, i){
+    const saleItemImageContainer = document.getElementById("sale-item-image" + (i + 1));
+    document.addEventListener("DOMContentLoaded", () => {
+      ReactDOM.render(<SaleItemImageSlider url={saleItemImageContainer.getAttribute('data-url')}/>, saleItemImageContainer);
+    });
   });
 }
 

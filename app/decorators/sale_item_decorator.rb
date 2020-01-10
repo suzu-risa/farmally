@@ -3,12 +3,16 @@ module SaleItemDecorator
     year? ? "#{year}#{self.class.human_attribute_name(:year)}" : "-"
   end
 
-  def horse_power_with_unit
+  def pretty_id
+    "%07d" % id
+  end
+
+  def pretty_horse_power
     horse_power? ? "#{horse_power}" : "-"
   end
 
-  def used_hours_with_unit
-    used_hours? ? "#{used_hours}h" : "-"
+  def pretty_used_hours
+    used_hours? ? "#{used_hours}" : "-"
   end
 
   def show_path
@@ -22,7 +26,7 @@ module SaleItemDecorator
   def display_price
     case
     when price.try(:nonzero?)
-      number_to_currency(price)
+      price.to_s(:delimited)
     when price_text.present?
       price_text
     else

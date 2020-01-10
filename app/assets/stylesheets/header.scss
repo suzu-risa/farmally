@@ -1,125 +1,280 @@
-// ヘッダーメニュー
-header#navbar {
-  height: 4rem;
+.navigation {
+  color: $foreground-dark;
+  border-bottom: 1px solid #F0F0F0;
+  height: 50px;
+  position: relative;
+  background-color: white;
 
-  @media screen and (min-width: 1088px) {
-    height: 80px;
-  }
-
-  border-bottom: solid 1px $lightGrey;
-  //background-color: white;
-
-  .navbar-brand {
-    .navbar-item {
-      margin-right: 10px;
-
-      .logo {
-        margin-right: 5px;
-      }
-
-     .logo-img {
-        width: 200px;
-        max-height: none;
-      }
-    }
-
-    #navbarBurger {
-      span {
-        color: $base-brown;
-        height: 2px;
-      }
-    }
-  }
-
-  .navbar-burger {
+  @media screen and (max-width: $sp-max-width) {
     height: inherit;
   }
 
-  .navbar-menu {
-    padding-bottom: 0; // ハンバーガー展開した時の空白をなくす
-    .navbar-item {
+  & > * {
+    display: inline-block;
 
-      &.navbar-item-phone-number {
+    @media screen and (max-width: $sp-max-width) {
+      display: block;
+    }
+  }
+
+  &__drawer-header {
+    @media screen and (max-width: $sp-max-width) {
+      position: fixed;
+      width: 100%;
+      height: 50px;
+      background-color: white;
+      border-bottom: 1px solid #F0F0F0;
+      z-index: 999;
+    }
+  }
+
+  &__drawer {
+    vertical-align: top;
+
+    @media screen and (max-width: $sp-max-width) {
+      display: none;
+      opacity: 0;
+      position: fixed;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      top: 50px;
+      left: 0;
+    }
+
+    &.is-open {
+      @media screen and (max-width: $sp-max-width) {
         display: block;
-        text-align: left;
-        font-weight: bold;
-        line-height: 1;
-        padding-top: 17px;
+        opacity: 1;
+        transition: opacity ease 0.5s;
+      }
+    }
+    &.is-open > &__container {
+      display: block;
+    }
 
-        .phone-number {
-          color: $greenDarken;
-          font-size: 1.4em;
-          margin-bottom: 8px;
-        }
-        .lead {
-          font-size: 0.8em;
+    &.is-open > &__closer {
+      display: block;
+    }
+
+    &__container {
+      @media screen and (max-width: $sp-max-width) {
+        display: none;
+        background-color: white;
+        padding-bottom: 48px;
+      }
+    }
+
+    &__closer {
+      display: none;
+
+      @media screen and (max-width: $sp-max-width) {
+        color: $foreground-white;
+        text-align: center;
+        margin-top: 16px;
+
+      }
+
+      a.text {
+        @media screen and (max-width: $sp-max-width) {
+          text-decoration-color: $foreground-white;
         }
       }
     }
   }
 
-  form.search-box {
-    margin-left: 5px;
-    margin-right: 5px;
+  &__logo {
+    display: inline-block;
+    margin: 15px 32px 0 16px;
+
+    & img {
+      height: inherit;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @media screen and (max-width: $sp-max-width) {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+
+    &__button {
+
+      @media screen and (max-width: $sp-max-width) {
+        border: none;
+        padding: 16px;
+      }
+
+      & img {
+        @media screen and (max-width: $sp-max-width) {
+          display: none;
+        }
+
+        &.is-visible {
+          @media screen and (max-width: $sp-max-width) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  
+  &__menu {
+    height: inherit;
+
+    &__item {
+      display: inline-block;
+      box-sizing: border-box;
+      height: inherit;
+      padding: 10px 0;
+
+      @media screen and (max-width: $sp-max-width) {
+        display: block;
+        margin: 0 12px;
+        height: 48px;
+        border-bottom: 1px solid #F0F0F0;
+      }
+
+      &.is-current {
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: calc(100% - 8px);
+          left: 4px;
+          bottom: -4px;
+          border-bottom: 4px solid $accent-blue-dark;
+
+          @media screen and (max-width: $sp-max-width) {
+            display: none;
+            border-bottom: none;
+          }
+        }
+      }
+
+      &__inner {
+        padding: 7px 16px 5px;
+        border-left: 1px solid #F0F0F0;
+
+        @media screen and (max-width: $sp-max-width) {
+          border-left: none;
+          padding-left: 0;
+        }
+
+        &__link {
+          font-weight: bold;
+        }
+      }
+
+      &:last-of-type > &__inner {
+        border-right: 1px solid #F0F0F0;
+
+        @media screen and (max-width: $sp-max-width) {
+          border-right: none;
+        }
+      }
+
+      & a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    height: 50px;
     align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
 
-    .control {
-      @media screen and (min-width: 769px) {
-        margin-right: 5px;
-      }
+    @media screen and (max-width: $sp-max-width) {
+      position: initial;
+      display: block;
+      height: auto;
+      margin: 32px auto 0;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      .select-type {
-        color: gray;
-        font-size: 13px;
+    }
+
+    &__lead {
+      font-size: $font-size-smaller;
+
+      @media screen and (max-width: $sp-max-width) {
+        font-size: $font-size-default;
       }
 
-      .select {
-        width: 220px;
-        @media screen and (max-width: 768px) {
-          width: 100%;
-        }
-        select {
-          width: 100%;
+      &__text {
+        font-weight: bold;
+      }
+
+      &__reception-time {
+        font-size: $font-size-smallest;
+        margin-top: 2px;
+        color: $foreground-gray;
+
+        @media screen and (max-width: $sp-max-width) {
+          margin-top: 8px;
+          font-size: $font-size-small;
         }
       }
     }
-    a {
-      margin-top: 19px;
-      background-color: $base-brown;
-      color: white;
+
+    &__tel {
+      margin-left: 12px;
+      font-size: 20px;
       font-weight: bold;
-      align-items: center !important;
+      color: $accent-blue-dark;
+
+      @media screen and (max-width: $sp-max-width) {
+        height: inherit;
+        line-height: inherit;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        font-size: $font-size-page-title-small-pc;
+      }
+
+      &__image {
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+      }
+    }
+
+    &__inquiry-button {
+      @extend %button-small-free-width;
+
+      font-size: 12px;
+      color: $accent-blue-dark;
+      background: $background-for-header-inquiry-button;
+      border-color: $border-for-header-inquiry-button;
+      border-width: 1px;
+      border-style: solid;
+      box-shadow: $box-shadow-for-header-inquiry-button;
+      margin: 0 8px;
+      width: $width-for-small-button;
+      height: $height-for-small-button;
+      line-height: $height-for-small-button;
+
+      @media screen and (max-width: $sp-max-width) {
+        margin: 0 auto;
+        width: 240px;
+        height: 3em;
+        line-height: 3em;
+        font-size: 16px;
+      }
+
       &:hover {
-        background-color: darken($base-brown, 20%);
-      }
-
-      img {
-        width: 24px;
+        color: $accent-blue-dark;
+        background: $background-for-header-inquiry-button-hover;
+        border-color: $border-for-header-inquiry-button;
       }
     }
-
-    @media screen and (max-width: 768px) {
-      .control {
-        margin-bottom: 5px;
-      }
-
-      button {
-        width: 100%;
-      }
-    }
-  }
-}
-
-// フラッシュメッセージ
-.notification {
-  border-radius: 0;
-  &.is-success {
-    background-color: $success;
-  }
-  &.is-danger {
-    background-color: $danger;
   }
 }

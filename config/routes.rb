@@ -38,41 +38,11 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
-  resources :categories, param: :code, only: :show do
-    member do
-      get ':sub_code', to: 'sub_categories#show', as: :sub_category
-    end
-  end
-
+  # 管理画面のフォームに使用してるため残す
   resources :sub_categories, only: :index
 
-  resources :makers, param: :code, only: :show
-  resources :items, only: [:index, :show] do
-    resources :reviews, only: :new
-    resources :sale_items, only: :show, path: :sales do
-      get :images
-
-      resources :sale_item_inquiries, only: :create, path: :inquiries
-    end
-  end
-
-  resources :sale_items, only: :index
-  resources :sold_items, only: :index
-
-  resources :reviews, only: :create do
-    member do
-      post :likes
-    end
-    resources :review_comments, only: :new
-  end
-  resources :review_comments, only: :create do
-    member do
-      post :likes
-    end
-  end
-  resources :forms, only: :create
-
-  resources :contacts, only: :create
+  get '/items/:item_id/images', to: 'items#images', as: 'item_images'
+  get '/items/categories/:code', to: 'items#index', as: 'items_categories'
 
   resources :sell, only: [:index, :create]
 
@@ -81,20 +51,23 @@ Rails.application.routes.draw do
   get '/sell/categories' => 'sell#categories'
   get '/sell/categories/:category_slug' => 'sell#show_category'
 
-  get '/sell-call-click' => 'sell#call_click_log'
+  get '/sell-call-click' => 'sell#call_click_log', as: 'sell_call_click'
 
-  get '/search' => 'home#search'
-  get '/terms-of-service', to: 'home#terms'
+  resources :inquiry, only: [:index, :create]
+
+  get '/buy/:item_id', to: 'buy#index', as: 'buy'
+  post '/buy/:item_id', to: 'buy#create'
+
   get '/specified-commercial', to: 'home#commercial'
-  get '/form', to: 'home#form'
-  get '/sell-form' => redirect("/sell")
+  get '/guide', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_useguide.pdf')
+  get '/privacy-policy', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_privacy_policy.pdf')
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
+  get '/sitemap1.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap1.xml.gz')
 
-  root to: 'home#index'
+  root to: 'items#index'
 end
 
 # == Route Map
-#
 #                               Prefix Verb   URI Pattern                                                                              Controller#Action
 #                             ckeditor        /ckeditor                                                                                Ckeditor::Engine
 #                               roboto        /robots.txt                                                                              Roboto::Engine
@@ -114,6 +87,7 @@ end
 #                                      PATCH  /admin/sub_categories/:id(.:format)                                                      admin/sub_categories#update
 #                                      PUT    /admin/sub_categories/:id(.:format)                                                      admin/sub_categories#update
 #                                      DELETE /admin/sub_categories/:id(.:format)                                                      admin/sub_categories#destroy
+#                   export_admin_items GET    /admin/items/export(.:format)                                                            admin/items#export
 #                          admin_items GET    /admin/items(.:format)                                                                   admin/items#index
 #                                      POST   /admin/items(.:format)                                                                   admin/items#create
 #                       new_admin_item GET    /admin/items/new(.:format)                                                               admin/items#new
@@ -154,6 +128,7 @@ end
 #                                      PATCH  /admin/staffs/:id(.:format)                                                              admin/staffs#update
 #                                      PUT    /admin/staffs/:id(.:format)                                                              admin/staffs#update
 #                                      DELETE /admin/staffs/:id(.:format)                                                              admin/staffs#destroy
+#   bulk_update_admin_sale_item_images PATCH  /admin/sale_items/:sale_item_id/images/bulk_update(.:format)                             admin/sale_items/images#bulk_update
 #               admin_sale_item_images POST   /admin/sale_items/:sale_item_id/images(.:format)                                         admin/sale_items/images#create
 #                admin_sale_item_image DELETE /admin/sale_items/:sale_item_id/images/:id(.:format)                                     admin/sale_items/images#destroy
 #            admin_sale_item_inquiries GET    /admin/sale_items/:sale_item_id/sale_item_inquiries(.:format)                            admin/sale_item_inquiries#index
@@ -181,42 +156,36 @@ end
 #                                      PATCH  /admin/sale_item_templates/:id(.:format)                                                 admin/sale_item_templates#update
 #                                      PUT    /admin/sale_item_templates/:id(.:format)                                                 admin/sale_item_templates#update
 #                                      DELETE /admin/sale_item_templates/:id(.:format)                                                 admin/sale_item_templates#destroy
+#             admin_item_market_prices GET    /admin/item_market_prices(.:format)                                                      admin/item_market_prices#index
+#                                      POST   /admin/item_market_prices(.:format)                                                      admin/item_market_prices#create
+#          new_admin_item_market_price GET    /admin/item_market_prices/new(.:format)                                                  admin/item_market_prices#new
+#         edit_admin_item_market_price GET    /admin/item_market_prices/:id/edit(.:format)                                             admin/item_market_prices#edit
+#              admin_item_market_price GET    /admin/item_market_prices/:id(.:format)                                                  admin/item_market_prices#show
+#                                      PATCH  /admin/item_market_prices/:id(.:format)                                                  admin/item_market_prices#update
+#                                      PUT    /admin/item_market_prices/:id(.:format)                                                  admin/item_market_prices#update
+#                                      DELETE /admin/item_market_prices/:id(.:format)                                                  admin/item_market_prices#destroy
 #                         admin_import POST   /admin/import(.:format)                                                                  admin/home#import
 #                        admin_sitemap PUT    /admin/sitemap(.:format)                                                                 admin/home#sitemap
 #                           admin_root GET    /admin(.:format)                                                                         admin/home#index
-#                sub_category_category GET    /categories/:code/:sub_code(.:format)                                                    sub_categories#show
-#                             category GET    /categories/:code(.:format)                                                              categories#show
-#                       sub_categories GET    /sub_categories(.:format)                                                                sub_categories#index
-#                                maker GET    /makers/:code(.:format)                                                                  makers#show
-#                      new_item_review GET    /items/:item_id/reviews/new(.:format)                                                    reviews#new
-#                item_sale_item_images GET    /items/:item_id/sales/:sale_item_id/images(.:format)                                     sale_items#images
-#   item_sale_item_sale_item_inquiries POST   /items/:item_id/sales/:sale_item_id/inquiries(.:format)                                  sale_item_inquiries#create
-#                       item_sale_item GET    /items/:item_id/sales/:id(.:format)                                                      sale_items#show
-#                                items GET    /items(.:format)                                                                         items#index
-#                                 item GET    /items/:id(.:format)                                                                     items#show
-#                           sale_items GET    /sale_items(.:format)                                                                    sale_items#index
-#                           sold_items GET    /sold_items(.:format)                                                                    sold_items#index
-#                         likes_review POST   /reviews/:id/likes(.:format)                                                             reviews#likes
-#            new_review_review_comment GET    /reviews/:review_id/review_comments/new(.:format)                                        review_comments#new
-#                              reviews POST   /reviews(.:format)                                                                       reviews#create
-#                 likes_review_comment POST   /review_comments/:id/likes(.:format)                                                     review_comments#likes
-#                      review_comments POST   /review_comments(.:format)                                                               review_comments#create
-#                                forms POST   /forms(.:format)                                                                         forms#create
-#                             contacts POST   /contacts(.:format)                                                                      contacts#create
-#                               search GET    /search(.:format)                                                                        home#search
-#                     terms_of_service GET    /terms-of-service(.:format)                                                              home#terms
+#                          item_images GET    /items/:item_id/images(.:format)                                                         items#images
+#                     items_categories GET    /items/categories/:code(.:format)                                                        items#index
+#                           sell_index GET    /sell(.:format)                                                                          sell#index
+#                                      POST   /sell(.:format)                                                                          sell#create
+#                      sell_call_click GET    /sell-call-click(.:format)                                                               sell#call_click_log
+#                        inquiry_index GET    /inquiry(.:format)                                                                       inquiry#index
+#                                      POST   /inquiry(.:format)                                                                       inquiry#create
+#                                  buy GET    /buy/:item_id(.:format)                                                                  buy#index
+#                           buy_create GET    /buy/create(.:format)                                                                    buy#create
+#                                      POST   /buy/:item_id(.:format)                                                                  buy#create
 #                 specified_commercial GET    /specified-commercial(.:format)                                                          home#commercial
-#                              company GET    /company(.:format)                                                                       home#company
-#                                 form GET    /form(.:format)                                                                          home#form
-#                            sell_form GET    /sell-form(.:format)                                                                     home#sell_form
 #                              sitemap GET    /sitemap(.:format)                                                                       redirect(301, https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz)
-#                                 root GET    /                                                                                        home#index
+#                                 root GET    /                                                                                        items#index
 #                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
 #            update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #                 rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
-#
+# 
 # Routes for Ckeditor::Engine:
 #         pictures GET    /pictures(.:format)             ckeditor/pictures#index
 #                  POST   /pictures(.:format)             ckeditor/pictures#create
@@ -224,6 +193,6 @@ end
 # attachment_files GET    /attachment_files(.:format)     ckeditor/attachment_files#index
 #                  POST   /attachment_files(.:format)     ckeditor/attachment_files#create
 #  attachment_file DELETE /attachment_files/:id(.:format) ckeditor/attachment_files#destroy
-#
+# 
 # Routes for Roboto::Engine:
 #        GET  /           roboto/robots#show

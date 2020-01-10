@@ -1,50 +1,43 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://farmally.jp"
 SitemapGenerator::Sitemap.create_index = true
-SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings.sitemap.bucket,
-  aws_access_key_id: Rails.application.credentials[:aws][:access_key_id],
-  aws_secret_access_key: Rails.application.credentials[:aws][:secret_access_key],
-  aws_region: 'ap-northeast-1'
-)
+
+unless Rails.env.development? then
+  SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(Settings.sitemap.bucket,
+    aws_access_key_id: Rails.application.credentials[:aws][:access_key_id],
+    aws_secret_access_key: Rails.application.credentials[:aws][:secret_access_key],
+    aws_region: 'ap-northeast-1'
+  )
+else
+  SitemapGenerator::Sitemap.compress = false;
+end
 
 SitemapGenerator::Sitemap.create do
-  add_to_index '/blog/sitemap.xml.gz'
+  add_to_index '/blog/sitemap.xml'
+  add_to_index '/company/sitemap.xml'
 
-  Category.all.each do |category|
-    add category_path(category)
-  end
-  Maker.all.each do |maker|
-    add maker_path(maker)
-  end
-  Item.all.each do |item|
-    add item_path(item)
-  end
-  SubCategory.all.eager_load(:category).each do |sub_category|
-    add sub_category_category_path(
-      code: sub_category.category.code,
-      sub_code: sub_category.code
-    )
+  Category.displayed.each do |category|
+    add items_categories_path(category)
   end
 
-  Maker::SellMakers.each do |maker|
-    add "/sell/makers/#{maker[:slug]}"
+  add sell_index_path
+
+  add sell_makers_path
+  Maker::SellMakers.each do |sell_maker|
+    add  sell_makers_path + "/" + sell_maker[:slug]
   end
+
+  add sell_categories_path
   Category::SellCategories.each do |category|
-    add "/sell/categories/#{category[:slug]}"
+    add  sell_categories_path + "/" + category[:slug]
   end
 
+  add inquiry_index_path
+  
+  add specified_commercial_path
+  add guide_path
+  add privacy_policy_path
 
-  # TODO: 追加すべきか検討
-  # add search_path
-
-  # TODO: ページが完成したら追加する
-  # add terms_of_service_path
-  # add specified_commercial_path
-  # add company_path
-
-  add form_path
-  add sell_form_path
-  add root_path
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.

@@ -9,6 +9,7 @@
 #  prefecture_code       :integer
 #  price                 :integer
 #  price_text            :string(255)      not null
+#  remark                :text(65535)
 #  sold_at               :datetime
 #  staff_comment         :text(65535)
 #  status                :integer
@@ -66,6 +67,16 @@ class SaleItem < ApplicationRecord
     where(status: 3)
   }
 
+  scope :displayable_category, -> {
+    eager_load(item: :category).where(categories: { displayable: Category::Displayed })
+  }
+
+  scope :sellable_item, -> {
+    where.not(status: SaleItem.statuses[:sold_out]).or(SaleItem.where(status: nil))
+  }
+
+  paginates_per 4
+
   # TODO: ファイルのマイグレーションが終わったらリファクタする
   def new_images
     sale_item_images.map(&:image)
@@ -104,7 +115,7 @@ class SaleItem < ApplicationRecord
   end
 
   def sold?
-    sold_at.present? || sold_out?
+    sold_out?
   end
 
   def related_sale_items
@@ -146,5 +157,26 @@ class SaleItem < ApplicationRecord
     end
 
     Hashie::Mash.new(detail_hash)
+  end
+
+  def self.get_sale_items(params)
+    if params[:code].present?
+      item_ids = Item.get_item_ids_by_code!(params[:code])
+      sale_items = self.sellable_item.where(item_id: item_ids).order(updated_at: "DESC").page(params[:page])
+    else
+      sale_items = self.sellable_item.displayable_category.order(updated_at: "DESC").page(params[:page])
+    end
+
+    raise ActiveRecord::RecordNotFound if sale_items.empty? && params[:page].present?
+    sale_items
+  end
+
+  def self.get_sale_item_count(params)
+    if params[:code].present?
+      item_ids = Item.get_item_ids_by_code!(params[:code])
+      sale_item_count = self.sellable_item.where(item_id: item_ids).count
+    else
+      sale_item_count = self.sellable_item.displayable_category.count
+    end
   end
 end

@@ -1,9 +1,13 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      title: '農機具・農業機械の中古販売・買取なら',
-      site: 'ファーマリー',
-      reverse: true
+      title: '',
+      site: Settings.site.name,
+      reverse: true,
+      separator: ' - ',
+      description: '中古農機具販売ならファーマリー。 在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載いたします。 お客様のご要望に応じてファーマリーが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。',
+      og: defalut_og,
+      twitter: default_twitter_card
     }
   end
 
@@ -124,5 +128,38 @@ module ApplicationHelper
     else
       default.gsub(/-/, '')
     end
+  end
+
+  private
+
+  def defalut_og
+    {
+      title: :full_title,
+      description: :description,
+      url: request.url,
+      locale: 'ja_JP',
+      site_name: Settings.site.name,
+      image: request.protocol + request.host_with_port + '/images/og-image.png',
+      type: 'website'
+    }
+  end
+  
+  def default_twitter_card
+    {
+      card: 'summary_large_image',
+      site: '	@farmally_nouki',
+      creator: '@farmally_nouki',
+      image: 'image'
+    }
+  end
+
+  def embedded_svg(filename, options={})
+    svgfile = File.read(Rails.root.join('app', 'assets', 'images', filename))
+    svgdocument = Nokogiri::HTML::DocumentFragment.parse svgfile
+    svg = svgdocument.at_css 'svg'
+    if options[:class].present?
+      svg['class'] = options[:class]
+    end
+    svgdocument.to_html.html_safe
   end
 end

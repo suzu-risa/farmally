@@ -1,122 +1,196 @@
+// margin
+$margin-around-footer-content: 48px;
 
-// スクロール追従フッター
-.fixed-footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  box-sizing: border-box;
-  border-top: solid 1px #cccccc;
-  z-index: 99;
+$margin-between-footer-nav: 16px;
+$margin-on-footer-nav-sub: 24px;
 
-  // 電話ボタン、問い合わせボタン共通
-  .fixed-footer-inquiry-buttons {
-    padding-bottom: 0.75rem;
+$margin-on-footer-inquiry-button: 16px;
+
+$margin-around-footer-info: 16px;
+$margin-on-footer-info-text: 8px;
+
+.bnr {
+  display: flex;
+
+  @media screen and (max-width: $sp-max-width) {
+    height: auto;
+    flex-direction: column;
+  }
+
+  &__image {
+    display: block;
+    @media screen and (max-width: $sp-max-width) {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    img {
+      display: block;
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $background-dark;
+  padding: 0;
+  color: $foreground-white;
+  position: relative;
+
+  &__content {
+    width: 85%;
+    margin: 0 auto;
     display: flex;
 
-    .column {
-      padding: 0;
-    }
-    .button {
-      border-radius: 0;
+    @media screen and (max-width: $sp-max-width) {
       display: block;
-      width: 100%;
-      height: 100%;
-      line-height: 100%;
-      padding: 8px;
+      width: 70vw;
+      padding: 32px 0;
     }
 
-    .inquiry-message {
+
+    &__nav {
+
+      width: 70%;
+      order: 1;
+
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+      }
+
+      &__menu {
+        a {
+          color: $foreground-white;
+          padding: 0;
+          border-radius: inherit;
+          display: inherit;
+
+          &:hover {
+            text-decoration: underline;
+            background-color: inherit;
+          }
+        }
+
+        & > ul > li {
+          display: inline-block;
+          margin-right: $margin-between-footer-nav;
+
+          @media screen and (max-width: $sp-max-width) {
+            display: block;
+            margin-bottom: 18px;
+          }
+
+          & > .open-other-tab {
+            margin-right: 16px;
+            position: relative;
+
+            &::after {
+              content: "";
+              background-image: url("/images/launch.png");
+
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              right: -16px;
+              top: 0;
+            }
+          }
+        }
+
+        &__list {
+          &__main {
+            padding-top: $margin-around-footer-content;
+            font-weight: bold;
+
+            @media screen and (max-width: $sp-max-width) {
+              padding-top: 0;
+            }
+          }
+
+          &__sub {
+            margin-top: $margin-on-footer-nav-sub;
+
+            @media screen and (max-width: $sp-max-width) {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &__info {
+      width: 30%;
+      min-width: 300px;
+
       text-align: center;
-      margin-bottom: 8px;
-    }
+      margin-bottom: $margin-around-footer-content;
+      order: 2;
 
-    .phone-number-button {
-      //background-color: $inquiry-red;
-      color: white;
-
-      @include until($tablet) {
-        font-size: 0.9rem;
-        padding: 8px;
+      @media screen and (max-width: $sp-max-width) {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 36px;
       }
 
-      .staff-message {
-        font-size: 0.8em;
-      }
+      &__tel {
+        margin-top: $margin-around-footer-content;
+        padding: $margin-around-footer-info;
+        border-radius: 10px;
+        border: solid 1px $border-color-brown;
 
-      .phone-icon {
-        width: 26px;
-        vertical-align: sub;
-      }
+        @media screen and (max-width: $sp-max-width) {
+          margin-top: 0;
+        }
 
-      .footer-phone-number {
-        font-size: 1.8em;
-        margin-left: 4px;
-      }
-    }
+        &__lead {
+          font-size: 13px;
+        }
 
-    .inquiry-button {
-      background-color: $inquiry-blue;
-      color: white;
-      padding: 18px;
+        &__number {
+          margin-top: $margin-on-footer-info-text;
+          font-size: 24px;
+          font-weight: bold;
 
-      @include from($tablet) {
-        font-size: 1.5em;
-      }
+          &__image {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+          }
+        }
 
-      @include until($tablet) {
-        font-size: 0.8rem;
-        padding: 8px;
-      }
-
-      .except-mobile {
-        @include until($tablet) {
-          display: none;
+        &__reception-time {
+          margin-top: $margin-on-footer-info-text;
+          font-size: 13px;
         }
       }
 
-      .fa-envelope {
-        display: block;
-        font-size: 2rem;
-        padding-bottom: 2px;
+      &__inquiry-button {
+        @extend %button-large-free-width;
 
-        @include from($tablet) {
-          display: none;
-        }
+        color: $foreground-white;
+        background: $background-for-footer-inquiry-button;
+        border-color: $border-for-footer-inquiry-button;
+        box-shadow: $box-shadow-for-footer-inquiry-button;
+
+        margin-top: $margin-on-footer-inquiry-button;
+        width: 100%;
+      }
+    }
+
+    &__copyright {
+      position: absolute;
+      bottom: $margin-around-footer-content;
+      order: 3;
+
+      @media screen and (max-width: $sp-max-width) {
+        position: initial;
+        margin-top: 42px;
+        margin-bottom: 0;
+        font-size: $font-size-smallest;
       }
     }
   }
-}
-
-// フッター
-.footer {
-
-  .container {
-    .columns {
-      text-align: left;
-    }
-    span {
-      color: white;
-    }
-
-    h3 {
-      color: white;
-      font-weight: bold;
-      font-size: 1.8rem;
-      margin-top: 15px;
-    }
-
-    .copy {
-      color: white;
-    }
-  }
-
-  //.copyright {
-  //  margin: 0 auto 10px auto;
-  //  width: 90%;
-  //  color: #616161;
-  //}
-}
-
-.form__footer {
-  background-color: #616161;
 }

@@ -1,0 +1,36 @@
+%button {
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+
+  padding: 0;
+}
+
+%button-small-free-width {
+  @extend %button;
+
+  border-radius: $border-radius-for-small-button;
+}
+
+%button-large-free-width {
+  @extend %button;
+
+  font-size: $font-size-large;
+  line-height: $height-for-large-button;
+
+  border-radius: $border-radius-for-large-button;
+  height: $height-for-large-button;
+
+  border-width: 1px;
+  border-style: solid;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+%button-large {
+  @extend %button-large-free-width;
+
+  width: $width-for-large-button;
+
+}

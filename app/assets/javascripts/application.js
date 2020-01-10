@@ -12,138 +12,130 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= stub sell/sell
 //= require_tree .
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(
-    document.querySelectorAll(".navbar-burger"),
-    0
-  );
+/**
+ * ドロワーオープン時の処理です。
+ * メニュー操作のクリックイベントとして使用します。
+ */
+function openDrawer() {
+  var drawer = document.querySelector('.navigation__drawer');
+  var navigationBurger = document.getElementById('navigationBurger');
+  var burgerImage = document.querySelector('#navigationBurger>.burger-image');
+  var closeImage = document.querySelector('#navigationBurger>.close-image');
 
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-    // Add a click event on each of them
-    $navbarBurgers.forEach(el => {
-      el.addEventListener("click", () => {
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
+  drawer.classList.add('is-open');
 
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle("is-active");
-        $target.classList.toggle("is-active");
-      });
-    });
-  }
+  burgerImage.classList.remove('is-visible');
+  closeImage.classList.add('is-visible');
 
-  // Delete a notification
-  var deleteButton = document.getElementsByClassName("delete")[0];
-  if (deleteButton) {
-    deleteButton.addEventListener("click", function() {
-      var notificationElem = document.getElementsByClassName("notification")[0];
-      if (notificationElem) {
-        notificationElem.parentNode.removeChild(notificationElem);
+  navigationBurger.removeEventListener('click', openDrawer, false);
+  navigationBurger.addEventListener('click', closeDrawer, false);
+}
+
+/**
+ * ドロワークローズ時の処理です。
+ * メニュー操作のクリックイベントとして使用します。
+ */
+function closeDrawer() {
+  var drawer = document.querySelector('.navigation__drawer');
+  var navigationBurger = document.getElementById('navigationBurger');
+  var burgerImage = document.querySelector('#navigationBurger>.burger-image');
+  var closeImage = document.querySelector('#navigationBurger>.close-image');
+
+  drawer.classList.remove('is-open');
+
+  burgerImage.classList.add('is-visible');
+  closeImage.classList.remove('is-visible');
+
+  navigationBurger.removeEventListener('click', closeDrawer, false);
+  navigationBurger.addEventListener('click', openDrawer, false);
+}  
+
+/**
+ * 電話番号のアンカータグにイベントを登録します。
+ */
+function addTelEvent() {
+  var telAnchors = document.querySelectorAll("a[href^='tel:']");
+  var telAnchorsList = Array.prototype.slice.call(telAnchors, 0);
+  telAnchorsList.forEach(function(telAnchor){
+    var tel = telAnchor.getAttribute('href');
+    telAnchor.addEventListener('click', function(e){
+      fetch('/sell-call-click').then(function(res) {});
+      if (yahoo_report_conversion && typeof yahoo_report_conversion === 'function') {
+        yahoo_report_conversion(tel);
       }
     });
+  });
+}
+
+/**
+ * メニュー操作のハンバーガーにクリックイベントを登録します。
+ */
+function addBurgerEvent() {
+  var navigationBurger = document.getElementById('navigationBurger');
+  if (navigationBurger) {
+    navigationBurger.addEventListener('click', openDrawer, false);
   }
 
-  // Give five grade evaluation
-  const reviewStarOptions = [
-    "unselected",
-    "very_bad",
-    "bad",
-    "normal",
-    "good",
-    "very_good"
-  ];
-  const stars = Array.from(document.getElementsByClassName("review-star"));
-  stars.forEach((star, i) => {
-    star.addEventListener("click", () => {
-      const point = document.querySelectorAll(".review-star > .fas").length;
-      if (i === point - 1) {
-        stars.forEach(s => {
-          s.firstElementChild.classList.remove("fas");
-          s.firstElementChild.classList.add("far");
-        });
-        document.getElementById("review_star").value = reviewStarOptions[0];
+  var navigationDrawerCloser = document.getElementById('navigationDrawerCloser');
+  if (navigationDrawerCloser) {
+    navigationDrawerCloser.addEventListener('click', closeDrawer, false);
+  }
+}
+
+/**
+ * 続きを読むコントローラーを追加します。
+ */
+function addReadMore() {
+  var CLASS_NAME_FOR_REMARK_CLOSE = 'is-close';
+  var CLASS_NAME_FOR_BUTTON = 'sale-items__item__context__remark__controller__button';
+
+  var LABEL_TO_OPEN = '続きの文章を開く↓';
+  var LABEL_TO_CLOSE = '閉じる↑';
+
+  var MIN_HEIGHT_FOR_REMARK_CLOSE = 600;
+
+  var saleItems = document.querySelectorAll('.sale-items__item');
+  var saleItemsList = Array.prototype.slice.call(saleItems, 0);
+
+  saleItemsList.forEach( function(saleItem) {
+    var contextArea = saleItem.querySelector('.sale-items__item__context');
+    if (contextArea) {
+      if (MIN_HEIGHT_FOR_REMARK_CLOSE < contextArea.offsetHeight) {
+        var remarkArea = saleItem.querySelector('.sale-items__item__context__remark');
+        remarkArea.insertAdjacentHTML('beforeend', 
+          '<div class="sale-items__item__context__remark__controller">'
+        +     '<input type="button" class="' + CLASS_NAME_FOR_BUTTON + '" value="' + LABEL_TO_OPEN + '" />'
+        + '</div>');
+
+        remarkArea.classList.add(CLASS_NAME_FOR_REMARK_CLOSE);
+      }
+    }
+  });
+
+  // ↑で追加した続きの文章を開くボタンにイベントを登録する
+  var readMoreButtons = document.querySelectorAll('.' + CLASS_NAME_FOR_BUTTON);
+  var readMoreButtonsList = Array.prototype.slice.call(readMoreButtons, 0);
+  readMoreButtonsList.forEach( function(readMoreButton){
+    readMoreButton.addEventListener('click', function(e) {
+      var button = e.target;
+      var controller = button.parentNode;
+      var remarkContainer = controller.parentNode;
+
+      if (remarkContainer && remarkContainer.classList.contains(CLASS_NAME_FOR_REMARK_CLOSE)) {
+        remarkContainer.classList.remove(CLASS_NAME_FOR_REMARK_CLOSE);
+        button.value = LABEL_TO_CLOSE;
       } else {
-        stars.forEach((s, j) => {
-          if (j <= i) {
-            s.firstElementChild.classList.add("fas");
-            s.firstElementChild.classList.remove("far");
-          } else {
-            s.firstElementChild.classList.remove("fas");
-            s.firstElementChild.classList.add("far");
-          }
-        });
-        document.getElementById("review_star").value = reviewStarOptions[i + 1];
+        remarkContainer.classList.add(CLASS_NAME_FOR_REMARK_CLOSE);
+        button.value = LABEL_TO_OPEN;
       }
     });
   });
+}
 
-  const reviewPic = document.getElementById("review_picture");
-  if (reviewPic) {
-    reviewPic.addEventListener("change", function(e) {
-      document.getElementById("uv").value = e.currentTarget.files[0].name;
-    });
-  }
-
-  const readMoreButtons = Array.from(
-    document.getElementsByClassName("read-more")
-  );
-  readMoreButtons.forEach((btn, i) => {
-    const type = btn.dataset.type;
-    btn.addEventListener("click", function(e) {
-      const id = btn.dataset.id;
-      const readMoreContent = document.getElementById(
-        `read-more-${type}-${id}`
-      );
-      readMoreContent.classList.remove("hide");
-      const readLessButton = document.getElementById(
-        `read-less-${type}-button-${id}`
-      );
-      readLessButton.classList.remove("hide");
-      btn.classList.add("hide");
-    });
-  });
-
-  const readLessButtons = Array.from(
-    document.getElementsByClassName("read-less")
-  );
-  readLessButtons.forEach((btn, i) => {
-    const type = btn.dataset.type;
-    btn.addEventListener("click", function(e) {
-      const id = btn.dataset.id;
-      const readMoreContent = document.getElementById(
-        `read-more-${type}-${id}`
-      );
-      readMoreContent.classList.add("hide");
-      const readMoreButton = document.getElementById(
-        `read-more-${type}-button-${id}`
-      );
-      readMoreButton.classList.remove("hide");
-      btn.classList.add("hide");
-    });
-  });
-
-
-  const openModalLinks = document.querySelectorAll('.js-open-modal');
-  openModalLinks.forEach(function(openModalLink){
-    openModalLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      const target = openModalLink.dataset.target;
-      var modal = document.getElementById(target);
-      var html = document.querySelector('html');
-      modal.classList.add('is-active');
-      html.classList.add('is-clipped');
-
-      modal.querySelector('.modal-close').addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
-      });
-    });
-  });
-});
+document.addEventListener("DOMContentLoaded", function(event) {
+  addTelEvent();
+  addBurgerEvent();
+  addReadMore();
+}, false);

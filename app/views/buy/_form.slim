@@ -1,0 +1,101 @@
+.buy-form
+  h2.subtitle
+    | メールで依頼
+
+  .form-contents
+    - if @buy_form.errors.any?
+      .notice.error
+        | 入力内容に誤りがあります。
+    - if flash[:success]
+      .notice.success
+        | 送信が完了しました。<br>
+        | 担当者よりご連絡差し上げます。<br>
+        | 今しばらくお待ちください。
+
+    = form_for form, url: buy_path(@sale_item), method: :post do |f|
+        .item-info
+          = f.hidden_field :item_id, :value => @sale_item.id
+          dl
+            dt.item-info__title 商品ID
+            dd.item-info__content
+              = @sale_item.pretty_id
+          dl
+            dt.item-info__title 型式
+            dd.item-info__content
+              = @item.maker.name.present? ? format('%s %s', @item.maker.name, @item.model) : ""
+          dl
+            dt.item-info__title 販売価格
+            dd.item-info__content
+              = @sale_item.display_price 
+              = "円" unless @sale_item.price.zero?
+          dl
+            dt.item-info__title アワー
+            dd.item-info__content
+              = @sale_item.used_hours =~ /¥A[0-9]+¥z/ ? format("%sh", @sale_item.used_hours) : @sale_item.used_hours
+          dl
+            dt.item-info__title 馬力
+            dd.item-info__content
+              = @item.horse_power =~ /¥A[0-9]+¥z/ ? format("%sPS", @item.horse_power) : @item.horse_power
+        .form-parts
+          .form-parts__title
+            = f.label :name, '名前', class: 'form-parts__title__label'
+            span.required
+              | (必須)
+          = f.text_field :name, class: 'form-parts__input', placeholder: "名前を入力してください。"
+          - if @buy_form.errors.include?(:name)
+            .error_message
+              | 名前を入力してください。
+
+        .form-parts
+          .form-parts__title
+            = f.label :address, '住所', class: 'form-parts__title__label'
+            span.required
+              | (必須)
+          = f.text_field :address, class: 'form-parts__input', placeholder: "住所を入力してください。"
+          - if @buy_form.errors.include?(:address)
+            .error_message
+              | 住所を入力してください。
+
+        .form-parts
+          .form-parts__title
+            = f.label :tel, '電話番号', class: 'form-parts__title__label'
+            span.required
+              | (必須)
+          = f.text_field :tel, class: 'form-parts__input', placeholder: "電話番号を入力してください。"
+          - if @buy_form.errors.include?(:tel)
+            .error_message
+              | 電話番号を入力してください。
+
+        .form-parts
+          .form-parts__title
+            = f.label :email, 'メールアドレス', class: 'form-parts__title__label'
+            span.required
+              | (必須)
+          = f.text_field :email, class: 'form-parts__input', placeholder: "メールアドレスを入力してください。"
+          - if @buy_form.errors.include?(:email)
+            .error_message
+              | メールアドレスを入力してください。
+
+        .form-parts.form-parts-info
+          .form-parts__title
+            = f.label :message, '相談内容', class: 'form-parts__title__label'
+            .form-parts__title__note
+              | (上記以外の個人情報を記載しないようにしてください)
+          = f.text_area :message, class: 'form-parts__input form-parts__textarea', rows: '8', placeholder: "ご自由にご記入ください。"
+
+        .form-parts.agree-to-terms
+          .form-parts__checkbox
+            = f.check_box :agree_to_terms
+            = f.label :agree_to_terms, class: 'form-parts__checkbox__inline-label'
+            | 「
+            a.term-link.text href="/guide" target="_blank" ご利用ガイド
+            | 」、「
+            a.term-link.text href="/privacy-policy" target="_blank" 個人情報保護に関して
+            | 」を確認しました
+          span.required
+            | (必須)
+          - if @buy_form.errors.include?(:agree_to_terms)
+            .error_message
+            | 「ご利用ガイド」、「個人情報保護に関して」をご確認ください
+
+        = f.submit '送信', class: "button-send", onClick: "gtag('event', '購入フォーム「送信する」クリック', { 'event_category': '#{request.path}' });"
