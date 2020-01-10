@@ -152,4 +152,14 @@ module ApplicationHelper
       image: 'image'
     }
   end
+
+  def embedded_svg(filename, options={})
+    svgfile = File.read(Rails.root.join('app', 'assets', 'images', filename))
+    svgdocument = Nokogiri::HTML::DocumentFragment.parse svgfile
+    svg = svgdocument.at_css 'svg'
+    if options[:class].present?
+      svg['class'] = options[:class]
+    end
+    svgdocument.to_html.html_safe
+  end
 end

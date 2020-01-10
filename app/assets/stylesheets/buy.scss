@@ -2,7 +2,7 @@
   position: relative;
 
   @media screen and (max-width: $sp-max-width) {
-    width: 100%;
+    margin-top: 99px;
   }
 
   .title {
@@ -16,7 +16,6 @@
 
     @media screen and (max-width: $sp-max-width) {
       position: initial;
-      margin-top: $margin-on-form-title-sp;
       font-size: $font-size-page-title-small-sp;
       margin-bottom: 0;
     }
@@ -65,14 +64,21 @@
 
         @media screen and (max-width: $sp-max-width) {
           top: calc(15% + #{$margin-mobile-subtitle-for-static});
+          width: calc(100% / 3.2);
         }
       }
 
       &::before {
         left: 12%;
+
+        @media screen and (max-width: $sp-max-width) {
+          left: 1%;
+        }
       }
       &::after {
-        right: 12%;
+        right: 1%;
+
+        @media screen and (max-width: $sp-max-width) {}
       }
 
     }
@@ -94,7 +100,9 @@
 
       @media screen and (max-width: $sp-max-width) {
         width: 100%;
-        margin-top: $margin-mobile-subtitle-for-static;
+        margin-top: $margin-mobile-on-page-title-for-static;
+        margin-bottom: $margin-under-main-section-sp;
+        padding: 0 12px;
       }
 
       .subtitle {
@@ -143,6 +151,10 @@
       .form-contents {
         margin: 0 72px;
 
+        @media screen and (max-width: $sp-max-width) {
+          margin: 0;
+        }
+
         .form-parts-info {
           padding-bottom: 48px;
           border-bottom: 1px solid $border-color-gray;
@@ -155,17 +167,35 @@
             height: 3rem;
             padding: 5px 9px;
             border: 1px solid transparent;
-            border-color: $border-color-form;
-            box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-            font-size: 1rem;
+            border-color: $border-color-gray;
+            box-shadow: inset 1px 1px 2px rgba(240, 240, 240, 0.7);
+            font-size: $font-size-default;
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
+          }
+
+          &__title {
+            margin-bottom: $margin-under-form-parts-title;
+      
+            &__label {
+              color: $foreground-dark;
+              font-size: $font-size-default;
+              font-weight: bold;
+            }
+      
+            &__note {
+              margin-top: $margin-on-form-parts-note;
+              margin-bottom: $margin-under-form-parts-note;
+              font-size: $font-size-smaller;
+            }
+      
           }
       
           &__input::placeholder,
           &__input::-ms-input-placeholder {
             color: $foreground-light;
+            opacity: 0.5;
           }
       
           &__textarea {
@@ -206,8 +236,8 @@
         
             &__inline-label::after {
               margin-top: -0.6em;
-              width: 16px;
-              height: 16px;
+              width: 18px;
+              height: 18px;
               border: 1px solid $border-color-gray;
               box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
             }

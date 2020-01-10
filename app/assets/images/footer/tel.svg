@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .tel-slice__parts {
+                fill:#fff;
+            }
+        </style>
+    </defs>
+    <title>tel</title>
+    <g id="tel" data-name="tel">
+        <g id="tel-slice">
+            <path class="tel-slice__parts" d="M13.94,16a14.57,14.57,0,0,1-9.87-3.78A12.51,12.51,0,0,1,0,2.56L.57,1.37,2.62,2.65a10,10,0,0,0,3.3,7.85,11.67,11.67,0,0,0,8.46,3.06l1.07.95A11.86,11.86,0,0,1,13.94,16Z"/>
+            <path class="tel-slice__parts" d="M3.8,0H2.92A2.53,2.53,0,0,0,.31,2.43V5.66l2.61.81a13.31,13.31,0,0,0,3-2.2L3.93,0Z"/>
+            <path class="tel-slice__parts" d="M11.33,10.32A12.71,12.71,0,0,0,9,13l.87,2.43h3.48A2.54,2.54,0,0,0,16,13v-.81A1,1,0,0,0,16,12Z"/>
+        </g>
+    </g>
+</svg>

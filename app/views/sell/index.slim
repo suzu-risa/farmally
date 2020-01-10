@@ -302,20 +302,9 @@ section.sell-lp-section.sell-lp-section-area
 
 = render 'buttons', position: "画面下部"
 
-hr
-
 // お問い合わせフォーム
 section.sell-lp-section.sell-lp-section-form#form
   .container
     = render 'form', form: @sell_form
 
-
-footer.sell-lp-footer
-  .sell-lp-footer-contents
-    .sell-lp-footer-caption
-      | 入力が面倒でしたらお電話をご利用ください。
-    .sell-lp-footer-phone-number
-      a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'フッターの上', 'event_category': '#{request.path}' });"
-        = contact_phone_number(separate: true)
-    .sell-lp-fotter-office-hour
-      | 受付時間 9:00〜18:00
+= render "sell_lp_footer"

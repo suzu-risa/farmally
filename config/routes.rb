@@ -45,6 +45,12 @@ Rails.application.routes.draw do
   get '/items/categories/:code', to: 'items#index', as: 'items_categories'
 
   resources :sell, only: [:index, :create]
+
+  get '/sell/makers' => 'sell#makers'
+  get '/sell/makers/:maker_slug' => 'sell#show_maker'
+  get '/sell/categories' => 'sell#categories'
+  get '/sell/categories/:category_slug' => 'sell#show_category'
+
   get '/sell-call-click' => 'sell#call_click_log', as: 'sell_call_click'
 
   resources :inquiry, only: [:index, :create]
@@ -53,9 +59,10 @@ Rails.application.routes.draw do
   post '/buy/:item_id', to: 'buy#create'
 
   get '/specified-commercial', to: 'home#commercial'
-  get '/guide', to: 'home#guide', as: 'guide'
-  get '/terms-of-service', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.terms/terms-of-service.pdf')
+  get '/guide', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_useguide.pdf')
+  get '/privacy-policy', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_privacy_policy.pdf')
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
+  get '/sitemap1.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap1.xml.gz')
 
   root to: 'items#index'
 end

@@ -18,7 +18,7 @@
           dl
             dt.item-info__title 商品ID
             dd.item-info__content
-              = format('%07d', @sale_item.id)
+              = @sale_item.pretty_id
           dl
             dt.item-info__title 型式
             dd.item-info__content
@@ -26,7 +26,8 @@
           dl
             dt.item-info__title 販売価格
             dd.item-info__content
-              = @sale_item.price.zero? ? @sale_item.price_text : format("%s円", @sale_item.price.to_s(:delimited))
+              = @sale_item.display_price 
+              = "円" unless @sale_item.price.zero?
           dl
             dt.item-info__title アワー
             dd.item-info__content
@@ -83,15 +84,18 @@
           = f.text_area :message, class: 'form-parts__input form-parts__textarea', rows: '8', placeholder: "ご自由にご記入ください。"
 
         .form-parts.agree-to-terms
-          .checkbox
+          .form-parts__checkbox
             = f.check_box :agree_to_terms
-            = f.label :agree_to_terms, class: 'inline-label'
-              a.term-link.text href="/terms-of-service" target="_blank" 利用規約
-              | に同意する
+            = f.label :agree_to_terms, class: 'form-parts__checkbox__inline-label'
+            | 「
+            a.term-link.text href="/guide" target="_blank" ご利用ガイド
+            | 」、「
+            a.term-link.text href="/privacy-policy" target="_blank" 個人情報保護に関して
+            | 」を確認しました
           span.required
             | (必須)
           - if @buy_form.errors.include?(:agree_to_terms)
             .error_message
-              | 利用規約に同意してください。
+            | 「ご利用ガイド」、「個人情報保護に関して」をご確認ください
 
         = f.submit '送信', class: "button-send", onClick: "gtag('event', '購入フォーム「送信する」クリック', { 'event_category': '#{request.path}' });"

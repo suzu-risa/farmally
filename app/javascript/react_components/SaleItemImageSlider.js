@@ -2,30 +2,178 @@ import React from "react";
 import Slider from "react-slick";
 import axios from "axios";
 
-function SampleNextArrow(props) {
+function NextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className="sale-items__item__image-area__container__main-image__slider-arrow next"
       onClick={onClick}
     >
-      <img
-        src="/images/arrow-next.svg"
-      />
+      <NextArrowSvg />
     </div>
   );
 }
 
-function SamplePrevArrow(props) {
+function PrevArrowSvg(props) {
+  return (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 36 36"
+    >
+        <defs>
+            <style> {`
+                .arrow-for-image-list-prev__guide__circle__background {
+                  fill: #FFF;
+                }
+                .arrow-for-image-list-prev__guide__circle__gradient {
+                    opacity: 0.1;
+                    fill: url(#arrow-for-image-list-prev__gradient);
+                }
+                .arrow-for-image-list-prev__guide__border {
+                    fill: #F2F2F1;
+                }
+                .arrow-for-image-list-prev__guide__polyline {
+                    fill: none;
+                    stroke: #4C443D;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-width: 1.5px;
+                }
+            `} </style>
+            <linearGradient
+              id="arrow-for-image-list-prev__gradient"
+              x1="16.5"
+              y1="40"
+              x2="51.5"
+              y2="40"
+              gradientTransform="translate(58 -16) rotate(90)"
+              gradientUnits="userSpaceOnUse"
+            >
+                <stop
+                  offset="0.6"
+                  stopColor="#4c443d"
+                  stopOpacity="0"
+                />
+                <stop
+                  offset="1"
+                  stopColor="#4c443d"
+                />
+            </linearGradient>
+        </defs>
+        <title>arrow-for-image-list-prev</title>
+        <g id="arrow-for-image-list-prev" data-name="arrow-for-image-list-prev">
+            <g id="arrow-for-image-list-prev__guide">
+                <circle
+                  className="arrow-for-image-list-prev__guide__circle__background"
+                  cx="18"
+                  cy="18"
+                  r="17.5"
+                />
+                <circle
+                  className="arrow-for-image-list-prev__guide__circle__gradient"
+                  cx="18"
+                  cy="18"
+                  r="17.5"
+                />
+                <path
+                  className="arrow-for-image-list-prev__guide__border"
+                  d="M18,1A17,17,0,1,1,1,18,17,17,0,0,1,18,1m0-1A18,18,0,1,0,36,18,18.05,18.05,0,0,0,18,0Z"
+                />
+                <polyline
+                  className="arrow-for-image-list-prev__guide__polyline"
+                  points="19.76 12 14.24 17.5 19.76 23"
+                />
+            </g>
+        </g>
+    </svg>
+  );
+}
+
+function NextArrowSvg(props) {
+  return(
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 36 36"
+    >
+        <defs>
+            <style> {`
+                .arrow-for-image-list-next__guide__circle__background {
+                  fill: #FFF;
+                }
+                .arrow-for-image-list-next__guide__circle__gradient {
+                    opacity: 0.1;
+                    fill: url(#arrow-for-image-list-next__gradient);
+                }
+                .arrow-for-image-list-next__guide__path {
+                    fill: #F2F2F1;
+                }
+                .arrow-for-image-list-next__guide__polyline {
+                    fill: none;
+                    stroke: #4C443D;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-width: 1.5px;
+                }
+            `}</style>
+            <linearGradient
+              id="arrow-for-image-list-next__gradient"
+              x1="0.5"
+              y1="18"
+              x2="35.5"
+              y2="18"
+              gradientTransform="translate(36) rotate(90)"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop
+                offset="0.6"
+                stopColor="#4c443d"
+                stopOpacity="0"
+              />
+              <stop
+                offset="1"
+                stopColor="#4c443d"
+              />
+            </linearGradient>
+        </defs>
+        <title>arrow-for-image-list-next</title>
+        <g id="arrow-for-image-list-next" data-name="arrow-for-image-list-next">
+            <g id="arrow-for-image-list-next__guide">
+                <circle
+                  className="arrow-for-image-list-next__guide__circle__background"
+                  cx="18"
+                  cy="18"
+                  r="17.5"
+                />
+                <circle
+                  className="arrow-for-image-list-next__guide__circle__gradient"
+                  cx="18"
+                  cy="18"
+                  r="17.5"
+                />
+                <path
+                  className="arrow-for-image-list-next__guide__path"
+                  d="M18,1A17,17,0,1,1,1,18,17,17,0,0,1,18,1m0-1A18,18,0,1,0,36,18,18.05,18.05,0,0,0,18,0Z"
+                 />
+                <polyline
+                  className="arrow-for-image-list-next__guide__polyline"
+                  points="16.24 24 21.76 18.5 16.24 13"
+                />
+            </g>
+        </g>
+    </svg>
+  );
+}
+
+function PrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className="sale-items__item__image-area__container__main-image__slider-arrow prev"
       onClick={onClick}
     >
-      <img
-        src="/images/arrow-prev.svg"
-      />
+      <PrevArrowSvg />
     </div>
   );
 }
@@ -53,8 +201,8 @@ class SaleItemImageSlider extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
       beforeChange: (oldIndex, newIndex) => {
       },
       afterChange: ()=> {
