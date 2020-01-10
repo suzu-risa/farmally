@@ -20,15 +20,4 @@ section.sell-lp-section.sell-lp-section-form#form
   .container
     = render 'form', form: @sell_form
 
-
-footer.sell-lp-footer
-  .sell-lp-footer-contents
-    .sell-lp-footer-caption
-      | 入力が面倒でしたらお電話をご利用ください。
-    .sell-lp-footer-phone-number
-      a href="tel:#{contact_phone_number}"
-        = contact_phone_number(separate: true)
-    .sell-lp-fotter-office-hour
-      | 受付時間 9:00〜18:00
-  .sell-lp-fotter-right
-    | &copy; farmally,inc. All Rights Reserved.
+= render 'sell_lp_footer'
