@@ -3,6 +3,7 @@
   border-bottom: 1px solid #F0F0F0;
   height: 50px;
   position: relative;
+  background-color: white;
 
   @media screen and (max-width: $sp-max-width) {
     height: inherit;
