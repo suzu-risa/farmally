@@ -2,7 +2,10 @@ header.navigation
   .navigation__drawer-header
     .navigation__logo
       = link_to '/' do
-        = image_tag("logo.png", class: "logo-img", alt: "ファーマリー")
+        - if request.path.start_with?('/sell')
+          = image_tag("logo-farmally.png", class: "logo-img", alt: "ファーマリー")
+        - else
+          = image_tag("logo-nouki.png", class: "logo-img", alt: "DMM 農機")
     .navigation__burger
       button#navigationBurger.navigation__burger__button
         = image_tag("header/burger.png", class: "burger-image is-visible", alt: "メニューを開きます")

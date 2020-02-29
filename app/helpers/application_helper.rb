@@ -5,7 +5,7 @@ module ApplicationHelper
       site: Settings.site.name,
       reverse: true,
       separator: ' - ',
-      description: '中古農機具販売ならファーマリー。 在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載いたします。 お客様のご要望に応じてファーマリーが仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。',
+      description: '中古農機具販売ならDMM 農機。 在庫の見つけにくい中古農機具をはじめとして、農業生産に必要となるあらゆる機械、農機具を掲載いたします。 お客様のご要望に応じてDMM 農機が仕入れ、販売、納品、メンテナンスまで一貫して対応いたします。',
       og: defalut_og,
       twitter: default_twitter_card
     }
