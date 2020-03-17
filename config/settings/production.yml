@@ -2,3 +2,6 @@ slack:
   channel: '#sales'
 sitemap:
   bucket: 'jp.farmally.sitemap'
+domain:
+  nouki: 'nouki.dmm.com'
+  farmally: 'farmally.jp'

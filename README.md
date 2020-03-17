@@ -29,21 +29,26 @@ $ docker-compose run farmally rails db:migrate
 $ docker-compose run farmally rails db:seed
 ```
 
-最後にサービスを立ち上げます。
+サービスを立ち上げます。
 
 ```
 $ docker-compose up -d
 ```
 
-### wordpress
-TOPページでwordpressのブログ記事最新記事の表示をする場合には、wordpressの設定の必要です。
-`/blog`にアクセスして登録後、パーマリンクをデフォルトから変更します。
-(デフォルトのパーマリンクのままではAPIが利用できません)
+ローカル環境にHOSTS設定を追加します
+
+```
+127.0.0.1   local-nouki.dmm.com
+127.0.0.1   local-farmally.com
+```
+
+http://local-nouki.dmm.com にアクセスできれば環境構築完了です。
 
 ### rspec
 ```
 $ bin/rspec
 ```
+※rspecは現在流していません。
 
 ### ステージング/本番環境について
 
@@ -60,10 +65,10 @@ $ bin/rspec
 
 デプロイのフローについてより理解したい場合は、以下を参照してください。
 
-* [CircleCIのConfig](https://github.com/tmyjoe/farmally/blob/develop/.circleci/config.yml)
-* [DockerイメージのパブリッシュScript](https://github.com/tmyjoe/farmally/blob/develop/bin/publish.sh)
-* [EBのパッケージングスクリプト](https://github.com/tmyjoe/farmally/blob/develop/bin/packaging.sh)
-* [デプロイスクリプト](https://github.com/tmyjoe/farmally/blob/develop/bin/deploy.sh)
+* [CircleCIのConfig](https://github.com/farmally/farmally/blob/develop/.circleci/config.yml)
+* [DockerイメージのパブリッシュScript](https://github.com/farmally/farmally/blob/develop/bin/publish.sh)
+* [EBのパッケージングスクリプト](https://github.com/farmally/farmally/blob/develop/bin/packaging.sh)
+* [デプロイスクリプト](https://github.com/farmally/farmally/blob/develop/bin/deploy.sh)
 
 ### マスターデータ
 

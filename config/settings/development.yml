@@ -1,2 +1,5 @@
 slack:
   channel: '#farmally_kame_test'
+domain:
+  nouki: 'local-nouki.dmm.com'
+  farmally: 'local-farmally.com'
