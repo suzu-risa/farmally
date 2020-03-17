@@ -44,12 +44,6 @@ $ docker-compose up -d
 
 http://local-nouki.dmm.com にアクセスできれば環境構築完了です。
 
-### wordpress
-TOPページでwordpressのブログ記事最新記事の表示をする場合には、wordpressの設定の必要です。
-`/blog`にアクセスして登録後、パーマリンクをデフォルトから変更します。
-(デフォルトのパーマリンクのままではAPIが利用できません)
-※現在はTOPページからwordpressのブログ記事を表示していないため、この対応は不要です。
-
 ### rspec
 ```
 $ bin/rspec
