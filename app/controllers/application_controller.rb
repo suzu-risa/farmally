@@ -9,25 +9,19 @@ class ApplicationController < ActionController::Base
   end
 
   def set_redirect
-    if Settings.domain.farmally == request.host then
-      if request.path == '/' then
-        redirect_to protocol + Settings.domain.nouki, status: :moved_permanently
-      else
-        case true
-        when
-          request.path.include?('inquiry'),
-          request.path.include?('items'),
-          request.path.include?('buy'),
-          request.path.include?('specified-commercial')
-        then
-          redirect_to protocol + Settings.domain.nouki + request.path, status: :moved_permanently
-        end
-      end
-    elsif Settings.domain.nouki == request.host then
-      case true
-      when request.path.include?('sell') then
+    case true
+    when
+        # ドメインが farmally でパスが sell/ で始まっていない場合
+        request.host == Settings.domain.farmally && ! request.path.start_with?('/sell')
+    then
+        # farmally にリダイレクトする
+        redirect_to protocol + Settings.domain.nouki + request.path, status: :moved_permanently
+    when
+        # ドメインが nouki.dmm.com でパスが sell/ で始まっている場合
+        request.host == Settings.domain.nouki && request.path.start_with?('/sell')
+    then
+        # DMM 農機 にリダイレクトする
         redirect_to protocol + Settings.domain.farmally + request.path, status: :moved_permanently
-      end
     end
   end
 
