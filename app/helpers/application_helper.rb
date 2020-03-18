@@ -162,4 +162,11 @@ module ApplicationHelper
     end
     svgdocument.to_html.html_safe
   end
+
+  def with_hostpath(path)
+    case path
+    when '/sell', '/company', '/blog' then '//' + Settings.domain.farmally + path
+    else '//' + Settings.domain.nouki + path
+    end
+  end
 end
