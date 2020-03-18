@@ -1,7 +1,7 @@
 header.navigation
   .navigation__drawer-header
     .navigation__logo
-      = link_to '/' do
+      = link_to with_hostpath('/') do
         - if request.path.start_with?('/sell')
           = image_tag("logo-farmally.png", class: "logo-img", alt: "ファーマリー")
         - else
@@ -15,11 +15,11 @@ header.navigation
       ul.navigation__menu
         li class="navigation__menu__item #{(current_page?('/') || request.path.start_with?('/items/categories')) ? 'is-current' : ''}"
           .navigation__menu__item__inner
-            = link_to '/', class: "navigation__menu__item__inner__link" do
+            = link_to with_hostpath('/'), class: "navigation__menu__item__inner__link" do
               | 中古農機具販売
         li class="navigation__menu__item #{current_page?('/guide') ? 'is-current': ''}"
           .navigation__menu__item__inner
-            = link_to '/guide', class: "navigation__menu__item__inner__link", target: "_blank" do
+            = link_to with_hostpath('/guide'), class: "navigation__menu__item__inner__link", target: "_blank" do
               | ご利用ガイド
       .navigation__info
         .navigation__info__lead
@@ -31,7 +31,7 @@ header.navigation
           a href="tel:#{contact_phone_number}" onClick="gtag('event', '「電話お問い合わせ」クリック', { 'event_label': 'ヘッダー', 'event_category': '#{request.path}' });"
             = image_tag("header/tel.svg", alt: "お電話受け付けております。", class: "navigation__info__tel__image")
             = contact_phone_number(separate: true)
-        = link_to '/inquiry', class: "navigation__info__inquiry-button" do
+        = link_to with_hostpath('/inquiry'), class: "navigation__info__inquiry-button" do
           | 相談・お問い合わせ
     .navigation__drawer__closer
       a#navigationDrawerCloser onClick="return false;" class="text"
