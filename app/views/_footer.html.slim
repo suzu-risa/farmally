@@ -28,12 +28,12 @@ footer.footer
           li = link_to '中古農機具販売', with_hostpath("/")
           li = link_to 'ご利用ガイド', with_hostpath("/guide")
         ul.footer__content__nav__menu__list__sub
-          li = link_to '個人情報保護に関して', with_hostpath("/privacy-policy"), rel: 'nofollow', target: :_blank, class: "open-other-tab"
-          li = link_to '特定商取引法及び古物営業法に基づく表記', with_hostpath("/specified-commercial"), rel: 'nofollow'
-          li = link_to '運営会社', with_hostpath("/company"), rel: 'nofollow', class: "open-other-tab"
-          li = link_to 'BLOG', with_hostpath("/blog"), rel: 'nofollow', class: "open-other-tab"
+          li = link_to '個人情報保護に関して', with_hostpath("/privacy-policy"), target: :_blank, class: "open-other-tab"
+          li = link_to '特定商取引法及び古物営業法に基づく表記', with_hostpath("/specified-commercial")
+          li = link_to '運営会社', with_hostpath("/company"), target: :_blank, class: "open-other-tab"
+          li = link_to 'BLOG', with_hostpath("/blog"), target: :_blank, class: "open-other-tab"
       .footer__content__copyright
         - if request.path.start_with?('/sell')
-          | &copy; ファーマリー by DMM.com All Rights Reserved.
+          | &copy; ファーマリー All Rights Reserved.
         - else
           | &copy; DMM 農機 All Rights Reserved.
