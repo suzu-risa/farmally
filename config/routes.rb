@@ -62,6 +62,9 @@ Rails.application.routes.draw do
   get '/guide', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_useguide.pdf')
   get '/privacy-policy', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.documents/farmally_privacy_policy.pdf')
   get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap.xml.gz')
+  get '/sitemap-farmally.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap-farmally.xml.gz')
+  get '/sitemap-nouki.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap-nouki.xml.gz')
+  # todo:version 1.0.9以降で削除してください
   get '/sitemap1.xml.gz', to: redirect('https://s3-ap-northeast-1.amazonaws.com/jp.farmally.sitemap/sitemap1.xml.gz')
 
   root to: 'items#index'
