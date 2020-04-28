@@ -1,12 +1,3 @@
-section.bnr
-  - unless request.path.start_with? "/sell" then
-    picture
-      source media="(max-width: 896px)" srcset="/images/bnr-sp_01.png"
-      img src="/images/bnr-pc_01.png" alt="農機買取サービスも今後オープン予定" class="bnr__image"
-    = link_to with_hostpath("/sell"), class: "bnr__link"
-      picture
-        source media="(max-width: 896px)" srcset="/images/bnr-sp_02.png"
-        img src="/images/bnr-pc_02.png" alt="今すぐ買取査定したい方はこちら"
 footer.footer
   .footer__content
     .footer__content__info
