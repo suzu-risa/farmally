@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
         # ドメインが farmally でパスが sell/ で始まっていない場合
         request.host == Settings.domain.farmally && ! request.path.start_with?('/sell')
     then
-        # farmally にリダイレクトする
+        # DMM農機 にリダイレクトする
         redirect_to protocol + Settings.domain.nouki + request.path, status: :moved_permanently
     when
         # ドメインが nouki.dmm.com でパスが sell/ で始まっている場合
         request.host == Settings.domain.nouki && request.path.start_with?('/sell')
     then
-        # DMM 農機 にリダイレクトする
-        redirect_to protocol + Settings.domain.farmally + request.path, status: :moved_permanently
+        # 404を返却する
+        head :not_found
     end
   end
 
