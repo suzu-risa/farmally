@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
         request.host == Settings.domain.nouki && request.path.start_with?('/sell')
     then
         # 買取サイト にリダイレクトする
-        redirect_to protocol + Settings.domain.kaitori, status: :moved_permanently
+        #redirect_to protocol + Settings.domain.kaitori, status: :moved_permanently
+        head :not_found
     end
   end
 
