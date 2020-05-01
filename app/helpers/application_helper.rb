@@ -165,7 +165,6 @@ module ApplicationHelper
 
   def with_hostpath(path)
     case path
-    when '/sell' then '//' + Settings.domain.kaitori
     when '/company', '/blog' then '//' + Settings.domain.farmally + path
     else '//' + Settings.domain.nouki + path
     end
