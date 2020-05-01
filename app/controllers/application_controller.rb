@@ -20,8 +20,7 @@ class ApplicationController < ActionController::Base
         # ドメインが nouki.dmm.com でパスが sell/ で始まっている場合
         request.host == Settings.domain.nouki && request.path.start_with?('/sell')
     then
-        # 買取サイト にリダイレクトする
-        #redirect_to protocol + Settings.domain.kaitori, status: :moved_permanently
+        # 404を返却する
         head :not_found
     end
   end
