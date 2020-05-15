@@ -134,6 +134,62 @@ function addReadMore() {
   });
 }
 
+/**
+ * マーケのコンバージョンタグを追加します。
+ * 重複するとダメなやつはブラウザが閉じるまでの間 1 回だけ実行できます。
+ * @param {string} conversionPoint CV地点
+ * @param {boolean} duplicatable 重複して実行可能
+ */
+function insertConversionTag(conversionPoint, duplicatable) {
+  if (!conversionPoint) return;
+
+  if (!duplicatable) {
+    var cookie_key = 'dmm-nouki-conversion-for-marketing-' + conversionPoint;
+    var isConverted = $.cookie(cookie_key) != undefined;
+
+    if (isConverted) {
+      // もう実行されてたら何もしない
+      return;
+    } else {
+      // ブラウザが閉じるまで有効
+      $.cookie(cookie_key, "clicked");
+    }
+  }
+
+  try {
+    var iframeEl = document.createElement('iframe');
+    iframeEl.name = 'conversion';
+    iframeEl.src = 'https://www.dmm.com/marketing/-/cv/=/id=' + conversionPoint + '/u=null/o=raw/';
+    iframeEl.height = 0;
+    iframeEl.width = 0;
+    iframeEl.style.display = "none";
+    document.body.appendChild(iframeEl);
+  } catch (error) {
+    // TODO エラー起きた時の通知をする
+  }
+}
+
+/**
+ * 電話番号クリック時のイベントを実行します。
+ * @param {string} clickPoint クリックした場所(ヘッダーとかフッターとか)
+ * @param {string} locationPath クリックしたページのパス
+ */
+function clickTelNumber(clickPoint, locationPath) {
+  insertConversionTag('nouki_inquiry', false);
+  gtag('event', '「電話お問い合わせ」クリック', { 'event_label': clickPoint, 'event_category': locationPath });
+}
+
+/**
+ * コンバージョンイベントを実行します。
+ * @param {string} eventAction GA のイベントアクション
+ * @param {string} conversionLabel 広告コンバージョンのラベル
+ * @param {string} locationPath 発火したページのパス
+ */
+function doConversionEvents(eventAction, conversionLabel, locationPath) {
+  insertConversionTag(conversionLabel, true);
+  gtag('event', eventAction, { 'event_category': locationPath });
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   addTelEvent();
   addBurgerEvent();

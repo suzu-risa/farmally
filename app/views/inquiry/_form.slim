@@ -8,6 +8,9 @@
     .notice.error
       | 入力内容に誤りがあります。
   - if flash[:success]
+    - if Rails.env.production?
+      javascript:
+        doConversionEvents('問い合わせフォーム「送信する」クリック', 'nouki_business', '#{request.path}');
     .notice.success
       | 送信が完了しました。<br>
       | 担当者よりご連絡差し上げます。<br>
@@ -74,4 +77,4 @@
           .error_message
             | 「ご利用ガイド」、「個人情報保護に関して」をご確認ください
 
-      = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '#{request.path}' });"
+      = f.submit '送信', class: "button-send"
