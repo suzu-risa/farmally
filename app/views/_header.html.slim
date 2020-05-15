@@ -28,7 +28,7 @@ header.navigation
           p.navigation__info__lead__reception-time
             | &#040;電話受付時間 9:00~18:00&#041;
         .navigation__info__tel
-          a href="tel:#{contact_phone_number}" onClick="clickTelNumber('ヘッダー')"
+          a href="tel:#{contact_phone_number}" onClick="clickTelNumber('ヘッダー', '#{request.path}')"
             = image_tag("header/tel.svg", alt: "お電話受け付けております。", class: "navigation__info__tel__image")
             = contact_phone_number(separate: true)
         = link_to with_hostpath('/inquiry'), class: "navigation__info__inquiry-button" do

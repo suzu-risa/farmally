@@ -136,6 +136,7 @@ function addReadMore() {
 
 /**
  * マーケのコンバージョンタグを追加します。
+ * @param {string} conversionPoint CV地点
  */
 function insertConversionTag(conversionPoint) {
   if (!conversionPoint) return;
@@ -156,20 +157,22 @@ function insertConversionTag(conversionPoint) {
 /**
  * 電話番号クリック時のイベントを実行します。
  * @param {string} clickPoint クリックした場所(ヘッダーとかフッターとか)
+ * @param {string} locationPath クリックしたページのパス
  */
-function clickTelNumber(clickPoint) {
+function clickTelNumber(clickPoint, locationPath) {
   insertConversionTag('nouki_inquiry');
-  gtag('event', '「電話お問い合わせ」クリック', { 'event_label': clickPoint, 'event_category': '#{request.path}' });
+  gtag('event', '「電話お問い合わせ」クリック', { 'event_label': clickPoint, 'event_category': locationPath });
 }
 
 /**
  * コンバージョンイベントを実行します。
  * @param {string} eventAction GA のイベントアクション
  * @param {string} conversionLabel 広告コンバージョンのラベル
+ * @param {string} locationPath 発火したページのパス
  */
-function doConversionEvents(eventAction, conversionLabel) {
+function doConversionEvents(eventAction, conversionLabel, locationPath) {
   insertConversionTag(conversionLabel);
-  gtag('event', eventAction, { 'event_category': '#{request.path}' });
+  gtag('event', eventAction, { 'event_category': locationPath });
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
