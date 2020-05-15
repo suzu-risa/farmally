@@ -136,10 +136,25 @@ function addReadMore() {
 
 /**
  * マーケのコンバージョンタグを追加します。
+ * 重複するとダメなやつはブラウザが閉じるまでの間 1 回だけ実行できます。
  * @param {string} conversionPoint CV地点
+ * @param {boolean} duplicatable 重複して実行可能
  */
-function insertConversionTag(conversionPoint) {
+function insertConversionTag(conversionPoint, duplicatable) {
   if (!conversionPoint) return;
+
+  if (!duplicatable) {
+    var cookie_key = 'dmm-nouki-conversion-for-marketing-' + conversionPoint;
+    var isConverted = $.cookie(cookie_key) != undefined;
+
+    if (isConverted) {
+      // もう実行されてたら何もしない
+      return;
+    } else {
+      // ブラウザが閉じるまで有効
+      $.cookie(cookie_key, "clicked");
+    }
+  }
 
   try {
     var iframeEl = document.createElement('iframe');
@@ -160,7 +175,7 @@ function insertConversionTag(conversionPoint) {
  * @param {string} locationPath クリックしたページのパス
  */
 function clickTelNumber(clickPoint, locationPath) {
-  insertConversionTag('nouki_inquiry');
+  insertConversionTag('nouki_inquiry', false);
   gtag('event', '「電話お問い合わせ」クリック', { 'event_label': clickPoint, 'event_category': locationPath });
 }
 
@@ -171,7 +186,7 @@ function clickTelNumber(clickPoint, locationPath) {
  * @param {string} locationPath 発火したページのパス
  */
 function doConversionEvents(eventAction, conversionLabel, locationPath) {
-  insertConversionTag(conversionLabel);
+  insertConversionTag(conversionLabel, true);
   gtag('event', eventAction, { 'event_category': locationPath });
 }
 
