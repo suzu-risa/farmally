@@ -74,4 +74,4 @@
           .error_message
             | 「ご利用ガイド」、「個人情報保護に関して」をご確認ください
 
-      = f.submit '送信', class: "button-send", onClick: "gtag('event', '問い合わせフォーム「送信する」クリック', { 'event_category': '#{request.path}' });"
+      = f.submit '送信', class: "button-send", onClick: "doConversionEvents('問い合わせフォーム「送信する」クリック', 'nouki_business')"

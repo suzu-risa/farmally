@@ -134,6 +134,44 @@ function addReadMore() {
   });
 }
 
+/**
+ * マーケのコンバージョンタグを追加します。
+ */
+function insertConversionTag(conversionPoint) {
+  if (!conversionPoint) return;
+
+  try {
+    var iframeEl = document.createElement('iframe');
+    iframeEl.name = 'conversion';
+    iframeEl.src = 'https://www.dmm.com/marketing/-/cv/=/id=' + conversionPoint + '/u=null/o=raw/';
+    iframeEl.height = 0;
+    iframeEl.width = 0;
+    iframeEl.style.display = "none";
+    document.body.appendChild(iframeEl);
+  } catch (error) {
+    // TODO エラー起きた時の通知をする
+  }
+}
+
+/**
+ * 電話番号クリック時のイベントを実行します。
+ * @param {string} clickPoint クリックした場所(ヘッダーとかフッターとか)
+ */
+function clickTelNumber(clickPoint) {
+  insertConversionTag('nouki_inquiry');
+  gtag('event', '「電話お問い合わせ」クリック', { 'event_label': clickPoint, 'event_category': '#{request.path}' });
+}
+
+/**
+ * コンバージョンイベントを実行します。
+ * @param {string} eventAction GA のイベントアクション
+ * @param {string} conversionLabel 広告コンバージョンのラベル
+ */
+function doConversionEvents(eventAction, conversionLabel) {
+  insertConversionTag(conversionLabel);
+  gtag('event', eventAction, { 'event_category': '#{request.path}' });
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
   addTelEvent();
   addBurgerEvent();
