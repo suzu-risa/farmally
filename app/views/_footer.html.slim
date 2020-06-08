@@ -5,14 +5,9 @@ footer.footer
         .footer__content__info__tel__lead
           | お電話での相談・お問い合わせはこちら
         .footer__content__info__tel__number
-          - if Rails.env.production?
-            a href="tel:#{contact_phone_number}" onClick="clickTelNumber('フッター', '#{request.path}')"
-              = image_tag("footer/tel.svg", alt: "お電話受け付けております。", class: "footer__content__info__tel__number__image")
-              = contact_phone_number(separate: true)
-          - else
-            a href="tel:#{contact_phone_number}"
-              = image_tag("footer/tel.svg", alt: "お電話受け付けております。", class: "footer__content__info__tel__number__image")
-              = contact_phone_number(separate: true)
+          a href="tel:#{contact_phone_number}" onClick="clickTelNumber('フッター', '#{request.path}')"
+            = image_tag("footer/tel.svg", alt: "お電話受け付けております。", class: "footer__content__info__tel__number__image")
+            = contact_phone_number(separate: true)
         .footer__content__info__tel__reception-time
           | &#040;受付時間 9:00~18:00&#041;
       = link_to with_hostpath('/inquiry'), class: 'footer__content__info__inquiry-button'

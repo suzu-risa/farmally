@@ -7,9 +7,8 @@
       .notice.error
         | 入力内容に誤りがあります。
     - if flash[:success]
-      - if Rails.env.production?
-        javascript:
-          doConversionEvents('購入フォーム「送信する」クリック', 'nouki_customer', '#{request.path}');
+      javascript:
+        doConversionEvents('購入フォーム「送信する」クリック', 'nouki_customer', '#{request.path}');
       .notice.success
         | 送信が完了しました。<br>
         | 担当者よりご連絡差し上げます。<br>
