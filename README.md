@@ -7,12 +7,16 @@ Farmallyは、農機具を探している人が、ほしい農機具の中古を
 
 いわゆるRailsとMySQLの簡単のWebアプリ構成です
 
-- Lang: Ruby 2.5
-- WAF: Ruby on Rails 5
-- DB: MySQL7 (AWS Aurora)
+- Lang: Ruby 2.5.1
+- WAF: Ruby on Rails 5.2.0
+- DB: MySQL5.7 (AWS Aurora)
 - Web Server: Nginx
 
 ### How to run
+
+クレデンシャルの設定を読み込めるように  
+[コンフル : 機微情報](https://confl.arms.dmm.com/pages/viewpage.action?pageId=443186687) から
+`master.key` をダウンロードし、`/config/` 配下に配置してから作業ください。
 
 ローカル開発環境は、Dockerで作られています。
 開発環境を立ち上げるには、まず以下のコマンドで、DBサービスを立ち上げます。
