@@ -182,7 +182,7 @@ and renders all form fields for a resource's editable attributes.
       </tr>
       <% @sale_item.sale_item_images.each do |sale_item_image| %>
         <tr>
-        <td><%= image_tag(sale_item_image.image.variant(resize: '500x500').processed) %></td>
+        <td><%= image_tag(sale_item_image.image.variant(combine_options: { resize: '500x500', auto_orient: true, strip: true }).processed) %></td>
         <td><%= hidden_field_tag "sale_item_images[][id]", sale_item_image.id %></td>
         <td><%= number_field_tag "sale_item_images[][position]", sale_item_image.position %></td>
         <td>

@@ -7,7 +7,7 @@
          .columns.is-marginless
             .column.is-paddingless.is-narrow
               figure.image
-                 = image_tag rails_representation_url(sale_item.images[0].variant(resize: '300x300').processed), alt: "買取農機画像"
+                 = image_tag rails_representation_url(sale_item.images[0].variant(combine_options: { resize: '300x300', auto_orient: true, strip: true }).processed), alt: "買取農機画像"
             .column.content
               div
                 p.title.is-size-5.has-text-left
