@@ -148,7 +148,7 @@ section.section.sale-item-section.sale-item__detail
       .staff-content
         .staff-detail
           .staff-image
-            = image_tag(rails_representation_url(@sale_item.staff.picture.variant(resize: '500x500').processed))
+            = image_tag(rails_representation_url(@sale_item.staff.picture.variant(combine_options: { resize: '500x500', auto_orient: true, strip: true }).processed))
 
           .staff-name
             = @sale_item.staff_name

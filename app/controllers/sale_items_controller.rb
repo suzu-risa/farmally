@@ -20,7 +20,7 @@ class SaleItemsController < ApplicationController
 
     render json: {
       sale_item_images: sale_item.images.map{ |image|
-        { url: rails_representation_url(image.variant(resize: '500x500').processed) }
+        { url: rails_representation_url(image.variant(combine_options: { resize: '500x500', auto_orient: true, strip: true }).processed) }
       }
     }
   end
