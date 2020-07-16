@@ -1,3 +1,5 @@
+require "mini_magick"
+
 module Admin
   module SaleItems
     class ImagesController < Admin::ApplicationController
@@ -13,6 +15,13 @@ module Admin
                 0
               end
 
+            image_delete_exif = MiniMagick::Image.open(image.tempfile.path)
+            image_delete_exif.combine_options do |img|
+              img.auto_orient
+              img.strip
+            end
+
+            image.tempfile = image_delete_exif.tempfile
             sale_item.sale_item_images.create!(
               image: image,
               position: position
