@@ -373,6 +373,22 @@
             padding-bottom: 96px;
           }
         }
+
+        &__button {
+          margin-top: 32px;
+          @extend %button-large;
+
+          color: $foreground-white;
+          background: $background-for-red-button;
+          border-color: $border-for-red-button;
+          box-shadow: $box-shadow-red-button-for-large-button;
+
+          &:hover {
+            color: $foreground-white;
+            background: $background-for-red-button-hover;
+            border-color: $border-for-red-button;
+          }
+        }
       }
     }
   }

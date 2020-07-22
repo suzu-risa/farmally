@@ -21,6 +21,10 @@
           | ID検索から
         .line-content
           | @zjd7645p
+    .line-contents__button
+      = link_to Settings.line.qr_url, onClick: "clickLine('nouki_line', '#{request.path}')"
+        | LINEで検索する
+
     .line-contents__note
-      | DMM 農機と会話をするかたちで<br>
+      | DMM 農機と会話をするかたちでで<br>
       | 購入申込み・相談が出来ます。

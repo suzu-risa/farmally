@@ -135,8 +135,8 @@ function addReadMore() {
 }
 
 /**
- * マーケのコンバージョンタグを追加します。
- *
+ * マーケのコンバージョンタグ（ADMAGEタグ）を追加します。
+ * 
  * @param {string} conversionPoint CV地点
  */
 function insertConversionTag(conversionPoint) {
@@ -163,6 +163,16 @@ function insertConversionTag(conversionPoint) {
 function clickTelNumber(clickPoint, locationPath) {
   insertConversionTag('nouki_inquiry');
   gtag('event', '「電話お問い合わせ」クリック', { 'event_label': clickPoint, 'event_category': locationPath });
+}
+
+/**
+ * LINEで検索するボタンクリック時のイベントを実行します。
+ * @param {string} clickPoint クリックした場所
+ * @param {string} locationPath クリックしたページのパス
+ */
+function clickLine(clickPoint, locationPath) {
+  insertConversionTag(clickPoint);
+  gtag('event', '販売LINE問い合わせボタンクリック', { 'event_label': clickPoint, 'event_category': locationPath });
 }
 
 /**
