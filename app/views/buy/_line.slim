@@ -22,7 +22,7 @@
         .line-content
           | @zjd7645p
     .line-contents__button
-      = link_to Settings.line.qr_url, onClick: "clickLine('nouki_line', '#{request.path}')"
+      = link_to Settings.line.qr_url, onClick: "clickLine('nouki_line', '#{request.path}')", target: "_blank"
         | LINEで検索する
 
     .line-contents__note
